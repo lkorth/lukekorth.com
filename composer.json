@@ -2,6 +2,7 @@
     "require": {
 		"gabordemooij/redbean": "dev-master",
 		"twig/twig": "dev-master",
+		"pfbc/pfbc": "dev-master",
 		"slim/extras": "dev-master",
         "slim/slim": "dev-master"
     }
