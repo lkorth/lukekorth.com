@@ -22,8 +22,10 @@ $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
 
 // default route
 $app->get('/', function () use ($app) {
+    $app->redirect('blog');
+    $app->stop();
 });
 
-$app->run();
+require('sections/blog.php');
 
-?>
+$app->run();
