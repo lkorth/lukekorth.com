@@ -1,5 +1,6 @@
 <?php
 
+require('../config.php');
 require('vendor/autoload.php');
 require('vendor/php-markdown-extra/markdown.php');
 
