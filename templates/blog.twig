@@ -21,7 +21,7 @@
                 <div class="meta">
                     <div class="categories">In <a href="#">Category 1</a>, <a href="#">Category 2</a></div>
                     <div class="comments"><a href="#">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
-                    <div class="user"><a href="/author/{{ post.author.id }}">By {{ post.author.name }}</a></div>
+                    <div class="user"><a href="/about">By {{ post.author.name }}</a></div>
                 </div>
             </article>
         {% endfor %}
