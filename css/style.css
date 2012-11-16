@@ -59,7 +59,7 @@ body a{
         margin-bottom: 25px;
 }
 
-#logo:hover{ opacity: 0.8;}
+#logo:hover{ opacity: 0.5; }
 
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
