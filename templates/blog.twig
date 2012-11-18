@@ -17,7 +17,7 @@
                 {% endif %}
                 <h2  class="post-heading"><a href="/blog/{{ post.title }}">{{ post.title }}</a></h2>
                 <div class="excerpt">{{ post.text|markdown|max_words(80, '...') }}</div>
-                <a href="single.html" class="read-more">continue &#8594;</a>
+                <a href="single.html" class="read-more">read more &#8594;</a>
                 <div class="meta">
                     <div class="categories">In <a href="#">Category 1</a>, <a href="#">Category 2</a></div>
                     <div class="comments"><a href="#">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
