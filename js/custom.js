@@ -32,28 +32,7 @@ jQuery(document).ready(function($) {
     	directionNav: false,
     	keyboardNav: true
     });
-
-	//##########################################
-	// Top Widget
-	//##########################################
-
-	var topContainer = $("#top-widget");
-	var topTrigger = $("#top-open");
 	
-	topTrigger.click(function(){
-		topContainer.animate({
-			height: 'toggle'
-		});
-		
-		if( topTrigger.hasClass('tab-closed')){
-			topTrigger.removeClass('tab-closed');
-		}else{
-			topTrigger.addClass('tab-closed');
-		}
-		
-		return false;
-		
-	});
 
 	//##########################################
 	// Tool tips
