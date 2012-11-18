@@ -29,12 +29,20 @@
 
     <!-- page-navigation -->
     <div class="page-navigation clearfix">
-        <div class="nav-next">
-            <a  href="#">&#8592; Older Entries </a>
-        </div>
-        <div class="nav-previous">
-            <a href="#">Newer Entries &#8594;</a>
-        </div>
+        {% if morePosts %}
+            <div class="nav-next">
+                <a href="/blog/{{ page.number + 1 }}">&#8592; Older Entries </a>
+            </div>
+        {% endif %}
+        {% if page.number != 0 %}
+            <div class="nav-previous">
+                {% if page.number - 1 == 0 %}
+                    <a href="/blog">Newer Entries &#8594;</a>
+                {% else %}
+                    <a href="/blog/{{ page.number - 1 }}">Newer Entries &#8594;</a>
+                {% endif %}
+            </div>
+        {% endif %}
         <!--ENDS page-navigation -->
 
     </div>
