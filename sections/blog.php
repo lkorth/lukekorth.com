@@ -12,6 +12,7 @@ $app->get('/blog(/:page)', function ($page = 0) use ($app) {
     else
         $arr['morePosts'] = false;
 
+    $arr['categories'] = R::findAll('category', ' ORDER BY name ASC LIMIT 8 ');
 
     $app->render('blog.twig', $arr);
 });

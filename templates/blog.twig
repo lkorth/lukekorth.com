@@ -59,14 +59,9 @@
         <li class="block">
             <h4>CATEGORIES</h4>
             <ul>
-                <li class="cat-item"><a href="#" title="View all posts">Film and video</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Print</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Photo and lomo</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Habitant morbi</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Film and video</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Print</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Photo and lomo</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">Habitant morbi</a></li>
+                {% for category in categories %}
+                    <li class="cat-item"><a href="/blog/{{ category.name|lower }}" title="View all posts">{{ category.name }}</a></li>
+                {% endfor %}
             </ul>
         </li>
 
