@@ -30,5 +30,6 @@ $app->get('/', function () use ($app) {
 
 require('sections/blog.php');
 require('sections/contact.php');
+require('sections/about.php');
 
 $app->run();
