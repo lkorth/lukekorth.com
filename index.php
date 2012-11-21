@@ -29,5 +29,6 @@ $app->get('/', function () use ($app) {
 });
 
 require('sections/blog.php');
+require('sections/contact.php');
 
 $app->run();
