@@ -16,11 +16,17 @@ R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
 	'cache'             => 'cache'
 );
 
+$pjax = false;
+$headers = getallheaders();
+if(isset($headers['X-PJAX']))
+    $pjax = true;
+
 $app = new \Slim\Slim();
 $app->view(new \Slim\Extras\Views\Twig());
 $twig = $app->view()->getEnvironment();
 $twig->addFilter('max_words', new Twig_Filter_Function('max_words'));
 $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
+$twig->addGlobal('pjax', $pjax);
 
 // default route
 $app->get('/', function () use ($app) {

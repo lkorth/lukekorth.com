@@ -40,31 +40,10 @@
         <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
     </head>
     <body lang="en">
-        <header class="clearfix">
-            <div class="wrapper">
-                <a href="/" id="logo"><h1 style="color: #E2E0D7;">LukeKorth.com</h1></a>
-
-                <nav>
-                    <ul id="nav" class="sf-menu">
-                        <li {% if page.name == 'blog' %}class="current-menu-item"{% endif %}><a href="/blog">BLOG</a></li>
-                        <li {% if page.name == 'about' %}class="current-menu-item"{% endif %}><a href="/about">ABOUT</a></li>
-                        <li {% if page.name == 'work' %}class="current-menu-item"{% endif %}><a href="/work">WORK</a></li>
-                        <li {% if page.name == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects">PROJECTS</a></li>
-                        <li {% if page.name == 'contact' %}class="current-menu-item"{% endif %}><a href="/contact">CONTACT</a></li>
-                    </ul>
-                </nav>
-                <div id="combo-holder"></div>
-            </div>
-        </header>
-
-        <!-- MAIN -->
-        <div id="main">
-            <div class="wrapper clearfix">
-                {% block main %}{% endblock %}
-                {% block sidebar %}{% endblock %}
-            </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
         </div>
-        <!-- ENDS MAIN -->
 
         <footer>
             <div class="wrapper">
@@ -83,7 +62,7 @@
         <script src="/js/tabs.js"></script>
         <script src="/js/jquery.pjax.js"></script>
         <script>
-            $('#main').pjax('a')
+            $('#content').pjax('a');
         </script>
 
         <!-- superfish -->
