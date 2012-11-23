@@ -19,7 +19,13 @@
                 <div class="excerpt">{{ post.text|markdown|max_words(80, '...') }}</div>
                 <a href="single.html" class="read-more">read more &#8594;</a>
                 <div class="meta">
-                    <div class="categories">In <a href="#">Category 1</a>, <a href="#">Category 2</a></div>
+                    <div class="categories">In
+                        {% set cnt = 1 %}
+                        {% for tag in post.sharedCategory %}
+                            <a href="/blog/category/{{ tag.link }}">{{ tag.name }}</a>{% if cnt < post.sharedCategory|length %},{% endif %}
+                            {% set cnt = cnt + 1 %}
+                        {% endfor %}
+                    </div>
                     <div class="comments"><a href="#">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
                     <div class="user"><a href="/about">By {{ post.author.name }}</a></div>
                 </div>
