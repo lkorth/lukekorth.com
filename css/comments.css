@@ -147,7 +147,7 @@
 
 
 .comment-reply-link:hover{
-	background: #ea4c88;
+	background: #0169be;
 	color: #fff;
 }
 
@@ -298,7 +298,7 @@
 #contactForm input[type="submit"]:hover,
 #commentform input[type="submit"]:hover,
 #contactForm input[type="button"]:hover{
-	background: #ea4c88;
+	background: #0169be;
 	color: #fff;
 }
 
@@ -334,7 +334,7 @@
 }
 
 #respond .cancel-comment-reply a:hover{
-	background: #ea4c88;
+	background: #0169be;
 	color: #fff	
 }
 
