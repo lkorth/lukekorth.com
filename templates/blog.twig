@@ -15,7 +15,7 @@
                         <a href="/media/{{ post.picture }}" data-rel="prettyPhoto"><img src="/media/{{ post.picture }}" /></a>
                     </div>
                 {% endif %}
-                <h2  class="post-heading"><a href="/blog/{{ post.title }}">{{ post.title }}</a></h2>
+                <h2  class="post-heading"><a href="/blog/{{ post.link }}">{{ post.title }}</a></h2>
                 <div class="excerpt">{{ post.text|markdown|max_words(80, '...') }}</div>
                 <a href="single.html" class="read-more">read more &#8594;</a>
                 <div class="meta">
