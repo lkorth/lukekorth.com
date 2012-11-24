@@ -72,11 +72,16 @@
         </li>
 
         <li class="block">
-            <h4>ARCHIVES</h4>
+            <h4><a href="/archives" title="View all archives">ARCHIVES</a></h4>
             <ul>
-                <li class="cat-item"><a href="#" title="View all posts">January</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">February</a></li>
-                <li class="cat-item"><a href="#" title="View all posts">March</a></li>
+                {% set last = '' %}
+                {% for month in archives if month.date|date('F') != last %}
+                <li class="cat-item"><a href="/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
+                {% set last = month.date|date('F') %}
+                {% endfor %}  
+                {% for i in 2011..archives[0].date|date('Y') - 1 %}
+                <li class="cat-item"><a href="/archives/{{ i }}" title="View all posts">{{ i }}</a></li>
+                {% endfor %}
             </ul>
         </li>
 
