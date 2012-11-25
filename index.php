@@ -25,6 +25,7 @@ $app = new \Slim\Slim();
 $app->view(new \Slim\Extras\Views\Twig());
 $twig = $app->view()->getEnvironment();
 $twig->addFilter('max_words', new Twig_Filter_Function('max_words'));
+$twig->addFilter('time_ago', new Twig_Filter_Function('time_ago'));
 $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
 $twig->addGlobal('pjax', $pjax);
 
