@@ -1,111 +1,116 @@
 // Jquery with no conflict
 jQuery(document).ready(function($) {
 	
-	//##########################################
-	// Superfish
-	//##########################################
+    //##########################################
+    // Superfish
+    //##########################################
 	
-	$("ul.sf-menu").superfish({ 
-        animation: {height:'show'},   // slide-down effect without fade-in 
+    $("ul.sf-menu").superfish({ 
+        animation: {
+            height:'show'
+        },   // slide-down effect without fade-in 
         delay:     200 ,              // 1.2 second delay on mouseout 
         autoArrows:  false,
         speed: 200
     });
     
     //##########################################
-	// HOME SLIDER
-	//##########################################
+    // HOME SLIDER
+    //##########################################
 	
     $('.home-slider').flexslider({
-    	animation: "fade",
-    	controlNav: false,
-    	keyboardNav: true
+        animation: "fade",
+        controlNav: false,
+        keyboardNav: true
     });
     
     //##########################################
-	// PROJECT SLIDER
-	//##########################################
+    // PROJECT SLIDER
+    //##########################################
 	
     $('.project-slider').flexslider({
-    	animation: "fade",
-    	controlNav: true,
-    	directionNav: false,
-    	keyboardNav: true
+        animation: "fade",
+        controlNav: true,
+        directionNav: false,
+        keyboardNav: true
     });
 	
 
-	//##########################################
-	// Tool tips
-	//##########################################
+    //##########################################
+    // Tool tips
+    //##########################################
 	
 	
-	$('.poshytip').poshytip({
-    	className: 'tip-twitter',
-		showTimeout: 1,
-		alignTo: 'target',
-		alignX: 'center',
-		offsetY: 5,
-		allowTipHover: false
+    $('.poshytip').poshytip({
+        className: 'tip-twitter',
+        showTimeout: 1,
+        alignTo: 'target',
+        alignX: 'center',
+        offsetY: 5,
+        allowTipHover: false
     });
 	
    
     
     $('.form-poshytip').poshytip({
-		className: 'tip-twitter',
-		showOn: 'focus',
-		alignTo: 'target',
-		alignX: 'right',
-		alignY: 'center',
-		offsetX: 5
-	});
+        className: 'tip-twitter',
+        showOn: 'focus',
+        alignTo: 'target',
+        alignX: 'right',
+        alignY: 'center',
+        offsetX: 5
+    });
 	
 	
-	//##########################################
-	// PrettyPhoto
-	//##########################################
+    //##########################################
+    // PrettyPhoto
+    //##########################################
 	
-	$('a[data-rel]').each(function() {
-	    $(this).attr('rel', $(this).data('rel'));
-	});
+    $('a[data-rel]').each(function() {
+        $(this).attr('rel', $(this).data('rel'));
+    });
 	
-	$("a[rel^='prettyPhoto']").prettyPhoto();
+    $("a[rel^='prettyPhoto']").prettyPhoto();
 	
 	
-	//##########################################
-	// Create Combo Navi
-	//##########################################	
+    //##########################################
+    // Create Combo Navi
+    //##########################################	
 		
-	// Create the dropdown base
-	$("<select id='comboNav' />").appendTo("#combo-holder");
+    // Create the dropdown base
+    $("<select id='comboNav' />").appendTo("#combo-holder");
 	
-	// Create default option "Go to..."
-	$("<option />", {
-		"selected": "selected",
-		"value"   : "",
-		"text"    : "Navigation"
-	}).appendTo("#combo-holder select");
+    // Create default option "Go to..."
+    $("<option />", {
+        "selected": "selected",
+        "value"   : "",
+        "text"    : "Navigation"
+    }).appendTo("#combo-holder select");
 	
-	// Populate dropdown with menu items
-	$("#nav a").each(function() {
-		var el = $(this);		
-		var label = $(this).parent().parent().attr('id');
-		var sub = (label == 'nav') ? '' : '- ';
+    // Populate dropdown with menu items
+    $("#nav a").each(function() {
+        var el = $(this);		
+        var label = $(this).parent().parent().attr('id');
+        var sub = (label == 'nav') ? '' : '- ';
 		
-		$("<option />", {
-		 "value"   : el.attr("href"),
-		 "text"    :  sub + el.text()
-		}).appendTo("#combo-holder select");
-	});
+        $("<option />", {
+            "value"   : el.attr("href"),
+            "text"    :  sub + el.text()
+        }).appendTo("#combo-holder select");
+    });
 	 
-	//##########################################
-	// Combo Navigation action
-	//##########################################
+    //##########################################
+    // Combo Navigation action
+    //##########################################
 	
-	$("#comboNav").change(function() {
-	  location = this.options[this.selectedIndex].value;
-	});
+    $("#comboNav").change(function() {
+        location = this.options[this.selectedIndex].value;
+    });
 
     
 //close			
 });
 
+function scrollToComments() {
+    $('body').animate({ scrollTop: $('#comments-list').offset().top - 25 });
+}
