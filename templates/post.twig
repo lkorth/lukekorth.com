@@ -1,0 +1,140 @@
+{% extends 'content.twig' %}
+
+{% block main %}
+<!-- posts list -->
+<div id="posts-list" class="single-post">
+
+    <h2 class="page-heading"><span>BLOG</span></h2>	
+
+    <article class="format-standard">
+        <div class="entry-date"><div class="number">{{ post.date|date('d') }}</div> 
+            <div class="year">{{ post.date|date('M, Y') }}</div></div>
+        {% if post.picture %}
+        <div class="feature-image">
+            <a href="/media/{{ post.picture }}" data-rel="prettyPhoto"><img src="/media/{{ post.picture }}" /></a>
+        </div>
+        {% endif %}
+        <h2  class="post-heading"><a href="#">{{ post.title }}</a></h2>
+        {% autoescape false %}
+        <div class="post-content">{{ post.text|markdown }}</div>
+        {% endautoescape %}
+        <div class="meta">
+            <div class="categories">In
+                        {% set cnt = 1 %}
+                        {% for tag in post.sharedCategory %}
+                    <a href="/blog/category/{{ tag.link }}">{{ tag.name }}</a>{% if cnt < post.sharedCategory|length %},{% endif %}
+                            {% set cnt = cnt + 1 %}
+                        {% endfor %}
+                </div>
+                <div class="comments"><a href="javascript:scrollToComments();">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
+                <div class="user"><a href="/about">By {{ post.author.name }}</a></div>
+            </div>
+
+            <!-- comments list -->
+            <div id="comments-wrap">
+                <h3 class="heading" id="comments-list">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}COMMENT{% else %}COMMENTS{% endif %}</h3>
+                <ol class="commentlist">
+                    {% set commentCount = 1 %}
+                    {% set commentType = 'even' %}
+                    {% for comment in comments %}
+                    <li class="comment {{ commentType }} thread-{{ commentType }} depth-{{ commentCount }}" id="li-comment-{{ commentCount }}">
+
+                        <div id="comment-{{ commentCount }}" class="comment-body clearfix">
+                            <img src='http://gravatar.com/avatar/{{ comment.author.email|md5 }}?s=35&amp;d=&amp;r=G' class='avatar avatar-35 photo' height='35' width='35' />      
+                            <div class="comment-author vcard">Jhon</div>
+                            <div class="comment-meta commentmetadata">
+                                <span class="comment-date">3 days ago  </span>
+                                <span class="comment-reply-link-wrap"><a class='comment-reply-link' href='replytocom=23#respond' onclick='return addComment.moveForm("comment-1", "1", "respond", "432")'>Reply</a></span>
+
+                            </div>
+                            <div class="comment-inner">
+                                <p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% set commentCount = commentCount + 1 %}
+                    {% if commentType == 'even' %}
+                        {% set commentType = 'odd' %}
+                    {% else %}
+                        {% set commentType = 'even' %}
+                    {% endif %}
+                    {% endfor %}
+                </ol>
+            </div>
+            <!-- ENDS comments list -->
+
+
+            <!-- Respond -->				
+            <div id="respond">
+
+                <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></div>
+                <form action="single.html" method="post" id="commentform">
+                    <h3 class="heading">LEAVE A REPLY</h3>
+                    <input type="text" name="author" id="author" value="" tabindex="1" />
+                    <label for="author">Name <small>*</small></label><br/>
+
+                    <input type="text" name="email" id="email" value="" tabindex="2" />
+                    <label for="email">Email <small>*</small> <span>(not published, used for <a href="http://gravatar.com">gravatar</a>)</span></label><br/>
+
+                    <input type="text" name="url" id="url" value="" tabindex="3" />
+                    <label for="url">Website</label>
+
+                    <textarea name="comment" id="comment"  tabindex="4"></textarea>
+
+                    <p><input name="submit" type="submit" id="submit" tabindex="5" value="Post" /></p>
+
+                    <input type='hidden' name='comment_post_ID' value='' id='comment_post_ID' />
+                    <input type='hidden' name='comment_parent' id='comment_parent' value='0' />	
+                </form>
+            </div>
+            <div class="clearfix"></div>
+            <!-- ENDS Respond -->
+
+        </article>
+
+    </div>
+    <!-- ENDS posts list -->
+    
+    {% if commentList %}
+    <script>
+        $(document).ready(function() {
+            scrollToComments();
+        });
+    </script>
+    {% endif %}
+{% endblock %}
+    
+{% block sidebar %}
+<!-- sidebar -->
+<aside id="sidebar">
+
+    <ul>
+        <li class="block">
+            <h4><a href="/categories" title="View all categories">CATEGORIES</a></h4>
+            <ul>
+                {% for category in categories %}
+                    <li class="cat-item"><a href="/blog/category/{{ category.link }}" title="View all posts">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+
+        <li class="block">
+            <h4><a href="/archives" title="View all archives">ARCHIVES</a></h4>
+            <ul>
+                {% set last = '' %}
+                {% for month in archives if month.date|date('F') != last %}
+                <li class="cat-item"><a href="/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
+                {% set last = month.date|date('F') %}
+                {% endfor %}  
+                {% for i in 2011..archives[0].date|date('Y') - 1 %}
+                <li class="cat-item"><a href="/archives/{{ i }}" title="View all posts">{{ i }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+
+    </ul>
+
+    <em id="corner"></em>
+</aside>
+<!-- ENDS sidebar -->
+{% endblock %}
