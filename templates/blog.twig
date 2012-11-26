@@ -5,7 +5,6 @@
 <div id="posts-list">
 
     <h2 class="page-heading"><span>BLOG</span></h2>
-    {% autoescape false %}
         {% for post in posts %}
             <article class="format-standard">
                 <div class="entry-date"><div class="number">{{ post.date|date('d') }}</div>
@@ -16,8 +15,10 @@
                     </div>
                 {% endif %}
                 <h2  class="post-heading"><a href="/blog/{{ post.link }}">{{ post.title }}</a></h2>
+                {% autoescape false %}
                 <div class="excerpt">{{ post.text|markdown|max_words(80, '...') }}</div>
-                <a href="single.html" class="read-more">read more &#8594;</a>
+                {% endautoescape %}
+                <a href="/blog/{{ post.link }}" class="read-more">read more &#8594;</a>
                 <div class="meta">
                     <div class="categories">In
                         {% set cnt = 1 %}
@@ -26,12 +27,11 @@
                             {% set cnt = cnt + 1 %}
                         {% endfor %}
                     </div>
-                    <div class="comments"><a href="#">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
+                    <div class="comments"><a href="/blog/{{ post.link }}/comment-list">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
                     <div class="user"><a href="/about">By {{ post.author.name }}</a></div>
                 </div>
             </article>
         {% endfor %}
-    {% endautoescape %}
 
     <!-- page-navigation -->
     <div class="page-navigation clearfix">
