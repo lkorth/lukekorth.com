@@ -4,10 +4,10 @@
 <!-- posts list -->
 <div id="posts-list" class="single-post">
 
-    <h2 class="page-heading"><span>BLOG</span></h2>	
+    <h2 class="page-heading"><span>BLOG</span></h2>
 
     <article class="format-standard">
-        <div class="entry-date"><div class="number">{{ post.date|date('d') }}</div> 
+        <div class="entry-date"><div class="number">{{ post.date|date('d') }}</div>
             <div class="year">{{ post.date|date('M, Y') }}</div></div>
         {% if post.picture %}
         <div class="feature-image">
@@ -40,7 +40,7 @@
                     <li class="comment {{ commentType }} thread-{{ commentType }} depth-{{ commentCount }}" id="li-comment-{{ commentCount }}">
 
                         <div id="comment-{{ commentCount }}" class="comment-body clearfix">
-                            <img src='http://gravatar.com/avatar/{{ comment.author.email|md5 }}?s=35&amp;d=&amp;r=G' class='avatar avatar-35 photo' height='35' width='35' />      
+                            <img src='http://gravatar.com/avatar/{{ comment.author.email|md5 }}?s=35&amp;d=&amp;r=G' class='avatar avatar-35 photo' height='35' width='35' />
                             <div class="comment-author vcard">Jhon</div>
                             <div class="comment-meta commentmetadata">
                                 <span class="comment-date">3 days ago  </span>
@@ -64,7 +64,7 @@
             <!-- ENDS comments list -->
 
 
-            <!-- Respond -->				
+            <!-- Respond -->
             <div id="respond">
 
                 <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></div>
@@ -84,7 +84,7 @@
                     <p><input name="submit" type="submit" id="submit" tabindex="5" value="Post" /></p>
 
                     <input type='hidden' name='comment_post_ID' value='' id='comment_post_ID' />
-                    <input type='hidden' name='comment_parent' id='comment_parent' value='0' />	
+                    <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                 </form>
             </div>
             <div class="clearfix"></div>
@@ -94,7 +94,7 @@
 
     </div>
     <!-- ENDS posts list -->
-    
+
     {% if commentList %}
     <script>
         $(document).ready(function() {
@@ -103,7 +103,7 @@
     </script>
     {% endif %}
 {% endblock %}
-    
+
 {% block sidebar %}
 <!-- sidebar -->
 <aside id="sidebar">
@@ -125,7 +125,7 @@
                 {% for month in archives if month.date|date('F') != last %}
                 <li class="cat-item"><a href="/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
                 {% set last = month.date|date('F') %}
-                {% endfor %}  
+                {% endfor %}
                 {% for i in 2011..archives[0].date|date('Y') - 1 %}
                 <li class="cat-item"><a href="/archives/{{ i }}" title="View all posts">{{ i }}</a></li>
                 {% endfor %}
