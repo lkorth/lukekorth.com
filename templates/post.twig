@@ -14,7 +14,7 @@
             <a href="/media/{{ post.picture }}" data-rel="prettyPhoto"><img src="/media/{{ post.picture }}" /></a>
         </div>
         {% endif %}
-        <h2  class="post-heading"><a href="#">{{ post.title }}</a></h2>
+        <h2  class="post-heading"><a>{{ post.title }}</a></h2>
         {% autoescape false %}
         <div class="post-content">{{ post.text|markdown }}</div>
         {% endautoescape %}
