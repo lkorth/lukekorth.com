@@ -20,11 +20,11 @@
 }
 
 .commentlist .odd{
-	
+
 }
 
 .commentlist .even{
-	
+
 }
 
 .v-card{ color: #ccc;}
@@ -81,7 +81,7 @@
 
 /* CHILDREN ------------------------------------------------------------*/
 
-.children .comment {  
+.children .comment {
 	border-bottom: none;
 	border-top: 1px #ccc solid;
 }
@@ -101,7 +101,7 @@
 	color: #2C2D31;
 }
 
-.comment .children .comment-body { 
+.comment .children .comment-body {
 	margin: 20px 0 0 50px;
 }
 
@@ -122,18 +122,18 @@
 	top: -5px;
 }
 
-.comment-reply-link { 
+.comment-reply-link {
 	display: block;
 	color: #444;
 	font-size: 11px;
 	background: #eaeaea;
 	padding: 3px 10px;
-	
-	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
-	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
+
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
 	-o-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
 	box-shadow: 0px 0px 2px rgba(0,0,0,.3);
-	
+
 	 -webkit-transition: all 0.3s ease;
 	 -moz-transition: all 0.3s ease;
 	 -o-transition: all 0.3s ease;
@@ -155,8 +155,8 @@
 
 /* META ------------------------------------------------------------*/
 
-.comment-meta { 
-	margin: 0 0 12px 50px; 
+.comment-meta {
+	margin: 0 0 12px 50px;
 	color: #a4a5aa;
 	font-size: 11px;
 	position: relative;
@@ -185,7 +185,7 @@
 	line-height:13px;
 	margin-bottom: 10px;
 }
- 
+
 .comments-pagination span,
 .comments-pagination a {
 	display:block;
@@ -197,12 +197,12 @@
 	color:#fff;
 	background: #555;
 }
- 
+
 .comments-pagination a:hover{
 	color:#fff;
 	background: #000000;
 }
- 
+
 .comments-pagination .current{
 	padding:6px 9px 5px 9px;
 	background: #000000;
@@ -235,7 +235,7 @@
 	font-size: 13px;
 	font-family: Helvetica, Arial;
 	line-height: 1.5em;
-	
+
 	overflow: auto;
 }
 
@@ -257,7 +257,7 @@
 	overflow: auto;
 	width: 200px;
 	margin-bottom: 20px;
-	
+
 	overflow: hidden;
 }
 
@@ -279,17 +279,17 @@
 	background: #eaeaea;
 	padding: 3px 10px;
 	border: 1px solid #ccc;
-	
-	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
-	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
+
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
 	-o-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
 	box-shadow: 0px 0px 2px rgba(0,0,0,.3);
-	
+
 	 -webkit-transition: all 0.3s ease;
 	 -moz-transition: all 0.3s ease;
 	 -o-transition: all 0.3s ease;
 	 transition: all 0.3s ease;
-	 
+
 	 cursor: pointer;
 }
 
@@ -307,7 +307,7 @@
 }
 
 
-#respond{ 
+#respond{
 	margin: 25px 0 0px 0px;
 }
 
@@ -318,13 +318,13 @@
 	background: #eaeaea;
 	padding: 3px 10px;
 	border: 1px solid #ccc;
-	
-	
-	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
-	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3); 
+
+
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
 	-o-box-shadow: 0px 0px 2px rgba(0,0,0,.3);
 	box-shadow: 0px 0px 2px rgba(0,0,0,.3);
-	
+
 	 -webkit-transition: all 0.3s ease;
 	 -moz-transition: all 0.3s ease;
 	 -o-transition: all 0.3s ease;
@@ -333,7 +333,7 @@
 
 #respond .cancel-comment-reply a:hover{
 	background: #0169be;
-	color: #fff	
+	color: #fff
 }
 
 #error{
