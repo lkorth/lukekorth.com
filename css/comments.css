@@ -251,7 +251,9 @@
 }
 
 #contactForm input[type="text"],
-#commentform input[type="text"]{
+#commentform input[type="text"],
+#contactForm input[type="email"],
+#commentform input[type="email"]{
 	overflow: auto;
 	width: 200px;
 	margin-bottom: 20px;
