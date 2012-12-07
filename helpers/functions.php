@@ -43,3 +43,7 @@ function time_ago($time) {
         return ($ret == 'December 1969') ? '' : $ret;
     }
 }
+
+function hashed_password($password) {
+    return md5($password . SALT);
+}
