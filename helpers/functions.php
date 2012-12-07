@@ -47,3 +47,10 @@ function time_ago($time) {
 function hashed_password($password) {
     return md5($password . SALT);
 }
+
+function require_ssl($app) {
+    if($app->request()->getScheme() !== 'https') {
+        $app->redirect('https://' .$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        $app->stop();
+    }
+}
