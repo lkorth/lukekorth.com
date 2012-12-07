@@ -54,3 +54,10 @@ function require_ssl($app) {
         $app->stop();
     }
 }
+
+function getIP() {
+    $ip = getenv('HTTP_X_FORWARDED_FOR');
+    if(!$ip) $ip = getenv('HTTP_CLIENT_IP');
+    if(!$ip) $ip = getenv('REMOTE_ADDR');
+    return $ip;
+}
