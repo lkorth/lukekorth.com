@@ -61,29 +61,9 @@
             </div>
             <!-- ENDS comments list -->
 
-
             <!-- Respond -->
             <div id="respond">
-
-                <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">Cancel reply</a></div>
-                <form action="single.html" method="post" id="commentform">
-                    <h3 class="heading">LEAVE A REPLY</h3>
-                    <input type="text" name="author" id="author" value="" tabindex="1" />
-                    <label for="author">Name <small>*</small></label><br/>
-
-                    <input type="text" name="email" id="email" value="" tabindex="2" />
-                    <label for="email">Email <small>*</small> <span>(not published, used for <a href="http://gravatar.com">gravatar</a>)</span></label><br/>
-
-                    <input type="text" name="url" id="url" value="" tabindex="3" />
-                    <label for="url">Website</label>
-
-                    <textarea name="comment" id="comment"  tabindex="4"></textarea>
-
-                    <p><input name="submit" type="submit" id="submit" tabindex="5" value="Post" /></p>
-
-                    <input type='hidden' name='comment_post_ID' value='' id='comment_post_ID' />
-                    <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-                </form>
+                {{ form.render() }}
             </div>
             <div class="clearfix"></div>
             <!-- ENDS Respond -->
