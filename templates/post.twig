@@ -32,7 +32,7 @@
 
             <!-- comments list -->
             <div id="comments-wrap">
-                <h3 class="heading" id="comments-list">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}COMMENT{% else %}COMMENTS{% endif %}</h3>
+                <h3 class="heading" id="comments-list">{% if comments|length > 0 %}{{ comments|length }}{% else %}0{% endif %} {% if comments|length == 1 %}COMMENT{% else %}COMMENTS{% endif %}</h3>
                 <ol class="commentlist">
                     {% set commentCount = 1 %}
                     {% set commentType = 'even' %}
@@ -40,15 +40,13 @@
                     <li class="comment {{ commentType }} thread-{{ commentType }} depth-{{ commentCount }}" id="li-comment-{{ commentCount }}">
 
                         <div id="comment-{{ commentCount }}" class="comment-body clearfix">
-                            <img src='http://gravatar.com/avatar/{{ comment.author.email|md5 }}?s=35&amp;d=&amp;r=G' class='avatar avatar-35 photo' height='35' width='35' />
-                            <div class="comment-author vcard">Jhon</div>
+                            <img src='http://gravatar.com/avatar/{{ comment.gravatar }}?s=60&amp;d=&amp;r=G' class='avatar avatar-60 photo' />
+                            <div class="comment-author vcard">{{ comment.author }}</div>
                             <div class="comment-meta commentmetadata">
-                                <span class="comment-date">3 days ago  </span>
-                                <span class="comment-reply-link-wrap"><a class='comment-reply-link' href='replytocom=23#respond' onclick='return addComment.moveForm("comment-1", "1", "respond", "432")'>Reply</a></span>
-
+                                <span class="comment-date">{{ comment.time|time_ago }}  </span>
                             </div>
                             <div class="comment-inner">
-                                <p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                                <p>{{ comment.comment }}</p>
                             </div>
                         </div>
                     </li>

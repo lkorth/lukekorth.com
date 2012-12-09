@@ -34,6 +34,8 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
     $arr['categories'] = R::findAll('category', ' ORDER BY name ASC LIMIT 8 ');
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
 
+    $arr['comments'] = $arr['post']->ownComment;
+
     $arr['commentList'] = false;
     if($comments != '')
         $arr['commentList'] = true;
