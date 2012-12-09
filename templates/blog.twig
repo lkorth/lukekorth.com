@@ -56,38 +56,3 @@
 </div>
 <!-- ENDS posts list -->
 {% endblock %}
-
-{% block sidebar %}
-<!-- sidebar -->
-<aside id="sidebar">
-
-    <ul>
-        <li class="block">
-            <h4><a href="/categories" title="View all categories">CATEGORIES</a></h4>
-            <ul>
-                {% for category in categories %}
-                    <li class="cat-item"><a href="/blog/category/{{ category.link }}" title="View all posts">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </li>
-
-        <li class="block">
-            <h4><a href="/archives" title="View all archives">ARCHIVES</a></h4>
-            <ul>
-                {% set last = '' %}
-                {% for month in archives if month.date|date('F') != last %}
-                <li class="cat-item"><a href="/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
-                {% set last = month.date|date('F') %}
-                {% endfor %}  
-                {% for i in 2011..archives[0].date|date('Y') - 1 %}
-                <li class="cat-item"><a href="/archives/{{ i }}" title="View all posts">{{ i }}</a></li>
-                {% endfor %}
-            </ul>
-        </li>
-
-    </ul>
-
-    <em id="corner"></em>
-</aside>
-<!-- ENDS sidebar -->
-{% endblock %}
