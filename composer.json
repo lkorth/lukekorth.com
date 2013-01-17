@@ -4,6 +4,7 @@
 		"twig/twig": "dev-master",
 		"pfbc/pfbc": "dev-master",
 		"slim/extras": "dev-master",
-        "slim/slim": "dev-master"
+        "slim/slim": "dev-master",
+		"fzaninotto/faker": "dev-master"
     }
 }
