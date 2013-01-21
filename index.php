@@ -1,6 +1,6 @@
 <?php
 
-require('../config.php');
+require('../config-dev.php');
 require('vendor/autoload.php');
 require('vendor/php-markdown-extra/markdown.php');
 require('helpers/functions.php');
