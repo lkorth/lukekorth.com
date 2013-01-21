@@ -48,5 +48,6 @@ require('sections/blog.php');
 require('sections/contact.php');
 require('sections/about.php');
 require('sections/admin.php');
+require('sections/faker.php');
 
 $app->run();
