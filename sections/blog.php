@@ -13,11 +13,11 @@ $app->get('/blog(/:page)', function ($page = 0) use ($app) {
     else
         $arr['morePosts'] = false;
 
-    //ugly hack to force preloading of categories
-    foreach($arr['posts'] as $post)
-       $post->sharedCategory;
+    foreach($arr['posts'] as $key => $value) {
+        $arr['posts'][$key]['categories'] = R::tag($value);
+    }
 
-    $arr['categories'] = R::findAll('category', ' ORDER BY name ASC LIMIT 8 ');
+    //$arr['categories'] = R::findAll('category', ' ORDER BY name ASC LIMIT 8 ');
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
 
     $app->render('blog.twig', $arr);

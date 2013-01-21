@@ -22,8 +22,8 @@
                 <div class="meta">
                     <div class="categories">In
                         {% set cnt = 1 %}
-                        {% for tag in post.sharedCategory %}
-                            <a href="/blog/category/{{ tag.link }}">{{ tag.name }}</a>{% if cnt < post.sharedCategory|length %},{% endif %}
+                        {% for tag in post.categories %}
+                            <a href="/blog/category/{{ tag }}">{{ tag }}</a>{% if cnt < post.categories|length %},{% endif %}
                             {% set cnt = cnt + 1 %}
                         {% endfor %}
                     </div>
