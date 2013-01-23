@@ -61,11 +61,6 @@
         <script src="/js/custom.js"></script>
         <script src="/js/tabs.js"></script>
         <script src="/js/jquery.pjax.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#content').pjax('a');
-            });
-        </script>
 
         <!-- superfish -->
         <script  src="/js/superfish-1.4.8/js/hoverIntent.js"></script>
@@ -88,6 +83,9 @@
         <!-- modernizr -->
         <script src="/js/modernizr.js"></script>
 
+        <!-- tag cloud -->
+        <script src="/js/jquery.tagcloud.js"></script>
+
         <script>
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-23752726-1']);
@@ -99,6 +97,24 @@
               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
+            $(document).ready(function() {
+                $('#content').pjax('a');
+
+                $(document).on('pjax:complete', function() {
+                    initTagCloud();
+                });
+
+                initTagCloud();
+            });
+
+            function initTagCloud(){
+                $.fn.tagcloud.defaults = {
+                    size: {start: 1, end: 2, unit: 'em'},
+                    color: {start: '#E2E0D7', end: '#0169be'}
+                };
+
+                $('#tags a').tagcloud();
+            }
         </script>
 
     </body>

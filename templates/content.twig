@@ -28,11 +28,11 @@
                         <ul>
                             <li class="block">
                                 <h4><a href="/categories" title="View all categories">CATEGORIES</a></h4>
-                                <ul>
+                                <span id="tags">
                                     {% for category in categories %}
-                                        <li class="cat-item"><a href="/blog/category/{{ category.link }}" title="View all posts">{{ category.name }}</a></li>
+                                        <a href="/blog/category/{{ category.title }}" rel="{{ category.count }}" title="View all posts">{{ category.title }}</a>
                                     {% endfor %}
-                                </ul>
+                                </span>
                             </li>
 
                             <li class="block">
