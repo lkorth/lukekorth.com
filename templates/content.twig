@@ -30,7 +30,7 @@
                                 <h4><a href="/categories" title="View all categories">CATEGORIES</a></h4>
                                 <span id="tags">
                                     {% for category in categories %}
-                                        <a href="/blog/category/{{ category.title }}" rel="{{ category.count }}" title="View all posts">{{ category.title }}</a>
+                                        <a href="/blog/category/{{ category.title }}" rel="{{ category.count }}" title="View all posts tagged {{ category.title }}">{{ category.title }}</a>
                                     {% endfor %}
                                 </span>
                             </li>
