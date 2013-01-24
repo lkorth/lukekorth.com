@@ -136,6 +136,66 @@ article .meta{
 
 #posts-list .entry-date{ color: #f1f1f1; }
 
+/* ICONS -----------------------------------------------------------------------*/
+icon {
+    display: inline-block;
+    float: left;
+    margin: 5px;
+    height: 64px;
+    width: 64px;
+    background-size: 64px 64px;
+}
+
+icon.fivehundredpx {
+    background-color: #444;
+    background-image: url("/img/icons/500px/500px-64.png");
+}
+
+icon.android {
+    background-color: #a4c639;
+    background-image: url("/img/icons/android/android-64.png");
+}
+
+icon.email {
+    background-color: #666;
+    background-image: url("/img/icons/email/email-64.png");
+}
+
+icon.github {
+    background-color: #4183c4;
+    background-image: url("/img/icons/github/github-64.png");
+}
+
+icon.goodreads {
+    background-color: #5a471b;
+    background-image: url("/img/icons/goodreads/goodreads-64.png");
+}
+
+icon.google {
+    background-color: #245dc1;
+    background-image: url("/img/icons/google/google-64.png");
+}
+
+icon.kickstarter {
+    background-color: #87c442;
+    background-image: url("/img/icons/kickstarter/kickstarter-64.png");
+}
+
+icon.linkedin {
+    background-color: #007fb1;
+    background-image: url("/img/icons/linkedin/linkedin-64.png");
+}
+
+icon.rss {
+    background-color: #ff8300;
+    background-image: url("/img/icons/rss/rss-64.png");
+}
+
+icon.stackoverflow {
+    background-color: #f47920;
+    background-image: url("/img/icons/stackoverflow/stackoverflow-64.png");
+}
+
 /* PAGE NAVIGATION ------------------------------------------------------------*/
 
 .page-navigation a{
