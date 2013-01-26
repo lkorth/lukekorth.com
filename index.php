@@ -39,10 +39,17 @@ $app->get('/', function () use ($app) {
     $app->stop();
 });
 
-require('sections/blog.php');
-require('sections/contact.php');
-require('sections/about.php');
-require('sections/admin.php');
-require('sections/faker.php');
+$uri = explode("/", $_SERVER['REQUEST_URI']);
+if($uri[1] === 'blog')
+    require('sections/blog.php');
+else if($uri[1] === 'about')
+    require('sections/about.php');
+else if($uri[1] === 'projects')
+    require('sections/projects.php');
+else if($uri[1] === 'contact')
+    require('sections/contact.php');
+else if($uri[1] === 'admin')
+    require('sections/admin.php');
+//require('sections/faker.php');
 
 $app->run();
