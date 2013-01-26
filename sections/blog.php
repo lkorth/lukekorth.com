@@ -17,7 +17,7 @@ $app->get('/blog(/:page)', function ($page = 0) use ($app) {
         $arr['posts'][$key]['categories'] = R::tag($value);
     }
 
-    $arr['categories'] = R::getAll('SELECT title, COUNT(tag_id) as count FROM tag JOIN post_tag ON tag.id = post_tag.tag_id GROUP BY title');
+    $arr['categories'] = getTagCloud();
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
 
     $app->render('blog.twig', $arr);
@@ -70,3 +70,7 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
 
     $app->render('post.twig', $arr);
 });
+
+function getTagCloud() {
+    return R::getAll('SELECT title, COUNT(tag_id) as count FROM tag JOIN post_tag ON tag.id = post_tag.tag_id GROUP BY title');
+}
