@@ -1,5 +1,8 @@
 AddHandler x-mapp-php6 .php
 
+DefaultLanguage en-US
+AddDefaultCharset utf-8
+
 RewriteEngine On
 RewriteBase /
 
