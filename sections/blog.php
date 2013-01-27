@@ -22,6 +22,33 @@ $app->get('/blog(/:page)', function ($page = 0) use ($app) {
     $app->render('blog.twig', $arr);
 })->conditions(array('page' => '\d'));
 
+$app->get('/blog/category/:category(/:page)', function($category, $page = 0) use ($app) {
+    $arr = array();
+    $arr['title'] = 'Blog :: LukeKorth.com';
+    $arr['page']['number'] = $page;
+    $arr['page']['name'] = 'blog';
+
+    $arr['posts'] = R::tagged('post', array($category));
+    usort($arr['posts'], 'orderPosts');
+
+    if (count($arr['posts']) > ($page * 3) + 3)
+        $arr['morePosts'] = true;
+    else
+        $arr['morePosts'] = false;
+
+    $arr['posts'] = array_slice($arr['posts'], ($page * 3), 3);
+
+    R::preload($arr['posts'], array('author'));
+    foreach($arr['posts'] as $key => $value) {
+        $arr['posts'][$key]['categories'] = R::tag($value);
+    }
+
+    $arr['categories'] = getTagCloud();
+    $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
+
+    $app->render('blog.twig', $arr);
+})->conditions(array('page' => '\d'));
+
 $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) {
     session_name('lukekorth');
     session_start();
@@ -69,6 +96,14 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
 
     $app->render('post.twig', $arr);
 });
+
+
+function orderPosts($a, $b) {
+    if (strtotime($a->date) == strtotime($b->date)) {
+        return 0;
+    }
+    return (strtotime($a->date) < strtotime($b->date)) ? 1 : -1;
+}
 
 function getTagCloud() {
     return R::getAll('SELECT title, COUNT(tag_id) as count FROM tag JOIN post_tag ON tag.id = post_tag.tag_id GROUP BY title');
