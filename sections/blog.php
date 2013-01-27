@@ -57,9 +57,9 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
     session_start();
 
     $arr = array();
-    $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['name'] = 'blog';
     $arr['post'] = R::findOne('post', ' link = ? ', array($link));
+    $arr['title'] = $arr['post']->title . ' :: LukeKorth.com';
     $arr['post']->author;
     $arr['post']->sharedCategory;
 
