@@ -37,15 +37,15 @@
     <div class="page-navigation clearfix">
         {% if morePosts %}
             <div class="nav-next">
-                <a href="/blog/{{ page.number + 1 }}">&#8592; Older Entries </a>
+                <a href="/blog{{ link }}/{{ page.number + 1 }}">&#8592; Older Entries </a>
             </div>
         {% endif %}
         {% if page.number != 0 %}
             <div class="nav-previous">
                 {% if page.number - 1 == 0 %}
-                    <a href="/blog">Newer Entries &#8594;</a>
+                    <a href="/blog{{ link }}">Newer Entries &#8594;</a>
                 {% else %}
-                    <a href="/blog/{{ page.number - 1 }}">Newer Entries &#8594;</a>
+                    <a href="/blog{{ link }}/{{ page.number - 1 }}">Newer Entries &#8594;</a>
                 {% endif %}
             </div>
         {% endif %}
