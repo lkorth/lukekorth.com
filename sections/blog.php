@@ -1,6 +1,5 @@
 <?php
 
-//paged blog view
 $app->get('/blog(/:page)', function ($page = 0) use ($app) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
