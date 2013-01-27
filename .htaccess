@@ -8,3 +8,8 @@ RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
+
+# Cache for 1 week
+<filesMatch "\.(ico|woff|ttf|pdf|jpg|jpeg|png|gif)$">
+    Header set Cache-Control "max-age=604800, public"
+</filesMatch>
