@@ -33,6 +33,13 @@ $twig->addFilter('time_ago', new Twig_Filter_Function('time_ago'));
 $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
 $twig->addGlobal('pjax', (is_null($app->request()->headers('X-PJAX'))) ? false : true);
 
+$app->hook('slim.after.router', function() use ($app) {
+    $file = 'cache/' . str_replace('/', '.', $_SERVER['REQUEST_URI']);
+    
+    if (!file_exists($file))
+        file_put_contents ($file, $app->response()->body());    
+}, 10);
+
 // default route
 $app->get('/', function () use ($app) {
     $app->redirect('blog');
