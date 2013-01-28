@@ -100,6 +100,18 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
     $app->render('post.twig', $arr);
 });
 
+$app->post('/blog/kudos/:action/:post', function($action, $post) use ($app) {
+    $post = R::load('post', $post);
+
+    if($action == 'give')
+        $post->kudos = $post->kudos + 1;
+    else if($action == 'take')
+        $post->kudos = $post->kudos - 1;
+
+    R::store($post);
+
+    echo '200';
+});
 
 function orderPosts($a, $b) {
     if (strtotime($a->date) == strtotime($b->date)) {

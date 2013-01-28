@@ -9,6 +9,17 @@
     <article class="format-standard">
         <div class="entry-date"><div class="number">{{ post.date|date('d') }}</div>
             <div class="year">{{ post.date|date('M, Y') }}</div></div>
+
+        <figure class="kudo kudoable" data-id="1">
+            <a class="kudobject">
+                <div class="opening"><div class="circle">&nbsp;</div></div>
+            </a>
+            <a href="#kudo" class="count">
+                <span class="num">{{ post.kudos }}</span>
+                <span class="txt">{% if post.kudos == 1 %}Kudo{% else %}Kudos{% endif %}</span>
+            </a>
+        </figure>
+
         {% if post.picture %}
         <div class="feature-image">
             <a href="/media/{{ post.picture }}" data-rel="prettyPhoto"><img src="/media/{{ post.picture }}" /></a>
@@ -72,12 +83,34 @@
 
     </div>
     <!-- ENDS posts list -->
+{% endblock %}
 
-    {% if commentList %}
+{% block beforebodyclose %}
     <script>
         $(document).ready(function() {
+            // initialize kudos
+            $("figure.kudoable").kudoable();
+
+            if($.cookie('{{ post.id }}') == 'true')
+                $("figure.kudoable").removeClass("animate").addClass("complete");
+
+            // after kudo'd
+            $("figure.kudo").bind("kudo:added", function(e) {
+                $.post('/blog/kudos/give/{{ post.id }}', function(data) {
+                    $.cookie('{{ post.id }}', 'true', { expires: 7 });
+                });
+            });
+
+            // after removing a kudo
+            $("figure.kudo").bind("kudo:removed", function(e) {
+                $.post('/blog/kudos/take/{{ post.id }}', function(data) {
+                    $.removeCookie({{ post.id }});
+                });
+            });
+
+            {% if commentList %}
             scrollToComments();
+            {% endif %}
         });
     </script>
-    {% endif %}
 {% endblock %}
