@@ -27,12 +27,14 @@ if(PRODUCTION) {
 }
 
 $app = new \Slim\Slim();
+define("PJAX", (is_null($app->request()->headers('X-PJAX'))) ? false : true);
+
 $app->view(new \Slim\Extras\Views\Twig());
 $twig = $app->view()->getEnvironment();
 $twig->addFilter('max_words', new Twig_Filter_Function('max_words'));
 $twig->addFilter('time_ago', new Twig_Filter_Function('time_ago'));
 $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
-$twig->addGlobal('pjax', (is_null($app->request()->headers('X-PJAX'))) ? false : true);
+$twig->addGlobal('pjax', PJAX);
 
 // default route
 $app->get('/', function () use ($app) {
