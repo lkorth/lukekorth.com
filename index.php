@@ -9,8 +9,9 @@ require('helpers/functions.php');
 class R extends RedBean_Facade {}
 R::setup('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
 R::$writer->setUseCache(true);
+
 if(PRODUCTION) {
-	R::freeze();
+    R::freeze();
 
 	// cache dir needs to be writable by server
 	\Slim\Extras\Views\Twig::$twigTemplateDirs = array('templates');
