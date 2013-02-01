@@ -50,14 +50,14 @@ $min_allowDebugFlag = false;
  * will have to load extra code to guess. Some examples below:
  */
 //$min_cachePath = 'c:\\WINDOWS\\Temp';
-//$min_cachePath = '../cache';
+$min_cachePath = '../cache';
 //$min_cachePath = preg_replace('/^\\d+;/', '', session_save_path());
 /**
  * To use APC/Memcache/ZendPlatform for cache storage, require the class and
  * set $min_cachePath to an instance. Example below:
  */
-require 'lib/Minify/Cache/APC.php';
-$min_cachePath = new Minify_Cache_APC();
+//require 'lib/Minify/Cache/APC.php';
+//$min_cachePath = new Minify_Cache_APC();
 
 
 /**
