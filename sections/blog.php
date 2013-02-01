@@ -33,6 +33,7 @@ $app->get('/blog/category/:category(/:page)', function($category, $page = 0) use
     $arr['link'] = '/category/' . $category;
 
     $arr['posts'] = R::tagged('post', array($category));
+
     usort($arr['posts'], 'orderPosts');
 
     if (count($arr['posts']) > ($page * 3) + 3)
