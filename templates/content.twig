@@ -43,8 +43,8 @@
                                     <li class="cat-item"><a href="/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
                                     {% set last = month.date|date('F') %}
                                     {% endfor %}
-                                    {% for i in 2011..archives[0].date|date('Y') - 1 %}
-                                    <li class="cat-item"><a href="/archives/{{ i }}" title="View all posts">{{ i }}</a></li>
+                                    {% for i in 2011..oldest %}
+                                    <li class="cat-item"><a href="/blog/archives/{{ i }}" title="View all posts">{{ i }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </li>

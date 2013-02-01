@@ -20,6 +20,7 @@ $app->get('/blog(/:page)', function ($page = 0) use ($app) {
 
     $arr['categories'] = getTagCloud();
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
+    $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
 
     $app->render('blog.twig', $arr);
 })->conditions(array('page' => '\d'));
@@ -48,6 +49,7 @@ $app->get('/blog/category/:category(/:page)', function($category, $page = 0) use
 
     $arr['categories'] = getTagCloud();
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
+    $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
 
     $app->render('blog.twig', $arr);
 })->conditions(array('page' => '\d'));
@@ -65,6 +67,7 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
 
     $arr['categories'] = getTagCloud();
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
+    $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
 
     $arr['comments'] = $arr['post']->ownComment;
 
