@@ -27,7 +27,7 @@
 
                         <ul>
                             <li class="block">
-                                <h4><a href="/categories" title="View all categories">CATEGORIES</a></h4>
+                                <h4><a href="/blog" title="View all categories">CATEGORIES</a></h4>
                                 <span id="tags">
                                     {% for category in categories %}
                                         <a href="/blog/category/{{ category.title }}" rel="{{ category.count }}" title="View all posts tagged {{ category.title }}">{{ category.title }}</a>
@@ -36,11 +36,11 @@
                             </li>
 
                             <li class="block">
-                                <h4><a href="/archives" title="View all archives">ARCHIVES</a></h4>
+                                <h4><a href="/blog" title="View all archives">ARCHIVES</a></h4>
                                 <ul>
                                     {% set last = '' %}
                                     {% for month in archives if month.date|date('F') != last %}
-                                    <li class="cat-item"><a href="/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
+                                    <li class="cat-item"><a href="/blog/archives/{{ month.date|date('Y') }}/{{ month.date|date('m') }}" title="View all posts">{{ month.date|date('F') }}</a></li>
                                     {% set last = month.date|date('F') %}
                                     {% endfor %}
                                     {% for i in 2011..oldest %}
