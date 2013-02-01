@@ -55,6 +55,43 @@ $app->get('/blog/category/:category(/:page)', function($category, $page = 0) use
     $app->render('blog.twig', $arr);
 })->conditions(array('page' => '\d'));
 
+$app->get('/blog/archives/:year(/:month(/:page))', function($year, $month = 0, $page = 0) use ($app) {
+    $arr = array();
+    $arr['title'] = 'Blog :: LukeKorth.com';
+    $arr['page']['number'] = $page;
+    $arr['page']['name'] = 'blog';
+    $arr['link'] = '/archives/' . $year . '/' . $month;
+
+    if($month == 0) {
+        $start = $year . '-01-01';
+        $end = $year . '-12-31';
+    } else {
+        $start = $year . '-' . (($month < 9) ? '0' : '') . $month . '-01';
+        $end = $year . '-' . (($month < 9) ? '0' : '') . $month . '-' . cal_days_in_month(CAL_GREGORIAN, $month, $year);
+    }
+
+    $arr['posts'] = R::findAll('post', ' WHERE date BETWEEN :start AND :end ORDER BY date DESC ',
+        array(':start' => $start, ':end' => $end));
+
+    if (count($arr['posts']) > ($page * 3) + 3)
+        $arr['morePosts'] = true;
+    else
+        $arr['morePosts'] = false;
+
+    $arr['posts'] = array_slice($arr['posts'], ($page * 3), 3);
+
+    R::preload($arr['posts'], array('author'));
+    foreach($arr['posts'] as $key => $value) {
+        $arr['posts'][$key]['categories'] = R::tag($value);
+    }
+
+    $arr['categories'] = getTagCloud();
+    $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
+    $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
+
+    $app->render('blog.twig', $arr);
+});
+
 $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) {
     session_name('lukekorth');
     session_start();
