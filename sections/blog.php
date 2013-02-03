@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/blog(/:page)', function ($page = 0) use ($app) {
+$app->get('/blog(/:page)/?', function ($page = 0) use ($app) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['number'] = $page;
@@ -25,7 +25,7 @@ $app->get('/blog(/:page)', function ($page = 0) use ($app) {
     $app->render('blog.twig', $arr);
 })->conditions(array('page' => '\d'));
 
-$app->get('/blog/category/:category(/:page)', function($category, $page = 0) use ($app) {
+$app->get('/blog/category/:category(/:page)/?', function($category, $page = 0) use ($app) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['number'] = $page;
@@ -55,7 +55,7 @@ $app->get('/blog/category/:category(/:page)', function($category, $page = 0) use
     $app->render('blog.twig', $arr);
 })->conditions(array('page' => '\d'));
 
-$app->get('/blog/archives/:year(/:month(/:page))', function($year, $month = 0, $page = 0) use ($app) {
+$app->get('/blog/archives/:year(/:month(/:page))/?', function($year, $month = 0, $page = 0) use ($app) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['number'] = $page;
@@ -92,10 +92,10 @@ $app->get('/blog/archives/:year(/:month(/:page))', function($year, $month = 0, $
     $app->render('blog.twig', $arr);
 });
 
-$app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) {
     session_name('lukekorth');
     session_start();
 
+$app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app) {
     $arr = array();
     $arr['page']['name'] = 'blog';
     $arr['post'] = R::findOne('post', ' link = ? ', array($link));
@@ -141,7 +141,7 @@ $app->get('/blog/:link(/:comments)', function($link, $comments = '') use ($app) 
     $app->render('post.twig', $arr);
 });
 
-$app->post('/blog/kudos/:action/:post', function($action, $post) use ($app) {
+$app->post('/blog/kudos/:action/:post/?', function($action, $post) use ($app) {
     $post = R::load('post', $post);
 
     if($action == 'give')

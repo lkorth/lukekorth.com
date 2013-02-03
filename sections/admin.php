@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/admin', function () use ($app) {
+$app->get('/admin/?', function () use ($app) {
     require_ssl($app);
 
     session_name('lukekorth');
@@ -37,7 +37,7 @@ $app->get('/admin', function () use ($app) {
     }
 });
 
-$app->post('/admin', function () use ($app) {
+$app->post('/admin/?', function () use ($app) {
     require_ssl($app);
 
     session_name('lukekorth');
