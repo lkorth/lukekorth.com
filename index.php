@@ -1,5 +1,8 @@
 <?php
 
+session_name('lukekorth');
+session_start();
+
 require('../config-dev.php');
 require('vendor/autoload.php');
 require('vendor/php-markdown-extra/markdown.php');
@@ -36,8 +39,19 @@ $twig->addFilter('time_ago', new Twig_Filter_Function('time_ago'));
 $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
 $twig->addGlobal('pjax', PJAX);
 
+if(PJAX && isset($_SESSION['redirect'])) {
+    if(substr($_SERVER['REQUEST_URI'], 1) == $_SESSION['redirect']) {
+        $response = $app->response();
+        $response['X-PJAX-URL'] = $_SESSION['redirect'];
+    }
+    unset($_SESSION['redirect']);
+}
+
 // default route
 $app->get('/', function () use ($app) {
+    if(PJAX)
+        $_SESSION['redirect'] = 'blog';
+
     $app->redirect('blog');
     $app->stop();
 });
