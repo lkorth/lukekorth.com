@@ -92,9 +92,6 @@ $app->get('/blog/archives/:year(/:month(/:page))/?', function($year, $month = 0,
     $app->render('blog.twig', $arr);
 });
 
-    session_name('lukekorth');
-    session_start();
-
 $app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app) {
     $arr = array();
     $arr['page']['name'] = 'blog';
