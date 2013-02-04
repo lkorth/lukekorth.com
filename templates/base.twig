@@ -28,14 +28,7 @@
                 </div>
             </div>
         </footer>
-
         <script src="/min/?g=js&1234"></script>
-
-        <script>
-            $(document).ready(function() {
-                $('#content').pjax('a');
-            });
-        </script>
-        {% block beforebodyclose %}{% endblock %}
+        {% block js %}{% endblock %}
     </body>
 </html>

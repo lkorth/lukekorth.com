@@ -85,9 +85,11 @@
     <!-- ENDS posts list -->
 {% endblock %}
 
-{% block beforebodyclose %}
+{% block js %}
     <script>
+        {% if pjax != true %}
         $(document).ready(function() {
+        {% endif %}
             // initialize kudos
             $("figure.kudoable").kudoable();
 
@@ -111,6 +113,8 @@
             {% if commentList %}
             scrollToComments();
             {% endif %}
+        {% if pjax != true %}
         });
+        {% endif %}
     </script>
 {% endblock %}
