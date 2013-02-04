@@ -34,22 +34,7 @@
         <script>
             $(document).ready(function() {
                 $('#content').pjax('a');
-
-                $(document).on('pjax:complete', function() {
-                    initTagCloud();
-                });
-
-                initTagCloud();
             });
-
-            function initTagCloud(){
-                $.fn.tagcloud.defaults = {
-                    size: {start: 1, end: 2, unit: 'em'},
-                    color: {start: '#838FDE', end: '#0169be'}
-                };
-
-                $('#tags a').tagcloud();
-            }
         </script>
         {% block beforebodyclose %}{% endblock %}
     </body>
