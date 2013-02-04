@@ -90,23 +90,25 @@
         {% if pjax != true %}
         $(document).ready(function() {
         {% endif %}
+            var postId = 'kudo{{ post.id }}';
+
             // initialize kudos
             $("figure.kudoable").kudoable();
 
-            if($.cookie('{{ post.id }}') == 'true')
+            if($.cookie(postId) == 'true')
                 $("figure.kudoable").removeClass("animate").addClass("complete");
 
             // after kudo'd
             $("figure.kudo").bind("kudo:added", function(e) {
                 $.post('/blog/kudos/give/{{ post.id }}', function(data) {
-                    $.cookie('{{ post.id }}', 'true', { expires: 7 });
+                    $.cookie(postId, 'true', { expires: 7 });
                 });
             });
 
             // after removing a kudo
             $("figure.kudo").bind("kudo:removed", function(e) {
                 $.post('/blog/kudos/take/{{ post.id }}', function(data) {
-                    $.removeCookie({{ post.id }});
+                    $.removeCookie(postId);
                 });
             });
 
