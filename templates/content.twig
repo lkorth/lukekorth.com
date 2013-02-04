@@ -58,5 +58,17 @@
     </div>
 </div>
 <!-- ENDS MAIN -->
-{% block js %}{% endblock %}
+{% if pjax %}
+    {% autoescape false %}
+        {{ js }}
+    {% endautoescape %}
+{% endif %}
+{% endblock %}
+
+{% block jsbase %}
+    {% if pjax != true %}
+        {% autoescape false %}
+            {{ js }}
+        {% endautoescape %}
+    {% endif %}
 {% endblock %}

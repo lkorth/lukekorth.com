@@ -85,7 +85,7 @@
     <!-- ENDS posts list -->
 {% endblock %}
 
-{% block js %}
+{% set js %}
     <script>
         {% if pjax != true %}
         $(document).ready(function() {
@@ -117,4 +117,4 @@
         });
         {% endif %}
     </script>
-{% endblock %}
+{% endset %}
