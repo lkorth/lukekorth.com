@@ -37,7 +37,7 @@
                             {% set cnt = cnt + 1 %}
                         {% endfor %}
                 </div>
-                <div class="comments"><a href="javascript:scrollToComments();">{% if post.ownComment.count > 0 %}{{ post.ownComment.count }}{% else %}0{% endif %} {% if post.ownComment.count == 1 %}comment{% else %}comments{% endif %}</a></div>
+                <div class="comments"><a href="javascript:scrollToComments();">{% if post.ownComment|length > 0 %}{{ post.ownComment|length }}{% else %}0{% endif %} {% if post.ownComment|length == 1 %}comment{% else %}comments{% endif %}</a></div>
                 <div class="user"><a href="/about">By {{ post.author.name }}</a></div>
             </div>
 

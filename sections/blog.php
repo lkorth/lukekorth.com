@@ -15,6 +15,7 @@ $app->get('/blog(/:page)/?', function ($page = 0) use ($app) {
         $arr['morePosts'] = false;
 
     foreach($arr['posts'] as $key => $value) {
+        $arr['posts'][$key]->ownComment;
         $arr['posts'][$key]['categories'] = R::tag($value);
     }
 
