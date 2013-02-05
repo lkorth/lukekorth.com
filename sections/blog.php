@@ -46,6 +46,7 @@ $app->get('/blog/category/:category(/:page)/?', function($category, $page = 0) u
 
     R::preload($arr['posts'], array('author'));
     foreach($arr['posts'] as $key => $value) {
+        $arr['posts'][$key]->ownComment;
         $arr['posts'][$key]['categories'] = R::tag($value);
     }
 
@@ -83,6 +84,7 @@ $app->get('/blog/archives/:year(/:month(/:page))/?', function($year, $month = 0,
 
     R::preload($arr['posts'], array('author'));
     foreach($arr['posts'] as $key => $value) {
+        $arr['posts'][$key]->ownComment;
         $arr['posts'][$key]['categories'] = R::tag($value);
     }
 
