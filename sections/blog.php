@@ -113,7 +113,7 @@ $app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app
 
     $form = new PFBC\Form('commentform');
     $form->configure(array(
-        'action' => '/comment',
+        'action' => '/blog/comment',
         'ajax' => 1,
         'ajaxCallback' => 'commentForm',
         'view' => new PFBC\View\RightLabel,
@@ -137,6 +137,40 @@ $app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app
     $arr['form'] = $form;
 
     $app->render('post.twig', $arr);
+});
+
+$app->post('/blog/comment/?', function() use ($app) {
+    if($app->request()->post('form') !== null) {
+        if(PFBC\Form::isValid($app->request()->post('form'))) {
+            $post = R::load('post', $app->request()->post('postId'));
+
+            $comment = R::dispense('comment');
+            $comment->author = trim($app->request()->post('author'));
+            $comment->email = trim(strtolower($app->request()->post('email')));
+            $comment->gravatar = md5($comment->email);
+            $comment->website = trim(strtolower($app->request()->post('website')));
+
+            if(!startsWith($comment->website, 'http://') &&
+                !startsWith($comment->website, 'https://') &&
+                !startsWith($comment->website, 'www.'))
+                    $comment->website = 'http://' . $comment->website;
+
+            $comment->comment = $app->request()->post('comment');
+            $comment->time = time();
+
+            $post->ownComment[] = $comment;
+            R::store($comment);
+            R::store($post);
+
+            $arr = array();
+            $arr['post'] = $post;
+            $arr['comments'] = $arr['post']->ownComment;
+
+            $app->render('comments.twig', $arr);
+        } else {
+            PFBC\Form::renderAjaxErrorResponse($app->request()->post('form'));
+        }
+    }
 });
 
 $app->post('/blog/kudos/:action/:post/?', function($action, $post) use ($app) {

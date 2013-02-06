@@ -1,6 +1,11 @@
 {% extends 'content.twig' %}
 
 {% block main %}
+<script>
+    function commentForm(response) {
+        $('#comments-wrap').html(response);
+    }
+</script>
 <!-- posts list -->
 <div id="posts-list" class="single-post">
 
@@ -52,7 +57,11 @@
 
                         <div id="comment-{{ commentCount }}" class="comment-body clearfix">
                             <img src='http://gravatar.com/avatar/{{ comment.gravatar }}?s=60&amp;d=&amp;r=G' class='avatar avatar-60 photo' />
+                            {% if comment.website != '' %}
+                            <div class="comment-author vcard"><a href="{{ comment.website }}">{{ comment.author }}</a></div>
+                            {% else %}
                             <div class="comment-author vcard">{{ comment.author }}</div>
+                            {% endif %}
                             <div class="comment-meta commentmetadata">
                                 <span class="comment-date">{{ comment.time|time_ago }}  </span>
                             </div>
