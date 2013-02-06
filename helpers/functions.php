@@ -8,6 +8,19 @@ function max_words($str, $num, $suffix = '') {
         return implode(' ', array_slice($words, 0, $num)) . $suffix;
 }
 
+function startsWith($haystack, $needle) {
+    return !strncmp($haystack, $needle, strlen($needle));
+}
+
+function endsWith($haystack, $needle) {
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
+}
+
 // Returns an English representation of a date
 // Graciously stolen from http://ejohn.org/files/pretty.js
 function time_ago($time) {
