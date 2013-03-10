@@ -1,10 +1,11 @@
 {
     "require": {
-		"gabordemooij/redbean": "dev-master",
-		"twig/twig": "dev-master",
-		"pfbc/pfbc": "dev-master",
-		"slim/extras": "dev-master",
-        "slim/slim": "dev-master",
-		"fzaninotto/faker": "dev-master"
+        "silex/silex": "1.0.*@dev",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "symfony/twig-bridge": "~2.1",
+        "nicl/silex-markdown": "1.0.*",
+        "devture/silex-provider-pjax": "dev-master",
+        "gabordemooij/redbean": "dev-master",
+        "fzaninotto/faker": "dev-master"
     }
 }
