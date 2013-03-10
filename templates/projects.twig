@@ -1,0 +1,37 @@
+{% extends 'content.twig' %}
+
+{% block main %}
+<h2 class="page-heading"><span>WORK</span></h2>
+
+<!-- thumbs -->
+<div class="portfolio-thumbs clearfix" >
+    <figure>
+        <figcaption>
+            <strong>Pellentesque habitant morbi</strong>
+            <span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+            <em>December 08, 2011</em>
+            <a href="project.html" class="opener"></a>
+        </figcaption>
+
+        <a href="project.html"  class="thumb"><img src="img/dummies/featured-1.jpg" alt="Alt text" /></a>
+    </figure>
+</div>
+<!-- ends thumbs-->
+
+{% if projects.count > 9 %}
+<ul class="pager">
+    <li class="paged">Page {{ page.number }} of {{ (projects / 9)|ceil }}</li>
+    {% for i in 1..page.number %}
+    <li><a href="/projects/{{ i }}">{{ i }}</a></li>
+    {% endfor %}
+    <li class="active"><a>{{ page.number }}</a></li>
+    {% for j in (page.number + 1)..((projects / 9)|ceil) %}
+    <li><a href="/projects/{{ j }}">{{ j }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="clearfix"></div>
+
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
