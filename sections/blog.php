@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/blog(/:page)/?', function ($page = 0) use ($app) {
+$app->get('/blog/{page}', function (Silex\Application $app, $page) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['number'] = $page;
@@ -23,10 +23,11 @@ $app->get('/blog(/:page)/?', function ($page = 0) use ($app) {
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
     $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
 
-    $app->render('blog.twig', $arr);
-})->conditions(array('page' => '\d'));
+    return $app->render('blog.twig', $arr);
+})->value('page', 0)
+  ->assert('page', '\d+');
 
-$app->get('/blog/category/:category(/:page)/?', function($category, $page = 0) use ($app) {
+$app->get('/blog/category/{category}/{page}', function(Silex\Application $app, $category, $page) use ($app) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['number'] = $page;
@@ -54,10 +55,11 @@ $app->get('/blog/category/:category(/:page)/?', function($category, $page = 0) u
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
     $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
 
-    $app->render('blog.twig', $arr);
-})->conditions(array('page' => '\d'));
+    return $app->render('blog.twig', $arr);
+})->value('page', 0)
+  ->assert('page', '\d+');
 
-$app->get('/blog/archives/:year(/:month(/:page))/?', function($year, $month = 0, $page = 0) use ($app) {
+$app->get('/blog/archives/{year}/{month}/{page}', function(Silex\Application $app, $year, $month, $page) {
     $arr = array();
     $arr['title'] = 'Blog :: LukeKorth.com';
     $arr['page']['number'] = $page;
@@ -92,10 +94,12 @@ $app->get('/blog/archives/:year(/:month(/:page))/?', function($year, $month = 0,
     $arr['archives'] = R::findAll('post', ' WHERE date > ? ORDER BY date DESC ', array((date('Y') - 1) . '-01-01 00:00:00'));
     $arr['oldest'] = date('Y', strtotime(R::getCell('SELECT date FROM post ORDER BY date ASC LIMIT 1')));
 
-    $app->render('blog.twig', $arr);
-});
+    return $app->render('blog.twig', $arr);
+})->value('month', 0)
+  ->value('page', 0)
+  ->assert('page', '\d+');
 
-$app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app) {
+$app->get('/blog/{link}/{comments}', function(Silex\Application $app, $link, $comments) {
     $arr = array();
     $arr['page']['name'] = 'blog';
     $arr['post'] = R::findOne('post', ' link = ? ', array($link));
@@ -149,10 +153,10 @@ $app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app
 
     $arr['form'] = $form;
 
-    $app->render('post.twig', $arr);
-});
+    return $app->render('post.twig', $arr);
+})->value('comments', '');
 
-$app->post('/blog/comment/?', function() use ($app) {
+$app->post('/blog/comment', function(Silex\Application $app) {
     if($app->request()->post('form') !== null) {
         if(PFBC\Form::isValid($app->request()->post('form'))) {
             $post = R::load('post', $app->request()->post('postId'));
@@ -179,14 +183,14 @@ $app->post('/blog/comment/?', function() use ($app) {
             $arr['post'] = $post;
             $arr['comments'] = $arr['post']->ownComment;
 
-            $app->render('comments.twig', $arr);
+            return $app->render('comments.twig', $arr);
         } else {
             PFBC\Form::renderAjaxErrorResponse($app->request()->post('form'));
         }
     }
 });
 
-$app->post('/blog/kudos/:action/:post/?', function($action, $post) use ($app) {
+$app->post('/blog/kudos/{action}/{post}', function(Silex\Application $app, $action, $post) {
     $post = R::load('post', $post);
 
     if($action == 'give')
@@ -196,7 +200,7 @@ $app->post('/blog/kudos/:action/:post/?', function($action, $post) use ($app) {
 
     R::store($post);
 
-    echo '200';
+    return '200';
 });
 
 function orderPosts($a, $b) {
