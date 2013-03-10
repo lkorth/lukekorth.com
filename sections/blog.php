@@ -112,13 +112,26 @@ $app->get('/blog/:link(/:comments)/?', function($link, $comments = '') use ($app
         $arr['commentList'] = true;
 
     $form = new PFBC\Form('commentform');
-    $form->configure(array(
-        'action' => '/blog/comment',
-        'ajax' => 1,
-        'ajaxCallback' => 'commentForm',
-        'view' => new PFBC\View\RightLabel,
-        'prevent' => array('bootstrap', 'jQuery')
-    ));
+
+    if(PJAX) {
+        $form->configure(array(
+            'action' => '/blog/comment',
+            'alternateJsInit' => 'jQuery(document).on(\'pjax:complete\', function() {
+            checkCaptcha();',
+            'ajax' => 1,
+            'ajaxCallback' => 'commentForm',
+            'view' => new PFBC\View\RightLabel,
+            'prevent' => array('bootstrap', 'jQuery', 'focus')
+        ));
+    } else {
+        $form->configure(array(
+            'action' => '/blog/comment',
+            'ajax' => 1,
+            'ajaxCallback' => 'commentForm',
+            'view' => new PFBC\View\RightLabel,
+            'prevent' => array('bootstrap', 'jQuery', 'focus')
+        ));
+    }
     $form->addElement(new PFBC\Element\HTML('<h3 class="heading">LEAVE A REPLY</h3>'));
     $form->addElement(new PFBC\Element\Hidden('form', 'commentform'));
     $form->addElement(new PFBC\Element\Hidden('postId', $arr['post']->id));
