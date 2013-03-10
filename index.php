@@ -37,6 +37,7 @@ $twig = $app->view()->getEnvironment();
 $twig->addFilter('max_words', new Twig_Filter_Function('max_words'));
 $twig->addFilter('time_ago', new Twig_Filter_Function('time_ago'));
 $twig->addFilter('markdown', new Twig_Filter_Function('Markdown'));
+$twig->addFilter('ceil', new Twig_Filter_Function('ceil'));
 $twig->addGlobal('pjax', PJAX);
 
 if(PJAX && isset($_SESSION['redirect'])) {
