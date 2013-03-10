@@ -63,6 +63,8 @@ else if($uri[1] === 'about')
     require('sections/about.php');
 else if($uri[1] === 'projects')
     require('sections/projects.php');
+else if($uri[1] === 'photos')
+    require('sections/photos.php');
 else if($uri[1] === 'contact')
     require('sections/contact.php');
 else if($uri[1] === 'admin')
