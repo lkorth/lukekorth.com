@@ -1,4 +1,4 @@
-{% extends pjax ? 'empty.twig' : 'base.twig' %}
+{% extends is_pjax() ? 'empty.twig' : 'base.twig' %}
 
 {% block content %}
 <header class="clearfix">
@@ -7,11 +7,11 @@
 
         <nav>
             <ul id="nav" class="sf-menu">
-                <li {% if page.name == 'blog' %}class="current-menu-item"{% endif %}><a href="/blog/">BLOG</a></li>
-                <li {% if page.name == 'about' %}class="current-menu-item"{% endif %}><a href="/about/">ABOUT</a></li>
-                <li {% if page.name == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects/">PROJECTS</a></li>
-                <li {% if page.name == 'photos' %}class="current-menu-item"{% endif %}><a href="/photos/">PHOTOS</a></li>
-                <li {% if page.name == 'contact' %}class="current-menu-item"{% endif %}><a href="/contact/">CONTACT</a></li>
+                <li {% if page.name == 'blog' %}class="current-menu-item"{% endif %}><a href="/blog">BLOG</a></li>
+                <li {% if page.name == 'about' %}class="current-menu-item"{% endif %}><a href="/about">ABOUT</a></li>
+                <li {% if page.name == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects">PROJECTS</a></li>
+                <li {% if page.name == 'photos' %}class="current-menu-item"{% endif %}><a href="/photos">PHOTOS</a></li>
+                <li {% if page.name == 'contact' %}class="current-menu-item"{% endif %}><a href="/contact">CONTACT</a></li>
             </ul>
         </nav>
         <div id="combo-holder"></div>
@@ -59,7 +59,7 @@
     </div>
 </div>
 <!-- ENDS MAIN -->
-{% if pjax %}
+{% if is_pjax() %}
     {% autoescape false %}
         {{ js }}
     {% endautoescape %}
@@ -67,7 +67,7 @@
 {% endblock %}
 
 {% block jsbase %}
-    {% if pjax != true %}
+    {% if not is_pjax() %}
         {% autoescape false %}
             {{ js }}
         {% endautoescape %}

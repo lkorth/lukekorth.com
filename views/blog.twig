@@ -1,0 +1,62 @@
+{% extends 'content.twig' %}
+
+{% block main %}
+<!-- posts list -->
+<div id="posts-list">
+
+    <h2 class="page-heading"><span>BLOG</span></h2>
+        {% for post in posts %}
+            <article class="format-standard">
+                <div class="entry-date"><div class="number">{{ post.date|date('d') }}</div>
+                    <div class="year">{{ post.date|date('M, Y') }}</div></div>
+                {% if post.picture %}
+                    <div class="feature-image">
+                        <a href="/media/{{ post.picture }}" data-rel="prettyPhoto"><img src="/media/{{ post.picture }}" /></a>
+                    </div>
+                {% endif %}
+                <h2  class="post-heading"><a href="/blog/{{ post.link }}">{{ post.title }}</a></h2>
+                {% autoescape false %}
+                <div class="excerpt">{{ post.text|markdown|max_words(80, '...') }}</div>
+                {% endautoescape %}
+                <a href="/blog/{{ post.link }}" class="read-more">read more &#8594;</a>
+                <div class="meta">
+                    <div class="categories">In
+                        {% set cnt = 1 %}
+                        {% for tag in post.categories %}
+                            <a href="/blog/category/{{ tag }}">{{ tag }}</a>{% if cnt < post.categories|length %},{% endif %}
+                            {% set cnt = cnt + 1 %}
+                        {% endfor %}
+                    </div>
+                    <div class="comments"><a href="/blog/{{ post.link }}/comment-list">{% if post.ownComment|length > 0 %}{{ post.ownComment|length }}{% else %}0{% endif %} {% if post.ownComment|length == 1 %}comment{% else %}comments{% endif %}</a></div>
+                    <div class="user"><a href="/about/">By {{ post.author.name }}</a></div>
+                </div>
+            </article>
+        {% endfor %}
+
+    <!-- page-navigation -->
+    <div class="page-navigation clearfix">
+        {% if morePosts %}
+            <div class="nav-next">
+                <a href="/blog{{ link }}/{{ page.number + 1 }}">&#8592; Older Entries </a>
+            </div>
+        {% endif %}
+        {% if page.number != 0 %}
+            <div class="nav-previous">
+                {% if page.number - 1 == 0 %}
+                    <a href="/blog{{ link }}">Newer Entries &#8594;</a>
+                {% else %}
+                    <a href="/blog{{ link }}/{{ page.number - 1 }}">Newer Entries &#8594;</a>
+                {% endif %}
+            </div>
+        {% endif %}
+        <!--ENDS page-navigation -->
+
+    </div>
+
+</div>
+<!-- ENDS posts list -->
+{% endblock %}
+
+{% set js %}
+    <script>initTagCloud();</script>
+{% endset %}
