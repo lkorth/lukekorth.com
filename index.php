@@ -69,6 +69,8 @@ else if($uri[1] === 'contact')
     require('sections/contact.php');
 else if($uri[1] === 'admin')
     require('sections/admin.php');
+else if($uri[1] === 'atom' || $uri[1] === 'rss')
+    require('sections/services.php');
 //require('sections/faker.php');
 
 $app->run();
