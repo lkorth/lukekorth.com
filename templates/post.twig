@@ -129,5 +129,19 @@
         {% if pjax != true %}
         });
         {% endif %}
+
+        {% if pjax %}
+        function checkCaptcha() {
+            if (!RecaptchaState) {
+                setTimeout("checkCaptcha", 100);
+                return;
+            } else {
+                var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.src = RecaptchaState.server + "js/recaptcha.js";
+                $("head").append(s);
+            }
+        }
+        {% endif %}
     </script>
 {% endset %}
