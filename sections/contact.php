@@ -1,9 +1,9 @@
 <?php
 
-$app->get('/contact/?', function () use ($app) {
+$app->get('/contact', function (Silex\Application $app) {
     $arr = array();
     $arr['title'] = 'Contact :: LukeKorth.com';
     $arr['page']['name'] = 'contact';
 
-    $app->render('contact.twig', $arr);
+    return $app->render('contact.twig', $arr);
 });

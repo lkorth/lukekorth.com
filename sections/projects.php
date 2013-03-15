@@ -1,9 +1,9 @@
 <?php
 
-$app->get('/projects/?', function () use ($app) {
+$app->get('/projects', function (Silex\Application $app) {
     $arr = array();
     $arr['title'] = 'Work :: LukeKorth.com';
     $arr['page']['name'] = 'projects';
 
-    $app->render('projects.twig', $arr);
+    return $app->render('projects.twig', $arr);
 });
