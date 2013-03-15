@@ -59,7 +59,7 @@
     </div>
 </div>
 <!-- ENDS MAIN -->
-{% if is_pjax() %}
+{% if is_pjax() and js is defined %}
     {% autoescape false %}
         {{ js }}
     {% endautoescape %}
@@ -67,7 +67,7 @@
 {% endblock %}
 
 {% block jsbase %}
-    {% if not is_pjax() %}
+    {% if not is_pjax() and js is defined %}
         {% autoescape false %}
             {{ js }}
         {% endautoescape %}
