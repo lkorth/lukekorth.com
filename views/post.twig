@@ -96,7 +96,7 @@
 
 {% set js %}
     <script>
-        {% if pjax != true %}
+        {% if not is_pjax() %}
         $(document).ready(function() {
         {% endif %}
             var postId = 'kudo{{ post.id }}';
@@ -126,11 +126,11 @@
             {% if commentList %}
             scrollToComments();
             {% endif %}
-        {% if pjax != true %}
+        {% if not is_pjax() %}
         });
         {% endif %}
 
-        {% if pjax %}
+        {% if is_pjax() %}
         function checkCaptcha() {
             if (!RecaptchaState) {
                 setTimeout("checkCaptcha", 100);
