@@ -28,7 +28,7 @@
                         {% endfor %}
                     </div>
                     <div class="comments"><a href="/blog/{{ post.link }}/comment-list">{% if post.ownComment|length > 0 %}{{ post.ownComment|length }}{% else %}0{% endif %} {% if post.ownComment|length == 1 %}comment{% else %}comments{% endif %}</a></div>
-                    <div class="user"><a href="/about/">By {{ post.author.name }}</a></div>
+                    <div class="user"><a href="/about">By {{ post.author.name }}</a></div>
                 </div>
             </article>
         {% endfor %}
