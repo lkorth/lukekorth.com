@@ -1,5 +1,5 @@
 {
-    "hash": "a4cf9542e6e8f419f1c69ca418e726a3",
+    "hash": "88cfe208076b448c5fb959c03fa2a0d4",
     "packages": [
         {
             "name": "devture/silex-provider-pjax",
@@ -146,12 +146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gabordemooij/redbean.git",
-                "reference": "a43f17d564d426c58b1b73c0d584b3729cdc8e79"
+                "reference": "a877ac602fe830e57ed4292239ccf16643083ed4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/a43f17d564d426c58b1b73c0d584b3729cdc8e79",
-                "reference": "a43f17d564d426c58b1b73c0d584b3729cdc8e79",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/a877ac602fe830e57ed4292239ccf16643083ed4",
+                "reference": "a877ac602fe830e57ed4292239ccf16643083ed4",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 {
                     "name": "Gabor de Mooij",
                     "email": "gabordemooij@gmail.com",
-                    "homepage": "http://www.stampte.com",
+                    "homepage": "http://www.redbeanphp.com",
                     "role": "Developer"
                 }
             ],
@@ -181,7 +181,7 @@
                 "Object Relational Mapping",
                 "orm"
             ],
-            "time": "2013-03-03 12:48:54"
+            "time": "2013-03-16 13:44:06"
         },
         {
             "name": "nicl/silex-markdown",
@@ -391,6 +391,51 @@
                 "microframework"
             ],
             "time": "2013-03-08 16:56:52"
+        },
+        {
+            "name": "silex/web-profiler",
+            "version": "v1.0.0",
+            "target-dir": "Silex/Provider",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/Silex-WebProfiler.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/Silex-WebProfiler/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "silex/silex": ">=1.0,<2.0",
+                "symfony/stopwatch": ">=2.2,<3.0",
+                "symfony/web-profiler-bundle": ">=2.2,<3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Silex\\Provider\\": ""
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "A WebProfiler for Silex",
+            "homepage": "http://silex.sensiolabs.org/",
+            "time": "2013-03-08 07:16:44"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -624,6 +669,53 @@
             "time": "2013-02-11 11:24:47"
         },
         {
+            "name": "symfony/stopwatch",
+            "version": "v2.2.0",
+            "target-dir": "Symfony/Component/Stopwatch",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Stopwatch.git",
+                "reference": "v2.2.0-RC3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Stopwatch\\": ""
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Stopwatch Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-01-04 16:58:00"
+        },
+        {
             "name": "symfony/twig-bridge",
             "version": "v2.2.0",
             "target-dir": "Symfony/Bridge/Twig",
@@ -688,6 +780,61 @@
             "description": "Symfony Twig Bridge",
             "homepage": "http://symfony.com",
             "time": "2013-03-01 06:43:14"
+        },
+        {
+            "name": "symfony/web-profiler-bundle",
+            "version": "v2.2.0",
+            "target-dir": "Symfony/Bundle/WebProfilerBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/WebProfilerBundle.git",
+                "reference": "v2.2.0-RC3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/WebProfilerBundle/zipball/v2.2.0-RC3",
+                "reference": "v2.2.0-RC3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/http-kernel": ">=2.2,<2.3-dev",
+                "symfony/routing": ">=2.2,<2.3-dev",
+                "symfony/twig-bridge": "2.2.*"
+            },
+            "require-dev": {
+                "symfony/config": ">=2.2,<2.3-dev",
+                "symfony/dependency-injection": ">=2.0,<3.0",
+                "symfony/stopwatch": ">=2.2,<2.3-dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Bundle\\WebProfilerBundle\\": ""
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony WebProfilerBundle",
+            "homepage": "http://symfony.com",
+            "time": "2013-02-15 09:53:40"
         },
         {
             "name": "twig/twig",

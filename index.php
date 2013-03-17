@@ -15,6 +15,8 @@ class CustomApplication extends \Silex\Application {
 }
 
 $app = new CustomApplication();
+$app->register(new Silex\Provider\ServiceControllerServiceProvider());
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
     'twig.options' => array(
@@ -31,7 +33,13 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 }));
 $app->register(new \Nicl\Silex\MarkdownServiceProvider());
 $app->register(new \Devture\SilexProvider\PJAX\ServicesProvider());
+
 $app['debug'] = true;
+$app['debug'] = true;
+$app->register($p = new \Silex\Provider\WebProfilerServiceProvider(), array(
+    'profiler.cache_dir' => __DIR__ . '/cache/profiler',
+));
+$app->mount('/_profiler', $p);
 
 // default route
 $app->get('/', function (Silex\Application $app) {
