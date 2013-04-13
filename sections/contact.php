@@ -7,3 +7,7 @@ $app->get('/contact', function (Silex\Application $app) {
 
     return $app->render('contact.twig', $arr);
 });
+
+$app->post('/contact', function (Silex\Application $app) {
+
+});

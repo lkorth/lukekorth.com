@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/admin/?', function () use ($app) {
+$app->get('/admin', function (Silex\Application $app) {
     require_ssl($app);
 
     session_name('lukekorth');
@@ -33,11 +33,11 @@ $app->get('/admin/?', function () use ($app) {
 
         $arr['form'] = $form;
 
-        $app->render('login.twig', $arr);
+        return $app->render('login.twig', $arr);
     }
 });
 
-$app->post('/admin/?', function () use ($app) {
+$app->post('/admin', function (Silex\Application $app) {
     require_ssl($app);
 
     session_name('lukekorth');

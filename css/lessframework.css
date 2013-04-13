@@ -61,7 +61,7 @@ px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	
-	
+
 	#nav {
 		display: block;
 	}
@@ -230,7 +230,7 @@ px      68    160    252    */
 	.one-fourth-thumbs figure { width: 100%; }
 	
 	/* nav */
-	
+
 	#nav>li{
 		display: block;
 		width: 252px;
@@ -254,7 +254,7 @@ px      68    160    252    */
 		position:relative;
 		width: 100%;
 	}
-	
+
 	/* headline */
 	
 	#slider-holder #headline{
@@ -363,6 +363,10 @@ px      68    160    252    */
 		padding-top: 5px;
 		font-size: 12px;
 	}
+
+    #posts-list figure.kudo {
+
+    }
 	
 	article .meta div{
 		padding: 10px 10px 10px 30px;

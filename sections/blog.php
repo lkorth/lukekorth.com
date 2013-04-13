@@ -115,6 +115,7 @@ $app->get('/blog/{link}/{comments}', function(Silex\Application $app, $link, $co
     if($comments != '')
         $arr['commentList'] = true;
 
+    /*
     $form = new PFBC\Form('commentform');
 
     if(PJAX) {
@@ -150,6 +151,7 @@ $app->get('/blog/{link}/{comments}', function(Silex\Application $app, $link, $co
     $form->addElement(new PFBC\Element\Textarea('', 'comment'));
     $form->addElement(new PFBC\Element\Captcha);
     $form->addElement(new PFBC\Element\Button('Post'));
+    */
 
     $arr['form'] = $form;
 
