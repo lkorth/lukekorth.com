@@ -1,16 +1,7 @@
-AddHandler x-mapp-php6 .php
-
-DefaultLanguage en-US
-AddDefaultCharset utf-8
-
-RewriteEngine On
-RewriteBase /
-
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [QSA,L]
+# Cache for 1 hour
+<filesMatch "\.(html)$">
+    Header set Cache-Control "max-age=3600, public"
+</filesMatch>
 
 # Cache for 1 week
 <filesMatch "\.(ico|woff|ttf|pdf|jpg|jpeg|png|gif)$">
