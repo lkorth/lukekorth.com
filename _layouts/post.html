@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<!-- posts list -->
+<div id="posts-list" class="single-post">
+
+    <h2 class="page-heading"><span>BLOG</span></h2>
+
+    <article class="format-standard">
+        <div class="entry-date"><div class="number">{{ page.date | date: "%e" }}</div>
+            <div class="year">{{ page.date | date: "%B, %Y" }}</div></div>
+
+        {% if page.picture %}
+        <div class="feature-image">
+            <a href="/media/{{ page.picture }}" data-rel="prettyPhoto"><img src="/media/{{ page.picture }}" /></a>
+        </div>
+        {% endif %}
+
+        <h2 class="post-heading"><a>{{ page.title }}</a></h2>
+        <div class="post-content">{{ content }}</div>
+
+        <div class="meta">
+            <div class="categories">In
+                {% if page.tags %}
+                    {% for tag in page.tags %}
+                        <a href="/blog/category/{{ tag }}">{{ tag }}</a>{% if forloop.last != true %},{% endif %}
+                    {% endfor %}
+                {% endif %}
+                </div>
+                <div class="comments"></div>
+                <div class="user"><a href="/about">By Luke</a></div>
+            </div>
+
+        </article>
+
+    </div>
+    <!-- ENDS posts list -->
