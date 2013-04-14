@@ -34,7 +34,34 @@
     </head>
     <body lang="en">
         <div id="content">
-            {{ content }}
+            <header class="clearfix">
+                <div class="wrapper">
+                    <a href="/" id="logo"><h1 style="color: #E2E0D7;">LukeKorth.com</h1></a>
+
+                    <nav>
+                        <ul id="nav" class="sf-menu">
+                            <li {% if page.tab == 'blog' %}class="current-menu-item"{% endif %}><a href="/blog">BLOG</a></li>
+                            <li {% if page.tab == 'about' %}class="current-menu-item"{% endif %}><a href="/about">ABOUT</a></li>
+                            <!--<li {% if page.tab == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects">PROJECTS</a></li>
+                            <li {% if page.tab == 'photos' %}class="current-menu-item"{% endif %}><a href="/photos">PHOTOS</a></li>-->
+                            <li {% if page.tab == 'contact' %}class="current-menu-item"{% endif %}><a href="/contact">CONTACT</a></li>
+                        </ul>
+                    </nav>
+                    <div id="combo-holder"></div>
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <div id="main">
+                <div class="wrapper clearfix">
+                    {{ content }}
+
+                {% if page.sidebar %}
+                    {% include sidebar.html %}
+                {% endif %}
+                </div>
+            </div>
+            <!-- ENDS MAIN -->
         </div>
 
         <footer>
