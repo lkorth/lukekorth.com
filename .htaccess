@@ -3,6 +3,10 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
+# Redirects
+Redirect / http://lukekorth.com/blog
+Redirect /apps https://play.google.com/store/search?q=luke+korth
+
 # Cache for 1 hour
 <filesMatch "\.(html)$">
     Header set Cache-Control "max-age=3600, public"
