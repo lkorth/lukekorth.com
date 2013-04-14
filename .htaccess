@@ -13,6 +13,10 @@ RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 Redirect / http://lukekorth.com/blog
 Redirect /apps https://play.google.com/store/search?q=luke+korth
 
+# Error handlers
+ErrorDocument 404 /error/
+ErrorDocument 500 /error/
+ErrorDocument 403 /error/
 
 # GZip
 <IfModule mod_deflate.c>
