@@ -13,12 +13,17 @@ RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 Redirect / http://lukekorth.com/blog
 Redirect /apps https://play.google.com/store/search?q=luke+korth
 
-# Cache for 1 hour
-<filesMatch "\.(html)$">
+# Cache html and xml for 1 hour
+<filesMatch "\.(html|xml)$">
     Header set Cache-Control "max-age=3600, public"
 </filesMatch>
 
 # Cache for 1 week
-<filesMatch "\.(ico|woff|ttf|pdf|jpg|jpeg|png|gif)$">
+<filesMatch "\.(ico|pdf|jpg|jpeg|png|gif)$">
     Header set Cache-Control "max-age=604800, public"
+</filesMatch>
+
+# Cache css, js and fonts for 1 year. Will cache bust for css and js
+<filesMatch "\.(css|js|woff|ttf)$">
+    Header set Cache-Control "max-age=31536000, public"
 </filesMatch>
