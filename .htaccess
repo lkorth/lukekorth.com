@@ -1,3 +1,8 @@
+# Rewrites
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 # Cache for 1 hour
 <filesMatch "\.(html)$">
     Header set Cache-Control "max-age=3600, public"
