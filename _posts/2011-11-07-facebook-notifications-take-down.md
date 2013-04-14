@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Facebook Notifications Take Down
-categories: Android, Facebook
+tags: [Android, Facebook]
 ---
 Facebook has sent me a DMCA takedown notice for copyright infringement so my Facebook Notifications
 app has been taken off the market. I am working to get it back on, but in the mean time you can

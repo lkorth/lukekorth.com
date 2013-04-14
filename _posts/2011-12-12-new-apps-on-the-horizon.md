@@ -1,7 +1,7 @@
 ---
 layout: post
 title: New Apps on the Horizon
-categories: Android
+tags: Android
 ---
 After some back and forth with a user of my Facebook Notifications
 app I've been looking at a few new ideas for apps. The services of
