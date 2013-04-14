@@ -2,6 +2,7 @@
 layout: post
 title: Not enough time
 tags: [Android, New Technology]
+tab: blog
 ---
 I have been hoping to work on my website recently to make it more
 functional and less ugly (not to mention post more) along with several apps
