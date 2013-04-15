@@ -2,7 +2,7 @@
 layout: post
 title: Not enough time
 tags: [Android, New Technology]
-tab: blog
+category: blog
 sidebar: true
 ---
 I have been hoping to work on my website recently to make it more

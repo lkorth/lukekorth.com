@@ -2,7 +2,7 @@
 layout: post
 title: Facebook Notifications Take Down
 tags: [Android, Facebook]
-tab: blog
+category: blog
 sidebar: true
 ---
 Facebook has sent me a DMCA takedown notice for copyright infringement so my Facebook Notifications

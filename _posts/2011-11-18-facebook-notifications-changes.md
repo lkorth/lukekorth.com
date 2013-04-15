@@ -2,7 +2,7 @@
 layout: post
 title: Facebook Notifications Changes
 tags: [Android, Facebook]
-tab: blog
+category: blog
 sidebar: true
 ---
 The app is back with a new name: Slk Notifications for Facebook. The logo and name change

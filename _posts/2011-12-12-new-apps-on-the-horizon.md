@@ -2,7 +2,7 @@
 layout: post
 title: New Apps on the Horizon
 tags: Android
-tab: blog
+category: blog
 sidebar: true
 ---
 After some back and forth with a user of my Facebook Notifications
