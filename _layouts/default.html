@@ -16,18 +16,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
-        <link rel="stylesheet" href="/css/reset.css" />
-        <link rel="stylesheet" href="/css/comments.css" />
-        <link rel="stylesheet" href="/css/widgets.css" />
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="/js/poshytip-1.1/src/tip-twitter/tip-twitter.css" />
-        <link rel="stylesheet" href="/js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css" />
-        <link rel="stylesheet" href="/css/fonts.css" />
-        <link rel="stylesheet" href="/css/flexslider.css" />
-        <link rel="stylesheet" href="/css/lessframework.css" />
-        <link rel="stylesheet" href="/css/skin.css" />
-        <link rel="stylesheet" href="/css/superfish.css"/>
-        <link rel="stylesheet" href="/js/prettyPhoto/css/prettyPhoto.css"/>
+        {% bundle %}
+            - /css/reset.css
+            - /css/comments.css
+            - /css/widgets.css
+            - /css/style.css
+            - /js/poshytip-1.1/src/tip-twitter/tip-twitter.css
+            - /js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css
+            - /css/fonts.css
+            - /css/flexslider.css
+            - /css/lessframework.css
+            - /css/skin.css
+            - /css/superfish.css
+            - /js/prettyPhoto/css/prettyPhoto.css
+        {% endbundle %}
 
         <script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
     </head>
@@ -80,17 +82,19 @@
             </div>
         </footer>
 
-        <script src="/js/jquery-1.8.3.min.js"></script>
-        <script src="/js/jquery.onready.js"></script>
-        <script src="/js/css3-mediaqueries.js"></script>
-        <script src="/js/tabs.js"></script>
-        <script src="/js/superfish-1.4.8/js/hoverIntent.js"></script>
-        <script src="/js/superfish-1.4.8/js/superfish.js"></script>
-        <script src="/js/superfish-1.4.8/js/supersubs.js"></script>
-        <script src="/js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
-        <script src="/js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
-        <script src="/js/jquery.flexslider-min.js"></script>
-        <script src="/js/modernizr.js"></script>
-        <script src="/js/custom.js"></script>
+        {% bundle %}
+            - /js/jquery-1.8.3.min.js
+            - /js/jquery.onready.js
+            - /js/css3-mediaqueries.js
+            - /js/tabs.js
+            - /js/superfish-1.4.8/js/hoverIntent.js
+            - /js/superfish-1.4.8/js/superfish.js
+            - /js/superfish-1.4.8/js/supersubs.js
+            - /js/prettyPhoto/js/jquery.prettyPhoto.js
+            - /js/poshytip-1.1/src/jquery.poshytip.min.js
+            - /js/jquery.flexslider-min.js
+            - /js/modernizr.js
+            - /js/custom.js
+        {% endbundle %}
     </body>
 </html>

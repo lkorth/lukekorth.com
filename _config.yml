@@ -4,3 +4,13 @@ paginate: 3
 # Only First P Plugin
 only_first_p:
     show_read_more_link: false
+
+# jekyll-asset_bundler plugin
+asset_bundler:
+  compress:
+    js: closure -o :outfile :infile
+    css: yuicompressor -o :outfile :infile
+  remove_bundled: true
+  markup_templates:
+    js: "<script src='{{url}}'></script>\n"
+    css: "<link rel='stylesheet' href='{{url}}' />\n"
