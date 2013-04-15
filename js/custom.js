@@ -107,9 +107,6 @@ jQuery(document).ready(function($) {
         location = this.options[this.selectedIndex].value;
     });
 
-    // enable pjax for all links in #content div
-    $('#content').pjax('a');
-
 //close			
 });
 
