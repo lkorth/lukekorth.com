@@ -19,7 +19,7 @@ sidebar: true
         </div>
         {% endif %}
 
-        <h2 class="post-heading"><a href="/blog/{{ post.link }}">{{ post.title }}</a></h2>
+        <h2 class="post-heading"><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <div class="excerpt">{{ post.content | only_first_p }}</div>
 
         <a href="{{ post.url }}" class="read-more">read more &#8594;</a>
