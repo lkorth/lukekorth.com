@@ -109,7 +109,3 @@ jQuery(document).ready(function($) {
 
 //close			
 });
-
-function scrollToComments() {
-    $('body').animate({ scrollTop: $('#comments-list').offset().top - 25 });
-}
