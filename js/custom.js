@@ -110,15 +110,6 @@ jQuery(document).ready(function($) {
 //close			
 });
 
-function initTagCloud() {
-    $.fn.tagcloud.defaults = {
-        size: {start: 1, end: 2, unit: 'em'},
-        color: {start: '#838FDE', end: '#0169be'}
-    };
-
-    $('#tags a').tagcloud();
-}
-
 function scrollToComments() {
     $('body').animate({ scrollTop: $('#comments-list').offset().top - 25 });
 }
