@@ -104,7 +104,7 @@ module Jekyll
         if num_page > 1
           newpage = Page.new(site, site.source, page.dir, page.name)
           newpage.pager = pager
-          newpage.dir = File.join(page.dir, "page#{num_page}")
+          newpage.dir = File.join(page.dir, "#{num_page}")
           site.pages << newpage
         else
           page.pager = pager
