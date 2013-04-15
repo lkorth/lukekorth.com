@@ -40,7 +40,7 @@
 
                     <nav>
                         <ul id="nav" class="sf-menu">
-                            <li {% if page.category == 'blog' %}class="current-menu-item"{% endif %}><a href="/blog">BLOG</a></li>
+                            <li {% if page.category == 'blog' or page.tab == 'blog' %}class="current-menu-item"{% endif %}><a href="/blog">BLOG</a></li>
                             <li {% if page.tab == 'about' %}class="current-menu-item"{% endif %}><a href="/about">ABOUT</a></li>
                             <!--<li {% if page.tab == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects">PROJECTS</a></li>
                             <li {% if page.tab == 'photos' %}class="current-menu-item"{% endif %}><a href="/photos">PHOTOS</a></li>-->
