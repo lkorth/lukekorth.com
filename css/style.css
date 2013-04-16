@@ -833,6 +833,7 @@ article .meta .user{
 }
 
 article .meta .categories{
+    border-right: 1px solid #cecece;
 	background: url(../img/icon-tags.png) no-repeat;
 }
 
