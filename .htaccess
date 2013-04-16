@@ -10,8 +10,8 @@ RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 # Redirects
-Redirect / http://lukekorth.com/blog
-Redirect /apps https://play.google.com/store/search?q=luke+korth
+Redirect 301 / http://lukekorth.com/blog
+Redirect 301 /apps https://play.google.com/store/search?q=luke+korth
 
 # Error handlers
 ErrorDocument 404 /error/
