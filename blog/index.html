@@ -27,7 +27,7 @@ sidebar: true
             <div class="categories">In
                 {% if post.tags %}
                 {% for tag in post.tags %}
-                <a href="/blog/category/{{ tag }}">{{ tag }}</a>{% if forloop.last != true %},{% endif %}
+                <a href="/blog/category/{{ tag | downcase }}">{{ tag }}</a>{% if forloop.last != true %},{% endif %}
                 {% endfor %}
                 {% endif %}
             </div>
