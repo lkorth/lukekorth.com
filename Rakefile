@@ -101,7 +101,7 @@ task :tags => :tag_cloud do
   site = Jekyll::Site.new(options)
   site.read_posts('')
 
-  FileUtils.rm_rf("tag")
+  FileUtils.rm_rf("blog/category")
 
   site.tags.sort.each do |tag, posts|
     html = <<-HTML
@@ -117,8 +117,8 @@ title: "#{tag}"
 	{% endfor %}
 {% endfor %}
 HTML
-    FileUtils.mkdir_p("tag/#{tag}")
-    File.open("tag/#{tag}/index.html", 'w+') do |file|
+    FileUtils.mkdir_p("blog/category/#{tag.downcase.gsub(/\s+/, '-')}")
+    File.open("blog/category/#{tag.downcase.gsub(/\s+/, '-')}/index.html", 'w+') do |file|
       file.puts html
     end
   end
@@ -141,7 +141,7 @@ task :tag_cloud do
   site.tags.sort_by{rand}.each do |tag, posts|
     s = posts.count
     font_size = ((2 - 0.8*(max_count-s)/max_count)*2).to_i/2.0
-    html << "\t<li><a href=\"/tag/#{tag}\" title=\"Posts tagged with #{tag}\" style=\"font-size: #{font_size}em; line-height:#{font_size}em\">#{tag}</a></li>\n"
+    html << "\t<li><a href=\"/blog/category/#{tag.downcase.gsub(/\s+/, '-')}\" title=\"Posts tagged with #{tag}\" style=\"font-size: #{font_size}em; line-height:#{font_size}em\">#{tag}</a></li>\n"
   end
   html << '</ul>'
   File.open('_includes/tag-cloud.html', 'w+') do |file|
