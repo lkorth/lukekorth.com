@@ -996,4 +996,8 @@ footer .wrapper,
 	float: right;
 }
 
+.tag-cloud li {
+    display: inline-block;
+}
+
 
