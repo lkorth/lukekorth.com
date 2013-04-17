@@ -106,16 +106,25 @@ task :tags => :tag_cloud do
   site.tags.sort.each do |tag, posts|
     html = <<-HTML
 ---
-layout: tag
+layout: default
 title: "#{tag}"
+tab: blog
+sidebar: true
 ---
-{% for post in site.posts %}
-	{% for tag in post.tags %}
-		{% if tag == "#{tag}" %}
-			{% include teaser.html %}
-		{% endif %}
-	{% endfor %}
-{% endfor %}
+<!-- posts list -->
+<div id="posts-list">
+    <h2 class="page-heading"><span>BLOG</span></h2>
+	
+	{% for post in site.posts %}
+		{% for tag in post.tags %}
+			{% if tag == "#{tag}" %}
+				{% include post-summary.html %}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}		
+
+</div>
+<!-- ENDS posts list -->	
 HTML
     FileUtils.mkdir_p("blog/category/#{tag.downcase.gsub(/\s+/, '-')}")
     File.open("blog/category/#{tag.downcase.gsub(/\s+/, '-')}/index.html", 'w+') do |file|
