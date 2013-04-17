@@ -4,9 +4,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>
             {% if page.title %}
-                {{ page.title}} :: Luke Korth
+                {{ page.title}} :: {{ site.author }}
             {% else %}
-                Luke Korth
+                {{ site.author }}
             {% endif %}
         </title>
 
@@ -50,7 +50,7 @@
         <div id="content">
             <header class="clearfix">
                 <div class="wrapper">
-                    <a href="/" id="logo"><h1 style="color: #E2E0D7;">LukeKorth.com</h1></a>
+                    <a href="/" id="logo"><h1 style="color: #E2E0D7;">{{ site.title }}</h1></a>
 
                     <nav>
                         <ul id="nav" class="sf-menu">
@@ -58,7 +58,7 @@
                             <li {% if page.tab == 'about' %}class="current-menu-item"{% endif %}><a href="/about">ABOUT</a></li>
                             <!--<li {% if page.tab == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects">PROJECTS</a></li>
                             <li {% if page.tab == 'photos' %}class="current-menu-item"{% endif %}><a href="/photos">PHOTOS</a></li>-->
-                            <li><a href="mailto:luke@lukekorth.com">CONTACT</a></li>
+                            <li><a href="mailto:{{ site.email }}">CONTACT</a></li>
                         </ul>
                     </nav>
                     <div id="combo-holder"></div>
@@ -81,13 +81,13 @@
         <footer>
             <div class="wrapper">
                 <div class="footer-bottom">
-                    <div class="left">Developed by <a href="http://lukekorth.com/" >Luke Korth</a></div>
+                    <div class="left">Developed by <a href="/about/" >{{ site.author }}</a></div>
                     <div class="right">
-                        <a href="/rss"><icon class="rss" title="RSS" ></icon></a>
+                        <a href="/rss.xml"><icon class="rss" title="RSS" ></icon></a>
                         <a href="http://www.linkedin.com/in/lukekorth" target="_blank"><icon class="linkedin" title="Linkedin" ></icon></a>
                         <a href="https://github.com/lkorth" target="_blank"><icon class="github" title="GitHub" ></icon></a>
                         <a href="http://stackoverflow.com/users/1024787/luke" target="_blank"><icon class="stackoverflow" title="Stack Overflow" ></icon></a>
-                        <a href="/contact"><icon class="email" title="Email" ></icon></a>
+                        <a href="mailto:{{ site.email }}"><icon class="email" title="Email" ></icon></a>
                         <a href="https://play.google.com/store/search?q=Luke+Korth" target="_blank"><icon class="android" title="Android" ></icon></a>
                         <a href="http://500px.com/LukeKorth" target="_blank"><icon class="fivehundredpx" title="500px" ></icon></a>
                     </div>
