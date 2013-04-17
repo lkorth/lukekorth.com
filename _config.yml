@@ -1,3 +1,10 @@
+# Site settings
+url: http://lukekorth.com
+title: LukeKorth.com
+description: "Luke Korth's personal blog"
+author: Luke Korth
+email: blog@lukekorth.com
+
 permalink: /:categories/:title
 
 paginate: 3
