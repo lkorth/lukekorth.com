@@ -138,7 +138,7 @@ task :tag_cloud do
 
   html = "<ul class=\"tag-cloud\">\n"
   max_count = site.tags.map{|t,p| p.count}.max
-  site.tags.sort.each do |tag, posts|
+  site.tags.sort_by{rand}.each do |tag, posts|
     s = posts.count
     font_size = ((2 - 0.8*(max_count-s)/max_count)*2).to_i/2.0
     html << "\t<li><a href=\"/tag/#{tag}\" title=\"Posts tagged with #{tag}\" style=\"font-size: #{font_size}em; line-height:#{font_size}em\">#{tag}</a></li>\n"
