@@ -6,7 +6,7 @@ author: Luke Korth
 email: blog@lukekorth.com
 
 permalink: /:categories/:title
-exclude: ["Rakefile"]
+exclude: ["Rakefile", "README.md"]
 paginate: 3
 
 # only_first_p plugin
