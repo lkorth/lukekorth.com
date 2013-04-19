@@ -158,3 +158,39 @@ task :tag_cloud do
   end
   puts 'Done.'
 end
+
+desc 'Generate archive pages'
+task :archives do
+  puts 'Generating archives...'
+  require 'rubygems'
+  require 'jekyll'
+  include Jekyll::Filters
+
+  options = Jekyll.configuration({})
+  site = Jekyll::Site.new(options)
+  site.read_posts('')
+  
+  currentYear = Time.new.year
+  lastMonth = ''
+  lastYear = 0
+
+  html = "<ul class=\"archives\">\n"
+  site.posts.reverse.each do |post|
+	if post.date.year == currentYear
+		if Date::MONTHNAMES[post.date.month] != lastMonth
+			html << "\t<li><a href=\"/blog/#{post.date.year}/#{post.date.month}/\" title=\"Posts in #{Date::MONTHNAMES[post.date.month]}\">#{Date::MONTHNAMES[post.date.month]}</a></li>\n"
+			lastMonth = Date::MONTHNAMES[post.date.month]
+		end
+	else
+		if post.date.year != lastYear
+			html << "\t<li><a href=\"/blog/#{post.date.year}/\" title=\"Posts in #{post.date.year}\">#{post.date.year}</a></li>\n"
+			lastYear = post.date.year
+		end
+	end
+  end
+  html << '</ul>'
+  File.open('_includes/archives.html', 'w+') do |file|
+    file.puts html
+  end
+  puts 'Done.'
+end
