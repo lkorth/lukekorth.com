@@ -191,6 +191,11 @@ cols    1     2      3
 px      68    160    252    */
 
 @media only screen and (max-width: 767px) {
+
+    #logo {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
 	
 	#nav {
 		display: none;
