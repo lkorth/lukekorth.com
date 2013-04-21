@@ -160,7 +160,91 @@ task :tag_cloud do
 end
 
 desc 'Generate archive pages'
-task :archives do
+task :archives => :archive_include do
+  puts "Generating archives..."
+  require 'rubygems'
+  require 'jekyll'
+  include Jekyll::Filters
+
+  options = Jekyll.configuration({})
+  site = Jekyll::Site.new(options)
+  site.read_posts('')
+
+  # Need to find a way to cleanup archive files without deleting other files in folder, rm -rf * ! categories ! index.html
+  #FileUtils.rm_rf("blog/")
+  
+  currentYear = Time.new.year
+  years = Hash.new
+  months = Hash.new
+
+  site.posts.each do |post|
+	if post.date.year == currentYear
+		if months[post.date.month] == nil
+			html = <<-HTML
+---
+layout: default
+title: "Archive for #{Date::MONTHNAMES[post.date.month]} #{post.date.year}"
+tab: blog
+sidebar: true
+---
+<!-- posts list -->
+<div id="posts-list">
+    <h2 class="page-heading"><span>BLOG</span></h2>
+	
+	{% for post in site.posts %}
+		{% capture month %}{{ post.date | date: "%B %Y" }}{% endcapture %}
+		{% if month == "#{Date::MONTHNAMES[post.date.month]} #{post.date.year}" %}
+			{% include post-summary.html %}
+		{% endif %}
+	{% endfor %}		
+
+</div>
+<!-- ENDS posts list -->	
+HTML
+		FileUtils.mkdir_p("blog/#{post.date.year}/#{post.date.month}")
+		File.open("blog/#{post.date.year}/#{post.date.month}/index.html", 'w+') do |file|
+		  file.puts html
+		end
+		
+			months[post.date.month] = post.date.month
+		end
+	else
+		if years[post.date.year] == nil
+			html = <<-HTML
+---
+layout: default
+title: "Archive for #{post.date.year}"
+tab: blog
+sidebar: true
+---
+<!-- posts list -->
+<div id="posts-list">
+    <h2 class="page-heading"><span>BLOG</span></h2>
+	
+	{% for post in site.posts %}
+		{% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
+		{% if year == "#{post.date.year}" %}
+			{% include post-summary.html %}
+		{% endif %}
+	{% endfor %}		
+
+</div>
+<!-- ENDS posts list -->	
+HTML
+			FileUtils.mkdir_p("blog/#{post.date.year}")
+			File.open("blog/#{post.date.year}/index.html", 'w+') do |file|
+			  file.puts html
+			end
+		
+			years[post.date.year] = post.date.year
+		end
+	end
+  end
+  puts 'Done.'
+end
+
+desc 'Generate archive pages'
+task :archive_include do
   puts 'Generating archives...'
   require 'rubygems'
   require 'jekyll'
