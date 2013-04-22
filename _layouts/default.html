@@ -108,5 +108,25 @@
             - /js/modernizr.js
             - /js/custom.js
         {% endbundle %}
+
+        {% if page.sidebar %}
+        <script>
+            // sticky jQuery sidebar banner
+            jQuery(document).ready(function(){
+                if (!!jQuery('#sidebar').offset()) {
+                    var stickyTop = jQuery('#sidebar').offset().top;
+                    jQuery(window).scroll(function() {
+                        var windowTop = jQuery(window).scrollTop();
+                        if (stickyTop < windowTop){
+                            jQuery('#sidebar').css({ position: 'fixed', top: 0 });
+                        }
+                        else {
+                            jQuery('#sidebar').css('position','static');
+                        }
+                    });
+                }
+            });
+        </script>
+        {% endif %}
     </body>
 </html>
