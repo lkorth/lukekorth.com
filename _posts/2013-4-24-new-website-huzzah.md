@@ -22,10 +22,11 @@ my site built before it went on the back burner for a little while. In the mean 
 to work on some stuff in [Silex](http://silex.sensiolabs.org/) and found it to be really amazing so
 I thought about moving from [Slim](http://www.slimframework.com/) to
 [Silex](http://silex.sensiolabs.org/), but I had also been looking at some sites built using the
-ever-increasingly-popular [Jekyll](https://github.com/mojombo/jekyll). Now I have pretty much
-zero experience with Ruby, but the idea was interesting. Why do I need a dynamic site if 90% of the
-time it was going to be serving the same thing over and over. The speed of a static site is nothing to
-sneeze at either and that's what finally put me over the edge to try
+ever-increasingly-popular [Jekyll](https://github.com/mojombo/jekyll) ([Obama's team used it to handle
+more than a quarter of a billion in donations](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/)).
+Now I have pretty much zero experience with Ruby, but the idea was interesting. Why do I need a 
+dynamic site if 90% of the time it was going to be serving the same thing over and over. 
+The speed of a static site is nothing to sneeze at either and that's what finally put me over the edge to try
 [Jekyll](https://github.com/mojombo/jekyll) after seeing
 [Philip I Thomas's](http://www.philipithomas.com/) [tweet](https://twitter.com/philipithomas/status/322524816978632704).
 So after a few nights of hacking together some Ruby my first version is ready for the world.
