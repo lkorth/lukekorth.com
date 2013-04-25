@@ -1,7 +1,7 @@
 /* GENERAL ------------------------------------------------------------*/
 
 body{
-	color: #888;
+	color: #444;
 }
 
 body,
@@ -11,6 +11,14 @@ body,
 }
 
 body a{ color: #444; }
+
+p a {
+    color: #0169be;
+}
+
+p a:hover {
+    text-decoration:underline;
+}
 
 body a:hover,
 #top-widget-holder a:hover,
