@@ -19,14 +19,15 @@ webpage and have it pushed to their phone. Anyone with a service that can
 make HTTP requests should be able to come up with some very useful implementations
 for this.
 
-I am also thinking about developing a Twitter app similar to my Facebook
-Notifications app that would push a message to a users phone whenever their
+I am also thinking about developing a Twitter app similar to my [Slk Notifications
+for Facebook](https://market.android.com/details?id=com.lukekorth.facebookNotifications)
+app that would push a message to a users phone whenever their
 Twitter handle was mentioned. I know this has been done several times over,
 but there are some interesting tools out there to use for this and I want to
-work with them. Besides there is something to be said for a very simple, small
+work with them. Besides that, there is something to be said for a very simple, small
 and efficient implementation of something. Especially without running services,
 which most of the apps currently use. Twitter has a very interesting real-time
-streaming API and there is a great php implementation of it called
+streaming API and there is a great PHP implementation of it called
 [Phirehose](https://github.com/fennb/phirehose) (brilliantly named of course)
-that I plan on using. Along with some of PHP's built in queuing it should be
-a fairly straight-forward build with the code and infrastructure I already have in place.
+that I plan on using. It should be a fairly straight-forward build with the code
+and infrastructure I already have in place.

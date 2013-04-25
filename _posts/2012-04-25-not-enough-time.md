@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Not enough time
-tags: [Android, New Technology]
+tags: [Android, New Technology, Research]
 category: blog
 sidebar: true
 ---
@@ -17,6 +17,7 @@ I just received an email that my app passed the testing process and will be goin
 live in the next 24 hours, hopefully people don't run into too many issues and
 there isn't a huge number of downloads that cripple my server. Job applications
 and all the stuff involved with graduation certainly don't help things either.
+
 There are definitely way too many cool things in the world and no where near
 enough time. That said, I can't wait to take delivery of my [Raspberry Pi](http://www.raspberrypi.org/)
 so I can start playing with it and doing all kinds of cool things. If there
@@ -25,7 +26,7 @@ it has to be the
 [Pebble Watch](http://www.kickstarter.com/projects/597507018/pebble-e-paper-watch-for-iphone-and-android),
 I've been looked for a *good* smart watch for a while and I think this one could
 be it and being an [Android developer](https://play.google.com/store/search?q=luke+korth),
-I love that is has an SDK, there are going to be so many cool and useful things to do for this watch.
+I love that is has an SDK, there are going to be so many cool and useful things to do with this watch.
 
 My current research on botnets isn't turning out quite as I had hoped, but at the
 end hopefully I'll have a little something to show for it. I'm looking forward
