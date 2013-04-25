@@ -3,7 +3,7 @@
 #
 # Author : Colin Kennedy
 # Repo   : http://github.com/moshen/jekyll-asset_bundler
-# Version: 0.09
+# Version: 0.10
 # License: MIT, see LICENSE file
 #
 
@@ -194,7 +194,9 @@ END
           ret_config['dev'] = context.registers[:site].config["dev"] ? true : false
         end
 
-        if context.registers[:site].config['server']
+        # Jekyll version 1.0 will change server to serving
+        # TODO: Simplify this when Jekyll v1 is released
+        if context.registers[:site].config['server'] || context.registers[:site].config['serving']
           ret_config['dev'] = true
         end
 
