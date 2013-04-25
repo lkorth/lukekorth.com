@@ -11,8 +11,9 @@ temporary placeholder, I've finally gotten around to building a new one.
 I'm no designer so it took me a while to find a layout that I liked (I'm still not sure how much
 I like this one and there is plenty of tweaking still to be done) and from there I started building
 the backend. I wanted to build up my website and blog by hand rather than use something like WordPress
-because there are just *way* too many features that I didn't want. All I wanted was a simple site where I
-could write my posts in [Markdown](http://daringfireball.net/projects/markdown/) and have them show up.
+because there are just *way* too many features that I didn't want (don't get me started on the security issues!).
+All I wanted was a simple site where I could write my posts in 
+[Markdown](http://daringfireball.net/projects/markdown/) and have them show up.
 I also wanted it to be quick and I thought it would be a great learning exercise.
 
 I started out using [Slim](http://www.slimframework.com/) micro framework in PHP along with
