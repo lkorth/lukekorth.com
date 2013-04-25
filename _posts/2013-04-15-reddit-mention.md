@@ -1,7 +1,7 @@
 ---
 layout: post
 title: reddit Mention
-tags: [Code, reddit, GitHub, Security]
+tags: [GitHub, Security]
 category: blog
 sidebar: true
 ---
