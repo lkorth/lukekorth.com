@@ -11,7 +11,7 @@ paginate: 3
 
 # only_first_p plugin
 only_first_p:
-    show_read_more_link: false
+  show_read_more_link: false
 
 # jekyll-asset_bundler plugin
 asset_bundler:
