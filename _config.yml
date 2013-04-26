@@ -13,12 +13,5 @@ paginate: 3
 only_first_p:
   show_read_more_link: false
 
-# jekyll-asset_bundler plugin
-asset_bundler:
-  compress:
-    js: java -jar _plugins/yuicompressor-2.4.7.jar -o :outfile :infile 
-    css: java -jar _plugins/yuicompressor-2.4.7.jar -o :outfile :infile
-  remove_bundled: true
-  markup_templates:
-    js: "<script src='{{url}}'></script>\n"
-    css: "<link rel='stylesheet' href='{{url}}' />\n"
+asset_pipeline:
+  gzip: true

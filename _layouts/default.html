@@ -18,20 +18,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
-        {% bundle %}
-            - /css/reset.css
-            - /css/comments.css
-            - /css/widgets.css
-            - /css/style.css
-            - /js/poshytip-1.1/src/tip-twitter/tip-twitter.css
-            - /js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css
-            - /css/fonts.css
-            - /css/flexslider.css
-            - /css/lessframework.css
-            - /css/skin.css
-            - /css/superfish.css
-            - /js/prettyPhoto/css/prettyPhoto.css
-        {% endbundle %}
+        {% css_asset_tag global %}
+            - /_assets/css/reset.css
+            - /_assets/css/comments.css
+            - /_assets/css/widgets.css
+            - /_assets/css/style.css
+            - /_assets/js/poshytip-1.1/src/tip-twitter/tip-twitter.css
+            - /_assets/js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css
+            - /_assets/css/fonts.css
+            - /_assets/css/flexslider.css
+            - /_assets/css/lessframework.css
+            - /_assets/css/skin.css
+            - /_assets/css/superfish.css
+            - /_assets/js/prettyPhoto/css/prettyPhoto.css
+        {% endcss_asset_tag %}
 
         <script>
             var _gaq = _gaq || [];
@@ -97,19 +97,19 @@
             </div>
         </footer>
 
-        {% bundle %}
-            - /js/jquery-1.8.3.min.js
-            - /js/jquery.onready.js
-            - /js/css3-mediaqueries.js
-            - /js/tabs.js
-            - /js/superfish-1.4.8/js/hoverIntent.js
-            - /js/superfish-1.4.8/js/superfish.js
-            - /js/superfish-1.4.8/js/supersubs.js
-            - /js/prettyPhoto/js/jquery.prettyPhoto.js
-            - /js/poshytip-1.1/src/jquery.poshytip.min.js
-            - /js/jquery.flexslider-min.js
-            - /js/modernizr.js
-            - /js/custom.js
-        {% endbundle %}
+        {% javascript_asset_tag global %}
+            - /_assets/js/jquery-1.8.3.min.js
+            - /_assets/js/jquery.onready.js
+            - /_assets/js/css3-mediaqueries.js
+            - /_assets/js/tabs.js
+            - /_assets/js/superfish-1.4.8/js/hoverIntent.js
+            - /_assets/js/superfish-1.4.8/js/superfish.js
+            - /_assets/js/superfish-1.4.8/js/supersubs.js
+            - /_assets/js/prettyPhoto/js/jquery.prettyPhoto.js
+            - /_assets/js/poshytip-1.1/src/jquery.poshytip.min.js
+            - /_assets/js/jquery.flexslider-min.js
+            - /_assets/js/modernizr.js
+            - /_assets/js/custom.js
+        {% endjavascript_asset_tag global %}
     </body>
 </html>
