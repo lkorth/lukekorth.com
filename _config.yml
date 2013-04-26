@@ -16,8 +16,8 @@ only_first_p:
 # jekyll-asset_bundler plugin
 asset_bundler:
   compress:
-    js: closure -o :outfile :infile
-    css: yuicompressor -o :outfile :infile
+    js: java -jar _plugins/yuicompressor-2.4.7.jar -o :outfile :infile 
+    css: java -jar _plugins/yuicompressor-2.4.7.jar -o :outfile :infile
   remove_bundled: true
   markup_templates:
     js: "<script src='{{url}}'></script>\n"
