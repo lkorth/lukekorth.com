@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Not enough time
-tags: [Android, New Technology, Research]
+tags: [Android, New Technology]
 category: blog
 sidebar: true
 ---
