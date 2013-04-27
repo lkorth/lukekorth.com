@@ -979,14 +979,8 @@ footer .wrapper,
 	overflow: hidden;
 }
 
-.footer-bottom .left{
-	width: 30%;
-	padding-top: 10px;
-	float: left;
-}
-
 .footer-bottom .right{
-	width: 70%;
+	width: 100%;
 	float: right;
 }
 
