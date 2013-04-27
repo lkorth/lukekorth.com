@@ -39,7 +39,7 @@ body {-webkit-tap-highlight-color: #0169be;}
 
 /* HEADER ------------------------------------------------------------*/
 
-header{ background: #444 url(../img/header.png) bottom left repeat-x; }
+header{ background: #444 url(/img/header.png) bottom left repeat-x; }
 
 
 /* WIDGETS------------------------------------------------*/
@@ -128,13 +128,13 @@ nav a{ color: #E2E0D7; }
 
 .related-heading{ color: #444; }
 
-.related-projects .thumb{ background: #0169be url(../img/plus.png) center center no-repeat; }
+.related-projects .thumb{ background: #0169be url(/img/plus.png) center center no-repeat; }
 
 
 /* BLOG ------------------------------------------------------------*/
 
 #posts-list .feature-image,
-#post-content .feature-image{ background: #0169be url(../img/plus.png) center center no-repeat; }
+#post-content .feature-image{ background: #0169be url(/img/plus.png) center center no-repeat; }
 
 article .meta{
 	border-top: 1px solid #cecece;
@@ -192,7 +192,7 @@ icon.stackoverflow {
 /* PAGE NAVIGATION ------------------------------------------------------------*/
 
 .page-navigation a{
-	background: #444 url(../img/noise.png) repeat;
+	background: #444 url(/img/noise.png) repeat;
 	color: #f1f1f1;
 }
 
@@ -225,5 +225,5 @@ icon.stackoverflow {
 
 
 footer .wrapper{
-	background: url(../img/footer.png) repeat-x top center;
+	background: url(/img/footer.png) repeat-x top center;
 }
