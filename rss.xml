@@ -5,9 +5,9 @@ layout: nil
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 	<title>{{ site.title }}</title>
-	<link>{{ site.url }}</link>
+	<link>{{ site.url }}/blog</link>
 	<language>en</language>
-	<webMaster>{{ site.author }}</webMaster>
+	<webMaster>{{ site.email }}</webMaster>
 	<pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
 	<copyright>Copyright {{ site.time | date: '%Y' }}</copyright>
 	<ttl>60</ttl>
@@ -15,12 +15,12 @@ layout: nil
 	{% for post in site.posts limit:20 %}
 		<item>
 			<title>{{ post.title }}</title>
-			<link>{{ site.url }}{{ post.url }}</link>
+			<link>{{ site.url }}{{ post.url }}/</link>
 			<pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
-			<guid>{{ site.url }}{{ post.url }}</guid>
+			<guid>{{ site.url }}{{ post.url }}/</guid>
 			<description>{{ post.content | xml_escape }}</description>
 			{% for tag in post.tags %}
-				<category domain="{{ site.url }}/tag/{{ tag }}/">{{ tag }}</category>
+				<category domain="{{ site.url }}/category/{{ tag | downcase | replace:' ','-' }}/">{{ tag }}</category>
 			{% endfor %}
 		</item>
 	{% endfor %}
