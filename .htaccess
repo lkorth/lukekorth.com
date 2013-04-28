@@ -4,6 +4,8 @@ AddDefaultCharset utf-8
 # Force UTF-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml
 
+AddType "application/x-font-woff" .woff
+
 <IfModule mod_deflate.c>
     # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
     <IfModule mod_headers.c>
@@ -11,8 +13,6 @@ AddCharset utf-8 .html .css .js .xml
         RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
     </IfModule>
 </IfModule>
-
-AddType "application/x-font-woff" .woff
 
 # Rewrites
 RewriteEngine On
