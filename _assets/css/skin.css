@@ -145,7 +145,7 @@ article .meta{
 #posts-list .entry-date{ color: #f1f1f1; }
 
 /* ICONS -----------------------------------------------------------------------*/
-icon {
+i {
     display: inline-block;
     float: right;
     margin: 5px;
@@ -154,39 +154,46 @@ icon {
     background-size: 32px 32px;
 }
 
-icon.fivehundredpx {
+i.fivehundredpx {
     background-color: #444;
-    background-image: url("/img/icons/500px/500px-32.png");
+    background-image: url("/img/icons/500px-32.png");
+    background-repeat: no-repeat;
 }
 
-icon.android {
+i.android {
     background-color: #a4c639;
-    background-image: url("/img/icons/android/android-32.png");
+    background-image: url("/img/icons/android-32.png");
+    background-repeat: no-repeat;
 }
 
-icon.email {
+i.email {
     background-color: #666;
-    background-image: url("/img/icons/email/email-32.png");
+    background-image: url("/img/icons/email-32.png");
+    background-repeat: no-repeat;
 }
 
-icon.github {
+i.github {
     background-color: #4183c4;
-    background-image: url("/img/icons/github/github-32.png");
+    background-image: url("/img/icons/github-32.png");
+    background-repeat: no-repeat;
 }
 
-icon.linkedin {
+i.linkedin {
     background-color: #007fb1;
-    background-image: url("/img/icons/linkedin/linkedin-32.png");
+    background-image: url("/img/icons/linkedin-32.png");
+    background-repeat: no-repeat;
 }
 
-icon.rss {
+i.rss {
     background-color: #ff8300;
-    background-image: url("/img/icons/rss/rss-32.png");
+    background-image: url("/img/icons/rss-32.png");
+    background-repeat: no-repeat;
 }
 
-icon.stackoverflow {
+i.stackoverflow {
     background-color: #f47920;
-    background-image: url("/img/icons/stackoverflow/stackoverflow-32.png");
+    background-image: url("/img/icons/stackoverflow-32.png");
+    background-repeat: no-repeat;
 }
 
 /* PAGE NAVIGATION ------------------------------------------------------------*/
