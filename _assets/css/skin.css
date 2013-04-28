@@ -155,45 +155,31 @@ i {
 }
 
 i.fivehundredpx {
-    background-color: #444;
-    background-image: url("/assets/500px-32.png");
-    background-repeat: no-repeat;
+    background: #444 url("/assets/sprite.png") no-repeat -10px -477px;
 }
 
 i.android {
-    background-color: #a4c639;
-    background-image: url("/assets/android-32.png");
-    background-repeat: no-repeat;
+    background: #a4c639 url("/assets/sprite.png") no-repeat -10px -425px;
 }
 
 i.email {
-    background-color: #666;
-    background-image: url("/assets/email-32.png");
-    background-repeat: no-repeat;
+    background: #666 url("/assets/sprite.png") no-repeat -10px -373px;
 }
 
 i.github {
-    background-color: #4183c4;
-    background-image: url("/assets/github-32.png");
-    background-repeat: no-repeat;
+    background: #4183c4 url("/assets/sprite.png") no-repeat -10px -269px;
 }
 
 i.linkedin {
-    background-color: #007fb1;
-    background-image: url("/assets/linkedin-32.png");
-    background-repeat: no-repeat;
+    background: #007fb1 url("/assets/sprite.png") no-repeat -10px -217px;
 }
 
 i.rss {
-    background-color: #ff8300;
-    background-image: url("/assets/rss-32.png");
-    background-repeat: no-repeat;
+    background: #ff8300 url("/assets/sprite.png") no-repeat -10px -165px;
 }
 
 i.stackoverflow {
-    background-color: #f47920;
-    background-image: url("/assets/stackoverflow-32.png");
-    background-repeat: no-repeat;
+    background: #f47920 url("/assets/sprite.png") no-repeat -10px -321px;
 }
 
 /* PAGE NAVIGATION ------------------------------------------------------------*/

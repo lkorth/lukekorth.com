@@ -690,7 +690,8 @@ nav a{
 	left: 23px;
 	width: 97px;
 	height: 97px;
-	background: url(/assets/date.png) no-repeat;
+	background: url(/assets/sprite.png) no-repeat;
+    background-position: -10px -10px;
 	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
 }
 
@@ -764,18 +765,14 @@ article .meta div{
 }
 
 article .meta .user{
-	background: url(/assets/icon-user.png) no-repeat;
+	background: url(/assets/sprite.png) no-repeat;
+    background-position: -5px -568px;
 }
 
 article .meta .categories{
     border-right: 1px solid #cecece;
-	background: url(/assets/icon-tags.png) no-repeat;
-}
-
-article .meta .categories,
-article .meta .comments,
-article .meta .user{
-	background-position: 5px 12px;
+	background: url(/assets/sprite.png) no-repeat;
+    background-position: -5px -519px;
 }
 
 /* SINGLE ------------------------------------------------------------*/
@@ -899,7 +896,8 @@ article .meta .user{
 	left: -14px;
 	width: 14px;
 	height: 18px;
-	background: url(/assets/sidebar-corner.png) no-repeat;
+	background: url(/assets/sprite.png) no-repeat;
+    background-position: -10px -127px;
 }
 
 
