@@ -259,26 +259,6 @@ nav a{
 	font-size: 21px;
 }
 
-/* CONTACT CONTENT ------------------------------------------------------------*/
-
-#contactForm{
-	position: relative;
-	width: 700px;
-	float: left;
-	margin-right: 20px;
-}
-
-#contact-sidebar{
-	position: relative;
-	width: 200px; /* 220 - 20 padding */
-	float: left;
-	padding: 20px 10px 20px 10px;
-	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-	-o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-	box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-}
-
 #about-picture {
     padding: 8px;
 }
@@ -667,25 +647,6 @@ nav a{
 
 
 /* CONTACT ------------------------------------------------------------*/
-
-
-#map_canvas{
-	display: block;
-	height: 300px;
-	width: 100%;
-	margin-bottom: 24px;
-	margin-top: 40px;
-	-webkit-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-	-moz-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-	-o-box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-	box-shadow: 2px 2px 0px rgba(0,0,0,.2);
-}
-
-.map-content{
-	margin-bottom: 60px;
-	padding-bottom: 40px;
-	border-bottom: 1px solid #ccc;
-}
 
 .address-block li{
 	padding-left: 20px;
