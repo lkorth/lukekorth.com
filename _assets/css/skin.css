@@ -39,7 +39,7 @@ body {-webkit-tap-highlight-color: #0169be;}
 
 /* HEADER ------------------------------------------------------------*/
 
-header{ background: #444 url(/img/header.png) bottom left repeat-x; }
+header{ background: #444 url(/assets/header.png) bottom left repeat-x; }
 
 
 /* WIDGETS------------------------------------------------*/
@@ -128,13 +128,13 @@ nav a{ color: #E2E0D7; }
 
 .related-heading{ color: #444; }
 
-.related-projects .thumb{ background: #0169be url(/img/plus.png) center center no-repeat; }
+.related-projects .thumb{ background: #0169be url(/assets/plus.png) center center no-repeat; }
 
 
 /* BLOG ------------------------------------------------------------*/
 
 #posts-list .feature-image,
-#post-content .feature-image{ background: #0169be url(/img/plus.png) center center no-repeat; }
+#post-content .feature-image{ background: #0169be url(/assets/plus.png) center center no-repeat; }
 
 article .meta{
 	border-top: 1px solid #cecece;
@@ -156,50 +156,50 @@ i {
 
 i.fivehundredpx {
     background-color: #444;
-    background-image: url("/img/icons/500px-32.png");
+    background-image: url("/assets/500px-32.png");
     background-repeat: no-repeat;
 }
 
 i.android {
     background-color: #a4c639;
-    background-image: url("/img/icons/android-32.png");
+    background-image: url("/assets/android-32.png");
     background-repeat: no-repeat;
 }
 
 i.email {
     background-color: #666;
-    background-image: url("/img/icons/email-32.png");
+    background-image: url("/assets/email-32.png");
     background-repeat: no-repeat;
 }
 
 i.github {
     background-color: #4183c4;
-    background-image: url("/img/icons/github-32.png");
+    background-image: url("/assets/github-32.png");
     background-repeat: no-repeat;
 }
 
 i.linkedin {
     background-color: #007fb1;
-    background-image: url("/img/icons/linkedin-32.png");
+    background-image: url("/assets/linkedin-32.png");
     background-repeat: no-repeat;
 }
 
 i.rss {
     background-color: #ff8300;
-    background-image: url("/img/icons/rss-32.png");
+    background-image: url("/assets/rss-32.png");
     background-repeat: no-repeat;
 }
 
 i.stackoverflow {
     background-color: #f47920;
-    background-image: url("/img/icons/stackoverflow-32.png");
+    background-image: url("/assets/stackoverflow-32.png");
     background-repeat: no-repeat;
 }
 
 /* PAGE NAVIGATION ------------------------------------------------------------*/
 
 .page-navigation a{
-	background: #444 url(/img/noise.png) repeat;
+	background: #444 url(/assets/noise.png) repeat;
 	color: #f1f1f1;
 }
 
@@ -232,5 +232,5 @@ i.stackoverflow {
 
 
 footer .wrapper{
-	background: url(/img/footer.png) repeat-x top center;
+	background: url(/assets/footer.png) repeat-x top center;
 }
