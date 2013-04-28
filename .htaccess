@@ -12,6 +12,8 @@ AddCharset utf-8 .html .css .js .xml
     </IfModule>
 </IfModule>
 
+AddType "application/x-font-woff" .woff
+
 # Rewrites
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
