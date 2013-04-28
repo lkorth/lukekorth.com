@@ -53,6 +53,7 @@ Redirect 301 /apps https://play.google.com/store/search?q=luke+korth
 # Cache html and xml for 1 hour
 <filesMatch "\.(html|xml)$">
     Header set Cache-Control "max-age=3600, public"
+	SetOutputFilter DEFLATE
 </filesMatch>
 
 # Cache for 1 week
@@ -63,6 +64,7 @@ Redirect 301 /apps https://play.google.com/store/search?q=luke+korth
 # Cache css, js and fonts for 1 year. Will cache bust for css and js
 <filesMatch "\.(css|js|woff|ttf)$">
     Header set Cache-Control "max-age=31536000, public"
+	SetOutputFilter DEFLATE
 </filesMatch>
 
 # Since we're sending far-future expires, we don't need ETags for

@@ -12,6 +12,3 @@ paginate: 3
 # only_first_p plugin
 only_first_p:
   show_read_more_link: false
-
-asset_pipeline:
-  gzip: true
