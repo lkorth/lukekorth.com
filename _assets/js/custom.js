@@ -70,7 +70,11 @@ jQuery(document).ready(function($) {
         $(this).attr('rel', $(this).data('rel'));
     });
 	
-    $("a[rel^='prettyPhoto']").prettyPhoto();
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+        show_title: false,
+        deeplinking: false,
+        social_tools: false
+    });
 	
 	
     //##########################################
