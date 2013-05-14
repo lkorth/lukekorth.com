@@ -13,7 +13,7 @@ easy, requires only one line to connect and it works pretty much anywhere that r
 The problem is when developers migrate from learning and tutorials to writing websites in the real world. Granted, 
 you will probably never find mysql_* calls with inline $_GETs at any place of business that's even half serious about
 their website, but any hobbyist or developer that wants to put a website online using PHP and decides that they need to
-use a database will find 90% of the tutorials using mysql_*. These tutorials may not even mention the security implications
+use a database will find 90% of the tutorials using mysql_* . These tutorials may not even mention the security implications
 of using mysql_* and concatenating variables (if they do mention the security implications, assuming the reader even reads the text
 instead of just copy and pasting the code, they may not explain how to deal with them). You may be thinking, so what, a website
 nobody visits gets owned, big deal right? Well what happens when the site is on a shared host with 100s or 1000s of other
@@ -31,13 +31,13 @@ has the following snippet:
 {% endhighlight %}
 
 If a user was on that page and submitted a form or hit the url {% highlight html %}/deleteshops.php?id=1%27%20OR%201%3D1%20--%27{% endhighlight %}
-such that `$_GET['id']` was `1' OR 1=1 --'` the query becomes:
+such that `$_GET['id']` was {% highlight html %}1' OR 1=1 --'{% endhighlight %} then the query becomes:
 
 {% highlight mysql %}
 DELETE FROM shops1 WHERE id='1' OR 1=1 --''
 {% endhighlight %}
 
-Boom, shops1 is empty, hope there wasn't anything important in it...
+Boom, shops1 is empty, hope there wasn't anything important in it...like [student records](http://xkcd.com/327/)...
 
 Jeff Atwood has a [very short and to the point](http://www.codinghorror.com/blog/2005/04/give-me-parameterized-sql-or-give-me-death.html)
 post about several of the reasons why you should be using parameterized queries. mysql_* functions don't support prepared statements or
