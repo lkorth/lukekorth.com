@@ -8,6 +8,7 @@ email: blog@lukekorth.com
 permalink: /:categories/:title
 exclude: ["Rakefile", "README.md"]
 paginate: 3
+pygments: true
 
 # only_first_p plugin
 only_first_p:

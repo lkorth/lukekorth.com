@@ -775,6 +775,12 @@ article .meta .categories{
     background-position: -5px -519px;
 }
 
+.highlight {
+    background: white;
+    padding: 6px 12px;
+    margin-bottom: 21px;
+}
+
 /* SINGLE ------------------------------------------------------------*/
 
 .post-content{
