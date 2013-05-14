@@ -25,14 +25,16 @@ that [points to this repo](https://github.com/d7my11/alwaleed/blob/885b419544ecc
 has the following snippet:
 
 {% highlight php %}
-mysql_query("DELETE FROM shops1 WHERE id='$_GET[id]' ");
+<?php
+    mysql_query("DELETE FROM shops1 WHERE id='$_GET[id]'");
+?>
 {% endhighlight %}
 
-If a user was on that page and submitted a form or hit the url /deleteshops.php?id=1%27%20OR%201%3D1%20--
-such that $_GET['id'] was `1' OR 1=1 --` the query becomes:
+If a user was on that page and submitted a form or hit the url {% highlight html %}/deleteshops.php?id=1%27%20OR%201%3D1%20--%27{% endhighlight %}
+such that `$_GET['id']` was `1' OR 1=1 --'` the query becomes:
 
 {% highlight mysql %}
-DELETE FROM shops1 WHERE id='1' OR 1=1 --'
+DELETE FROM shops1 WHERE id='1' OR 1=1 --''
 {% endhighlight %}
 
 Boom, shops1 is empty, hope there wasn't anything important in it...
