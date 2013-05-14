@@ -20,7 +20,7 @@ nobody visits gets owned, big deal right? Well what happens when the site is on 
 sites and the attacker manages to escalate their privileges? What happens when some of those websites contain personal information, 
 passwords and credit cards?
 
-The best part? A result on [page 1]((https://github.com/search?p=1&q=extension%3Aphp+mysql_query+%24_GET)
+The best part? A result on [page 1](https://github.com/search?p=1&q=extension%3Aphp+mysql_query+%24_GET)
 that [points to this repo](https://github.com/d7my11/alwaleed/blob/885b419544ecc981068da369be15f18e1fb0e0b8/cpannel/deleteshops.php)
 has the following snippet:
 
