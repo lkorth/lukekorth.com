@@ -8,6 +8,8 @@ email: blog@lukekorth.com
 permalink: /:categories/:title
 exclude: ["Rakefile", "README.md"]
 paginate: 3
+
+markdown: redcarpet
 pygments: true
 
 # only_first_p plugin
