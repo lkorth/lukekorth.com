@@ -24,18 +24,24 @@ The best part? A result on [page 1](https://github.com/search?p=1&q=extension%3A
 that [points to this repo](https://github.com/d7my11/alwaleed/blob/885b419544ecc981068da369be15f18e1fb0e0b8/cpannel/deleteshops.php)
 has the following snippet:
 
-{% highlight php %}
+```php
 <?php
     mysql_query("DELETE FROM shops1 WHERE id='$_GET[id]'");
 ?>
-{% endhighlight %}
+```
 
 If a user was on that page and submitted a form or hit the url {% highlight html %}/deleteshops.php?id=1%27%20OR%201%3D1%20--%27{% endhighlight %}
-such that `$_GET['id']` was {% highlight html %}1' OR 1=1 --'{% endhighlight %} then the query becomes:
+such that `$_GET['id']` was 
 
-{% highlight mysql %}
+```html
+1' OR 1=1 --'
+```
+
+ then the query becomes:
+
+```mysql
 DELETE FROM shops1 WHERE id='1' OR 1=1 --''
-{% endhighlight %}
+```
 
 Boom, shops1 is empty, hope there wasn't anything important in it...like [student records](http://xkcd.com/327/)...
 
