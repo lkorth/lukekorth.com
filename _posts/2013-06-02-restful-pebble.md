@@ -1,11 +1,11 @@
 ---
 layout: post
-title: RESTful httpebble
+title: RESTful Pebble
 tags: [Android, Pebble]
 category: blog
 sidebar: true
 ---
-[httppebble for Android](https://play.google.com/store/apps/details?id=com.lukekorth.httpebble) got an update
+httpebble for Android has been renamed to [Pebble Connect with httppebble](https://play.google.com/store/apps/details?id=com.lukekorth.httpebble). It also got an update
 today that included several new features.
 
 The first of which is a list of httpebble enabled watch faces
@@ -18,7 +18,7 @@ The second new feature is a RESTful notification API. Currently the API only sup
 POSTing to a url, but it will soon add support for an [If This Then That](https://ifttt.com/) 
 channel and sending data to a watch face to power things like stocks, sports scores and anything else you can dream up.
 
-The current API is very simple and consists of a HTTP POST request to [https://httpebble.com/send](#) with the body
+The current API is very simple and consists of a HTTP POST request to [https://ofkorth.net/pebble/send](#) with the body
 of the request consisting of the following
 
 ```
@@ -38,7 +38,7 @@ userToken=[USER_TOKEN_HERE]&\
 title=[TITLE_HERE]&\
 body=[BODY_HERE]&\
 type=notification" \
-https://httpebble.com/send
+https://ofkorth.net/pebble/send
 ```
 
 Enjoy!
