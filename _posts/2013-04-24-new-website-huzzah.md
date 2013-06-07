@@ -4,6 +4,7 @@ title: New Website, Huzzah!
 tags: [Website]
 category: blog
 sidebar: true
+post: true
 ---
 After a year and a half of having a terrible looking website that was only supposed to be a
 temporary placeholder, I've finally gotten around to building a new one.

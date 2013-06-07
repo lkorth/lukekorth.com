@@ -4,6 +4,7 @@ title: Not enough time
 tags: [Android, New Technology]
 category: blog
 sidebar: true
+post: true
 ---
 I have been hoping to work on my website recently to make it more
 functional and less ugly (not to mention post more) along with several apps

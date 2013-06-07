@@ -4,6 +4,7 @@ title: Facebook Notifications Changes
 tags: [Android, Facebook]
 category: blog
 sidebar: true
+post: true
 ---
 The app is back with a new name:
 [Slk Notifications for Facebook](https://market.android.com/details?id=com.lukekorth.facebookNotifications).

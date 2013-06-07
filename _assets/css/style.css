@@ -775,6 +775,12 @@ article .meta .categories{
     background-position: -5px -519px;
 }
 
+article .meta .comments{
+    border-right: 1px solid #cecece;
+    background: url(/assets/icon-comments.png) no-repeat;
+    background-position: 5px 12px;
+}
+
 .highlight {
     background: white;
     padding: 6px 12px;

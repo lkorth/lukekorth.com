@@ -4,6 +4,7 @@ title: httpebble
 tags: [Android, Pebble]
 category: blog
 sidebar: true
+post: true
 picture: working-watch.jpg
 ---
 [httpebble](http://kathar.in/httpebble/) is a generic set of rules for a [Pebble watch](http://getpebble.com/)

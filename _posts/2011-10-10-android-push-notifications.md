@@ -4,6 +4,7 @@ title: Android Push Notifications
 tags: [Android, Presentations]
 category: blog
 sidebar: true
+post: true
 ---
 I'll be giving a talk at [Iowa Code Camp](http://iowacodecamp.com/) this month on
 Android's Cloud to Device Messaging, C2DM. The source code from the talk can be found

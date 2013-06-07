@@ -4,6 +4,7 @@ title: reddit Mention
 tags: [GitHub, Security]
 category: blog
 sidebar: true
+post: true
 ---
 The [botnet detection](https://github.com/lkorth/botnet-detection) program I started writing a year ago
 as part of my senior research has received a few stars and a fork on GitHub randomly and it seems rather odd.
