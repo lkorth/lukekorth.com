@@ -27,6 +27,7 @@ ErrorDocument 403 /error/
 
 # Redirects
 Redirect 301 /apps https://play.google.com/store/search?q=luke+korth
+Redirect 301 /blog/restful-httpebble/ /blog/restful-pebble/
 
 # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
 <IfModule filter_module>
