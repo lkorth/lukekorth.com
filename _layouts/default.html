@@ -62,7 +62,7 @@
                             <!--<li {% if page.tab == 'projects' %}class="current-menu-item"{% endif %}><a href="/projects">PROJECTS</a></li>-->
                             <li {% if page.tab == 'photos' %}class="current-menu-item"{% endif %}><a href="/photos">PHOTOS</a></li>
                             <li><a target="_blank" href="/resume/">RESUME</a></li>
-                            <li><a onClick="_gaq.push(['_trackEvent', 'Contact', 'Email', '{{ site.email }}']);" href="mailto:{{ site.email }}">CONTACT</a></li>
+                            <li><a onClick="_gaq.push(['_trackEvent', 'Email', 'Nav', '{{ site.email }}']);" href="mailto:{{ site.email }}">CONTACT</a></li>
                         </ul>
                     </nav>
                     <div id="combo-holder"></div>
@@ -86,13 +86,13 @@
             <div class="wrapper">
                 <div class="footer-bottom">
                     <div class="right">
-                        <a href="/rss.xml"><i class="rss" title="RSS" ></i></a>
-                        <a href="http://www.linkedin.com/in/lukekorth" target="_blank"><i class="linkedin" title="Linkedin" ></i></a>
-                        <a href="https://github.com/lkorth" target="_blank"><i class="github" title="GitHub" ></i></a>
-                        <a href="http://stackoverflow.com/users/1024787/luke" target="_blank"><i class="stackoverflow" title="Stack Overflow" ></i></a>
-                        <a href="mailto:{{ site.email }}"><i class="email" title="Email" ></i></a>
-                        <a href="https://play.google.com/store/search?q=Luke+Korth" target="_blank"><i class="android" title="Android" ></i></a>
-                        <a href="http://500px.com/LukeKorth" target="_blank"><i class="fivehundredpx" title="500px" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Link', 'Footer', 'rss']);" href="/rss.xml"><i class="rss" title="RSS" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Link', 'Footer', 'LinkedIn']);" href="http://www.linkedin.com/in/lukekorth" target="_blank"><i class="linkedin" title="Linkedin" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Link', 'Footer', 'GitHub']);" href="https://github.com/lkorth" target="_blank"><i class="github" title="GitHub" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Link', 'Footer', 'StackOverflow']);" href="http://stackoverflow.com/users/1024787/luke" target="_blank"><i class="stackoverflow" title="Stack Overflow" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Email', 'Footer', '{{ site.email }}']);" href="mailto:{{ site.email }}"><i class="email" title="Email" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Link', 'Footer', 'Play Store']);" href="https://play.google.com/store/search?q=Luke+Korth" target="_blank"><i class="android" title="Android" ></i></a>
+                        <a onClick="_gaq.push(['_trackEvent', 'Link', 'Footer', '500px']);" href="http://500px.com/LukeKorth" target="_blank"><i class="fivehundredpx" title="500px" ></i></a>
                     </div>
                 </div>
             </div>
