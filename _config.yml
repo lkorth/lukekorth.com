@@ -98,3 +98,6 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+# Gravatar
+gravatar_email: blog@lukekorth.com
