@@ -797,6 +797,10 @@ article .meta .comments{
 	margin-bottom: 50px;
 }
 
+.single-post .list ul {
+	list-style: disc;
+}
+
 /* PAGE NAVIGATION ------------------------------------------------------------*/
 
 .page-navigation{
