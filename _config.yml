@@ -4,10 +4,10 @@
 
 url: http://lukekorth.com
 title: Luke Korth
-subtitle: A blogging framework for hackers.
+subtitle: builder, hacker, photographer 
 author: Luke Korth
 simple_search: http://google.com/search
-description:
+description: My blog is primarily about the apps and projects I am working as well as things I find interesting.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: blog@lukekorth.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -33,12 +33,14 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: rdiscount
-rdiscount:
-  extensions:
+markdown: redcarpet
+redcarpet:
+  extentions:
+    - hard_wrap
+    - fenced_code_blocks
     - autolink
-    - footnotes
-    - smart
+    - with_toc_data
+    - strikethrough
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
@@ -69,7 +71,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: lukekorth
 twitter_tweet_button: true
 
 # Google +1
@@ -78,8 +80,8 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
-googleplus_hidden: false
+googleplus_user: +LukeKorth
+googleplus_hidden: true
 
 # Pinboard
 pinboard_user:
@@ -90,8 +92,8 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: lukekorth
+disqus_show_comment_count: true 
 
 # Google Analytics
 google_analytics_tracking_id:
