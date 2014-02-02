@@ -1,0 +1,19 @@
+---
+layout: default
+title: "Archive for 2013"
+tab: blog
+sidebar: true
+---
+<!-- posts list -->
+<div id="posts-list">
+    <h2 class="page-heading"><span>BLOG</span></h2>
+	
+	{% for post in site.posts %}
+		{% capture year %}{{ post.date | date: "%Y" }}{% endcapture %}
+		{% if year == "2013" %}
+			{% include post-summary.html %}
+		{% endif %}
+	{% endfor %}		
+
+</div>
+<!-- ENDS posts list -->	
