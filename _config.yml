@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://lukekorth.com
+url: http://lukekorth.com/
 title: Luke Korth
 subtitle: builder, hacker, photographer 
 author: Luke Korth
@@ -16,7 +16,7 @@ description: My blog is primarily about the apps and projects I am working as we
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+subscribe_rss: /blog/atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
 email: blog@lukekorth.com
@@ -52,7 +52,7 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+default_asides: [asides/recent_posts.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
@@ -83,23 +83,12 @@ google_plus_one_size: medium
 googleplus_user: +LukeKorth
 googleplus_hidden: true
 
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
 # Disqus Comments
 disqus_short_name: lukekorth
 disqus_show_comment_count: true 
 
 # Google Analytics
 google_analytics_tracking_id:
-
-# Facebook Like
-facebook_like: false
 
 # Gravatar
 gravatar_email: blog@lukekorth.com
