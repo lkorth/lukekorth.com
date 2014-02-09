@@ -60,7 +60,7 @@ Now we can finally configure how and which directory we want to share via NFS. E
 you should add the network that you would like to be able to access your NFS share.
 
 ```ini
-/path/to/shared/folder   192.168.1.0/24(rw,no_root_squash,no_subtree_check,crossmnt,fsid=0)
+/path/to/shared/folder   192.168.1.0/24(rw,no_subtree_check)
 ```
 
 Finally we can start our server. `rpcbind` needs to be started first
