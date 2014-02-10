@@ -17,7 +17,8 @@
   </header>
 {% endunless %}
 {% if index %}
-  <!-- do nothing but show the title on the listings page -->
+<!-- show first paragraph and the title on the listings page -->
+<div class="entry-content">{{ content | first_paragraph }}</div>
 {% else %}
 <div class="entry-content">{{ content }}</div>
 {% endif %}
