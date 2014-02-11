@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Initial Results
-tags: [Website]
-category: blog
+categories: [Website]
 sidebar: true
 picture: loadtime.png
 post: true

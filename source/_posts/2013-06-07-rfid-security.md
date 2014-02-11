@@ -1,8 +1,7 @@
 ---
 layout: post
 title: RFID Security
-tags: [New Technology, Security]
-category: blog
+categories: [New Technology, Security]
 sidebar: true
 post: true
 ---

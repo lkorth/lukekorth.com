@@ -1,8 +1,7 @@
 ---
 layout: post
 title: The Cost of Free Apps
-tags: [Android, Support]
-category: blog
+categories: [Android, Support]
 sidebar: true
 post: true
 ---

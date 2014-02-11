@@ -1,8 +1,7 @@
 ---
 layout: post
 title: New Apps on the Horizon
-tags: Android
-category: blog
+categories: Android
 sidebar: true
 post: true
 ---

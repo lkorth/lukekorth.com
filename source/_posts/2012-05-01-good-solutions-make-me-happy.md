@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Good Solutions Make Me Happy
-tags: [Android, Facebook]
-category: blog
+categories: [Android, Facebook]
 sidebar: true
 post: true
 ---

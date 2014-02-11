@@ -1,8 +1,7 @@
 ---
 layout: post
 title: The Wrong Way to Be a Web Host
-tags: [Support, Website]
-category: blog
+categories: [Support, Website]
 sidebar: true
 post: true
 ---

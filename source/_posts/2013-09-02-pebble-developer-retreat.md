@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Pebble Developer Retreat
-tags: [Pebble, Social]
-category: blog
+categories: [Pebble, Social]
 sidebar: true
 post: true
 ---

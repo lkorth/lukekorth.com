@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Linux NFS Server 
-tags: [Linux, Tutorial]
-category: blog
+categories: [Linux, Tutorial]
 sidebar: true
 post: true
 ---

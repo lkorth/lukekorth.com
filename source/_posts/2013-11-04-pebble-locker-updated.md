@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Pebble Locker Updated
-tags: [Android, Pebble]
-category: blog
+categories: [Android, Pebble]
 sidebar: true
 post: true
 ---

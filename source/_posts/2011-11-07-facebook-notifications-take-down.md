@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Facebook Notifications Take Down
-tags: [Android, Facebook]
-category: blog
+categories: [Android, Facebook]
 sidebar: true
 post: true
 ---

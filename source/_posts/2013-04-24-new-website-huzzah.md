@@ -1,8 +1,7 @@
 ---
 layout: post
 title: New Website, Huzzah!
-tags: [Website]
-category: blog
+categories: [Website]
 sidebar: true
 post: true
 ---

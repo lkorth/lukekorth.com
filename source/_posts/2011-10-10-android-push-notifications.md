@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Android Push Notifications
-tags: [Android, Presentations]
-category: blog
+categories: [Android, Presentations]
 sidebar: true
 post: true
 ---

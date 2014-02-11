@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Pebble Locker Mentioned on Engadget
-tags: [Pebble, Android]
-category: blog
+categories: [Pebble, Android]
 sidebar: true
 post: true
 ---

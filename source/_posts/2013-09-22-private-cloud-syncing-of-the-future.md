@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Private Cloud Syncing of the Future
-tags: [Cloud, New Technology]
-category: blog
+categories: [Cloud, New Technology]
 sidebar: true
 post: true
 ---

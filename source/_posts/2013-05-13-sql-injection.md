@@ -1,8 +1,7 @@
 ---
 layout: post
 title: SQL Injection
-tags: [SQL, Security]
-category: blog
+categories: [SQL, Security]
 sidebar: true
 post: true
 ---
