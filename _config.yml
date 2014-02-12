@@ -74,14 +74,9 @@ github_skip_forks: true
 twitter_user: lukekorth
 twitter_tweet_button: true
 
-# Google +1
-google_plus_one: false
-google_plus_one_size: medium
-
 # Google Plus Profile
-# Hidden: No visible button, just add author information to search results
+# Just add author information to search results
 googleplus_user: +LukeKorth
-googleplus_hidden: true
 
 # Disqus Comments
 disqus_short_name: lukekorth
