@@ -2,8 +2,8 @@
 layout: post
 title: RFID Security
 categories: [New Technology, Security]
-sidebar: true
-post: true
+date: 2013-06-07
+comments: true
 ---
 I just ran across [The RFID Hacking Underground](http://www.wired.com/wired/archive/14.05/rfid.html) from
 [Wired](http://www.wired.com/), didn't realize how dated it is, but it's still an entertaining read.

@@ -2,8 +2,8 @@
 layout: post
 title: Private Cloud Syncing of the Future
 categories: [Cloud, New Technology]
-sidebar: true
-post: true
+date: 2013-09-22
+comments: true
 ---
 It seems like every day there is a new cloud service that lets you store and sync
 your data. They all offer varying levels of encryption, security and privacy and are

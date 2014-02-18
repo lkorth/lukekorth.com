@@ -2,8 +2,8 @@
 layout: post
 title: Pebble Locker Mentioned on Engadget
 categories: [Pebble, Android]
-sidebar: true
-post: true
+date: 2013-10-21
+comments: true
 ---
 Last Friday Engadget [interviewed](http://www.engadget.com/2013/10/18/pebble-ceo/) Pebble's Founder and CEO, 
 Eric Migicovsky. Eric talked about the future of Pebble and a few of his favorite apps, 

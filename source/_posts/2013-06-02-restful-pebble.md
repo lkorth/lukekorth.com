@@ -2,8 +2,8 @@
 layout: post
 title: RESTful Pebble
 categories: [Android, Pebble]
-sidebar: true
-post: true
+date: 2013-06-02
+comments: true
 ---
 httpebble for Android has been renamed to [Pebble Connect with httpebble](https://play.google.com/store/apps/details?id=com.lukekorth.httpebble). It also got an update
 today that included several new features.

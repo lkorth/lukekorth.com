@@ -2,8 +2,8 @@
 layout: post
 title: The Cost of Free Apps
 categories: [Android, Support]
-sidebar: true
-post: true
+date: 2013-10-07
+comments: true
 ---
 I'm a relatively active Android developer, it's something I enjoy doing in my spare time when 
 I have a need or idea for an app. To date I have [3 free apps on the Play store](http://lukekorth.com/apps). 

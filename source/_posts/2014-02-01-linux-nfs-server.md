@@ -2,8 +2,8 @@
 layout: post
 title: Linux NFS Server 
 categories: [Linux, Tutorial]
-sidebar: true
-post: true
+date: 2014-02-01 
+comments: true
 ---
 I've been working on moving the network file share on my home network from an NTFS volume with my Asus router acting as a NAS host to an ext4
 volume running as an NFS share via a [Raspberry Pi](http://www.raspberrypi.org/). I was starting to have issues with corruption and missing 

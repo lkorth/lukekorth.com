@@ -2,8 +2,8 @@
 layout: post
 title: New Apps on the Horizon
 categories: Android
-sidebar: true
-post: true
+date: 2011-12-12
+comments: true
 ---
 After some back and forth with a user of my Facebook Notifications
 app I've been looking at a few new ideas for apps. The services of
