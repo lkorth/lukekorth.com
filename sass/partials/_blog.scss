@@ -3,7 +3,6 @@ article {
   header {
     position: relative;
     padding-top: 2em;
-    padding-bottom: 1em;
     margin-bottom: 1em;
     border-bottom: 1px solid $code-bg;
     h1 {
@@ -18,14 +17,12 @@ article {
       &.meta {
         @extend .sans;
         text-transform: uppercase;
-        position: absolute; top: 0;
         width: 100%;
         color: lighten($text-color-light, 10%);
       }
     }
     @media only screen and (min-width: 768px) {
       margin-bottom: 1.5em;
-      padding-bottom: 1em;
     }
   }
   h2 {
