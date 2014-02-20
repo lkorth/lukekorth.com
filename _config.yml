@@ -6,6 +6,7 @@ url: http://lukekorth.com
 title: Luke Korth
 subtitle: builder, hacker, photographer 
 author: Luke Korth
+email: blog@lukekorth.com
 simple_search: http://google.com/search
 description: My blog is primarily about the apps and projects I am working as well as things I find interesting.
 
@@ -15,11 +16,9 @@ description: My blog is primarily about the apps and projects I am working as we
 # Additionally, %o will give you the ordinal representation of the day
 date_format: "ordinal"
 
-# RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /blog/atom.xml
-subscribe_email:
-# RSS feeds can list your email address if you like
-email: blog@lukekorth.com
+# RSS subscription links
+subscribe_atom: /atom.xml
+subscribe_rss: /rss.xml
 
 # ----------------------- #
 #    Jekyll & Plugins     #

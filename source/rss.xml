@@ -1,0 +1,29 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title><![CDATA[{{ site.title }}]]></title>
+    <link>{{ site.url }}/</link>
+    <language>en</language>
+    {% if site.email %}<webMaster><![CDATA[{{ site.email }}]]></webMaster>{% endif %}
+    <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
+    <copyright>Copyright {{ site.time | date: '%Y' }}</copyright>
+    <ttl>60</ttl>
+    <description>{{ site.description }}</description>
+    
+    {% for post in site.posts limit:20 %}
+    <item>
+      <title><![CDATA[{{ post.title | cdata_escape }}]]></title>
+      <link>{{ site.url }}{{ post.url }}/</link>
+      <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+      <guid>{{ site.url }}{{ post.url }}/</guid>
+      <description><![CDATA[{{ post.content | expand_urls: site.url | cdata_escape }}]]></description>
+      {% for tag in post.tags %}
+        <category domain="{{ site.url }}/categories/{{ tag | downcase | replace:' ','-' }}/">{{ tag }}</category>
+      {% endfor %}
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
