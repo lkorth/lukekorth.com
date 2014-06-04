@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Linux NFS Server 
+title: Linux NFS Server
 categories: [Linux, Tutorial]
-date: 2014-02-01 
+date: 2014-02-01
 comments: true
 ---
 I've been working on moving the network file share on my home network from an NTFS volume with my Asus router acting as a NAS host to an ext4
@@ -59,7 +59,7 @@ Now we can finally configure how and which directory we want to share via NFS. E
 you should add the network that you would like to be able to access your NFS share.
 
 ```ini
-/path/to/shared/folder   192.168.1.0/24(rw,no_subtree_check)
+/path/to/shared/folder   192.168.1.0/24(rw,no_root_squash,no_subtree_check,crossmnt,fsid=0)
 ```
 
 Finally we can start our server. `rpcbind` needs to be started first
