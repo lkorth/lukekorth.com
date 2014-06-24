@@ -58,14 +58,18 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 #   3rd Party Settings    #
 # ----------------------- #
 
+# Disqus Comments
+disqus_short_name: lukekorth
+disqus_show_comment_count: true
+
+# GitHub post revision history
+github_user: lkorth
+github_repo: lukekorth.com
+
 # Google Plus Profile
 # Just add author information to search results
 googleplus_user: +LukeKorth
 googleplus_hidden: true
-
-# Disqus Comments
-disqus_short_name: lukekorth
-disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-23752726-1
