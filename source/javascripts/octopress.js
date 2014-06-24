@@ -17,11 +17,7 @@ function addSidebarToggler() {
     $('#content').append('<span class="toggle-sidebar"></span>');
     $('.toggle-sidebar').bind('click', function(e) {
       e.preventDefault();
-      if ($('body').hasClass('collapse-sidebar')) {
-        $('body').removeClass('collapse-sidebar');
-      } else {
-        $('body').addClass('collapse-sidebar');
-      }
+      $('body').toggleClass('collapse-sidebar');
     });
   }
   var sections = $('aside.sidebar > section');
@@ -140,7 +136,7 @@ $('document').ready(function() {
 }(document));
 
 /*!	SWFObject v2.2 modified by Brandon Mathis to contain only what is necessary to dynamically embed flash objects
-  * Uncompressed source in js/libs/swfobject-dynamic.js
+  * Uncompressed source in javascripts/libs/swfobject-dynamic.js
   * <http://code.google.com/p/swfobject/>
 	released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
 */

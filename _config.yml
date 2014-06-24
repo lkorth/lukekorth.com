@@ -4,7 +4,7 @@
 
 url: http://lukekorth.com
 title: Luke Korth
-subtitle: builder, hacker, photographer 
+subtitle: builder, hacker, photographer
 author: Luke Korth
 email: blog@lukekorth.com
 simple_search: http://google.com/search
@@ -40,7 +40,6 @@ redcarpet:
     - autolink
     - with_toc_data
     - strikethrough
-pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 5           # Posts per page on the blog index
 pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
