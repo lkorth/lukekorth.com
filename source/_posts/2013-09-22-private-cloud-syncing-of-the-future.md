@@ -11,6 +11,8 @@ all priced relatively similar. Most users are perfectly fine with the limitation
 come with their cloud service of choice and many are happy to use the free edition or
 pay a fee for the convenience of it. 
 
+<!--more-->
+
 I've never really been a big fan of most of the cloud providers, whether it was due to pricing
 or giving a third party access to all of my data. There are relatively few providers that offer
 true, trust no one (TNO), levels of security. Most providers use some form of encryption during upload

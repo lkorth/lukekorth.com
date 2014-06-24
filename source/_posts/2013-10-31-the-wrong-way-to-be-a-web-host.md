@@ -10,6 +10,8 @@ other than access to a database, some PHP and a domain. At the time, cheaper was
 selecting 1and1. They had a competitively priced shared hosting, gobs of bandwidth and included 2 free domain registrations
 with a hosting package. It seemed perfect for what I needed.
 
+<!--more-->
+
 Fast forward several years and I am administering a virtual private Linux server that runs the backend for several
 apps and websites. I have long since learned and out grown the limitations of shared hosting and 
 recently finished migrating everything off of it. The only thing left was to cancel my account with 1and1.

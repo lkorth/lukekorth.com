@@ -8,6 +8,8 @@ comments: true
 After a year and a half of having a terrible looking website that was only supposed to be a
 temporary placeholder, I've finally gotten around to building a new one.
 
+<!--more-->
+
 I'm no designer so it took me a while to find a layout that I liked (I'm still not sure how much
 I like this one and there is plenty of tweaking still to be done) and from there I started building
 the backend. I wanted to build up my website and blog by hand rather than use something like WordPress

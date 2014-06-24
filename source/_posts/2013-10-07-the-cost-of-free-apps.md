@@ -16,6 +16,8 @@ associated with running a server. I don't mind paying for a server all that much
 I also use the server to host this website and a few other personal things. The biggest 
 downside to free apps is the support that users expect to get.
 
+<!--more-->
+
 Consumers of mobile apps seem to think that because they downloaded your free app, that
 they have a right to very fast and perfect support from the author of said app. I'm not saying 
 this is right or wrong, but I will say that I have been yelled at by users of my _free_ apps

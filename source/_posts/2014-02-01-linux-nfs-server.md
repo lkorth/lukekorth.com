@@ -9,6 +9,8 @@ I've been working on moving the network file share on my home network from an NT
 volume running as an NFS share via a [Raspberry Pi](http://www.raspberrypi.org/). I was starting to have issues with corruption and missing 
 files so I decided to take the time and bulletproof the setup as much as possible.
 
+<!--more-->
+
 Rewriting the partition table with [fdisk](http://linux.die.net/man/8/fdisk) and formatting the drive as ext4 was very simple, but setting
 up an NFS server was more challenging than it should have been. I'm working on a Raspberry Pi running Debian Wheezy so it seemed like a 
 simple Google search to find what was needed to setup the NFS server. Pretty much every tutorial and set of instructions I ran across 

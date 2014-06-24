@@ -12,6 +12,8 @@ and then install the library and tests, but not run any of the tests. After seve
 will happily install and run the tests on an emulator that has not completely started. When this happens the tests
 do not run and there is no error, the build is successful, but if you look at the output closely no tests are run.
 
+<!--more-->
+
 The root cause was my reliance on the `adb wait-for-device` command which according to `adb`'s documentation
 will "block until device is online". In my experience `wait-for-device` will only block until the emulator is
 powered on, but still not ready to run tests. When you couple this with Gradle installing tests, but not running them

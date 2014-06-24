@@ -8,6 +8,8 @@ comments: true
 There are 
 [72,393 examples of SQL injection vulnerable code on GitHub](https://github.com/search?p=1&q=extension%3Aphp+mysql_query+%24_GET).
 
+<!--more-->
+
 Everyone that has ever learned to use a database in PHP probably learned using the mysql_* functions. It's quick,
 easy, requires only one line to connect and it works pretty much anywhere that runs PHP and MySQL; what's not to like?
 The problem is when developers migrate from learning and tutorials to writing websites in the real world. Granted, 

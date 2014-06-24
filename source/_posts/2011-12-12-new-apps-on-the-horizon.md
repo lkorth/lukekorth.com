@@ -19,6 +19,8 @@ webpage and have it pushed to their phone. Anyone with a service that can
 make HTTP requests should be able to come up with some very useful implementations
 for this.
 
+<!--more-->
+
 I am also thinking about developing a Twitter app similar to my [Slk Notifications
 for Facebook](https://market.android.com/details?id=com.lukekorth.facebookNotifications)
 app that would push a message to a users phone whenever their

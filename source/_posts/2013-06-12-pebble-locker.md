@@ -14,6 +14,8 @@ in the background and lots of root access). One of my biggest annoyances with so
 run constantly in the background. To solve these issues for users that just want a very light app that doesn't need root access,
 I created [Pebble Locker](https://play.google.com/store/apps/details?id=com.lukekorth.pebblelocker).
 
+<!--more-->
+
 [Pebble Locker](https://play.google.com/store/apps/details?id=com.lukekorth.pebblelocker) uses the 
 [device admin API](http://developer.android.com/guide/topics/admin/device-admin.html) created by Google to control the lock state 
 and password of the device. Once [Pebble Locker](https://play.google.com/store/apps/details?id=com.lukekorth.pebblelocker)

@@ -11,6 +11,8 @@ If your phone or tablet is connected to your Pebble, selected Bluetooth devices 
 unlocked. At any time if it is not connected to any of your selected devices or networks, it will set the lock
 screen with your predefined pin/password.
 
+<!--more-->
+
 ![Pebble Locker](/media/pebble-locker.png)
 
 These new features are available via an in-app purchase or to any one that had previously donated $3 or more.
