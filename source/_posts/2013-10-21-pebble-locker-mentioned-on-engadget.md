@@ -12,8 +12,10 @@ Eric Migicovsky. Eric talked about the future of Pebble and a few of his favorit
 __Update:__ Pebble Locker was also [reviewed](http://androidcommunity.com/pebble-locker-app-pin-locks-your-phone-upon-pebble-disconnect-20131018/)
 on Android Community the same day.
 
+<!-- more -->
+
 <div style='text-align:center;'>
-<script type='text/javascript' src='http://pshared.5min.com/Scripts/PlayerSeed.js?sid=281&width=480&height=280s&playList=517975309'></script>
+<script type='text/javascript' src='http://pshared.5min.com/Scripts/PlayerSeed.js?sid=281&width=342&height=200s&playList=517975309'></script>
 <br>
 </div>
 
