@@ -12,3 +12,4 @@ source/_stash
 source/css/screen.css
 vendor
 node_modules
+.appboxcache
