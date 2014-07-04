@@ -9,22 +9,20 @@ module Jekyll
   class AppBox < Liquid::Tag
 
     @id = ''
-    @style = ''
 
     def initialize(tag_name, markup, tokens)
       super
       @result = Hash.new
 
-      @resultarray = ['icon', 'screenshots', 'name', 'url', 'version', 'price', 'developer', 'developerurl','rating', 'ratingcount']
+      @result_array = ['icon', 'name', 'url', 'version', 'price', 'developer', 'developer_url','rating', 'rating_count']
 
       @cachefolder = File.expand_path "../.appboxcache", File.dirname(__FILE__)
       FileUtils.mkdir_p @cachefolder
 
-      if markup =~ /([A-Za-z]+\s|\s)([A-Za-z._0-9]+)/i
-        @id = $2.strip
-        @style = $1.strip
+      if markup =~ /([A-Za-z._0-9]+)/i
+        @id = $1.strip
       else
-        puts "Error with Markup. Your Values -- Id: #{@id} -- Style: #{@style}"
+        puts "Error with Markup. Your Values -- Id: #{@id}"
       end
     end
 
@@ -36,52 +34,26 @@ module Jekyll
         if File.exist? get_cached_file(@id, @page_path)
           get_cached_data(@id)
         else
-            googleplay_fetch_data(@id)
+          fetch_data(@id)
         end
 
-        out = ''
-        out += get_small_style
-
-        if @style == 'screenshots'
-          out += get_screenshot_style
-        end
-        out += get_footer
-
-        %(#{out})
+        %(#{get_html})
       end
     end
 
-    def get_small_style
-      small = ''
-      small +=  "<p><div class=\"appbox\"><a class=\"appbutton\" href=\"#{@result["url"]}\">"
-      small += "<img alt=\"Get it on Google Play\" src=\"http://developer.android.com/images/brand/en_generic_rgb_wo_45.png\" />"
-      small += "</a>"
-      small += "<div><a href=\"#{@result["url"]}\">"
-      small +=  "<img class=\"appicon\" src=\"#{@result["icon"]}\" /></a></div>"
-      small +=  "<div class=\"appdetails\"><div class=\"apptitle\"><a href=\"#{@result["url"]}\">#{@result["name"]}</a></div>"
-      small +=  "<div class=\"developer\"><a href=\"#{@result["developerurl"]}\">#{@result["developer"]}</a></div>"
-      small +=  "<div class=\"price\">#{@result["price"]} #{get_rating_stars(@result["rating"])}</div>"
-      small +=  "</div>"
-      small
-    end
-
-    def get_footer
-      footer = ''
-      footer += "</div></p>"
-      footer
-    end
-
-    def get_screenshot_style
-      screenshots = ''
-
-      screenshots += "<div class=\"screenshots\"><div class=\"slider\"><ul>"
-      unless @result["screenshots"].empty?
-        @result["screenshots"].each do |screenshot|
-          screenshots += "<li><img src=\"#{screenshot}\" /></li>"
-        end
-      end
-      screenshots += "</ul></div></div>"
-      screenshots
+    def get_html
+      html = ''
+      html +=  "<p><div class=\"appbox\"><a class=\"appbutton\" href=\"#{@result["url"]}\">"
+      html += "<img alt=\"Get it on Google Play\" src=\"http://developer.android.com/images/brand/en_generic_rgb_wo_45.png\" />"
+      html += "</a>"
+      html += "<div><a href=\"#{@result["url"]}\">"
+      html +=  "<img class=\"appicon\" src=\"#{@result["icon"]}\" /></a></div>"
+      html +=  "<div class=\"appdetails\"><div class=\"apptitle\"><a href=\"#{@result["url"]}\">#{@result["name"]}</a></div>"
+      html +=  "<div class=\"developer\"><a href=\"#{@result["developer_url"]}\">#{@result["developer"]}</a></div>"
+      html +=  "<div class=\"price\">#{@result["price"]} #{get_rating_stars(@result["rating"])}</div>"
+      html +=  "</div>"
+      html += "</div></p>"
+      html
     end
 
     def get_rating_stars(value)
@@ -97,29 +69,27 @@ module Jekyll
       (5 - value.to_i - halfstar).times do |emptystar|
         stars += "<span class=\"rating unstar\"></span>"
       end
-      stars += "<span class=\"rating count\">(#{@result["ratingcount"]})</span>"
+      stars += "<span class=\"rating count\">(#{@result["rating_count"]})</span>"
       stars
     end
 
-    def googleplay_fetch_data(app_id)
+    def fetch_data(app_id)
       base_url = 'https://play.google.com'
 
       doc = Nokogiri::HTML(open("#{base_url}/store/apps/details?id=#{app_id}"), nil, 'utf-8')
 
       # requestarray hints:
       # 1) App Icon e.g. big icon in Chrome Webstore
-      # 2) Array of screenshots
-      # 3) Name of the app
-      # 4) URL to the app
-      # 5) Versionnumber of the app
-      # 6) Price of the app
-      # 7) Developername
-      # 8) Developer URL
-      # 9) Rating value
-      # 10) Number of ratings
+      # 2) Name of the app
+      # 3) URL to the app
+      # 4) Versionnumber of the app
+      # 5) Price of the app
+      # 6) Developername
+      # 7) Developer URL
+      # 8) Rating value
+      # 9) Number of ratings
 
-      requestarray = [ doc.css("div.cover-container img").first['src'],
-                        doc.css("div.thumbnails img.screenshot").collect {|thumb| thumb['src']},
+      request_array = [ doc.css("div.cover-container img").first['src'],
                         doc.css("div.info-container div.document-title div").first.content,
                         base_url + "/store/apps/details?id=#{app_id}",
                         doc.css("div[itemprop=softwareVersion]").first.content,
@@ -129,7 +99,7 @@ module Jekyll
                         doc.css("div.tiny-star div.current-rating").first['style'][/\d+\.\d+/].to_f.round(1) / 100 * 5,
                         doc.css("div.reviews-stats span.reviews-num").first.content
                          ]
-      @resultarray.zip(requestarray).each do |result, request|
+      @result_array.zip(request_array).each do |result, request|
         if request.kind_of?(String)
           @result[result] = request.strip
         else
