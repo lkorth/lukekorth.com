@@ -18,6 +18,11 @@
   background-size: 11px 10px
 }
 
+.count {
+  padding: 0px 5px;
+  font-size: 65%;
+}
+
 .appicon {
   width: 64px;
   height: 64px;

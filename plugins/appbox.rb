@@ -9,24 +9,22 @@ module Jekyll
   class AppBox < Liquid::Tag
 
     @id = ''
-    @store = ''
     @style = ''
 
     def initialize(tag_name, markup, tokens)
       super
       @result = Hash.new
 
-      @resultarray = ['icon', 'screenshots', 'name', 'url', 'version', 'price', 'developer', 'developerurl','rating']
+      @resultarray = ['icon', 'screenshots', 'name', 'url', 'version', 'price', 'developer', 'developerurl','rating', 'ratingcount']
 
       @cachefolder = File.expand_path "../.appboxcache", File.dirname(__FILE__)
       FileUtils.mkdir_p @cachefolder
 
-      if markup =~ /([A-Za-z]+)(\s[A-Za-z]+\s|\s)([A-Za-z._0-9]+)/i
-        @id = $3.strip
-        @style = $2.strip
-        @store = $1.strip
+      if markup =~ /([A-Za-z]+\s|\s)([A-Za-z._0-9]+)/i
+        @id = $2.strip
+        @style = $1.strip
       else
-        puts "Error with Markup. Your Values -- Id: #{@id} -- Style: #{@style} -- Store: #{@store}"
+        puts "Error with Markup. Your Values -- Id: #{@id} -- Style: #{@style}"
       end
     end
 
@@ -35,14 +33,10 @@ module Jekyll
       @page_path = context["page"]["path"]
       # make sure to pass only posts with id
       unless @page_path.nil?
-        if File.exist? get_cached_file(@store, @id, @page_path)
+        if File.exist? get_cached_file(@id, @page_path)
           get_cached_data(@id)
         else
-          if @store == 'appstore'
-            apple_fetch_data(@id)
-          elsif @store == 'googleplay'
             googleplay_fetch_data(@id)
-          end
         end
 
         out = ''
@@ -60,11 +54,7 @@ module Jekyll
     def get_small_style
       small = ''
       small +=  "<p><div class=\"appbox\"><a class=\"appbutton\" href=\"#{@result["url"]}\">"
-      if @store == 'appstore'
-        small += "Go to <br />AppStore"
-      elsif @store == 'googleplay'
-        small += "<img alt=\"Get it on Google Play\" src=\"http://developer.android.com/images/brand/en_generic_rgb_wo_45.png\" />"
-      end
+      small += "<img alt=\"Get it on Google Play\" src=\"http://developer.android.com/images/brand/en_generic_rgb_wo_45.png\" />"
       small += "</a>"
       small += "<div><a href=\"#{@result["url"]}\">"
       small +=  "<img class=\"appicon\" src=\"#{@result["icon"]}\" /></a></div>"
@@ -107,21 +97,8 @@ module Jekyll
       (5 - value.to_i - halfstar).times do |emptystar|
         stars += "<span class=\"rating unstar\"></span>"
       end
+      stars += "<span class=\"rating count\">(#{@result["ratingcount"]})</span>"
       stars
-    end
-
-    def apple_fetch_data(app_id)
-      requestarray = ['artworkUrl512','screenshotUrls','trackName','trackViewUrl','version','formattedPrice','artistName','artistViewUrl', 'averageUserRatingForCurrentVersion']
-
-      url = "http://itunes.apple.com/lookup?id=#{app_id}"
-      resp = Net::HTTP.get_response(URI.parse(url))
-      app_data = JSON.parse resp.body
-
-      @resultarray.zip(requestarray).each do |result,request|
-        @result[result] = app_data["results"][0][request]
-      end
-
-      save_cached_data(get_cached_file(@store, app_id, @page_path))
     end
 
     def googleplay_fetch_data(app_id)
@@ -139,16 +116,18 @@ module Jekyll
       # 7) Developername
       # 8) Developer URL
       # 9) Rating value
+      # 10) Number of ratings
 
       requestarray = [ doc.css("div.cover-container img").first['src'],
                         doc.css("div.thumbnails img.screenshot").collect {|thumb| thumb['src']},
                         doc.css("div.info-container div.document-title div").first.content,
                         base_url + "/store/apps/details?id=#{app_id}",
-                        doc.css("div[itemprop=softwareVersion]").first.content.strip,
+                        doc.css("div[itemprop=softwareVersion]").first.content,
                         doc.css("meta[itemprop=price]").first['content'],
                         doc.css("div.info-container div a.document-subtitle").first.content,
                         base_url + doc.css("div.info-container div a.document-subtitle").first['href'],
-                        doc.css("div.tiny-star div.current-rating").first['style'][/\d+\.\d+/].to_f.round(1) / 100 * 5
+                        doc.css("div.tiny-star div.current-rating").first['style'][/\d+\.\d+/].to_f.round(1) / 100 * 5,
+                        doc.css("div.reviews-stats span.reviews-num").first.content
                          ]
       @resultarray.zip(requestarray).each do |result, request|
         if request.kind_of?(String)
@@ -156,18 +135,17 @@ module Jekyll
         else
           @result[result] = request
         end
-        puts "#{result} #{request}"
       end
 
       if @result["price"] == 0 || @result["price"] == "0"
         @result["price"] = "Free"
       end
 
-      save_cached_data(get_cached_file(@store, app_id, @page_path))
+      save_cached_data(get_cached_file(app_id, @page_path))
     end
 
     def get_cached_data(app_id)
-      cached_file = get_cached_file(@store, app_id, @page_path)
+      cached_file = get_cached_file(app_id, @page_path)
       @result = JSON.parse File.read cached_file if File.exist? cached_file
       return nil if @result.nil?
     end
@@ -178,8 +156,8 @@ module Jekyll
       end
     end
 
-    def get_cached_file(store, app_id, page_path)
-      File.join @cachefolder, "#{store}_#{app_id}-#{Digest::MD5.hexdigest(page_path)}.cache"
+    def get_cached_file(app_id, page_path)
+      File.join @cachefolder, "#{app_id}-#{Digest::MD5.hexdigest(page_path)}.cache"
     end
 
   end
