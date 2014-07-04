@@ -72,9 +72,10 @@ module Jekyll
           file.write(alias_template(destination_path))
         end
 
-        (alias_index_path.split('/').size + 1).times do |sections|
+        alias_index_path.split('/').size.times do |sections|
           @site.static_files << Jekyll::AliasFile.new(@site, @site.dest, alias_index_path.split('/')[0, sections].join('/'), '')
         end
+        @site.static_files << Jekyll::AliasFile.new(@site, @site.dest, alias_dir, alias_file)
       end
     end
 
@@ -97,10 +98,6 @@ module Jekyll
 
     def destination(dest)
       File.join(dest, @dir)
-    end
-
-    def mtime
-      return 0
     end
 
     def modified?
