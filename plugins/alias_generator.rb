@@ -99,6 +99,10 @@ module Jekyll
       File.join(dest, @dir)
     end
 
+    def mtime
+      return 0
+    end
+
     def modified?
       return false
     end
