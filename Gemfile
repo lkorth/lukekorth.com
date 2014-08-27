@@ -17,6 +17,8 @@ group :development do
 
   # Custom
   gem 'nokogiri'
+  gem 'chronic'
+  gem 'google-api-client'
 end
 
 gem 'sinatra', '~> 1.4.2'

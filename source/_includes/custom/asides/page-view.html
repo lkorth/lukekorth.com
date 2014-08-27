@@ -1,0 +1,11 @@
+{% if page.total_page_views %}
+<section>
+  <h1>Total Page Views</h1>
+  <span>{% totalpageview %}</span>
+</section>
+{% else %}
+<section>
+  <h1>Page Views</h1>
+  <span>{% pageview %}</span>
+</section>
+{% endif %}
