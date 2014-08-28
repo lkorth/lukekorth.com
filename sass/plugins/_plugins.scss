@@ -3,12 +3,3 @@
   Imported. Load order is alphabetical and styles can be overriden in
   custom/_style.scss which is loaded after all plugin stylesheets.
 */
-.revision {
-    margin-bottom: 1em;
-    padding-bottom: 1em;
-    background: $img-border bottom left repeat-x;
-}
-.revision ul {
-    list-style-type: none;
-    margin-bottom: 1em;
-}
