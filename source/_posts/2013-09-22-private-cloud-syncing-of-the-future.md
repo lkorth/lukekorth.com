@@ -49,7 +49,8 @@ an always-on server can be used. There are numerous tutorials for using BitTorre
 AWS or other Linux servers, but it really shines if you already have an external hard drive or NAS and a Raspberry Pi or 
 similar low power computer. Jack Minardi has written a very good tutorial on 
 [BitTorrent Sync and a Raspberry Pi](http://jack.minardi.org/raspberry_pi/replace-dropbox-with-bittorrent-sync-and-a-raspberry-pi/)
-that steps you through everything you need to get going. If you do go this route, make sure to go through
+that steps you through everything you need to get going (UPDATE: v1.4 was recently release with some new features and changes, make sure to 
+[download](http://www.bittorrent.com/sync/download) the most recent Linux ARM copy). If you do go this route, make sure to go through
 Jack's Extra Credit section for starting on boot and securing access to your web based control panel.
 In preparation for setting up BitTorrent Sync, I also used a script to remove a lot of the unneeded packages
 that come installed on the Raspberry Pi's default OS when you're going to run it as a headless server. My
