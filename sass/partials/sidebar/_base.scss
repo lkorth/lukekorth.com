@@ -54,6 +54,9 @@ aside.sidebar {
     color: $sidebar-link-color-subdued-hover;
   }
 }
+.aside-spacing {
+  margin-top: .6em;
+}
 
 @media only screen and (min-width: 768px) {
   .toggle-sidebar {

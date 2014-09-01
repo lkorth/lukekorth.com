@@ -1,11 +1,11 @@
 {% if page.total_page_views %}
 <section>
   <h1>Total Page Views</h1>
-  <span>{% totalpageview %}</span>
+  <div class="aside-spacing">{% totalpageview %}</div>
 </section>
 {% else %}
 <section>
   <h1>Page Views</h1>
-  <span>{% pageview %}</span>
+  <div class="aside-spacing">{% pageview %}</div>
 </section>
 {% endif %}
