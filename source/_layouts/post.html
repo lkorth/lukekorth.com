@@ -15,7 +15,12 @@ single: true
     {% unless page.sharing == false %}
       {% include post/sharing.html %}
     {% endunless %}
-    {% include custom/revision.html %}
+    <div class="after-post">
+      <div class="after-post-row">
+        {% include custom/revision.html %}
+        {% include custom/related_posts.html %}
+      </div>
+    </div>
     <p class="meta">
       {% if page.previous.url %}
         <a class="basic-alignment left" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>

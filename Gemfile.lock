@@ -79,6 +79,7 @@ GEM
     mini_portile (0.6.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
+    narray (0.6.0.9)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     parslet (1.5.0)
@@ -92,6 +93,8 @@ GEM
       rack
     rake (10.3.2)
     rb-fsevent (0.9.4)
+    rb-gsl (1.16.0.2)
+      narray (>= 0.5.9)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdiscount (2.1.7.1)
@@ -135,6 +138,7 @@ DEPENDENCIES
   nokogiri
   rake (~> 10.0)
   rb-fsevent (~> 0.9)
+  rb-gsl
   rdiscount (~> 2.0)
   rubypants (~> 0.2.0)
   sass-globbing (~> 1.0.0)

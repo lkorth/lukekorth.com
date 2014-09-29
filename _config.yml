@@ -38,7 +38,7 @@ redcarpet:
     - autolink
     - with_toc_data
     - strikethrough
-
+lsi: true
 paginate: 5           # Posts per page on the blog index
 paginate_path: blog/:num  # Path structure for pagination URLs eg. /blog/page/2/
 recent_posts: 5       # Posts in the sidebar Recent Posts section
