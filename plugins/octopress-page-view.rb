@@ -138,7 +138,7 @@ module Jekyll
         return ''
       end
 
-      html = pv.to_s.reverse.gsub(/...(?=.)/,'\&,').reverse + ' hits'
+      html = pv.to_s.reverse.gsub(/...(?=.)/,'\&,').reverse + ' views'
       return html
     end #render
   end # TotalPageViewTag
