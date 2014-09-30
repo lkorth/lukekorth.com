@@ -3,22 +3,24 @@
 {% endcomment %}
 <script>
   $(document).ready(function() {
-    var stickyNavTop = $('nav').offset().top;
+    var stickyNavTop = $('#nav').offset().top;
+    var nonFixedPadding = parseInt($('nav').css('paddingLeft'));
+    var bodyMargin = parseInt($('body').css('marginLeft'));
 
-    var stickyNav = function(){
+    var stickyNav = function() {
       var scrollTop = $(window).scrollTop();
-
       if (scrollTop > stickyNavTop) {
-          $('nav').addClass('sticky');
+          $('#nav-placeholder').css({display: 'block'});
+          $('#nav').addClass('sticky');
+          $('#nav').css({paddingLeft: nonFixedPadding + bodyMargin + 'px'});
       } else {
-          $('nav').removeClass('sticky');
+          $('#nav-placeholder').css({display: 'none'});
+          $('#nav').removeClass('sticky');
+          $('#nav').css({paddingLeft: nonFixedPadding + 'px'});
       }
     };
 
     stickyNav();
-
-    $(window).scroll(function() {
-        stickyNav();
-    });
+    $(window).scroll(stickyNav);
   });
 </script>
