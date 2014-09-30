@@ -1,0 +1,26 @@
+.after-post {
+  width: 100%;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  background: $img-border bottom left repeat-x;
+}
+.after-post section {
+  margin-bottom: 1em;
+}
+.after-post ul {
+  list-style-type: none;
+  margin-bottom: 1em;
+}
+@media only screen and (min-width: 750px) {
+  .after-post { display: table; }
+  .after-post-row {
+    display: table-row;
+    width: 100%;
+  }
+  .after-post section {
+    display: table-cell;
+    width: 50%;
+    margin-bottom: 0;
+  }
+}
+
