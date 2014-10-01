@@ -3,7 +3,6 @@ layout: post
 title: Pebble Locker Updated
 categories: [Android, Pebble]
 date: 2013-11-04
-comments: true
 ---
 [Pebble Locker](https://play.google.com/store/apps/details?id=com.lukekorth.pebblelocker) got an update 
 today that added functionality to select any Bluetooth device and/or WiFi network to unlock your device.

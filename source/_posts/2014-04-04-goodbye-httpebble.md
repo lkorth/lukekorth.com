@@ -3,7 +3,6 @@ layout: post
 title: Goodbye httpebble 
 categories: [Pebble, Android]
 date: 2014-04-04
-comments: true
 ---
 Pebble 2.0 for Android has been out for 
 [just under a month now](https://blog.getpebble.com/2014/03/07/the-pebble-appstore-now-with-android-support-and-more-partners/). 

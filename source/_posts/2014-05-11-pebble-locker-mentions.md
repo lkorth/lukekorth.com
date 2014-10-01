@@ -3,7 +3,6 @@ layout: post
 title: Pebble Locker Mentions
 categories: [Pebble, Android]
 date: 2014-05-11
-comments: true
 ---
 Pebble Locker made [Android Central's](http://www.androidcentral.com/)
 [Apps of the Week](http://www.androidcentral.com/apps-week-shadow-fight-2-pebble-locker-espn-fc-and-more)

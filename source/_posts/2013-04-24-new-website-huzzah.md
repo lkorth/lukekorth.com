@@ -3,7 +3,6 @@ layout: post
 title: New Website, Huzzah!
 categories: [Website]
 date: 2013-04-24
-comments: true
 ---
 After a year and a half of having a terrible looking website that was only supposed to be a
 temporary placeholder, I've finally gotten around to building a new one.

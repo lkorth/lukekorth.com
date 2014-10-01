@@ -3,7 +3,6 @@ layout: post
 title: Pebble Developer Retreat
 categories: [Pebble, Social]
 date: 2013-09-02
-comments: true
 ---
 I've spent 5 days hanging out and hacking with the guys at [Pebble](http://getpebble.com/) 
 and many of the [active community members](http://forums.getpebble.com/) and it's been nothing

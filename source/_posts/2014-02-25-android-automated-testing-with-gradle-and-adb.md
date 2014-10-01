@@ -3,7 +3,6 @@ layout: post
 title: Android Automated Testing with Gradle and ADB
 categories: [Android, Linux]
 date: 2014-02-25
-comments: true
 ---
 While working on some automated testing with Android today I ran across two rather annoying peculiarities with some
 of the tooling surrounding Android, namely Gradle and ADB. The project I am working on is in Android Studio and using

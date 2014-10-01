@@ -4,7 +4,6 @@ title: Initial Results
 categories: [Website]
 picture: loadtime.png
 date: 2013-05-05
-comments: true 
 ---
 After running a few quick tests to see how my new site is performing, with only a few minor optimizations (bundled css and js not minified
 and a few image sprites) load times are around half a second. I also ran the excellent load testing tool

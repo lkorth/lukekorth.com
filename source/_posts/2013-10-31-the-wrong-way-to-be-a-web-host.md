@@ -3,7 +3,6 @@ layout: post
 title: The Wrong Way to Be a Web Host
 categories: [Support, Website]
 date: 2013-10-31
-comments: true
 ---
 Several years ago I wanted to setup a personal web site and a few other things. I didn't know what I needed
 other than access to a database, some PHP and a domain. At the time, cheaper was better and I eventually wound up

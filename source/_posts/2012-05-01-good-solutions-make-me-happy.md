@@ -3,7 +3,6 @@ layout: post
 title: Good Solutions Make Me Happy
 categories: [Android, Facebook]
 date: 2012-05-01
-comments: true
 ---
 After playing around with some different ideas and implementations, I'm moving the server side of my
 [Slk Notifications for Facebook](https://play.google.com/store/apps/details?id=com.lukekorth.facebookNotifications)

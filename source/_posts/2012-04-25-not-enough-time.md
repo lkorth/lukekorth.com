@@ -3,7 +3,6 @@ layout: post
 title: Not enough time
 categories: [Android, New Technology]
 date: 2012-04-25
-comments: true
 ---
 I have been hoping to work on my website recently to make it more
 functional and less ugly (not to mention post more) along with several apps

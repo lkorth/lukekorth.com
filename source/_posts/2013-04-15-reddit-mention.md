@@ -3,7 +3,6 @@ layout: post
 title: reddit Mention
 categories: [GitHub, Security]
 date: 2013-04-15
-comments: true
 ---
 The [botnet detection](https://github.com/lkorth/botnet-detection) program I started writing a year ago
 as part of my senior research has received a few stars and a fork on GitHub randomly and it seems rather odd.

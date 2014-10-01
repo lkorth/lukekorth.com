@@ -3,7 +3,6 @@ layout: post
 title: Pebble Locker
 categories: [Android, Pebble]
 date: 2013-06-12
-comments: true
 ---
 One bit of functionality that I've wanted with my [Pebble](http://getpebble.com/) has been to lock my phone with 
 a pin or password when the Pebble disconnects, thus securing my phone when I walk away from it. While it is possible
