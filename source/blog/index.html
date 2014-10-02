@@ -3,6 +3,7 @@ layout: default
 alias: /index.html
 tab: blog
 total_page_views: true
+comment-count: true
 ---
 
 <div class="blog-index">
@@ -10,7 +11,7 @@ total_page_views: true
   {% for post in paginator.posts %}
   {% assign content = post.content %}
     <article>
-      {% include article.html %}
+      {% include post_preview.html %}
     </article>
   {% endfor %}
   <div class="pagination">
