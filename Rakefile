@@ -4,10 +4,10 @@ require "stringex"
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user       = "user@domain.com"
-ssh_port       = "22"
-document_root  = "~/website.com/"
-rsync_delete   = false
+ssh_user       = "luke@ofkorth.net"
+ssh_port       = "22022"
+document_root  = "/usr/share/nginx/www/lukekorth/"
+rsync_delete   = true
 rsync_args     = ""  # Any extra arguments to pass to rsync
 deploy_default = "rsync"
 
@@ -53,7 +53,7 @@ end
 #######################
 
 desc "Generate jekyll site"
-task :generate do
+task :generate => :clean do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
@@ -168,11 +168,6 @@ task :isolate, :filename do |t, args|
   end
 end
 
-desc "Move all stashed posts back into the posts directory, ready for site generation."
-task :integrate do
-  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/*.*"), "#{source_dir}/#{posts_dir}/"
-end
-
 desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache and public folder"
 task :clean do
   rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**", "source/stylesheets/screen.css", public_dir]
@@ -223,19 +218,11 @@ task :deploy do
     Rake::Task[:generate].execute
   end
 
-  Rake::Task[:copydot].invoke(source_dir, public_dir)
   Rake::Task["#{deploy_default}"].execute
 end
 
 desc "Generate website and deploy"
-task :gen_deploy => [:integrate, :generate, :deploy] do
-end
-
-desc "copy dot files for deployment"
-task :copydot, :source, :dest do |t, args|
-  FileList["#{args.source}/**/.*"].exclude("**/.", "**/..", "**/.DS_Store", "**/._*").each do |file|
-    cp_r file, file.gsub(/#{args.source}/, "#{args.dest}") unless File.directory?(file)
-  end
+task :gen_deploy => [:generate, :deploy] do
 end
 
 desc "Deploy website via rsync"
