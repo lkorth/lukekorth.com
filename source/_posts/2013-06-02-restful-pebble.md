@@ -11,7 +11,7 @@ today that included several new features.
 
 The first of which is a list of httpebble enabled watch faces
 
-![Watch face list](/media/watchface-list.png)
+{% img /media/watchface-list.png %}
 
 If you have developed a httpebble enabled watch face and would like to see it listed in the app, [contact me](mailto:blog@lukekorth.com)
 
@@ -22,7 +22,7 @@ sending data directly to a watch face.
 The current API is very simple and consists of a HTTP POST request to [https://ofkorth.net/pebble/send](#) with the body
 of the request consisting of the following
 
-```
+```ini
 type=notification
 userId=[user id entered in app]
 userToken=[user token entered in app]
@@ -32,7 +32,7 @@ body=[the body of the notification]
 
 To give it a try with curl via command line use the following
 
-```
+```bash
 curl -v --data "\
 userId=[USER_ID_HERE]&\
 userToken=[USER_TOKEN_HERE]&\

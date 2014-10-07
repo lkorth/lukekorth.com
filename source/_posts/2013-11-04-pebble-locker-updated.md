@@ -12,7 +12,7 @@ screen with your predefined pin/password.
 
 <!--more-->
 
-![Pebble Locker](/media/pebble-locker.png)
+{% img /media/pebble-locker.jpg %}
 
 These new features are available via an in-app purchase or to any one that had previously donated $3 or more.
 
