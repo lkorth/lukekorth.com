@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://lukekorth.com
+url: https://lukekorth.com
 title: Luke Korth
 author: Luke Korth
 email: blog@lukekorth.com
-simple_search: http://google.com/search
+simple_search: https://google.com/search
 description: My blog is primarily about the apps and projects I am working as well as things I find interesting.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
