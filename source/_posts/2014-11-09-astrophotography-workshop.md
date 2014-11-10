@@ -35,7 +35,7 @@ to combine all 191 photos into a single photo.
 Almost as an after thought I decided to try a timelapse as well since I already had the photos and went through all the work
 to edit them. I'm pretty happy with the result having never done it before.
 
-{% video https://lukekorth.com/media/milky-way-timelapse.mp4 900 500 https://lukekorth.com/media/milky-way-timelapse.jpg %}
+{% video https://lukekorth.com/media/milky-way-timelapse.mp4 https://lukekorth.com/media/milky-way-timelapse.ogv https://lukekorth.com/media/milky-way-timelapse.webm 900 500 https://lukekorth.com/media/milky-way-timelapse.jpg %}
 
 I attempted to shoot the following night as well, but the evening turned out to be very cloudy.
 The workshop couldn't have gone better, Sean is an excellent teacher and a phenomenal photographer,
