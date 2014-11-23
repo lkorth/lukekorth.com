@@ -74,6 +74,26 @@ $('document').ready(function() {
   addCodeLineNumbers();
   getNav();
   addSidebarToggler();
+
+  var stickyNavTop = $('#nav').offset().top;
+  var nonFixedPadding = parseInt($('nav').css('paddingLeft'));
+  var bodyMargin = parseInt($('body').css('marginLeft'));
+
+  var stickyNav = function() {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop > stickyNavTop) {
+      $('#nav-placeholder').css({display: 'block'});
+      $('#nav').addClass('sticky');
+      $('#nav').css({paddingLeft: nonFixedPadding + bodyMargin + 'px'});
+    } else {
+      $('#nav-placeholder').css({display: 'none'});
+      $('#nav').removeClass('sticky');
+      $('#nav').css({paddingLeft: nonFixedPadding + 'px'});
+    }
+  };
+
+  stickyNav();
+  $(window).scroll(stickyNav);
 });
 
 // iOS scaling bug fix
