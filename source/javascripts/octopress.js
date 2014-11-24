@@ -12,22 +12,6 @@ function getNav() {
   });
 }
 
-function testFeatures() {
-  var features = ['maskImage'];
-  $(features).map(function(i, feature) {
-    if (Modernizr.testAllProps(feature)) {
-      $('html').addClass(feature);
-    } else {
-      $('html').addClass('no-'+feature);
-    }
-  });
-  if ("placeholder" in document.createElement("input")) {
-    $('html').addClass('placeholder');
-  } else {
-    $('html').addClass('no-placeholder');
-  }
-}
-
 function addCodeLineNumbers() {
   if (navigator.appName === 'Microsoft Internet Explorer') { return; }
   $('div.gist-highlight').each(function(code) {
@@ -45,7 +29,6 @@ function addCodeLineNumbers() {
 }
 
 $('document').ready(function() {
-  testFeatures();
   addCodeLineNumbers();
   getNav();
 
