@@ -14,9 +14,6 @@ comment-count: true
       {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
       {% include post/categories.html %}
     </p>
-    {% unless page.sharing == false %}
-      {% include post/sharing.html %}
-    {% endunless %}
     <div class="after-post">
       <div class="after-post-row">
         {% include custom/revision.html %}
