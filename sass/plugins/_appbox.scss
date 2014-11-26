@@ -43,19 +43,19 @@
   width: auto;
   line-height: 1;
   color: #545450;
-  margin: 16px 0; 
+  margin: 16px 0;
   font-size: 1em/16px;
 }
 
 .appdetails {
   font-size: .95em;
-  margin: 10px; 
+  margin: 10px;
   height: 68px;
 }
 
 .apptitle {
   font-size: 1.15em;
-  font-weight: bold; 
+  font-weight: bold;
   height: 22px;
   padding: 0 0 2px 0;
   margin: 0;
@@ -86,50 +86,48 @@
   margin: 0;
 }
 
-.screenshots { 
+.screenshots {
   width: auto;
   margin: 0 auto;
-  padding: 10px; 
+  padding: 10px;
 }
 
-.screenshots .slider { 
+.screenshots .slider {
   overflow-x: scroll;
   overflow-y: hidden;
   height: 300px;
-  margin-top: 0; 
+  margin-top: 0;
 }
 
-.screenshots .slider ul { 
+.screenshots .slider ul {
   padding: 0 !important;
   margin: 0 !important;
   list-style-image: none;
   white-space: nowrap;
 }
 
-.screenshots .slider ul li { 
+.screenshots .slider ul li {
   padding: 0;
   margin: 0;
   margin-right: 6px;
   list-style-type: none;
-  display: inline; 
+  display: inline;
 }
 
-.screenshots .slider ul li:last-child { 
-  margin-right: 0; 
+.screenshots .slider ul li:last-child {
+  margin-right: 0;
 }
 
-.screenshots .slider ul li img { 
+.screenshots .slider ul li img {
   height: 300px !important;
-  display: inline; 
+  display: inline;
 }
 
 .appbutton {
   height: 44px;
   float: right;
-  margin: 10px; 
+  margin: 10px;
   display: inline-block;
-  background-color: #E5E5E5;
-  border: 1px solid #E5E5E5;
   padding: 10px 15px;
   font-weight: bold;
   font-size: .95em;
@@ -140,8 +138,10 @@
   -webkit-border-radius: 5px;
 }
 
-.appbutton:hover {
-  background-color: #C1C1C1;
-  color: #FFF;
-  text-decoration: none !important;
+@media screen and (max-width: 450px) {
+  .appbutton {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
+  }
 }
