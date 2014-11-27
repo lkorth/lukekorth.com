@@ -44,7 +44,7 @@ module Jekyll
     def get_html
       html = ''
       html +=  "<p><div class=\"appbox\"><a class=\"appbutton\" href=\"#{@result["url"]}\">"
-      html += "<img alt=\"Get it on Google Play\" src=\"http://developer.android.com/images/brand/en_generic_rgb_wo_45.png\" />"
+      html += "<img alt=\"Get it on Google Play\" src=\"//developer.android.com/images/brand/en_generic_rgb_wo_45.png\" />"
       html += "</a>"
       html += "<div><a href=\"#{@result["url"]}\">"
       html +=  "<img class=\"appicon\" src=\"#{@result["icon"]}\" /></a></div>"
