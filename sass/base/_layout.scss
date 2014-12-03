@@ -111,14 +111,11 @@ aside.sidebar {
   &.left, &.right { margin-bottom: .8em; }
 }
 
-.toggle-sidebar { &, .no-sidebar & { display: none; }}
-
 body.sidebar-footer {
   @media only screen and (min-width: 750px) {
     aside.sidebar{ @include collapse-sidebar; }
   }
   #content { margin-right: 0px; }
-  .toggle-sidebar { display: none; }
 }
 
 @media only screen and (min-width: 550px) {
