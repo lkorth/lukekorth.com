@@ -89,3 +89,6 @@ page-view:
   start: 7 years ago   # Beginning of report
   end: now             # End of report
   metric: ga:pageviews # Metric code
+
+# 500px
+500px_consumer_key_file: 500px-consumer-key
