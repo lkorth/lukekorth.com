@@ -1,5 +1,11 @@
 (function() {
   responsiveNav(".main-navigation");
+
+  document.getElementById('search').addEventListener('submit', function() {
+      var searchInput = document.getElementById('searchInput');
+      searchInput.value = 'site:lukekorth.com ' + searchInput.value;
+      return true;
+  });
 }(document));
 
 // iOS scaling bug fix
