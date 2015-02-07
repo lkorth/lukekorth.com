@@ -16,13 +16,13 @@ from such a talented photographer. When I arrived, Sean talked through everythin
 camera settings, shooting the night sky and milky way. Within 15 minutes I had my camera setup and was shooting.
 One of my best photos of the night came from the first few I took.
 
-<a href="https://500px.com/photo/81815977/milky-way-over-tahoe-by-luke-korth" target="_blank">{% img center /media/astrophotography-workshop/milky-way-over-lake-tahoe.jpg %}</a>
+{% 500px 81815977 %}
 
 After spending some time learning how to shoot the milky way and take composite photos, Sean taught us about light painting
 with headlamps and other light sources. To finish up our shoot on the beach we did a series of self portraits,
 resulting in my favorite photo of the night.
 
-<a href="https://500px.com/photo/80880759/star-gazing-self-portrait-by-luke-korth" target="_blank">{% img center /media/astrophotography-workshop/star-gazing-self-portrait.jpg %}</a>
+{% 500px 80880759 %}
 
 For the second part of the night we drove up the mountain and setup to take star trails. We shot a few photos to get
 setup and then let our cameras do the work. I ended up shooting for 80 minutes and taking 191 photos.
@@ -30,7 +30,7 @@ The work came later during post processing where I batch edited all the raws and
 the planes from each individual image. Once this was done I used [StarStaX](http://www.markus-enzweiler.de/StarStaX/StarStaX.html)
 to combine all 191 photos into a single photo.
 
-<a href="https://500px.com/photo/89029765/star-trails-by-luke-korth" target="_blank">{% img /media/astrophotography-workshop/star-trails.jpg %}</a>
+{% 500px 89029765 %}
 
 Almost as an after thought I decided to try a timelapse as well since I already had the photos and went through all the work
 to edit them. I'm pretty happy with the result having never done it before.
