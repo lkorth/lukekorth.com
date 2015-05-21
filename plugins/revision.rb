@@ -74,7 +74,7 @@ module Jekyll
         return ''
       end
 
-      cmd = 'git log --date=local --pretty="%cd|%s" --max-count=' + @limit.to_s + ' ' + full_path
+      cmd = 'git log --date=local --pretty="%cd|%s" --max-count=' + @limit.to_s + ' "' + full_path + '"'
       logs = `#{cmd}`
 
       html = '<ul>'
