@@ -9,18 +9,11 @@ ssh_port       = "22022"
 document_root  = "/usr/share/nginx/www/lukekorth/"
 rsync_delete   = true
 rsync_args     = ""  # Any extra arguments to pass to rsync
-deploy_default = "rsync"
-
-# This will be configured for you when you run config_deploy
-deploy_branch  = "gh-pages"
 
 ## -- Misc Configs -- ##
-
 public_dir      = "public"    # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
-deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
-stash_dir       = "_stash"    # directory to stash posts for speedy generation
 posts_dir       = "_posts"    # directory for blog files
 themes_dir      = ".themes"   # directory for blog files
 new_post_ext    = "md"  # default new post file extension when using the new_post task
@@ -32,37 +25,19 @@ if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
   `chcp 65001`
 end
 
-desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
-task :install, :theme do |t, args|
-  if File.directory?(source_dir) || File.directory?("sass")
-    abort("rake aborted!") if ask("A theme is already installed, proceeding will overwrite existing files. Are you sure?", ['y', 'n']) == 'n'
-  end
-  # copy theme into working Jekyll directories
-  theme = args.theme || 'classic'
-  puts "## Copying "+theme+" theme into ./#{source_dir} and ./sass"
-  mkdir_p source_dir
-  cp_r "#{themes_dir}/#{theme}/source/.", source_dir
-  mkdir_p "sass"
-  cp_r "#{themes_dir}/#{theme}/sass/.", "sass"
-  mkdir_p "#{source_dir}/#{posts_dir}"
-  mkdir_p public_dir
-end
+##########
+# Jekyll #
+##########
 
-#######################
-# Working with Jekyll #
-#######################
-
-desc "Generate jekyll site"
+desc "Generate Jekyll site"
 task :generate => :clean do
-  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
   system "jekyll build"
 end
 
-desc "preview the site in a web browser"
+desc "Preview the site in a web browser"
 task :preview => :clean do
-  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch")
@@ -82,97 +57,18 @@ task :clean do
   rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**", "source/stylesheets/screen.css", public_dir]
 end
 
-desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
-task :update_style, :theme do |t, args|
-  theme = args.theme || 'classic'
-  if File.directory?("sass.old")
-    puts "removed existing sass.old directory"
-    rm_r "sass.old", :secure=>true
-  end
-  mv "sass", "sass.old"
-  puts "## Moved styles into sass.old/"
-  cp_r "#{themes_dir}/"+theme+"/sass/", "sass", :remove_destination=>true
-  cp_r "sass.old/custom/.", "sass/custom/", :remove_destination=>true
-  puts "## Updated Sass ##"
-end
-
-desc "Move source to source.old, install source theme updates, replace source/_includes/navigation.html with source.old's navigation"
-task :update_source, :theme do |t, args|
-  theme = args.theme || 'classic'
-  if File.directory?("#{source_dir}.old")
-    puts "## Removed existing #{source_dir}.old directory"
-    rm_r "#{source_dir}.old", :secure=>true
-  end
-  mkdir "#{source_dir}.old"
-  cp_r "#{source_dir}/.", "#{source_dir}.old"
-  puts "## Copied #{source_dir} into #{source_dir}.old/"
-  cp_r "#{themes_dir}/"+theme+"/source/.", source_dir, :remove_destination=>true
-  cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/", :remove_destination=>true
-  cp "#{source_dir}.old/favicon.png", source_dir
-  mv "#{source_dir}/index.html", "#{blog_index_dir}", :force=>true if blog_index_dir != source_dir
-  cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir && File.exists?("#{source_dir}.old/index.html")
-  puts "## Updated #{source_dir} ##"
-end
-
 ##############
 # Deploying  #
 ##############
 
-desc "Default deploy task"
-task :deploy => :generate do
-  # Check if preview posts exist, which should not be published
-  if File.exists?(".preview-mode")
-    puts "## Found posts in preview mode, regenerating files ..."
-    File.delete(".preview-mode")
-    Rake::Task[:generate].execute
-  end
-
-  Rake::Task["#{deploy_default}"].execute
-end
-
 desc "Deploy website via rsync"
-task :rsync do
+task :deploy => :generate do
   exclude = ""
   if File.exists?('./rsync-exclude')
     exclude = "--exclude-from '#{File.expand_path('./rsync-exclude')}'"
   end
   puts "## Deploying website via Rsync"
   ok_failed system("rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{rsync_args} #{"--delete" unless rsync_delete == false} #{public_dir}/ #{ssh_user}:#{document_root}")
-end
-
-desc "Update configurations to support publishing to root or sub directory"
-task :set_root_dir, :dir do |t, args|
-  puts ">>> !! Please provide a directory, eg. rake config_dir[publishing/subdirectory]" unless args.dir
-  if args.dir
-    if args.dir == "/"
-      dir = ""
-    else
-      dir = "/" + args.dir.sub(/(\/*)(.+)/, "\\2").sub(/\/$/, '');
-    end
-    rakefile = IO.read(__FILE__)
-    rakefile.sub!(/public_dir(\s*)=(\s*)(["'])[\w\-\/]*["']/, "public_dir\\1=\\2\\3public#{dir}\\3")
-    File.open(__FILE__, 'w') do |f|
-      f.write rakefile
-    end
-    compass_config = IO.read('config.rb')
-    compass_config.sub!(/http_path(\s*)=(\s*)(["'])[\w\-\/]*["']/, "http_path\\1=\\2\\3#{dir}/\\3")
-    compass_config.sub!(/http_images_path(\s*)=(\s*)(["'])[\w\-\/]*["']/, "http_images_path\\1=\\2\\3#{dir}/images\\3")
-    compass_config.sub!(/http_fonts_path(\s*)=(\s*)(["'])[\w\-\/]*["']/, "http_fonts_path\\1=\\2\\3#{dir}/fonts\\3")
-    compass_config.sub!(/css_dir(\s*)=(\s*)(["'])[\w\-\/]*["']/, "css_dir\\1=\\2\\3public#{dir}/stylesheets\\3")
-    File.open('config.rb', 'w') do |f|
-      f.write compass_config
-    end
-    jekyll_config = IO.read('_config.yml')
-    jekyll_config.sub!(/^destination:.+$/, "destination: public#{dir}")
-    jekyll_config.sub!(/^subscribe_rss:\s*\/.+$/, "subscribe_rss: #{dir}/atom.xml")
-    jekyll_config.sub!(/^root:.*$/, "root: /#{dir.sub(/^\//, '')}")
-    File.open('_config.yml', 'w') do |f|
-      f.write jekyll_config
-    end
-    rm_rf public_dir
-    mkdir_p "#{public_dir}#{dir}"
-    puts "## Site's root directory is now '/#{dir.sub(/^\//, '')}' ##"
-  end
 end
 
 def ok_failed(condition)
