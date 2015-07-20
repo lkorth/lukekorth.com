@@ -1,17 +1,16 @@
-.bundle
+.rvmrc
+
+# cache
 .DS_Store
+.appboxcache
 .sass-cache
 .gist-cache
 .pygments-cache
-.rvmrc
-_deploy
-public
-sass.old
-source.old
-source/_stash
-source/stylesheets/screen.css
-vendor
-node_modules
-.appboxcache
-google-api-private-key.p12
-500px-consumer-key
+
+# private keys
+.google-api-private-key.p12
+.500px-consumer-key
+
+# generated files
+css/screen.css
+_site
