@@ -19,9 +19,9 @@ end
 # Jekyll #
 ##########
 
-desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache and public folder"
+desc "Clean out caches"
 task :clean do
-  rm_rf [".pygments-cache/**", ".gist-cache/**", ".sass-cache/**", "css/screen.css", "_site"]
+  rm_rf [".pygments-cache/**", ".sass-cache/**", "css/screen.css", "_site"]
 end
 
 desc "Generate Jekyll site"
