@@ -159,12 +159,12 @@ DEPENDENCIES
   chronic
   compass (~> 0.12.2)
   google-api-client
-  jekyll (~> 2.0)
-  jekyll-date-format (~> 1.0)
-  jekyll-page-hooks (~> 1.2)
+  jekyll
+  jekyll-date-format
+  jekyll-page-hooks
   jekyll-sitemap
   nokogiri
-  rake (~> 10.0)
+  rake
   rb-fsevent (~> 0.9)
   rb-gsl
   rdiscount (~> 2.0)

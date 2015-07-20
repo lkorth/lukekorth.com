@@ -1,11 +1,12 @@
 source "https://rubygems.org"
 
 group :development do
-  gem 'rake', '~> 10.0'
-  gem 'jekyll', '~> 2.0'
-  gem 'jekyll-page-hooks', '~> 1.2'
-  gem 'jekyll-date-format', '~> 1.0'
+  gem 'rake'
+  gem 'jekyll'
+  gem 'jekyll-page-hooks'
+  gem 'jekyll-date-format'
   gem 'jekyll-sitemap'
+
   gem 'rdiscount', '~> 2.0'
   gem 'RedCloth', '~> 4.2.9'
   gem 'compass', '~> 0.12.2'
