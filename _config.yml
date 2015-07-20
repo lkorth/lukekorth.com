@@ -81,14 +81,14 @@ google_analytics_tracking_id: UA-23752726-1
 gravatar_email: blog@lukekorth.com
 
 # Google Analytics page views
-page-view:
-  service_account_email: 286207001701-qi7icmu1s4o49k8tt0b2m9hprjfiv9q1@developer.gserviceaccount.com
-  key_file: google-api-private-key.p12
-  key_secret: notasecret
-  profileID: ga:46718938
-  start: 7 years ago   # Beginning of report
-  end: now             # End of report
-  metric: ga:pageviews # Metric code
+# page-view:
+#   service_account_email: 286207001701-qi7icmu1s4o49k8tt0b2m9hprjfiv9q1@developer.gserviceaccount.com
+#   key_file: google-api-private-key.p12
+#   key_secret: notasecret
+#   profileID: ga:46718938
+#   start: 7 years ago   # Beginning of report
+#   end: now             # End of report
+#   metric: ga:pageviews # Metric code
 
 # 500px
 500px_consumer_key_file: 500px-consumer-key
