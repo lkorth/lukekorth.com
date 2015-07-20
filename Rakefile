@@ -33,7 +33,7 @@ end
 
 desc "Preview the site in a web browser"
 task :preview => :clean do
-  puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
+  puts "Starting to watch source with Jekyll and Compass. Starting Rack on port 4000"
   system "compass compile --css-dir css" unless File.exist?("css/screen.css")
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch")
   compassPid = Process.spawn("compass watch")
