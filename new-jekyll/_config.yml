@@ -1,0 +1,29 @@
+url: https://lukekorth.com
+title: Luke Korth
+author: Luke Korth
+email: blog@lukekorth.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+markdown: redcarpet
+redcarpet:
+  extentions:
+    - hard_wrap
+    - fenced_code_blocks
+    - autolink
+    - with_toc_data
+    - strikethrough
+
+# 500px
+# 500px_consumer_key_file: .500px-consumer-key
+
+# Gravatar
+gravatar_email: blog@lukekorth.com
+
+# GitHub post revision history
+github_username: lkorth
+github_user: lkorth
+github_repo: lukekorth.com
+

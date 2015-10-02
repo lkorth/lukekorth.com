@@ -1,0 +1,20 @@
+<header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">{{ site.title }}</span>
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield__expandable-holder">
+        <input class="mdl-textfield__input" type="text" id="search" />
+        <label class="mdl-textfield__label" for="search">Enter your query...</label>
+      </div>
+    </div>
+  </div>
+  <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+    <a href="/blog/" class="mdl-layout__tab {% if page.tab == "blog" %}is-active{% endif %}">Blog</a>
+    <a href="/projects/" class="mdl-layout__tab {% if page.tab == "projects" %}is-active{% endif %}">Projects</a>
+    <a href="/about/" class="mdl-layout__tab {% if page.tab == "about" %}is-active{% endif %}">About</a>
+  </div>
+</header>

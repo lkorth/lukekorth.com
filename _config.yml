@@ -2,10 +2,6 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: https://lukekorth.com
-title: Luke Korth
-author: Luke Korth
-email: blog@lukekorth.com
 simple_search: https://google.com/search
 description: My blog is primarily about the apps and projects I am working as well as things I find interesting.
 
@@ -14,9 +10,6 @@ description: My blog is primarily about the apps and projects I am working as we
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 # Additionally, %o will give you the ordinal representation of the day
 date_format: "ordinal"
-
-# RSS subscription links
-subscribe_rss: /atom.xml
 
 # ---------- #
 #   Jekyll   #
@@ -28,15 +21,7 @@ permalink: /blog/:title/
 plugins: _plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: redcarpet
-redcarpet:
-  extentions:
-    - hard_wrap
-    - fenced_code_blocks
-    - autolink
-    - with_toc_data
-    - strikethrough
-lsi: true
+lsi: false
 paginate: 5                     # Posts per page on the blog index
 paginate_path: blog/:num        # Path structure for pagination URLs eg. /blog/page/2/
 recent_posts: 5                 # Posts in the sidebar Recent Posts section
@@ -66,9 +51,6 @@ exclude:
 disqus_short_name: lukekorth
 disqus_show_comment_count: true
 
-# GitHub post revision history
-github_user: lkorth
-github_repo: lukekorth.com
 
 # Google Plus Profile
 # Just add author information to search results
@@ -77,9 +59,6 @@ googleplus_hidden: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-23752726-1
-
-# Gravatar
-gravatar_email: blog@lukekorth.com
 
 # Google Analytics page views
 # page-view:
@@ -90,6 +69,3 @@ gravatar_email: blog@lukekorth.com
 #   start: 7 years ago   # Beginning of report
 #   end: now             # End of report
 #   metric: ga:pageviews # Metric code
-
-# 500px
-500px_consumer_key_file: .500px-consumer-key
