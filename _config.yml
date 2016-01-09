@@ -1,10 +1,3 @@
-# ----------------------- #
-#      Main Configs       #
-# ----------------------- #
-
-simple_search: https://google.com/search
-description: My blog is primarily about the apps and projects I am working as well as things I find interesting.
-
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
@@ -15,9 +8,6 @@ date_format: "ordinal"
 #   Jekyll   #
 # ---------- #
 
-# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
-root: /
-permalink: /blog/:title/
 plugins: _plugins
 code_dir: downloads/code
 category_dir: blog/categories
@@ -25,7 +15,6 @@ lsi: false
 paginate: 5                     # Posts per page on the blog index
 paginate_path: blog/:num        # Path structure for pagination URLs eg. /blog/page/2/
 recent_posts: 5                 # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in _includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
@@ -46,11 +35,6 @@ exclude:
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
-
-# Disqus Comments
-disqus_short_name: lukekorth
-disqus_show_comment_count: true
-
 
 # Google Plus Profile
 # Just add author information to search results

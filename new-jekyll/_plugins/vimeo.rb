@@ -9,7 +9,7 @@ module Jekyll
     end
 
     def render(context)
-      %(<div class="embed-video-container"><iframe src="//player.vimeo.com/video/#{@id}"></iframe></div>)
+      %(<div class="vimeo"><div class="vimeo-player"><iframe width="100%" height="100%" src="//player.vimeo.com/video/#{@id}"></iframe></div></div>)
     end
   end
 end

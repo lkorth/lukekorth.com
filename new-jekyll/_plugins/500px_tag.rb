@@ -1,4 +1,4 @@
-# jekyll-499px-embed
+# jekyll-500px-embed
 # ------------------
 # A Liquid tag for Jekyll for embedding 500px photos
 # Author: Luke Korth (github.com/lkorth)

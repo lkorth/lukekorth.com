@@ -2,10 +2,12 @@ url: https://lukekorth.com
 title: Luke Korth
 author: Luke Korth
 email: blog@lukekorth.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: >
+  My blog about the apps and projects I'm working on and anything I find interesting.
+root: /
+permalink: /blog/:title/
+
+gems: [jekyll-paginate]
 
 markdown: redcarpet
 redcarpet:
@@ -16,8 +18,16 @@ redcarpet:
     - with_toc_data
     - strikethrough
 
+paginate: 5                     # Posts per page on the blog index
+paginate_path: blog/:num        # Path structure for pagination URLs eg. /blog/page/2/
+recent_posts: 5                 # Posts in the sidebar Recent Posts section
+excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+
 # 500px
-# 500px_consumer_key_file: .500px-consumer-key
+500px_consumer_key_file: .500px-consumer-key
+
+# Disqus Comments
+disqus_short_name: lukekorth
 
 # Gravatar
 gravatar_email: blog@lukekorth.com

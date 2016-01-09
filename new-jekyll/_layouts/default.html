@@ -6,12 +6,13 @@
       {% include header.html %}
 
       <main class="mdl-layout__content">
-        <div class="mdl-grid">
-          {{ content }}
-        </div>
+        {{ content }}
         {% include footer.html %}
       </main>
     </div>
     <script src="{{ "/js/material.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    <script src="{{ "/js/main.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    <script src="{{ "/js/500px-embed.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    {% include disqus.html %}
   </body>
 </html>

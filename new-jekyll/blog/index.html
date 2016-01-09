@@ -3,25 +3,26 @@ layout: default
 tab: blog
 total_page_views: true
 comment-count: true
-permalink: /blog/
 ---
-
-<div class="blog-index">
+<div class="post-ribbon"></div>
+<main class="post-main mdl-layout__content post-container mdl-grid">
   {% assign index = true %}
   {% for post in paginator.posts %}
   {% assign content = post.content %}
-    <article>
-      {% include post_preview.html %}
-    </article>
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    {% include post_preview.html %}
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   {% endfor %}
-  <div class="pagination">
+
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--8-col">
     {% if paginator.next_page %}
       <a class="prev" href="/blog/{{ paginator.next_page }}/">&larr; Older</a>
     {% endif %}
-    <a href="/blog/archives">Blog Archives</a>
+      <a href="/blog/archives">Blog Archives</a>
     {% if paginator.previous_page %}
-    <a class="next" href="/blog/{{ paginator.previous_page }}/">Newer &rarr;</a>
+      <a class="next" href="/blog/{{ paginator.previous_page }}/">Newer &rarr;</a>
     {% endif %}
-  </div>
-</div>
+    </div>
+</main>
 {% include aside.html %}

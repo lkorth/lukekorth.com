@@ -86,7 +86,6 @@ main > .mdl-layout__tab-panel {
   top: 36px;
   z-index: 999;
 }
-
 .mdl-layout__content section:not(:last-of-type) {
   position: relative;
   margin-bottom: 48px;
@@ -200,4 +199,28 @@ section.section--center .section__text:not(:last-child) {
 .left {
   float: left;
   margin-right: 1.5em;
+}
+.card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.card-wide > .mdl-card__menu {
+  color: #fff;
+ }
+.vimeo {
+  position: relative;
+  width: 100%;
+}
+.vimeo:before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+.vimeo-player {
+  position:  absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

@@ -1,0 +1,19 @@
+<div class="card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--8-col">
+  <div class="mdl-color-text--grey-500">
+    {% include date.html %}{{ time }}
+    {% if page.comments != false and post.comments != false %}
+      | <a href="{{ root_url }}{{ post.url }}#disqus_thread" data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">Comments</a>
+    {% endif %}
+  </div>
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">
+      <a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a>
+    </h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{ content | excerpt }}
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ root_url }}{{ post.url }}">Read More</a>
+  </div>
+</div>
