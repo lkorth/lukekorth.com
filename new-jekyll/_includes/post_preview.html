@@ -1,6 +1,7 @@
 <div class="card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--8-col">
   <div class="mdl-color-text--grey-500">
-    {% include date.html %}{{ time }}
+    {% include date.html %}
+    {{ time }}
     {% if page.comments != false and post.comments != false %}
       | <a href="{{ root_url }}{{ post.url }}#disqus_thread" data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">Comments</a>
     {% endif %}
