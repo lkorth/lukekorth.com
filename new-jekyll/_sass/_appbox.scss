@@ -6,9 +6,9 @@
 .unstar {
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAKCAQAAADI+WwIAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAJiS0dEAP+Hj8y/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAACXZwQWcAAAALAAAACgCF+qVAAAAAo0lEQVQI1z2NMQrCQBRE32YxGFDwBGJnYZkll0ilpDISLO28k4lFwN7CTsTKSisbK8ELCJFI/BZJdn41j/kzSqiVuZ3r1yzeAAanoajpcOwsW2dxf+0yWGe6CaVzNmgY4VHyQKAiVsIlUlvc9otK4lXugNnJjKqlkpi86X6exIZfNztZBGhKUgr4hBZ3A3UX4ye/CYdeWHch7MOzJ9R3jFLt8we7izGyoi32iQAAAABJRU5ErkJggg==) no-repeat;
   background-size: 11px 10px;
- }
+}
 
- .half-star {
+.half-star {
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAKCAQAAADI+WwIAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAJdnBBZwAAAAsAAAAKAIX6pUAAAACTSURBVAjXTY0xCsJAEEVfdiEgpPAWFpYTvMRWSioDwdIuh7GydbEIeAM7sU1lo42tR1CEdSzMJk4178H/H7qTVK4+A0URTNTMmZhVhEHXMK69/UEiS3Z0sOGOQqBMQAr2pABbgKDlujHQHlgQYpdWeRO7z/0Cj8swOcPyxvOEl/vXN/K2+kw5Zq4PipNR/E+Ft8IX7yMjsFUGo0cAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAAAElFTkSuQmCC) no-repeat;
   background-size: 11px 10px;
 }
@@ -61,13 +61,15 @@
   margin: 0;
 }
 
-.apptitle a {
-  color: #000 !important;
-}
+.apptitle {
+  a {
+    color: #000 !important;
+  }
 
-.apptitle a:hover {
-  text-decoration: none !important;
-  color: #B4B4B4 !important;
+  a:hover {
+    text-decoration: none !important;
+    color: #B4B4B4 !important;
+  }
 }
 
 .developer {
@@ -92,35 +94,37 @@
   padding: 10px;
 }
 
-.screenshots .slider {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: 300px;
-  margin-top: 0;
-}
+.screenshots {
+  .slider {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 300px;
+    margin-top: 0;
+  }
 
-.screenshots .slider ul {
-  padding: 0 !important;
-  margin: 0 !important;
-  list-style-image: none;
-  white-space: nowrap;
-}
+  .slider ul {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style-image: none;
+    white-space: nowrap;
+  }
 
-.screenshots .slider ul li {
-  padding: 0;
-  margin: 0;
-  margin-right: 6px;
-  list-style-type: none;
-  display: inline;
-}
+  .slider ul li {
+    padding: 0;
+    margin: 0;
+    margin-right: 6px;
+    list-style-type: none;
+    display: inline;
+  }
 
-.screenshots .slider ul li:last-child {
-  margin-right: 0;
-}
+  .slider ul li:last-child {
+    margin-right: 0;
+  }
 
-.screenshots .slider ul li img {
-  height: 300px !important;
-  display: inline;
+  .slider ul li img {
+    height: 300px !important;
+    display: inline;
+  }
 }
 
 .appbutton {
