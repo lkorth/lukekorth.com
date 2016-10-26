@@ -9,9 +9,6 @@ html, body {
 .mdl-layout__tab-bar-button {
   display: none;
 }
-.mdl-layout.is-small-screen .mdl-layout__tab-bar .mdl-button {
-  display: none;
-}
 .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
 .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
   overflow: visible;
@@ -19,6 +16,12 @@ html, body {
 .mdl-layout__tab-bar-container {
   height: 64px;
 }
+
+.is-small-screen .mdl-layout__tab-bar {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .mdl-layout__tab-bar {
   padding: 0;
   padding-left: 32px;
