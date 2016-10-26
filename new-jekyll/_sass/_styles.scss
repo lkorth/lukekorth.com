@@ -41,6 +41,11 @@ html, body {
     background-color: white !important;
   }
 }
+
+.mdl-textfield__input {
+  border-bottom: 1px solid white;
+}
+
 main > .mdl-layout__tab-panel {
   padding: 8px;
   padding-top: 48px;
