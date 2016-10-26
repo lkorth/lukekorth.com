@@ -1,0 +1,11 @@
+{% capture id %}{{ page.id | md5 }}{% endcapture %}
+<div class="mdl-card__menu">
+  <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="{{ id }}">
+    <i class="material-icons share-button">share</i>
+  </button>
+  <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="{{ id }}">
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | prepend: site.url | url_encode }}" target="_blank" class="mdl-menu__item">Facebook</a></li>
+    <li><a href="https://twitter.com/share?url={{ page.url | prepend: site.url | url_encode }}&text={{ page.title | url_encode }}&via={{ site.twitter_username }}" target="_blank" class="mdl-menu__item">Twitter</a></li>
+    <li><a href="https://plus.google.com/share?url={{ page.url | prepend: site.url | url_encode }}" target="_blank" class="mdl-menu__item">Google+</a></li>
+  </ul>
+</div>

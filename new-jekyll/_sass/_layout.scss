@@ -13,11 +13,19 @@
 .mdl-card {
   .mdl-card__title {
     color: #fff;
+    padding: 0px;
+    margin: 40px 40px 0px;
+  }
+
+  .mdl-card__cover-image-title {
+    color: #fff;
+    padding: 0px;
+    margin: 40px 40px 0px;
     height: 176px;
     background: url('../img/welcome_card.jpg') center / cover;
   }
 
-  .mdl-card__supporting-text > span { color: #9F9F9F; }
+  .mdl-card__supporting-text time { color: #9F9F9F; }
 
   .mdl-card__menu {
     color: #fff;

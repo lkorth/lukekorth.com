@@ -58,14 +58,6 @@ main > .mdl-layout__tab-panel {
   padding: 8px;
   padding-top: 48px;
 }
-.mdl-card {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: 2px;
-  padding: 80px 56px;
-  margin-bottom: 80px;
-}
 .mdl-card > * {
   height: auto;
 }
@@ -217,14 +209,6 @@ section.section--center .section__text:not(:last-child) {
   float: left;
   margin-right: 1.5em;
 }
-.card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background: url('../assets/demos/welcome_card.jpg') center / cover;
-}
-.card-wide > .mdl-card__menu {
-  color: #fff;
- }
 .vimeo {
   position: relative;
   width: 100%;
