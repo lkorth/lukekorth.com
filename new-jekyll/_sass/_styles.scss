@@ -35,6 +35,11 @@ html, body {
   .mdl-layout-title {
     height: 64px;
     line-height: 64px;
+
+    a {
+      color:inherit;
+      text-decoration: none;
+    }
   }
 
   .mdl-layout__tab.is-active::after {
