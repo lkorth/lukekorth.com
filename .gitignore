@@ -1,5 +1,3 @@
-.rvmrc
-
 # cache
 .DS_Store
 .appboxcache
@@ -11,5 +9,5 @@
 .500px-consumer-key
 
 # generated files
-css/screen.css
+Gemfile.lock
 _site
