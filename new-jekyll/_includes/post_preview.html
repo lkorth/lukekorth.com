@@ -5,7 +5,7 @@
   <div class="mdl-card__supporting-text">
     <time datetime="{{ post.date | datetime | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
     {% if page.comments != false and post.comments != false %}
-      | <a href="{{ root_url }}{{ post.url }}#disqus_thread" data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">Comments</a>
+      | <a href="{{ root_url }}{{ post.url }}#disqus_thread" data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.disqus_url }}{{ post.url }}{% endif %}">Comments</a>
     {% endif %}
     <p>{{ post.excerpt }}</p>
   </div>

@@ -28,6 +28,7 @@ excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of 
 
 # Disqus Comments
 disqus_short_name: lukekorth
+disqus_url: https://lukekorth.com
 
 # Gravatar
 gravatar_email: blog@lukekorth.com
