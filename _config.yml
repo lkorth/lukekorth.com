@@ -10,6 +10,9 @@ exclude: ['Gemfile*', 'README.md', '**/README.md', 'Rakefile']
 
 gems: [jekyll-paginate]
 
+sass:
+  style: compressed
+
 markdown: redcarpet
 redcarpet:
   extentions:
