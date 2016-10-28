@@ -2,8 +2,7 @@ url: https://lukekorth.com
 title: Luke Korth
 author: Luke Korth
 email: blog@lukekorth.com
-description: >
-  My blog about the apps and projects I'm working on and anything I find interesting.
+description: A personal blog about technology, open source and photography.
 root: /
 permalink: /blog/:title/
 
