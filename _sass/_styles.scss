@@ -232,3 +232,20 @@ section.section--center .section__text:not(:last-child) {
 .year {
   padding-top: 16px;
 }
+
+.fab-right-ontop {
+  position: absolute;
+  right: 30px;
+  top: 170px;
+  z-index: 999;
+}
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ten-px-top-margin {
+  margin-top: 10px !important;
+}
