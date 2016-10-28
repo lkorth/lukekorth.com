@@ -68,28 +68,10 @@
     color: inherit;
   }
 
-  header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    min-height: 200px;
-    background: url('../img/welcome_card.jpg') center / cover;
-  }
-
   button {
     position: absolute;
     z-index: 99;
     top: 8px;
     right: 8px;
   }
-
 }
