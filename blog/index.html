@@ -15,13 +15,21 @@ comment-count: true
   {% endfor %}
 
   <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class="card-wide mdl-card mdl-shadow--4dp mdl-cell mdl-cell--8-col">
+  <div class="paging mdl-cell mdl-cell--8-col mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--12-col-phone">
     {% if paginator.next_page %}
-      <a class="prev" href="/blog/{{ paginator.next_page }}/">&larr; Older</a>
+      <a href="/blog/{{ paginator.next_page }}/">
+        <button class="left mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+          <i class="material-icons">keyboard_arrow_left</i>
+        </button>
+      </a>
     {% endif %}
-      <a href="/blog/archives">Blog Archives</a>
     {% if paginator.previous_page %}
-      <a class="next" href="/blog/{{ paginator.previous_page }}/">Newer &rarr;</a>
+      <a href="/blog/{% if paginator.previous_page != 1 %}{{ paginator.previous_page }}/{% endif %}">
+        <button class="right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+          <i class="material-icons">keyboard_arrow_right</i>
+        </button>
+      </a>
     {% endif %}
-    </div>
+  </div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
 </main>
