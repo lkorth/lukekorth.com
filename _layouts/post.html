@@ -12,6 +12,7 @@ layout: default
       <h3>{{ page.title }}</h3>
       <article class="post-content">
         {% include share_button.html %}
+        {% if page.header_image %}<img src="{{ page.header_image }}"/>{% endif %}
         <p>{{ content }}</p>
       </article>
     </div>

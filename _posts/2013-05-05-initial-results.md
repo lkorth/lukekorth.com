@@ -3,9 +3,8 @@ layout: post
 title: Initial Results
 categories: [Website]
 date: 2013-05-05
+header_image: /media/loadtime.png
 ---
-{% img /media/loadtime.png %}
-
 After running a few quick tests to see how my new site is performing, with only a few minor optimizations (bundled css and js not minified
 and a few image sprites) load times are around half a second. I also ran the excellent load testing tool
 [Siege](http://www.joedog.org/siege-home/). At 500 requests/second load times were still under 2 seconds, all on shared hosting.
