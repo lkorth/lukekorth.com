@@ -4,31 +4,33 @@ tab: blog
 comment-count: true
 ---
 <div class="post-ribbon"></div>
-<main class="post-main mdl-layout__content post-container mdl-grid">
-  {% assign index = true %}
-  {% for post in paginator.posts %}
-  {% assign content = post.content %}
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    {% include post_preview.html %}
-    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  {% endfor %}
+<main class="post-main mdl-layout__content">
+  <div class="post-container mdl-grid">
+    {% assign index = true %}
+    {% for post in paginator.posts %}
+      {% assign content = post.content %}
+      <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+      {% include post_preview.html %}
+      <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    {% endfor %}
 
-  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-  <div class="paging mdl-cell mdl-cell--8-col mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--12-col-phone">
-    {% if paginator.next_page %}
-      <a href="/blog/{{ paginator.next_page }}/">
-        <button class="left mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-          <i class="material-icons">keyboard_arrow_left</i>
-        </button>
-      </a>
-    {% endif %}
-    {% if paginator.previous_page %}
-      <a href="/blog/{% if paginator.previous_page != 1 %}{{ paginator.previous_page }}/{% endif %}">
-        <button class="right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-          <i class="material-icons">keyboard_arrow_right</i>
-        </button>
-      </a>
-    {% endif %}
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="paging mdl-cell mdl-cell--8-col mdl-cell--8-col-desktop mdl-cell--8-col-tablet mdl-cell--12-col-phone">
+      {% if paginator.next_page %}
+        <a href="/blog/{{ paginator.next_page }}/">
+          <button class="left mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons">keyboard_arrow_left</i>
+          </button>
+        </a>
+      {% endif %}
+      {% if paginator.previous_page %}
+        <a href="/blog/{% if paginator.previous_page != 1 %}{{ paginator.previous_page }}/{% endif %}">
+          <button class="right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons">keyboard_arrow_right</i>
+          </button>
+        </a>
+      {% endif %}
+    </div>
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
   </div>
-  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
 </main>
