@@ -12,8 +12,6 @@ For eight months now Pebble Locker has supported many more devices than just Peb
 was past time for a new name. Another factor in the name change was Pebble changing their recommendations
 on how apps are named to make it clearer who is developing the apps.
 
-<!-- more -->
-
 Along with the rename comes more free features. Previously only Pebbles could be used with Pebble
 Locker for free, using other Bluetooth devices and WiFi networks required an in-app purchase.
 Now with Dislock the use of one Bluetooth device or WiFi network is free, using more than

@@ -14,8 +14,6 @@ ranging from really bad to pretty good. I gave them a try, but I wasn't very hap
 are freemium and most of the ones I've tried are live wallpapers and continuously use a lot of ram.
 It also bugged me that none of them were open source.
 
-<!-- more -->
-
 {% img center /media/photo-paper/screenshots.png %}
 
 After thinking about if for a little while, I decided to develop my own app that automatically updates the

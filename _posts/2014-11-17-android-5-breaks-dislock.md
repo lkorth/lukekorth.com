@@ -13,8 +13,6 @@ likely future versions of Android. [Other apps](http://benhirashima.com/skiplock
 also had the same problem. A few days ago I published an update to Dislock on the Play Store that restricts
 it to KitKat or older version of Android, specifically Dislock only supports API 14-19, Android 4.0 - 4.4.
 
-<!-- more -->
-
 It's sad to see a breaking change in Android effectively kill an app that I've spent so much time and effort
 working on and supporting for close to two years now with many thousands of users.
 The user base of Dislock has a large majority on KitKat and on devices that will very soon receive

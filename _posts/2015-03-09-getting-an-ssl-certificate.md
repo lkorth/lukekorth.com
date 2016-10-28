@@ -9,8 +9,6 @@ to look up the one or two commands I need and every time it takes two or three w
 right information so I've recorded it here for future reference and in the hopes that it helps
 someone else as well.
 
-<!-- more -->
-
 Generating a new CSR:
 
 ```bash

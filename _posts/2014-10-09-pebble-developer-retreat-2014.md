@@ -11,8 +11,6 @@ directly to other devices over Bluetooth 4 Low Energy, a whole day of [Pebble co
 how to get the best battery life possible and developers showing off what they've developed for Pebble.
 Over 100 developers from 14 countries were present.
 
-<!-- more -->
-
 The retreat started off with an introduction to the [new APIs](https://developer.getpebble.com/2/changelog-2.6.html) including the
 [FrameBuffer API](https://developer.getpebble.com/2/api-reference/group___drawing.html#ga8754945b07f6cb168a8acb6ab1aa07aa) for
 advanced graphics and [Background Workers](https://developer.getpebble.com/2/guides/background-guide.html) for always on, background

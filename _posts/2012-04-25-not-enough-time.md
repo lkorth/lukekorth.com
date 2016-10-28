@@ -17,8 +17,6 @@ live in the next 24 hours, hopefully people don't run into too many issues and
 there isn't a huge number of downloads that cripple my server. Job applications
 and all the stuff involved with graduation certainly don't help things either.
 
-<!--more-->
-
 There are definitely way too many cool things in the world and no where near
 enough time. That said, I can't wait to take delivery of my [Raspberry Pi](http://www.raspberrypi.org/)
 so I can start playing with it and doing all kinds of cool things. If there

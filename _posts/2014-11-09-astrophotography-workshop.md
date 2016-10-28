@@ -8,8 +8,6 @@ At the end of August I had the chance to attend an astrophotography workshop by 
 in [North Lake Tahoe](https://www.google.com/maps/place/Speedboat+Beach/@39.2218097,-120.0067569,17z/data=!4m7!1m4!3m3!1s0x80997ae878dc7281:0xb8f7788500bf7b78!2sSpeedboat+Beach+access,+Kings+Beach,+CA+96143!3b1!3m1!1s0x0:0x78b59b82cd2eae98).
 This was my first time attending a photography workshop of any kind and I didn't know quite what to expect.
 
-<!-- more -->
-
 After signing up Sean was very helpful and knowledgeable, recommending lenses and making sure I had all the gear
 I needed. I have tried my hand at astrophotography in the past and never had great results so I was looking forward to learning
 from such a talented photographer. When I arrived, Sean talked through everything I needed to know about setup,

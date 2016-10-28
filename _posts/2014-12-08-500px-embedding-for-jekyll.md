@@ -9,8 +9,6 @@ photos and gather some inspiration. One of my favorite parts of 500px ISO is the
 photos that allow you to vote and also link directly to the photo and photographer on
 [500px](http://500px.com).
 
-<!-- more -->
-
 I recently realized 500px ISO was just using the embedded snippets built right into 500px. On 500px,
 right next to the sharing buttons, there is an embed button that provides a chunk of html and some
 javascript to embed a photo. Since I'd rather not copy the chunk of html for every photo I want to

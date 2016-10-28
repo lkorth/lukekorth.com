@@ -5,14 +5,12 @@ categories: [Linux, Tutorial]
 date: 2014-02-01
 ---
 I've been working on moving the network file share on my home network from an NTFS volume with my Asus router acting as a NAS host to an ext4
-volume running as an NFS share via a [Raspberry Pi](http://www.raspberrypi.org/). I was starting to have issues with corruption and missing 
+volume running as an NFS share via a [Raspberry Pi](http://www.raspberrypi.org/). I was starting to have issues with corruption and missing
 files so I decided to take the time and bulletproof the setup as much as possible.
 
-<!--more-->
-
 Rewriting the partition table with [fdisk](http://linux.die.net/man/8/fdisk) and formatting the drive as ext4 was very simple, but setting
-up an NFS server was more challenging than it should have been. I'm working on a Raspberry Pi running Debian Wheezy so it seemed like a 
-simple Google search to find what was needed to setup the NFS server. Pretty much every tutorial and set of instructions I ran across 
+up an NFS server was more challenging than it should have been. I'm working on a Raspberry Pi running Debian Wheezy so it seemed like a
+simple Google search to find what was needed to setup the NFS server. Pretty much every tutorial and set of instructions I ran across
 seemed to be out dated though. Most referenced the portmap package which has been since replaced in favor of rpcbind. After a lot of
 tinkering, I've managed to get the most basically configured NFS server up and running. In the hopes of saving others time, I've written
 up how I set it up below.
@@ -49,7 +47,7 @@ hostname or FQDN of your server.
 Verbosity = 0
 Pipefs-Directory = /var/lib/nfs/rpc_pipefs
 Domain = YOUR_DOMAIN_HERE
- 
+
 [Mapping]
 Nobody-User = nobody
 Nobody-Group = nogroup
@@ -75,11 +73,11 @@ And then we can start `nfs-kernel-server`
 sudo /etc/init.d/nfs-kernel-server start
 ```
 
-You should now have a working NFS server! There are many options that you can tweak in `/etc/exports` depending on your needs, refer to 
+You should now have a working NFS server! There are many options that you can tweak in `/etc/exports` depending on your needs, refer to
 the [man page](http://linux.die.net/man/5/exports).
 
-Note: `rpcbind` does not run automaticlly during startup on a Raspberry Pi, this will cause the NFS server to fail to start. 
-If you are running this on a Raspberry Pi you will also need to make `rpcbind` run on startup by running the following 
+Note: `rpcbind` does not run automaticlly during startup on a Raspberry Pi, this will cause the NFS server to fail to start.
+If you are running this on a Raspberry Pi you will also need to make `rpcbind` run on startup by running the following
 
 ```bash
 sudo update-rc.d rpcbind defaults
