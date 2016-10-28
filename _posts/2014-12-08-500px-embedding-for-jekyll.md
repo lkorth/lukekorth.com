@@ -24,11 +24,7 @@ the `500px` tag
 
 and when your site is built, it will produce the following
 
-<div class="spacer"></div>
-
 {% 500px 89255597 %}
-
-<div class="spacer"></div>
 
 [jekyll-500px-embed](https://github.com/lkorth/jekyll-500px-embed) is available on GitHub. New
 features and pull requests are welcome.

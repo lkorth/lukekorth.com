@@ -216,6 +216,7 @@ section.section--center .section__text:not(:last-child) {
 .vimeo {
   position: relative;
   width: 100%;
+  margin: 40px 0;
 }
 .vimeo:before {
   content: "";
@@ -248,4 +249,8 @@ section.section--center .section__text:not(:last-child) {
 
 .ten-px-top-margin {
   margin-top: 10px !important;
+}
+
+.embeded-five-hundred-px-photo {
+  margin: 40px 0;
 }
