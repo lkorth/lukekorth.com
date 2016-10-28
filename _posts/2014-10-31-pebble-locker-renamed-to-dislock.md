@@ -4,8 +4,6 @@ title: Pebble Locker Renamed to Dislock
 categories: [Android, Pebble]
 date: 2014-10-31
 ---
-{% img right /media/dislock-logo.png %}
-
 A week and a half ago I released an update to Pebble Locker that changed the name to
 [Dislock](https://play.google.com/store/apps/details?id=com.lukekorth.pebblelocker).
 For eight months now Pebble Locker has supported many more devices than just Pebbles and it

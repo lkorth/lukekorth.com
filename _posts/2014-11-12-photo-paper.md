@@ -4,8 +4,6 @@ title: Photo Paper
 categories: [Android, Photography]
 date: 2014-11-12
 ---
-{% img right /media/photo-paper/logo.png %}
-
 I'm a big fan of [500px](http://500px.com/), from time to time I post [my photos](https://500px.com/LukeKorth) there and
 I'll happily spend hours looking through the amazing photos that others have posted. One day I was staring at the same
 boring wallpaper on my phone and I thought it would be really nice to have a live wallpaper that used photos from 500px.
