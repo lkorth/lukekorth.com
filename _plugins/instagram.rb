@@ -40,7 +40,16 @@ module Jekyll
 
       context.registers[:instagram] ||= {}
 
-      photos = fetch_photos(File.read(context.registers[:site].config[ACCESS_TOKEN]))
+      @json_photos ||= fetch_photos(File.read(context.registers[:site].config[ACCESS_TOKEN]))
+      photos = @json_photos['data'].first(6).inject([]) do |array, item|
+        array.push({
+          "caption" => item["caption"]["text"],
+          "image_url" => item["images"]["thumbnail"]["url"],
+          "link" => item["link"]
+        })
+        array
+      end
+
       output = ""
 
       context.stack do
@@ -58,15 +67,15 @@ module Jekyll
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
 
-      @photos ||= JSON.parse(http.request(Net::HTTP::Get.new(uri.request_uri)).body)
-      @photos['data'].first(6).inject([]) do |array, item|
-        array.push({
-          "caption" => item["caption"]["text"],
-          "image_url" => item["images"]["thumbnail"]["url"],
-          "link" => item["link"]
-        })
-        array
+      response = http.request(Net::HTTP::Get.new(uri.request_uri))
+      status = response.code
+      body = response.body
+
+      if status != "200"
+        raise "Failed to fetch Instagram photos (#{status}): #{body}"
       end
+
+      JSON.parse(body)
     end
   end
 end
