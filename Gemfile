@@ -16,8 +16,3 @@ gem 'rubypants', '~> 0.2.0'
 gem 'rb-fsevent', '~> 0.9'
 gem 'stringex', '~> 1.4.0'
 gem 'rb-gsl'
-
-# Custom
-gem 'nokogiri'
-gem 'chronic'
-gem 'google-api-client'
