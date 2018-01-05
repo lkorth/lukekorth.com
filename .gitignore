@@ -5,6 +5,7 @@
 
 # private keys
 .500px-consumer-key
+.instagram-access-token
 
 # generated files
 _site
