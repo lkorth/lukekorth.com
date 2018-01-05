@@ -7,7 +7,7 @@ permalink: /blog/:title/
 
 exclude: ['Gemfile*', '.ruby-*', 'README.md', '**/README.md', 'deploy.sh']
 
-gems: [jekyll-paginate, jekyll-sitemap]
+plugins: [jekyll-paginate, jekyll-sitemap]
 
 sass:
   style: compressed
