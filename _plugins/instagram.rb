@@ -17,6 +17,7 @@ module Jekyll
     include Liquid::StandardFilters
 
     ACCESS_TOKEN = "instagram_access_token"
+    CACHE_FILE = ".instagram_cache.json"
 
     def initialize(tag_name, markup, tokens)
       super
@@ -40,8 +41,8 @@ module Jekyll
 
       context.registers[:instagram] ||= {}
 
-      @json_photos ||= fetch_photos(File.read(context.registers[:site].config[ACCESS_TOKEN]))
-      photos = @json_photos['data'].first(6).inject([]) do |array, item|
+      photos = fetch_photos(File.read(context.registers[:site].config[ACCESS_TOKEN]))
+      photos = photos['data'].first(6).inject([]) do |array, item|
         array.push({
           "caption" => item["caption"]["text"],
           "image_url" => item["images"]["thumbnail"]["url"],
@@ -63,19 +64,37 @@ module Jekyll
     end
 
     def fetch_photos(access_token)
-      uri = URI.parse("https://api.instagram.com/v1/users/self/media/recent/?access_token=#{access_token}")
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
+      photos = nil
+      if File.exist?(CACHE_FILE)
+        cache = JSON.parse(File.read(CACHE_FILE))
 
-      response = http.request(Net::HTTP::Get.new(uri.request_uri))
-      status = response.code
-      body = response.body
-
-      if status != "200"
-        raise "Failed to fetch Instagram photos (#{status}): #{body}"
+        if (Time.now.to_i - cache["timestamp"]) < 3600
+          photos = cache
+        end
       end
 
-      JSON.parse(body)
+      if photos.nil?
+        uri = URI.parse("https://api.instagram.com/v1/users/self/media/recent/?access_token=#{access_token}")
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+
+        response = http.request(Net::HTTP::Get.new(uri.request_uri))
+        status = response.code
+        body = response.body
+
+        if status != "200"
+          raise "Failed to fetch Instagram photos (#{status}): #{body}"
+        end
+
+        photos = JSON.parse(body)
+        photos["timestamp"] = Time.now.to_i
+
+        File.open(CACHE_FILE, "w") do |f|
+          f.write(photos.to_json)
+        end
+      end
+
+      return photos
     end
   end
 end

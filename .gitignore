@@ -2,6 +2,7 @@
 .DS_Store
 .sass-cache
 .pygments-cache
+.instagram_cache.json
 
 # private keys
 .500px-consumer-key
