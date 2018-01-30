@@ -1,19 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
-  {% include head.html %}
-  <body class="mdl-base">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      {% include header.html %}
+<html lang="en" data-menu="Lato">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-      <main class="mdl-layout__content">
-        {{ content }}
-        {% include footer.html %}
-      </main>
-    </div>
-    {% include google_analytics.html %}
-    <script src="/js/material.js" type="text/javascript"></script>
-    <script src="/js/main.js" type="text/javascript"></script>
-    <script src="/js/500px-embed.js" type="text/javascript"></script>
-    {% include disqus.html %}
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="theme-color" content="#607d8b">
+
+	  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+	  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+		<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url }}"/>
+
+		<link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+		<link rel="dns-prefetch" href="//s.w.org"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic&#038;subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic" type="text/css" media="all"/>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700%2C400italic&#038;subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic" type="text/css" media="all"/>
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato%3Aregular%2Citalic%2C700%2C%7COswald%3Aregular%2C700%2C300%2C600%2C400&#038;subset=all" type="text/css" media="all"/>
+		<link rel="stylesheet" href="/css/main.css" type="text/css" media="all"/>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-23752726-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+	</head>
+  <body class="page-template page-template-blog_r page-template-blog_r-php page page-id-1184 page-parent">
+
+		<input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="Lato"/>
+		<input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value=""/>
+		<input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value=""/>
+		<input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value=""/>
+		<input type="hidden" id="pp_ajax_search" name="pp_ajax_search" value="1"/>
+		<input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="1"/>
+		<input type="hidden" id="pp_topbar" name="pp_topbar" value=""/>
+		<input type="hidden" id="post_client_column" name="post_client_column" value="4"/>
+		<input type="hidden" id="pp_back" name="pp_back" value="Back"/>
+		<input type="hidden" id="pp_page_title_img_blur" name="pp_page_title_img_blur" value="1"/>
+		<input type="hidden" id="tg_portfolio_filterable_link" name="tg_portfolio_filterable_link" value=""/>
+		<input type="hidden" id="$tg_flow_enable_reflection" name="$tg_flow_enable_reflection" value="1"/>
+
+		<input type="hidden" id="pp_footer_style" name="pp_footer_style" value="4"/>
+
+		<div class="mobile_menu_wrapper">
+		  <a id="close_mobile_menu" href="javascript:;"><i class="fa fa-close"></i></a>
+
+			<form role="search" method="get" name="searchform" id="searchform" action="/">
+				<div>
+					<input type="text" value="" name="s" id="s" autocomplete="off" placeholder="Search..."/>
+					<button><i class="fa fa-search"></i></button>
+				</div>
+				<div id="autocomplete"></div>
+			</form>
+
+			<div class="menu-side-mobile-menu-container">
+        <ul id="mobile_main_menu" class="mobile_main_nav">
+          <li id="menu-item-4969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4969"><a href="/blog">Blog</a></li>
+			  </ul>
+		  </div>
+
+      <div class="page_content_wrapper">
+				<div class="sidebar_wrapper">
+					<div class="sidebar">
+						<div class="content">
+							<ul class="sidebar_widget">
+								<li id="custom_instagram-1" class="widget Custom_Instagram">
+									<h2 class="widgettitle"><span>Follow @ Instagram</span></h2>
+									<ul class="flickr">
+										{% instagram %}
+										<li>
+											<a target="_blank" href="{{ item.link }}">
+												<img src="{{ item.image_url }}" width="75" height="75"/>
+											</a>
+										</li>
+										{% endinstagram %}
+									</ul>
+									<br class="clear"/>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="wrapper" >
+			<div class="header_style_wrapper">
+				<div class="top_bar">
+					<div id="logo_wrapper">
+						<div class="social_wrapper">
+							<ul>
+								<li class="instagram"><a target="_blank" title="Instagram" href="http://instagram.com/lukekorth"><i class="fa fa-instagram"></i></a></li>
+							</ul>
+						</div>
+
+						<div id="logo_right_button">
+							<a href="#" id="mobile_nav_icon"></a>
+						</div>
+
+						<div id="logo_normal" class="logo_container">
+							<div class="logo_align">
+								<a id="custom_logo" class="logo_wrapper default" href="/">
+									<img src="/images/logo@2x.png" alt="" width="154" height="59"/>
+								</a>
+							</div>
+						</div>
+
+						<div id="logo_transparent" class="logo_container">
+							<div class="logo_align">
+								<a id="custom_logo_transparent" class="logo_wrapper hidden" href="/">
+									<img src="//images/logo@2x_white.png" alt="" width="154" height="59"/>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div id="menu_wrapper">
+						<div id="nav_wrapper">
+							<div class="nav_wrapper_inner">
+								<div id="menu_border_wrapper">
+									<div class="menu-main-menu-container">
+										<ul id="main_menu" class="nav">
+											<li id="menu-item-4957" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="/blog/">Blog</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+      {{ content }}
+
+		<br class="clear"/>
+
+    <div class="footer_bar">
+      <div id="footer" class="">
+        <ul class="sidebar_widget four">
+          <li id="text-7" class="widget widget_text">
+            <h2 class="widgettitle"><span>About Me</span></h2>
+            <div class="textwidget">
+              <div style="text-align:center">
+                <img class="round-photo" src="{% gravatar_image 256 %}" alt="Gravatar of Luke Korth" width="150" height="150">
+                <br />
+                <br />
+                <img src="#" alt="Luke Korth" width="161" height="38" class="aligncenter size-full wp-image-1402" />
+              </div>
+            </div>
+          </li>
+					<li id="custom_recent_posts-2" class="widget Custom_Recent_Posts">
+						<h2 class="widgettitle">
+							<span>Recent Posts</span>
+						</h2>
+            <ul class="posts blog">
+              {% for post in site.posts limit:3 %}
+                <li>
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                  <div class="post_attribute">{{ post.date | date: "%b %-d, %Y" }}</div>
+                </li>
+              {% endfor %}
+						</ul>
+					</li>
+					<li id="custom_popular_posts-1" class="widget Custom_Popular_Posts"><ul class="posts blog"><li></li></ul></li>
+					<li id="custom_instagram-4" class="widget Custom_Instagram">
+						<h2 class="widgettitle">
+							<span>Instagram</span>
+						</h2>
+						<ul class="flickr">
+							{% instagram %}
+							<li>
+								<a target="_blank" href="{{ item.link }}">
+									<img src="{{ item.image_url }}" width="75" height="75"/>
+								</a>
+							</li>
+							{% endinstagram %}
+						</ul>
+						<br class="clear"/>
+					</li>
+				</ul>
+			</div>
+			<br class="clear"/>
+
+			<div class="footer_bar_wrapper">
+				<div class="social_wrapper">
+					<ul>
+            <li class="instagram"><a target="_blank" title="Instagram" href="https://instagram.com/lukekorth"><i class="fa fa-instagram"></i></a></li>
+            <li class="github"><a target="_blank" title="GitHub" href="https://github.com/lkorth"><i class="fa fa-github"></i></a></li>
+					</ul>
+				</div>
+				<div id="copyright">© Luke Korth</div><br class="clear"/>
+			</div>
+		</div>
+
+		</div>
+
+		<div id="overlay_background"></div>
+
+		<script type='text/javascript' src='/js/jquery.js'></script>
+		<script type='text/javascript' src='/js/jquery-migrate.min.js'></script>
+		<script type='text/javascript' src='/js/jquery.magnific-popup.js'></script>
+		<script type='text/javascript' src='/js/jquery.easing.js'></script>
+		<script type='text/javascript' src='/js/waypoints.min.js'></script>
+		<script type='text/javascript' src='/js/jquery.isotope.js'></script>
+		<script type='text/javascript' src='/js/jquery.masory.js'></script>
+		<script type='text/javascript' src='/js/jquery.tooltipster.min.js'></script>
+		<script type='text/javascript' src='/js/hw-parallax.js'></script>
+		<script type='text/javascript' src='/js/custom_plugins.js'></script>
+		<script type='text/javascript' src='/js/custom.js'></script>
+    <script type='text/javascript' src='/js/500px-embed.js'></script>
+		{% include disqus.html %}
   </body>
 </html>

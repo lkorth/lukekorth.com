@@ -1,18 +1,22 @@
 ---
 # Front matter is required for processing
 ---
-
 @charset "utf-8";
 
-$spacing-unit:     30px;
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
 @import
-        "material.blue_grey-blue.min",
-        "base",
-        "layout",
-        "syntax-highlighting",
-        "post",
-        "styles";
+    "reset",
+    "wordpress",
+    "animation",
+    "magnific-popup",
+    "jqueryui-custom",
+		"mediaelementplayer.min",
+		"flexslider",
+		"tooltipster",
+		"odometer-theme-minimal",
+		"hw-parallax",
+		"screen",
+		"font-awesome.min",
+		"custom-css",
+		"grid",
+		"kirki-styles",
+    "syntax-highlighting";

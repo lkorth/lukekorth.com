@@ -1,18 +1,33 @@
 ---
-layout: page
+layout: default
 tab: about
 title: About
 permalink: /about/
 ---
-<div>
-  <img class="right" style="height: 200px; width: 200px;" src="{% gravatar_image 512 %}" alt="Gravatar of Luke Korth" title="Gravatar of Luke Korth" />
+<div id="page_content_wrapper" class="hasbg">
+  <div class="post_caption">
+    <h1>{{ page.title }}</h1>
+    <div class="post_detail">
+      {{ page.date | date: "%B %-d, %Y" }}
+    </div>
+  </div>
+  <div class="inner">
+    <div class="inner_wrapper">
+      <div class="sidebar_content full_width">
+        <div class="post type-post status-publish format-standard has-post-thumbnail hentry">
+          <div class="post_wrapper">
+            <div class="post_content_wrapper">
+              <div class="post_header">
+                <img class="right" style="height: 200px; width: 200px;" src="{% gravatar_image 512 %}" alt="Gravatar of Luke Korth" title="Gravatar of Luke Korth" />
 
-  I enjoy writting software professionally and in my free time and am an avid photographer. My blog is primarily about things I've
-  worked on or find interesting, as well as a place to document and keep track of stuff.
-  <br><br>
-  I love clean, efficient code and value the little things like friendly urls and quick websites.
-  <br><br>
-  If you have any questions or just want to say hi, feel free to
-  <a onClick="_gaq.push(['_trackEvent', 'Link', 'About', '{{ site.email }}']);" href="mailto:{{ site.email }}">email me</a>.
-  I can also be found on <a onClick="_gaq.push(['_trackEvent', 'GitHub', 'About', 'GitHub Profile']);" href="https://github.com/lkorth">GitHub</a>.
-</div>
+                I enjoy writting software professionally and in my free time and am an avid photographer. My blog is primarily about things I've
+                worked on or find interesting, as well as a place to document and keep track of stuff.
+                <br><br>
+                I love clean, efficient code and value the little things like friendly urls and quick websites.
+                <br><br>
+                If you have any questions or just want to say hi, feel free to
+                <a onClick="_gaq.push(['_trackEvent', 'Link', 'About', '{{ site.email }}']);" href="mailto:{{ site.email }}">email me</a>.
+                I can also be found on <a onClick="_gaq.push(['_trackEvent', 'GitHub', 'About', 'GitHub Profile']);" href="https://github.com/lkorth">GitHub</a>.
+              </div>
+
+              <hr/><br class="clear"/>
