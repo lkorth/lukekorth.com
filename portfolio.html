@@ -1,0 +1,47 @@
+---
+layout: default
+tab: portfolio
+title: Portfolio
+permalink: /portfolio/
+---
+<div id="page_caption">
+  <div class="page_title_wrapper">
+    <div class="page_title_inner">
+      <h1>Portfolio</h1>
+       <div class="page_tagline"></div>
+    </div>
+  </div>
+</div>
+
+<div id="page_content_wrapper">
+  <div class="inner">
+    <div class="inner_wrapper nopadding">
+      <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
+        <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
+
+          {% for gallery_hash in site.data.galleries %}
+          {% assign gallery = gallery_hash[1] %}
+          <div class="element grid classic2_cols landscape portrait">
+            <div class="one_half gallery2 classic static filterable gallery_type animated2">
+              <a href="{{ gallery.link }}">
+                <img src="/photos/{{ gallery.cover }}" alt="{{ gallery.title }}" />
+                <div class="portfolio_classic_icon_wrapper">
+                  <div class="portfolio_classic_icon_content">
+                    <i class="fa fa-plus"></i>
+                  </div>
+                </div>
+              </a>
+
+              <div id="portfolio_desc_1555" class="portfolio_desc portfolio2 filterable">
+                <h5>{{ gallery.title }}</h5>
+                <div class="post_detail">{{ gallery.subtitle }}</div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

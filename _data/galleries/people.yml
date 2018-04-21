@@ -1,0 +1,12 @@
+title: People
+cover: "people/baby.jpg"
+link: /galleries/people/
+photos:
+  - name: One
+    path: people/baby.jpg
+  - name: One
+    path: people/coming-soon.jpg
+  - name: One
+    path: people/half-moon-bay-texture.jpg
+  - name: One
+    path: people/trellis.jpg

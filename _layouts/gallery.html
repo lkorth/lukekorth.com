@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div id="page_caption">
+  <div class="page_title_wrapper">
+    <div class="page_title_inner">
+      <h1>{{ page.title }}</h1>
+      <div class="page_tagline">{{ page.subtitle }}</div>
+    </div>
+  </div>
+</div>
+
+<div id="page_content_wrapper" class="">
+  <div class="inner">
+    <div class="inner_wrapper nopadding">
+      <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
+        <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
+          {% assign photos = site.data.galleries.[page.photos].photos %}
+          {% for photo in photos %}
+          <div class="element grid classic2_cols">
+            <div class="one_half gallery2 static filterable gallery_type archive animated14">
+              <a href="/galleries/adventure-photography/">
+                <div class="gallery_archive_desc">
+                  <h4>{{ photo.name }}</h4>
+                  <div class="post_detail"><p>{{ photo.subtitle }}</p>
+                  </div>
+                </div>
+                <img src="/photos/{{ photo.path }}" alt="{{ photo.name }}" />
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
