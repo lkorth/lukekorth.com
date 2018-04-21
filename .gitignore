@@ -10,3 +10,7 @@
 
 # generated files
 _site
+
+# firebase hosting
+.firebaserc
+firebase.json
