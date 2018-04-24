@@ -37,7 +37,7 @@ div.aligncenter, img.aligncenter {
 	text-align: center;
 	padding-bottom: 0 !important;
 }
-.wp-smiley { 
+.wp-smiley {
 	max-height: 1em;
 	margin:0 !important;
 }
@@ -72,15 +72,15 @@ html
 	height: 100%;
 }
 
-blockquote:before, blockquote:after, q:before, q:after 
+blockquote:before, blockquote:after, q:before, q:after
 {
 	content:"";
 }
-blockquote, q 
+blockquote, q
 {
 	quotes:"" "";
 }
-a img 
+a img
 {
 	border:none;
 }
@@ -95,7 +95,7 @@ em
 	font-style: italic;
 }
 
-.size-auto, 
+.size-auto,
 .size-full,
 .size-large,
 .size-medium,
@@ -109,7 +109,7 @@ em
 	text-align: center;
 }
 
-#page_content_wrapper p, .page_content_wrapper p 
+#page_content_wrapper p, .page_content_wrapper p
 {
 	padding-top:0.5em;
 	padding-bottom:0.5em;
@@ -159,37 +159,50 @@ table
 	margin-right: 7px;
 }
 
-img.alignright 
+img.alignright
 {
 	float:right; margin:0 0 1em 2em;
 }
 
-img.alignleft 
+img.alignleft
 {
 	float:left; margin:0 2em 1em 0;
 }
 
-img.aligncenter 
+img.aligncenter
 {
 	display: block; margin-left: auto; margin-right: auto
 }
 
-a img.alignright 
+a img.alignright
 {
 	float:right; margin:0 0 1em 2em;
 }
 
-a img.alignleft 
+a img.alignleft
 {
 	float:left; margin:0 2em 1em 0;
 }
 
-a img.aligncenter 
+a img.aligncenter
 {
 	display: block; margin-left: auto; margin-right: auto
 }
 
-.sticky, .bypostauthor 
-{ 
-	font-weight: bold; 
+.sticky, .bypostauthor
+{
+	font-weight: bold;
+}
+
+.paging {
+  margin-left: 4em;
+  margin-right: 4em;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  float: right;
 }

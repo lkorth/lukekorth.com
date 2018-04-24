@@ -24,14 +24,16 @@ comment-count: true
           {% include post_preview.html %}
         {% endfor %}
 
-        <div>
+        <p class="paging left">
         {% if paginator.next_page %}
           <a href="/blog/{{ paginator.next_page }}/"><i class="fa fa-arrow-left"></i></a>
         {% endif %}
         {% if paginator.previous_page %}
-          <a href="/blog/{% if paginator.previous_page != 1 %}{{ paginator.previous_page }}/{% endif %}"><i class="fa fa-arrow-right"></i></a>
+          <span class="right">
+            <a href="/blog/{% if paginator.previous_page != 1 %}{{ paginator.previous_page }}/{% endif %}"><i class="fa fa-arrow-right"></i></a>
+          </span>
         {% endif %}
-        </div>
+        </p>
 
         <br class="clear"/>
       </div>
