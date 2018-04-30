@@ -1,11 +1,12 @@
 ---
 layout: default
 ---
+{% assign gallery = site.data.galleries[page.photos] %}
 <div id="page_caption">
   <div class="page_title_wrapper">
     <div class="page_title_inner">
-      <h1>{{ page.title }}</h1>
-      <div class="page_tagline">{{ page.subtitle }}</div>
+      <h1>{{ gallery.title }}</h1>
+      <div class="page_tagline">{{ gallery.subtitle }}</div>
     </div>
   </div>
 </div>
@@ -15,17 +16,17 @@ layout: default
     <div class="inner_wrapper nopadding">
       <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
         <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
-          {% assign photos = site.data.galleries.[page.photos].photos %}
+          {% assign photos = gallery.photos %}
           {% for photo in photos %}
           <div class="element grid classic2_cols">
             <div class="one_half gallery2 static filterable gallery_type archive animated14">
-              <a href="/galleries/adventure-photography/">
+              <a href="{{ page.permalink }}{{ photo.name | downcase | slugify }}/">
                 <div class="gallery_archive_desc">
                   <h4>{{ photo.name }}</h4>
                   <div class="post_detail"><p>{{ photo.subtitle }}</p>
                   </div>
                 </div>
-                <img src="/photos/{{ photo.path }}" alt="{{ photo.name }}" />
+                <img src="/photos/{{ gallery.folder }}/{{ photo.name | downcase | slugify }}.jpg" alt="{{ photo.name }}" />
               </a>
             </div>
           </div>

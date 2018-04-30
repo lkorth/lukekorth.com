@@ -1,20 +1,13 @@
 title: Deep Space Astrophotography
-cover: "deepspace/ngc-1333.jpg"
-link: /galleries/deep_space_astrophotography/
+link: /galleries/deep-space-astrophotography/
+folder: deep-space-astrophotography
+cover: NGC 1333
 photos:
-  - name: One
-    path: deepspace/eta-carinae.jpg
-  - name: One
-    path: deepspace/horsehead.jpg
-  - name: One
-    path: deepspace/m31.jpg
-  - name: One
-    path: deepspace/m42.jpg
-  - name: One
-    path: deepspace/m51.jpg
-  - name: One
-    path: deepspace/ngc-1333.jpg
-  - name: One
-    path: deepspace/ngc-4038.jpg
-  - name: One
-    path: deepspace/tadpole.jpg
+  - name: Eta Carinae
+  - name: Horsehead Nebula
+  - name: M31
+  - name: M42
+  - name: M51
+  - name: NGC 1333
+  - name: NGC 4038
+  - name: Tadpole Galaxy

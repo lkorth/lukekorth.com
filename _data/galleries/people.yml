@@ -1,12 +1,9 @@
 title: People
-cover: "people/baby.jpg"
 link: /galleries/people/
+folder: people
+cover: Baby
 photos:
-  - name: One
-    path: people/baby.jpg
-  - name: One
-    path: people/coming-soon.jpg
-  - name: One
-    path: people/half-moon-bay-texture.jpg
-  - name: One
-    path: people/trellis.jpg
+  - name: Baby
+  - name: Coming Soon
+  - name: Texture
+  - name: Trellis

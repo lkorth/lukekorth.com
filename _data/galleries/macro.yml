@@ -1,8 +1,7 @@
 title: Macro
-cover: "macro/ice-crystals.jpg"
 link: /galleries/macro/
+folder: macro
+cover: Ice Crystals
 photos:
-  - name: One
-    path: macro/ice-crystals.jpg
-  - name: One
-    path: macro/waves-of-wood.jpg
+  - name: Ice Crystals
+  - name: Waves of Wood

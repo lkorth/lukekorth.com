@@ -1,54 +1,30 @@
-title: Landscapes
-cover: "landscape/delicate.jpg"
+title: Landscape
 link: /galleries/landscape/
+folder: landscape
+cover: Delicate Arch
 photos:
-  - name: One
-    path: landscape/akaka.jpg
-  - name: One
-    path: landscape/blackwater-falls.jpg
-  - name: One
-    path: landscape/cedar-falls.jpg
-  - name: One
-    path: landscape/cloud-burst.jpg
-  - name: One
-    path: landscape/delicate.jpg
-  - name: One
-    path: landscape/devils-bathtub.jpg
-  - name: One
-    path: landscape/douglas-falls.jpg
-  - name: One
-    path: landscape/elakala.jpg
-  - name: One
-    path: landscape/elakala-1.jpg
-  - name: One
-    path: landscape/elakala-2.jpg
-  - name: One
-    path: landscape/into-the-sea.jpg
-  - name: One
-    path: landscape/lighthouse.jpg
-  - name: One
-    path: landscape/lower-falls.jpg
-  - name: One
-    path: landscape/lower-falls-1.jpg
-  - name: One
-    path: landscape/point-reyes.jpg
-  - name: One
-    path: landscape/stream.jpg
-  - name: One
-    path: landscape/sunrise.jpg
-  - name: One
-    path: landscape/the-view.jpg
-  - name: One
-    path: landscape/tunnel-view-bw.jpg
-  - name: One
-    path: landscape/tunnel-view.jpg
-  - name: One
-    path: landscape/twin-peaks.jpg
-  - name: One
-    path: landscape/upper-falls.jpg
-  - name: One
-    path: landscape/winter-cedar-falls.jpg
-  - name: One
-    path: landscape/winter-upper-falls.jpg
-  - name: One
-    path: landscape/yosemite-falls.jpg
+  - name: Akaka Falls
+  - name: Blackwater Falls
+  - name: Cedar Falls
+  - name: Cloud Burst
+  - name: Delicate Arch
+  - name: "Devil's Bathtub"
+  - name: Douglas Falls
+  - name: Elakala Falls
+  - name: Elakala Falls 1
+  - name: Elakala Falls 2
+  - name: Into the Sea
+  - name: Lighthouse
+  - name: Lower Falls
+  - name: Lower Falls 1
+  - name: Point Reyes
+  - name: Stream
+  - name: Sunrise
+  - name: The View
+  - name: Tunnel View BW
+  - name: Tunnel View
+  - name: Twin Peaks
+  - name: Upper Falls
+  - name: Winter Cedar Falls
+  - name: Winter Upper Falls
+  - name: Yosemite Falls

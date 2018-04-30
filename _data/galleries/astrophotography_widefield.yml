@@ -1,24 +1,16 @@
 title: Widefield Astrophotography
-cover: "widefield/watching.jpg"
-link: /galleries/widefield_astrophotography/
+link: /galleries/widefield-astrophotography/
+folder: widefield-astrophotography
+cover: Watching
 photos:
-  - name: One
-    path: widefield/above-clouds.jpg
-  - name: One
-    path: widefield/deadhorse-point-milky-way.jpg
-  - name: One
-    path: widefield/gazing.jpg
-  - name: One
-    path: widefield/hunters-moon.jpg
-  - name: One
-    path: widefield/moonbow.jpg
-  - name: One
-    path: widefield/rising-core.jpg
-  - name: One
-    path: widefield/speedboat-beach.jpg
-  - name: One
-    path: widefield/speedboat-beach-1.jpg
-  - name: One
-    path: widefield/speedboat-beach-2.jpg
-  - name: One
-    path: widefield/watching.jpg
+  - name: Above the Clouds
+  - name: Galactic Scrub
+  - name: Gazing
+  - name: Forest Arch
+  - name: "Hunter's Moon"
+  - name: Moonbow
+  - name: Rising Core
+  - name: Speedboat Beach
+  - name: Speedboat Beach 1
+  - name: Speedboat Beach 2
+  - name: Watching

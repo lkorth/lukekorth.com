@@ -1,14 +1,10 @@
 title: Nature
-cover: "nature/elk-bw.jpg"
 link: /galleries/nature/
+folder: nature
+cover: Elk BW
 photos:
-  - name: One
-    path: nature/bobcat.jpg
-  - name: One
-    path: nature/cat.jpg
-  - name: One
-    path: nature/eagle.jpg
-  - name: One
-    path: nature/elk-bw.jpg
-  - name: One
-    path: nature/elk.jpg
+  - name: Bobcat
+  - name: Cat
+  - name: Eagle
+  - name: Elk BW
+  - name: Elk
