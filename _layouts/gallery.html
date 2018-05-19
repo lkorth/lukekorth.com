@@ -18,21 +18,25 @@ layout: default
         <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
           {% assign photos = gallery.photos %}
           {% for photo in photos %}
-          <div class="element grid classic2_cols">
-            <div class="one_half gallery2 static filterable gallery_type archive animated14">
-              <a href="{{ page.permalink }}{{ photo.name | downcase | slugify }}/">
-                <div class="gallery_archive_desc">
-                  <h4>{{ photo.name }}</h4>
-                  <div class="post_detail"><p>{{ photo.subtitle }}</p>
+            {% assign slug = photo.name | downcase | slugify %}
+            <div class="element grid classic2_cols">
+              <div class="one_half gallery2 static filterable gallery_type archive animated14">
+                <a href="javascript:openPhotoSwipe('{{ slug }}');">
+                  <div class="gallery_archive_desc">
+                    <h4>{{ photo.name }}</h4>
+                    <div class="post_detail"><p>{{ photo.subtitle }}</p>
+                    </div>
                   </div>
-                </div>
-                <img src="/photos/{{ gallery.folder }}/{{ photo.name | downcase | slugify }}.jpg" alt="{{ photo.name }}" />
-              </a>
+                  <img id="{{ slug }}" src="/photos/{{ gallery.folder }}/{{ slug }}.jpg" alt="{{ photo.name }}" />
+                </a>
+              </div>
             </div>
-          </div>
           {% endfor %}
         </div>
       </div>
     </div>
   </div>
 </div>
+
+{% include photoswipe.html %}
+{% include photoswipe-js.html %}
