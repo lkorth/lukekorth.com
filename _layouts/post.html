@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 {% if page.header_image %}
   <div id="page_caption" class="hasbg parallax">
@@ -27,7 +28,7 @@ layout: default
 
               <hr/><br class="clear"/>
 
-              {% if page.comments != false %}
+              {% if layout.comments %}
                 <h3>Comments</h3>
                 <div id="disqus_thread">
                   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
