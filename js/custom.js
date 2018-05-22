@@ -538,51 +538,6 @@ jQuery(document).ready(function(){
       jQuery('body').removeClass('hover');
     });
 
-  var siteBaseURL = jQuery('#pp_homepage_url').val();
-  if(jQuery('#pp_ajax_search').val() != '')
-  {
-    jQuery('#s').on('input', function() {
-      jQuery.ajax({
-        url:siteBaseURL+"/wp-admin/admin-ajax.php",
-        type:'POST',
-        data:'action=pp_ajax_search&s='+jQuery('#s').val(),
-        success:function(results) {
-          jQuery("#autocomplete").html(results);
-
-          if(results != '')
-          {
-            jQuery("#autocomplete").addClass('visible');
-            jQuery("#autocomplete").show();
-            jQuery("body.js_nav .mobile_menu_wrapper").css('overflow', 'visible');
-          }
-          else
-          {
-            jQuery("#autocomplete").hide();
-            jQuery("body.js_nav .mobile_menu_wrapper").css('overflow', 'scroll');
-          }
-        }
-      })
-    });
-
-    jQuery("#s").keypress(function(event) {
-      if (event.which == 13) {
-        event.preventDefault();
-        jQuery("form#searchform").submit();
-      }
-    });
-
-    jQuery('#s').focus(function(){
-      if (jQuery('#autocomplete').html() != ''){
-        jQuery("#autocomplete").addClass('visible');
-        jQuery("#autocomplete").fadeIn();
-      }
-    });
-
-    jQuery('#s').blur(function(){
-      jQuery("#autocomplete").fadeOut();
-    });
-  }
-
   jQuery('.animated').imagesLoaded(function() {
     var windowWidth = jQuery(window).width();
 
@@ -611,14 +566,6 @@ jQuery(document).ready(function(){
     {
       jQuery('body.js_nav').css('overflow', 'auto');
     }
-  });
-
-  jQuery('#close_mobile_menu').on( 'click', function() {
-    jQuery('body').removeClass('js_nav');
-  });
-
-  jQuery('.mobile_menu_close a').on( 'click', function() {
-    jQuery('body').removeClass('js_nav');
   });
 
   jQuery('.close_alert').on( 'click', function() {
@@ -818,19 +765,8 @@ jQuery(document).ready(function(){
     jQuery(this).hide();
   });
 
-  jQuery('#page_share').click(function(){
-    jQuery('#overlay_background').addClass('visible');
-    jQuery('#overlay_background').addClass('share_open');
-    jQuery('#fullscreen_share_wrapper').css('visibility', 'visible');
-  });
-
-  jQuery('#overlay_background').click(function(){
-    if(!jQuery('body').hasClass('js_nav'))
-    {
-      jQuery('#overlay_background').removeClass('visible');
-      jQuery('#overlay_background').removeClass('share_open');
-      jQuery('#fullscreen_share_wrapper').css('visibility', 'hidden');
-    }
+  jQuery('#overlay_background').on( 'click', function() {
+    jQuery('body').removeClass('js_nav');
   });
 
   var ua = window.navigator.userAgent;

@@ -266,7 +266,6 @@ h2.number
 .mobile_menu_wrapper #searchform
 {
 	background: #333;
-	width: 85%;
 }
 
 .mobile_menu_wrapper #searchform input[type=text]
@@ -719,77 +718,6 @@ html[data-menu=centeralign] body .top_bar.scroll #nav_wrapper
   padding: 10px 0 10px 0;
 }
 
-#autocomplete
-{
-    display: none;
-  position:absolute;
-    z-index:1001;
-  width: 280px;
-  background: #fff;
-  right: 38px;
-  border: 1px solid #e1e1e1;
-  margin-top: -1px;
-}
-
-#autocomplete.visible
-{
-  display: block;
-}
-
-@-moz-document url-prefix() {
-  #autocomplete {
-     margin-top: 20px;
-  }
-}
-
-#autocomplete ul
-{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    float: left;
-    list-style: none;
-    width: 100%;
-}
-#autocomplete li
-{
-    display:block;
-    clear:both;
-    float: left;
-    width: 100%;
-    padding: 10px 15px 10px 15px;
-    box-sizing: border-box;
-    border-bottom: 1px solid #e1e1e1;
-}
-#autocomplete li:first-child
-{
-  margin-top: 10px;
-}
-#autocomplete li:last-child
-{
-  margin-top: 10px;
-  border: 0;
-}
-
-#autocomplete li strong
-{
-  font-weight: 600;
-  font-size: 14px;
-}
-
-#autocomplete li.view_all
-{
-  text-align: center;
-  margin-top: 0;
-  text-transform: uppercase;
-}
-#autocomplete li .ajax_post
-{
-  float:left;
-  width: calc(100% - 50px);
-  margin-left: 10px;
-}
-
 #mobile_nav_icon
 {
   display: inline-block;
@@ -1070,11 +998,6 @@ body.js_nav .mobile_menu_wrapper, html[data-menu=leftmenu] body.js_nav .mobile_m
   transition: all 0.5s;
 }
 
-#overlay_background.share_open
-{
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
 #overlay_background.visible
 {
   opacity: 1;
@@ -1087,6 +1010,7 @@ body.js_nav #overlay_background {
   -webkit-transform: translate(-360px,0px);
   -moz-transform: translate(-360px,0px);
   transform: translate(-360px,0px);
+  cursor: pointer;
 }
 
 .header_style_wrapper.fixed .top_bar #menu_border_wrapper .notice
