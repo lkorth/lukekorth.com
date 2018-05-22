@@ -17,7 +17,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout example_com.key -out example_co
 
 OpenSSL will prompt you for the details of the certificate, they can be filled out in any level of
 detail you wish. The common name that is requested should match the domain the certificate will be
-used for, for wildcard certs the subdomain should be a star ex: `*.example.com`.
+used for; for wildcard certs the subdomain should be a star, for example `*.example.com`.
 
 Once the CSR has been generated it should be submitted to the certificate authority. In return they
 will send your new certificate along with a copy of the intermediate and root certificates. The
