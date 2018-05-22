@@ -539,10 +539,10 @@
 	body { -webkit-text-size-adjust: none; }
 	body { font-size: 13px; }
 	.logo_container { display: block; }
-	.logo_wrapper img { max-width: 250px; height: auto; margin-top: -10px; }
+	.logo_wrapper img { max-width: 250px; height: auto; margin-top: 5px; margin-bottom: 5px; }
 	.footer_before_widget .footer_logo.logo_wrapper img { max-height: none; margin-top: 0; margin: auto; }
 
-	.top_bar { width: 100%; padding: 0 40px 0 30px; height: 80px !important; border: 0; }
+	.top_bar { width: 100%; padding: 0 40px 0 30px; height: 48px !important; border: 0; }
 	#top_contact_hours, #top_contact_number { display: none; }
 
 	.standard_wrapper { width: 100%; padding: 0 30px 0 30px; box-sizing: border-box; }

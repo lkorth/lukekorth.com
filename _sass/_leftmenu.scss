@@ -100,13 +100,13 @@ html[data-menu=leftalign] #logo_right_button
 @media only screen and (max-width: 767px) {
   html[data-menu=leftalign] .top_bar .standard_wrapper
   {
-    height: 0;
+    height: 48px;
     padding: 0;
   }
 
   html[data-menu=leftalign] #nav_wrapper, html[data-menu=leftalign] #menu_wrapper
   {
-    display: block;
+    display: table;
   }
 
   html[data-menu=leftalign] .top_bar
