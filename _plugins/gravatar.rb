@@ -13,7 +13,7 @@ module Jekyll
 
       if email_address != nil
         gravatar_hash = Digest::MD5.hexdigest(email_address.downcase)
-        image_src = "http://www.gravatar.com/avatar/#{gravatar_hash}"
+        image_src = "https://www.gravatar.com/avatar/#{gravatar_hash}"
 
         unless @size.empty?
           image_src = image_src+"?s=#{@size}"
