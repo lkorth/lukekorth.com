@@ -18,3 +18,4 @@ gem 'stringex', '~> 1.4.0'
 gem 'rb-gsl'
 
 gem 'dimensions', '~> 1.3'
+gem 'rmagick'

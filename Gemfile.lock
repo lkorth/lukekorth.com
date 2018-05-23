@@ -65,6 +65,7 @@ GEM
       ffi (>= 0.5.0, < 2)
     rdiscount (2.2.0.1)
     redcarpet (3.4.0)
+    rmagick (2.16.0)
     rouge (3.1.0)
     ruby_dep (1.5.0)
     rubypants (0.2.0)
@@ -91,6 +92,7 @@ DEPENDENCIES
   rb-gsl
   rdiscount (~> 2.0)
   redcarpet
+  rmagick
   rubypants (~> 0.2.0)
   sass-globbing (~> 1.0.0)
   stringex (~> 1.4.0)
