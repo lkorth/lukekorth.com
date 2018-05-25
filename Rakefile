@@ -1,17 +1,25 @@
 require "rake"
 require "RMagick"
+require "image_optim"
 
-task :generate_thumbnails do
+task :optimize_photos do
+  image_optim = ImageOptim.new(:pngout => false, :svgo => false)
+
   Dir.glob("photos/**/*.jpg").each do |file|
     if !file.include?("_thumb")
       image = Magick::Image::read(file).first
-      thumbnail = image.resize_to_fit(600, 600)
-      thumbnail.write(file.sub(File.extname(file), "_thumb#{File.extname(file)}"))
+      thumbnail_name = file.sub(File.extname(file), "_thumb#{File.extname(file)}")
+
+      thumbnail = image.resize_to_fit(1000, 1000)
+      thumbnail.write(thumbnail_name)
+
+      image_optim.optimize_image!(file)
+      image_optim.optimize_image!(thumbnail_name)
     end
   end
 end
 
-task :build => :generate_thumbnails do
+task :build => :optimize_photos do
   `jekyll build`
 end
 
