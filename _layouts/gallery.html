@@ -27,7 +27,12 @@ layout: default
                     <div class="post_detail"><p>{{ photo.subtitle }}</p>
                     </div>
                   </div>
-                  <img id="{{ slug }}" src="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" alt="{{ photo.name }}" />
+
+                  <picture>
+                    <source srcset="/photos/{{ gallery.folder }}/{{ slug }}_thumb.webp" type="image/webp">
+                    <source srcset="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" type="image/jpeg">
+                    <img id="{{ slug }}" src="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" alt="{{ photo.name }}" />
+                  </picture>
                 </a>
               </div>
             </div>

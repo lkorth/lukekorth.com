@@ -21,10 +21,15 @@ permalink: /portfolio/
 
           {% for gallery_hash in site.data.galleries %}
           {% assign gallery = gallery_hash[1] %}
+          {% assign slug = gallery.cover | downcase | slugify %}
           <div class="element grid classic2_cols landscape portrait">
             <div class="one_half gallery2 classic static filterable gallery_type animated2">
               <a href="{{ gallery.link }}">
-                <img src="/photos/{{ gallery.folder }}/{{ gallery.cover | downcase | slugify }}.jpg" alt="{{ gallery.title }}" />
+                <picture>
+                  <source srcset="/photos/{{ gallery.folder }}/{{ slug }}_thumb.webp" type="image/webp">
+                  <source srcset="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" type="image/jpeg">
+                  <img src="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" alt="{{ gallery.title }}" />
+                </picture>
                 <div class="portfolio_classic_icon_wrapper">
                   <div class="portfolio_classic_icon_content">
                     <i class="fa fa-plus"></i>
