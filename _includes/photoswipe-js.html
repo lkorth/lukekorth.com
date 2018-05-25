@@ -33,6 +33,7 @@ var openPhotoSwipe = function(slug) {
       {% assign slug = photo.name | downcase | slugify %}
       {
         src: "/photos/{{ gallery.folder }}/{{ slug }}.jpg",
+        msrc: "/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg",
         title: "{{ photo.name }}",
         pid: "{{ slug }}",
         w: "{{ slug | width: gallery.folder }}",
