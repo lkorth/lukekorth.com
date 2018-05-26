@@ -3,7 +3,7 @@ layout: post
 title: httpebble
 categories: [Android, Pebble]
 date: 2013-05-25
-header_image: /media/working-watch.jpg
+header_image: /media/working-watch
 ---
 [httpebble](http://kathar.in/httpebble/) is a generic set of rules for a [Pebble watch](http://getpebble.com/)
 watch face to communicate with the Internet using a phone as a proxy. It also defines other features such as

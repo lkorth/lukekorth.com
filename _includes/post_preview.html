@@ -1,8 +1,18 @@
-<!-- <div class="mdl&#45;card__title{% if post.header_image %} mdl&#45;card__cover&#45;image&#45;title" style="background: linear&#45;gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{ post.header_image }}') center/cover;"{% else %}"{% endif %}> -->
-
 <div class="post type-post status-publish format-standard hentry category-uncategorized">
   <div class="post_wrapper">
     <div class="post_content_wrapper">
+      {% if post.header_image %}
+      <div class="post_img static">
+        <a href="{{ post.url }}">
+          <picture>
+            <source srcset="{{ post.header_image }}.webp" type="image/webp">
+            <source srcset="{{ post.header_image }}.jpg" type="image/jpeg">
+            <img src="{{ post.header_image }}.jpg" />
+          </picture>
+        </a>
+      </div>
+      {% endif %}
+
       <div class="post_header">
         <div class="post_header_title">
           <h5><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h5>
