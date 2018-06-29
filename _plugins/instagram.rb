@@ -12,6 +12,9 @@
 #   </div>
 # {% endinstagram %}
 
+require "net/http"
+require "uri"
+
 module Jekyll
   class InstagramTag < Liquid::Block
     include Liquid::StandardFilters
