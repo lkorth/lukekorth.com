@@ -3,7 +3,21 @@ layout: post
 title: Photo Paper
 categories: [Android, Photography]
 date: 2014-11-12
+custom_excerpt: "I'm a big fan of [500px](http://500px.com/), from time to time I post [my photos](https://500px.com/LukeKorth) there and
+I'll happily spend hours looking through the amazing photos that others have posted. One day I was staring at the same
+boring wallpaper on my phone and I thought it would be really nice to have a live wallpaper that used photos from 500px.
+Unsurprisingly [there are several in the Play Store](https://play.google.com/store/search?q=500px+wallpaper&c=apps)
+ranging from really bad to pretty good. I gave them a try, but I wasn't very happy with them. Several of them
+are freemium and most of the ones I've tried are live wallpapers and continuously use a lot of ram.
+It also bugged me that none of them were open source."
 ---
+# Update
+
+On June 15th, 2018 500px [shut off their API](https://support.500px.com/hc/en-us/articles/360002435653-API-).
+Photo Paper's features rely on the 500px API and no longer function without access to the API.
+
+# Original Post
+
 I'm a big fan of [500px](http://500px.com/), from time to time I post [my photos](https://500px.com/LukeKorth) there and
 I'll happily spend hours looking through the amazing photos that others have posted. One day I was staring at the same
 boring wallpaper on my phone and I thought it would be really nice to have a live wallpaper that used photos from 500px.

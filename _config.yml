@@ -26,9 +26,6 @@ paginate_path: blog/:num        # Path structure for pagination URLs eg. /blog/p
 recent_posts: 5                 # Posts in the sidebar Recent Posts section
 excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 
-# 500px
-500px_consumer_key_file: .500px-consumer-key
-
 # Disqus Comments
 disqus_short_name: lukekorth
 disqus_url: https://lukekorth.com

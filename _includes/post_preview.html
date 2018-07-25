@@ -28,7 +28,11 @@
 
         <br class="clear"/>
 
+        {% if post.custom_excerpt %}
+        <p>{{ post.custom_excerpt | markdownify }}</p>
+        {% else %}
         <p>{{ post.excerpt }}</p>
+        {% endif %}
 
         <div class="post_button_wrapper">
           <a class="readmore" href="{{ post.url }}">Continue Reading</a>

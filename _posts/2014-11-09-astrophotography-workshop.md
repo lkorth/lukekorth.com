@@ -14,13 +14,13 @@ from such a talented photographer. When I arrived, Sean talked through everythin
 camera settings, shooting the night sky and milky way. Within 15 minutes I had my camera setup and was shooting.
 One of my best photos of the night came from the first few I took.
 
-{% 500px 81815977 %}
+{{ "milky-way" | post_photo: page, "" }}
 
 After spending some time learning how to shoot the milky way and take composite photos, Sean taught us about light painting
 with headlamps and other light sources. To finish up our shoot on the beach we did a series of self portraits,
 resulting in my favorite photo of the night.
 
-{% 500px 80880759 %}
+{{ "star-gazing-self-portrait" | post_photo: page, "" }}
 
 For the second part of the night we drove up the mountain and setup to take star trails. We shot a few photos to get
 setup and then let our cameras do the work. I ended up shooting for 80 minutes and taking 191 photos.
@@ -28,7 +28,7 @@ The work came later during post processing where I batch edited all the raws and
 the planes from each individual image. Once this was done I used [StarStaX](http://www.markus-enzweiler.de/StarStaX/StarStaX.html)
 to combine all 191 photos into a single photo.
 
-{% 500px 89029765 %}
+{{ "star-trails" | post_photo: page, "" }}
 
 Almost as an after thought I decided to try a timelapse as well since I already had the photos and went through all the work
 to edit them. I'm pretty happy with the result having never done it before.
@@ -41,4 +41,3 @@ he is more than happy to share the tools and techniques he has spent so much tim
 learned a great deal about photography and the night sky in general. If you're at all interested in
 photography I highly recommend you take one of his workshops, I know I look forward to the next time I can attend one of
 Sean's workshops. I also have a feeling I'm going to be spending a lot of money on gear in the future, I'm hooked.
-

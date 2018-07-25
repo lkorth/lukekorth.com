@@ -5,11 +5,18 @@ module Jekyll
 
     def initialize(name, id, tokens)
       super
-      @id = id
+      @id = id.strip
     end
 
     def render(context)
-      %(<div class="vimeo"><div class="vimeo-player"><iframe width="100%" height="100%" src="//player.vimeo.com/video/#{@id}"></iframe></div></div>)
+      <<~HTML
+        <div class="wp-caption aligncenter">
+          <div style="padding: 56.25% 0 0 0; position: relative;">
+            <iframe src="//player.vimeo.com/video/#{@id}?loop=1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          </div>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+        </div>
+      HTML
     end
   end
 end
