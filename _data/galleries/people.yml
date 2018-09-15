@@ -1,8 +1,9 @@
 title: People
 link: /galleries/people/
 folder: people
-cover: Baby
+cover: Gaze
 photos:
+  - name: Gaze
   - name: Baby
   - name: Coming Soon
   - name: Texture
