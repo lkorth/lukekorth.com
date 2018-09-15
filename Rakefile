@@ -5,6 +5,7 @@ require "image_optim"
 
 JPG = ".jpg"
 
+desc "Generate thumbnails and optimize photos"
 task :optimize_photos do
   image_optim = ImageOptim.new(:pngout => false, :svgo => false)
 
@@ -27,10 +28,12 @@ task :optimize_photos do
   end
 end
 
+desc "Build site"
 task :build => :optimize_photos do
   `jekyll build`
 end
 
+desc "Deploy site to Firebase"
 task :deploy => :build do
   `firebase deploy`
 end
