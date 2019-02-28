@@ -19,7 +19,8 @@ permalink: /portfolio/
       <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
         <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
 
-          {% for gallery_hash in site.data.galleries %}
+          {% assign galleries = site.data.galleries | sort %}
+          {% for gallery_hash in galleries %}
           {% assign gallery = gallery_hash[1] %}
           {% assign slug = gallery.cover | downcase | slugify %}
           <div class="element grid classic2_cols landscape portrait">
