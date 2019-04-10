@@ -11,13 +11,16 @@ task :optimize_photos do
 
   Dir.glob("photos/**/*#{JPG}").each do |file|
     if !file.include?("_thumb")
+      image_optim.optimize_image!(file)
+
+      next if File.exist?("#{File.dirname(file)}/.skip_thumbnail")
+
       image = Magick::Image::read(file).first
       thumbnail_name = file.sub(JPG, "_thumb#{JPG}")
 
       thumbnail = image.resize_to_fit(1000, 1000)
       thumbnail.write(thumbnail_name) { self.quality = 80 }
 
-      image_optim.optimize_image!(file)
       image_optim.optimize_image!(thumbnail_name)
 
       webp_file = file.sub(JPG, ".webp")

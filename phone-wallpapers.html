@@ -1,0 +1,39 @@
+---
+layout: default
+title: Phone Wallpapers
+permalink: /phone-wallpapers/
+---
+{% assign gallery = site.data.galleries["phone_wallpapers"] %}
+<div id="page_caption">
+  <div class="page_title_wrapper">
+    <div class="page_title_inner">
+      <h1>{{ gallery.title }}</h1>
+      <div class="page_tagline">To download any of these photos for personal use on your phone, long press on the photo you want then save the image to your phone.</div>
+    </div>
+  </div>
+</div>
+
+<div id="page_content_wrapper" class="">
+  <div class="inner">
+    <div class="inner_wrapper nopadding">
+      <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
+        <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
+          {% assign photos = gallery.photos %}
+          {% for photo in photos %}
+            {% assign slug = photo.name | downcase | slugify %}
+            <div class="element grid classic2_cols">
+              <div class="one_half gallery2 static filterable gallery_type archive animated14">
+                <div class="gallery_archive_desc">
+                  <h4>{{ photo.name }}</h4>
+                  <div class="post_detail"><p>{{ photo.subtitle }}</p>
+                  </div>
+                </div>
+                <img id="{{ slug }}" src="/photos/{{ gallery.folder }}/{{ slug }}.jpg" alt="{{ photo.name }}" />
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,11 @@ permalink: /portfolio/
           {% assign galleries = site.data.galleries | sort %}
           {% for gallery_hash in galleries %}
           {% assign gallery = gallery_hash[1] %}
+
+          {% if gallery.skip_portfolio %}
+            {% continue %}
+          {% endif %}
+
           {% assign slug = gallery.cover | downcase | slugify %}
           <div class="element grid classic2_cols landscape portrait">
             <div class="one_half gallery2 classic static filterable gallery_type animated2">
