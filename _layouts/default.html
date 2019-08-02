@@ -63,9 +63,9 @@
 
       <div class="menu-side-mobile-menu-container">
         <ul id="mobile_main_menu" class="mobile_main_nav">
-          <li id="menu-item-4969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4969"><a href="/blog/">Blog</a></li>
-          <li id="menu-item-4969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4969"><a href="/portfolio/">Portfolio</a></li>
-          <li id="menu-item-4969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-4969"><a href="/phone-wallpapers/">Phone Wallpapers</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="/blog/">Blog</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="/portfolio/">Portfolio</a></li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="/phone-wallpapers/">Phone Wallpapers</a></li>
         </ul>
       </div>
 
@@ -74,7 +74,7 @@
           <div class="sidebar">
             <div class="content">
               <ul class="sidebar_widget">
-                <li id="custom_instagram-1" class="widget Custom_Instagram">
+                <li class="widget">
                   <h2 class="widgettitle"><span>Follow @ Instagram</span></h2>
                   <ul class="flickr">
                     {% instagram %}
@@ -122,8 +122,8 @@
                     <div id="menu_border_wrapper">
                       <div class="menu-main-menu-container">
                         <ul id="main_menu" class="nav">
-                          <li id="menu-item-4957" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home {% if page.tab == "blog" %}current-page-ancestor current-menu-ancestor current-page-parent current_page_ancestor{% endif %}"><a href="/blog/">Blog</a></li>
-                          <li id="menu-item-4957" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home {% if page.tab == "portfolio" %}current-page-ancestor current-menu-ancestor current-page-parent current_page_ancestor{% endif %}"><a href="/portfolio/">Portfolio</a></li>
+                          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home {% if page.tab == "blog" %}current-page-ancestor current-menu-ancestor current-page-parent current_page_ancestor{% endif %}"><a href="/blog/">Blog</a></li>
+                          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home {% if page.tab == "portfolio" %}current-page-ancestor current-menu-ancestor current-page-parent current_page_ancestor{% endif %}"><a href="/portfolio/">Portfolio</a></li>
                         </ul>
                       </div>
                     </div>
@@ -145,7 +145,7 @@
         <div class="footer_bar">
           <div id="footer">
             <ul class="sidebar_widget four">
-              <li id="text-7" class="widget widget_text">
+              <li class="widget widget_text">
                 <h2 class="widgettitle"><span>About Me</span></h2>
                 <div class="textwidget">
                   <div style="text-align:center">
@@ -156,7 +156,7 @@
                   </div>
                 </div>
               </li>
-              <li id="custom_recent_posts-2" class="widget Custom_Recent_Posts">
+              <li class="widget">
                 <h2 class="widgettitle">
                   <span>Recent Posts</span>
                 </h2>
@@ -169,8 +169,8 @@
                   {% endfor %}
                 </ul>
               </li>
-              <li id="custom_popular_posts-1" class="widget Custom_Popular_Posts"><ul class="posts blog"><li></li></ul></li>
-              <li id="custom_instagram-4" class="widget Custom_Instagram">
+              <li class="widget"><ul class="posts blog"><li></li></ul></li>
+              <li class="widget">
                 <h2 class="widgettitle">
                   <span>Instagram</span>
                 </h2>
