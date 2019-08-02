@@ -538,20 +538,6 @@ jQuery(document).ready(function(){
       jQuery('body').removeClass('hover');
     });
 
-  jQuery('.animated').imagesLoaded(function() {
-    var windowWidth = jQuery(window).width();
-
-    if(windowWidth >= 960)
-    {
-      jQuery(this).waypoint(function(direction) {
-        var animationClass = jQuery(this).data('animation');
-
-        jQuery(this).addClass(animationClass, direction === 'down');
-
-      } , { offset: '100%' });
-    }
-  });
-
   jQuery('#post_more_close').on( 'click', function(){
     jQuery('#post_more_wrapper').animate({ right: '-380px' }, 300);
 
@@ -572,14 +558,6 @@ jQuery(document).ready(function(){
     var target = jQuery(this).data('target');
     jQuery('#'+target).fadeOut();
   });
-
-  jQuery('.progress_bar').waypoint(function(direction) {
-    jQuery(this).addClass('fadeIn');
-    var progressContent = jQuery(this).children('.progress_bar_holder').children('.progress_bar_content');
-    var progressWidth = progressContent.data('score');
-
-    progressContent.css({'width': progressWidth+'%'});
-  } , { offset: '100%' });
 
   jQuery('.tooltip').tooltipster();
   jQuery('.demotip').tooltipster({
@@ -630,13 +608,6 @@ jQuery(document).ready(function(){
     {
       jQuery('body').removeClass('overflow_hidden');
     });
-
-  jQuery('.animate').waypoint(function(direction) {
-    var windowWidth = jQuery(window).width();
-
-    jQuery(this).addClass('visible', direction === 'down');
-
-  } , { offset: '80%' });
 
   var calScreenHeight = jQuery(window).height()-108;
   var miniRightPos = 800;

@@ -6164,46 +6164,6 @@ margin-top: 12px;
 	height: auto;
 }
 
-.progress_bar
-{
-	position: relative;
-	margin-bottom: 10px;
-	visibility: hidden;
-	display: block !important;
-}
-
-.progress_bar_holder
-{
-	height: 3px;
-	margin-top: 5px;
-	background: #f0f0f0;
-}
-
-.progress_bar_content
-{
-	height: 3px;
-	-webkit-transition: width s ease-in-out;
-    -moz-transition: width 1s ease-in-out;
-    -o-transition: width 1s ease-in-out;
-    transition: width 1s ease-in-out;
-}
-
-.progress_bar_title
-{
-	font-weight: 600;
-	display: inline;
-	font-size: 13px;
-}
-
-.progress_number
-{
-	font-weight: 600;
-	position: absolute;
-	right: 0;
-	top: 0;
-	font-size: 13px;
-}
-
 .pricing_content_wrapper
 {
 	margin: 0;
