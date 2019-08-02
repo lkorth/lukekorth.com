@@ -609,47 +609,6 @@ jQuery(document).ready(function(){
     return false;
   });
 
-
-  if(jQuery('.page_slider.menu_transparent').find('.rev_slider_wrapper').length > 0)
-  {
-    var sliderHeight = jQuery('.page_slider.menu_transparent').find('.rev_slider_wrapper').height();
-    var topBarHeight = jQuery('.top_bar').height();
-
-    if(jQuery('.above_top_bar').length > 0)
-    {
-      topBarHeight+= jQuery('.above_top_bar').height();
-    }
-
-    if(jQuery('.page_slider.menu_transparent').find('.rev_slider_wrapper.fullscreen-container').length > 0)
-    {
-      var topBarHeight = 55;
-    }
-
-    jQuery('.ppb_wrapper').css('marginTop', sliderHeight-topBarHeight+'px');
-    jQuery('#page_content_wrapper').css('marginTop', sliderHeight-topBarHeight+'px');
-  }
-
-  jQuery(window).resize(function(){
-    if(jQuery('.page_slider.menu_transparent').find('.rev_slider_wrapper').length > 0)
-    {
-      var sliderHeight = jQuery('.page_slider.menu_transparent').find('.rev_slider_wrapper').height();
-      var topBarHeight = jQuery('.top_bar').height();
-
-      if(jQuery('.above_top_bar').length > 0)
-      {
-        topBarHeight+= jQuery('.above_top_bar').height();
-      }
-
-      if(jQuery('.page_slider.menu_transparent').find('.rev_slider_wrapper.fullscreen-container').length > 0)
-      {
-        var topBarHeight = 55;
-      }
-
-      jQuery('.ppb_wrapper').css('marginTop', sliderHeight-topBarHeight+'px');
-      jQuery('#page_content_wrapper').css('marginTop', sliderHeight-topBarHeight+'px');
-    }
-  });
-
   jQuery('.skin_box').on( 'click', function(){
     jQuery('.skin_box').removeClass('selected');
     jQuery(this).addClass('selected');
@@ -818,10 +777,6 @@ jQuery(document).ready(function(){
       document.getElementById("leftmenu.css-css").disabled = true;
       jQuery('.mobile_menu_wrapper .logo_container').hide();
     }
-  });
-
-  jQuery('.rev_slider_wrapper.fullscreen-container').each(function(){
-    jQuery(this).append('<div class="icon-scroll"></div>');
   });
 
   if(jQuery('.one.fullwidth.slideronly').length > 0)
