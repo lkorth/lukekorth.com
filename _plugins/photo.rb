@@ -13,13 +13,13 @@ module Jekyll
     def post_photo(slug, page, caption)
       path = page.path.gsub("_", "").gsub(".md", "")
       <<~HTML
-        <div class="wp-caption aligncenter">
+        <div class="img-caption aligncenter">
           <picture>
             <source srcset="/photos/#{path}/#{slug}_thumb.webp" type="image/webp">
             <source srcset="/photos/#{path}/#{slug}_thumb.jpg" type="image/jpeg">
             <img class="size-large" src="/photos/#{path}/#{slug}_thumb.jpg" alt="#{caption}" />
           </picture>
-          <p class="wp-caption-text">#{caption}</p>
+          <p class="img-caption-text">#{caption}</p>
         </div>
       HTML
     end
