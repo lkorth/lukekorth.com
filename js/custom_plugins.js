@@ -36,19 +36,14 @@ jQuery.fn.animateAuto = function(prop, speed, callback){
 
 jQuery.fn.setNav = function(){
 	var calScreenWidth = jQuery(window).width();
-	var menuLayout = jQuery('#pp_menu_layout').val();
 
 	if(calScreenWidth >= 960)
 	{
 		jQuery('#main_menu li ul').css({display: 'none', opacity: 1});
 
-		if(menuLayout != 'leftmenu')
-		{
-			jQuery('#menu_wrapper div .nav li.megamenu > ul > li').each(function()
-			{
-				jQuery(this).css('height', jQuery(this).parent('ul').height()+'px');
-			});
-		}
+    jQuery('#menu_wrapper div .nav li.megamenu > ul > li').each(function() {
+      jQuery(this).css('height', jQuery(this).parent('ul').height()+'px');
+    });
 
 		jQuery('#main_menu li').each(function()
 		{

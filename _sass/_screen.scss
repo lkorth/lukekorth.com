@@ -3055,6 +3055,7 @@ body.single-galleries #page_caption.hasbg
 #page_caption.hasbg #bg_blurred
 {
 	opacity: 0;
+  filter: blur(6px);
 }
 
 #page_caption.hasbg:after
