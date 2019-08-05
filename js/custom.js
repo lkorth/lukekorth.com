@@ -460,23 +460,6 @@ jQuery(document).ready(function(){
     jQuery('#'+target).fadeOut();
   });
 
-  jQuery('.tooltip').tooltipster();
-  jQuery('.demotip').tooltipster({
-    position: 'left'
-  });
-
-  jQuery('.portfolio_prev_next_link').each(function(){
-    jQuery(this).tooltipster({
-      content: jQuery('<img src="'+jQuery(this).attr('data-img')+'" /><br/><div style="text-align:center;margin:7px 0 5px 0;"><strong>'+jQuery(this).attr('data-title')+'</strong></div>')
-    });
-  });
-
-  jQuery('.post_prev_next_link').each(function(){
-    jQuery(this).tooltipster({
-      content: jQuery('<img src="'+jQuery(this).attr('data-img')+'" />')
-    });
-  });
-
   jQuery('.post_share').on( 'click', function() {
     var targetShareID = jQuery(this).attr('data-share');
     var targetParentID = jQuery(this).attr('data-parent');
