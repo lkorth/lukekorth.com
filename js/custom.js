@@ -534,17 +534,6 @@ jQuery(document).ready(function(){
     });
   });
 
-  if(jQuery.browser.msie && parseFloat(jQuery.browser.version)<10)
-  {
-    jQuery('.animate').css('opacity', 1);
-    jQuery('.animate').css('visibility', 'visible');
-
-    jQuery('.animated').each(function() {
-      jQuery(this).css('opacity', 1);
-      jQuery(this).css('visibility', 'visible');
-    });
-  }
-
   function launchFullscreen(element) {
     if(element.requestFullscreen) {
       element.requestFullscreen();
