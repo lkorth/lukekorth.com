@@ -1,5 +1,5 @@
 require "rake"
-require "RMagick"
+require "rmagick"
 require "webp_ffi"
 require "image_optim"
 
