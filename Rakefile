@@ -33,6 +33,6 @@ end
 
 desc "Deploy site to Firebase"
 task :deploy do
-  `jekyll build`
-  `firebase deploy`
+  sh "jekyll build"
+  sh "firebase deploy"
 end
