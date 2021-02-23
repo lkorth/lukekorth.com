@@ -31,12 +31,8 @@ task :optimize_photos do
   end
 end
 
-desc "Build site"
-task :build => :optimize_photos do
-  `jekyll build`
-end
-
 desc "Deploy site to Firebase"
-task :deploy => :build do
+task :deploy do
+  `jekyll build`
   `firebase deploy`
 end
