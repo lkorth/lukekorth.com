@@ -5,7 +5,7 @@ description: A personal blog about technology, open source and photography.
 root: /
 permalink: /blog/:title/
 
-exclude: ['Gemfile*', 'README.md', '**/README.md', 'firebase.json']
+exclude: ['Gemfile*', 'Rakefile', 'README.md', '**/README.md', 'firebase.json']
 
 plugins: [jekyll-paginate, jekyll-sitemap]
 
