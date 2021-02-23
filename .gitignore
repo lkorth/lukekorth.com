@@ -15,6 +15,7 @@ _site
 .firebaserc
 .firebase
 firebase.json
+firebase-debug.log
 
 # photos
 photos
