@@ -69,7 +69,7 @@
                     {% instagram %}
                     <li>
                       <a target="_blank" href="{{ item.link }}">
-                        <img src="{{ item.image_url }}" width="75" height="75"/>
+                        <img src="{{ item.image_url }}" alt="{{ item.caption }}" />
                       </a>
                     </li>
                     {% endinstagram %}
@@ -167,7 +167,7 @@
                   {% instagram %}
                   <li>
                     <a target="_blank" href="{{ item.link }}">
-                      <img src="{{ item.image_url }}" width="75" height="75"/>
+                      <img src="{{ item.image_url }}" alt="{{ item.caption }}" />
                     </a>
                   </li>
                   {% endinstagram %}

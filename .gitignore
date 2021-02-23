@@ -2,11 +2,10 @@
 .DS_Store
 .sass-cache
 .pygments-cache
-.instagram_cache.json
 
-# private keys
-.500px-consumer-key
-.instagram-access-token
+# instagram
+.instagram
+.instagram_cache.json
 
 # generated files
 _site

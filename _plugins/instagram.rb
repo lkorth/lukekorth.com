@@ -19,7 +19,7 @@ module Jekyll
   class InstagramTag < Liquid::Block
     include Liquid::StandardFilters
 
-    ACCESS_TOKEN = "instagram_access_token"
+    URL_FILE = ".instagram"
     CACHE_FILE = ".instagram_cache.json"
 
     def initialize(tag_name, markup, tokens)
@@ -36,20 +36,18 @@ module Jekyll
     end
 
     def render(context)
-      return "" if context.registers[:site].config[ACCESS_TOKEN] == nil
+      return "" unless File.exist?(URL_FILE)
 
-      if context.registers[:site].config[ACCESS_TOKEN] != nil && !File.exists?(context.registers[:site].config[ACCESS_TOKEN])
-        raise "Instagram access token file #{context.registers[:site].config[ACCESS_TOKEN]} does not exist"
+      if !File.exists?(URL_FILE)
+        raise "Instagram url file .instagram does not exist"
       end
 
-      context.registers[:instagram] ||= {}
-
-      photos = fetch_photos(File.read(context.registers[:site].config[ACCESS_TOKEN]))
-      photos = photos['data'].first(6).inject([]) do |array, item|
+      photos = fetch_photos(File.read(URL_FILE))
+      photos = photos['items'].first(6).inject([]) do |array, item|
         array.push({
-          "caption" => item["caption"]["text"],
-          "image_url" => item["images"]["thumbnail"]["url"],
-          "link" => item["link"]
+          "caption" => item["title"],
+          "image_url" => item["attachments"].first["url"],
+          "link" => item["url"]
         })
         array
       end
@@ -66,18 +64,18 @@ module Jekyll
       output
     end
 
-    def fetch_photos(access_token)
+    def fetch_photos(json_url)
       photos = nil
       if File.exist?(CACHE_FILE)
         cache = JSON.parse(File.read(CACHE_FILE))
 
-        if (Time.now.to_i - cache["timestamp"]) < 3600
+        if (Time.now.to_i - cache["timestamp"]) < 86400
           photos = cache
         end
       end
 
       if photos.nil?
-        uri = URI.parse("https://api.instagram.com/v1/users/self/media/recent/?access_token=#{access_token}")
+        uri = URI.parse(json_url)
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
 

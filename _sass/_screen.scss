@@ -1661,8 +1661,9 @@ body.js_nav #overlay_background {
 
 #footer ul.sidebar_widget li ul.flickr li img
 {
-	width: 100%;
-	height: auto;
+	width: 96px;
+	height: 96px;
+	object-fit: cover;
 }
 
 #copyright
@@ -4843,8 +4844,9 @@ table tfoot tr, table tfoot tr td
 
 #page_content_wrapper .sidebar .content .sidebar_widget li ul.flickr li img, .page_content_wrapper .sidebar .content .sidebar_widget li ul.flickr li img
 {
-	width: 100%;
-	height: auto;
+	width: 75px;
+	height: 75px;
+	object-fit: cover;
 }
 
 .mobile_menu_wrapper .sidebar .content .sidebar_widget li ul.flickr li
