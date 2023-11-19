@@ -12,8 +12,10 @@
 #   </div>
 # {% endinstagram %}
 
+require "digest"
 require "net/http"
 require "uri"
+require "open-uri"
 
 module Jekyll
   class InstagramTag < Liquid::Block
@@ -21,6 +23,7 @@ module Jekyll
 
     URL_FILE = ".instagram"
     CACHE_FILE = ".instagram_cache.json"
+    PHOTO_DIR = "photos/instagram/"
 
     def initialize(tag_name, markup, tokens)
       super
@@ -44,9 +47,11 @@ module Jekyll
 
       photos = fetch_photos(File.read(URL_FILE))
       photos = photos['items'].first(6).inject([]) do |array, item|
+        photo_path = find_or_create(item["attachments"].first["url"])
+
         array.push({
           "caption" => item["title"],
-          "image_url" => item["attachments"].first["url"],
+          "image_url" => "/#{photo_path}",
           "link" => item["url"]
         })
         array
@@ -96,6 +101,15 @@ module Jekyll
       end
 
       return photos
+    end
+
+    def find_or_create(image_url)
+      path = PHOTO_DIR + Digest::SHA2.hexdigest(image_url)
+      if !File.exist?(path)
+        IO.copy_stream(open(image_url), path)
+      end
+
+      return path
     end
   end
 end
