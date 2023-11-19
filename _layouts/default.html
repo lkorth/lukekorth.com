@@ -66,13 +66,7 @@
                 <li class="widget">
                   <h2 class="widgettitle"><span>Follow @ Instagram</span></h2>
                   <ul class="flickr">
-                    {% instagram %}
-                    <li>
-                      <a target="_blank" href="{{ item.link }}">
-                        <img src="{{ item.image_url }}" alt="{{ item.caption }}" />
-                      </a>
-                    </li>
-                    {% endinstagram %}
+                    {% include instagram.html %}
                   </ul>
                   <br class="clear"/>
                 </li>
@@ -164,13 +158,7 @@
                   <span>Instagram</span>
                 </h2>
                 <ul class="flickr">
-                  {% instagram %}
-                  <li>
-                    <a target="_blank" href="{{ item.link }}">
-                      <img src="{{ item.image_url }}" alt="{{ item.caption }}" />
-                    </a>
-                  </li>
-                  {% endinstagram %}
+                  {% include instagram.html %}
                 </ul>
                 <br class="clear"/>
               </li>

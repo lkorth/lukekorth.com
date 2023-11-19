@@ -4,8 +4,8 @@
 {
 	position: fixed;
 	animation-name: slideDown;
-	-webkit-animation-name: slideDown;	
-	animation-duration: 0.5s;	
+	-webkit-animation-name: slideDown;
+	animation-duration: 0.5s;
 	-webkit-animation-duration: 0.5s;
 	z-index: 999;
 	visibility: visible !important;
@@ -41,7 +41,7 @@
 {
 	overflow-x: hidden;
 }
-body.js_nav .mobile_menu_wrapper 
+body.js_nav .mobile_menu_wrapper
 {
     display: block;
 }
@@ -62,16 +62,12 @@ body.js_nav .mobile_menu_wrapper
     display: none;
 }
 
-
-
-
-
 @media only screen and (max-width: 768px) {
 	html[data-menu=leftmenu] .mobile_menu_wrapper
 	{
 		right: 0;
 		left: initial;
-		
+
 		-webkit-transform: translate(360px, 0px);
 		-ms-transform: translate(360px, 0px);
 		transform: translate(360px, 0px);
@@ -79,8 +75,6 @@ body.js_nav .mobile_menu_wrapper
 	}
 }
 
-
-
-
-
-
+.instagram-media-rendered {
+	min-width: inherit !important;
+}

@@ -4,10 +4,6 @@
 .sass-cache
 .pygments-cache
 
-# instagram
-.instagram
-.instagram_cache.json
-
 # generated files
 _site
 
