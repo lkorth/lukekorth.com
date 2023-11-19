@@ -19,7 +19,7 @@ task :optimize_photos do
       thumbnail_name = file.sub(JPG, "_thumb#{JPG}")
 
       thumbnail = image.resize_to_fit(1000, 1000)
-      thumbnail.write(thumbnail_name) { self.quality = 80 }
+      thumbnail.write(thumbnail_name) { |t| t.quality = 80 }
 
       image_optim.optimize_image!(thumbnail_name)
 
