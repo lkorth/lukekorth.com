@@ -73,5 +73,6 @@ var openPhotoSwipe = function(slug) {
 var hashData = photoswipeParseHash();
 if (hashData.pid) {
   openPhotoSwipe(hashData.pid);
+  document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', '/photos/{{ gallery.folder }}/' + hashData.pid + '.jpg');
 }
 </script>
