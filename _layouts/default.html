@@ -1,3 +1,4 @@
+{% include variables.html %}
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" data-menu="leftalign">
   <head>
@@ -5,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:image" content=""/>
+    {% if gallery %}
+    <meta property="og:image" content="/photos/{{ gallery.folder }}/{{ gallery.cover | downcase | slugify }}_thumb.jpg"/>
+    {% endif %}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -15,9 +18,9 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#607d8b">
 
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }}{% elsif gallery.title %}{{ gallery.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif gallery.title %}Gallery{% else %}{{ site.description }}{% endif %}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url }}"/>
