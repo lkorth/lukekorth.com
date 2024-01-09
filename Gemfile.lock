@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.3.2)
+    RedCloth (4.3.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     chunky_png (1.4.0)
@@ -108,7 +108,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth (~> 4.3.0)
+  RedCloth (~> 4.3.3)
   compass (~> 0.12.2)
   dimensions (~> 1.3)
   image_optim
