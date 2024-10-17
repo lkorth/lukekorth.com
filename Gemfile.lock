@@ -24,7 +24,6 @@ GEM
     forwardable-extended (2.6.0)
     fspath (3.1.2)
     fssm (0.2.10)
-    gsl (2.1.0.3)
     http_parser.rb (0.6.0)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
@@ -80,8 +79,6 @@ GEM
     public_suffix (4.0.6)
     rake (13.0.3)
     rb-fsevent (0.10.4)
-    rb-gsl (1.16.0.6)
-      gsl
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdiscount (2.2.0.2)
@@ -103,6 +100,7 @@ GEM
     webp-ffi (0.3.1)
       ffi (>= 1.9.0)
       ffi-compiler (>= 0.1.2)
+    webrick (1.8.2)
 
 PLATFORMS
   ruby
@@ -120,7 +118,6 @@ DEPENDENCIES
   jekyll-sitemap
   rake
   rb-fsevent (~> 0.9)
-  rb-gsl
   rdiscount (~> 2.0)
   redcarpet
   rmagick
@@ -128,6 +125,7 @@ DEPENDENCIES
   sass-globbing (~> 1.0.0)
   stringex (~> 1.4.0)
   webp-ffi
+  webrick
 
 BUNDLED WITH
    2.2.11
