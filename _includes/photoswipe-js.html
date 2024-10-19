@@ -1,78 +1,98 @@
-<script src="/js/photoswipe.js"></script>
-<script>
-var photoswipeParseHash = function() {
-  var hash = window.location.hash.substring(1),
-    params = {};
+<script type="module">
+import PhotoSwipe from '/js/photoswipe.js';
+import PhotoSwipeLightbox from '/js/photoswipe_lightbox.js';
+import PhotoSwipeFullscreen from '/js/photoswipe_fullscreen.js';
 
-  if(hash.length < 5) {
-    return params;
+const lightbox = new PhotoSwipeLightbox({
+  gallery: '#portfolio_filter_wrapper',
+  children: 'a',
+  pswpModule: PhotoSwipe,
+  bgOpacity: 1,
+});
+const fullscreenPlugin = new PhotoSwipeFullscreen(lightbox);
+
+lightbox.addFilter('itemData', (itemData, index) => {
+  const webpSrc = itemData.element.dataset.pswpWebpSrc;
+  if (webpSrc) {
+    itemData.webpSrc = webpSrc;
   }
+  return itemData;
+});
 
-  var vars = hash.split('&');
-  for (var i = 0; i < vars.length; i++) {
-    if (!vars[i]) {
-      continue;
-    }
-    var pair = vars[i].split('=');
-    if (pair.length < 2) {
-      continue;
-    }
-    params[pair[0]] = pair[1];
-  }
+lightbox.on('contentLoad', (e) => {
+  const { content, isLazy } = e;
 
-  if (params.gid) {
-    params.gid = parseInt(params.gid, 10);
-  }
+  if (content.data.webpSrc) {
+    e.preventDefault();
 
-  return params;
-};
+    content.pictureElement = document.createElement('picture');
 
-var openPhotoSwipe = function(slug) {
-  photos = [
-    {% for photo in photos %}
-      {% assign slug = photo.name | downcase | slugify %}
-      {
-        src: "/photos/{{ gallery.folder }}/{{ slug }}.jpg",
-        msrc: "/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg",
-        title: "{{ photo.name }}",
-        pid: "{{ slug }}",
-        w: "{{ slug | width: gallery.folder }}",
-        h: "{{ slug | height: gallery.folder }}",
-      },
-    {% endfor %}
-  ];
+    const sourceWebp = document.createElement('source');
+    sourceWebp.srcset = content.data.webpSrc;
+    sourceWebp.type = 'image/webp';
 
-  options = {
-    shareEl: false,
-    history: true,
-    galleryPIDs: true,
-    getThumbBoundsFn: function(index) {
-      var thumbnail = document.getElementById(photos[index].pid),
-        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-        rect = thumbnail.getBoundingClientRect();
+    const sourceJpg = document.createElement('source');
+    sourceJpg.srcset = content.data.src;
+    sourceJpg.type = 'image/jpeg';
 
-      return { x:rect.left, y:rect.top + pageYScroll, w:rect.width };
-    }
-  };
+    content.element = document.createElement('img');
+    content.element.src = content.data.src;
+    content.element.setAttribute('alt', '');
+    content.element.className = 'pswp__img';
 
-  for (var i = 0; i < photos.length; i++) {
-    if (photos[i].pid == slug) {
-      options.index = i;
-      break;
+    content.pictureElement.appendChild(sourceWebp);
+    content.pictureElement.appendChild(sourceJpg);
+    content.pictureElement.appendChild(content.element);
+
+    content.state = 'loading';
+
+    if (content.element.complete) {
+      content.onLoaded();
+    } else {
+      content.element.onload = () => {
+        content.onLoaded();
+      };
+
+      content.element.onerror = () => {
+        content.onError();
+      };
     }
   }
+});
 
-  if (isNaN(options.index)) {
-    return;
+lightbox.on('contentAppend', (e) => {
+  const { content } = e;
+  if (content.pictureElement && !content.pictureElement.parentNode) {
+    e.preventDefault();
+    content.slide.container.appendChild(content.pictureElement);
   }
+});
 
-  pswpElement = document.querySelectorAll('.pswp')[0];
-  new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, photos, options).init();
-};
+lightbox.on('contentRemove', (e) => {
+  const { content } = e;
+  if (content.pictureElement && content.pictureElement.parentNode) {
+    e.preventDefault();
+    content.pictureElement.remove();
+  }
+});
 
-var hashData = photoswipeParseHash();
-if (hashData.pid) {
-  openPhotoSwipe(hashData.pid);
-  document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', '/photos/{{ gallery.folder }}/' + hashData.pid + '.jpg');
-}
+lightbox.on('change', (e) => {
+  const path = lightbox.pswp.currSlide.data.webpSrc.replace(".webp", "").split('/').pop().concat('/');
+  history.replaceState(null, "", "{{ gallery.link }}" + path);
+});
+
+lightbox.on('close', (e) => {
+  history.replaceState(null, "", "{{ gallery.link }}");
+});
+
+lightbox.init();
+
+{% if page.permalink != gallery.link %}
+{% for selected in gallery.photos %}
+  {% if selected.name == page.photo %}
+    {% assign index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+lightbox.loadAndOpen({{ index }});
+{% endif %}
 </script>

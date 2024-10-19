@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     {% if gallery %}
-    <meta property="og:image" content="/photos/{{ gallery.folder }}/{{ gallery.cover | downcase | slugify }}_thumb.jpg"/>
+    {% if photo %}
+    {% assign cover = photo %}
+    {% else %}
+    {% assign cover = gallery.cover %}
+    {% endif %}
+    <meta property="og:image" content="/photos/{{ gallery.folder }}/{{ cover | downcase | slugify }}_thumb.jpg"/>
     {% endif %}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

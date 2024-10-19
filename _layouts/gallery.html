@@ -16,12 +16,15 @@ layout: default
     <div class="inner_wrapper nopadding">
       <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
         <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
-          {% assign photos = gallery.photos %}
-          {% for photo in photos %}
+          {% for photo in gallery.photos %}
             {% assign slug = photo.name | downcase | slugify %}
             <div class="element grid classic2_cols">
               <div class="one_half gallery2 static filterable gallery_type archive animated14">
-                <a href="javascript:openPhotoSwipe('{{ slug }}');">
+                <a href="/photos/{{ gallery.folder }}/{{ slug }}.jpg"
+                   data-pswp-width="{{ slug | width: gallery.folder }}"
+                   data-pswp-height="{{ slug | height: gallery.folder }}"
+                   data-pswp-webp-src="/photos/{{ gallery.folder }}/{{ slug }}.webp"
+                   target="_blank">
                   <div class="gallery_archive_desc">
                     <h4>{{ photo.name }}</h4>
                     <div class="post_detail"><p>{{ photo.subtitle }}</p>
@@ -42,5 +45,4 @@ layout: default
   </div>
 </div>
 
-{% include photoswipe.html %}
 {% include photoswipe-js.html %}
