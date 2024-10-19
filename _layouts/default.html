@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     {% if gallery %}
-    {% if photo %}
-    {% assign cover = photo %}
+    {% if page.photo %}
+    {% assign cover = page.photo %}
     {% else %}
     {% assign cover = gallery.cover %}
     {% endif %}
