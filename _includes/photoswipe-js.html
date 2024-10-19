@@ -11,9 +11,6 @@ const lightbox = new PhotoSwipeLightbox({
   bgOpacity: 1,
 });
 const fullscreenPlugin = new PhotoSwipeFullscreen(lightbox);
-const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-  type: 'auto'
-});
 
 lightbox.addFilter('itemData', (itemData, index) => {
   const webpSrc = itemData.element.dataset.pswpWebpSrc;
