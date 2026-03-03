@@ -10,7 +10,7 @@ gem 'webrick'
 
 gem 'redcarpet'
 gem 'rdiscount', '~> 2.0'
-gem 'RedCloth', '~> 4.3.0'
+gem 'RedCloth', '~> 4.3.3'
 gem 'compass', '~> 0.12.2'
 gem 'sass-globbing', '~> 1.0.0'
 gem 'rubypants', '~> 0.2.0'
