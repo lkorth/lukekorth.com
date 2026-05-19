@@ -1,39 +1,3 @@
-jQuery.fn.center = function ()
-{
-    this.css("left", (jQuery(window).width() / 2) - (this.outerWidth() / 2));
-    return this;
-}
-
-jQuery.fn.animateAuto = function(prop, speed, callback){
-    var elem, height, width;
-    return this.each(function(i, el){
-        el = jQuery(el), elem = el.clone().css({"height":"auto"}).appendTo("body");
-
-        if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1)
-        {
-        	height = elem.height();
-	        height = elem.css("auto"),
-	        width = elem.css("width");
-        }
-        else
-        {
-	        height = elem.height();
-	        height = height,
-	        width = elem.css("width");
-	    }
-        elem.remove();
-
-        if(prop === "height")
-            el.animate({"height":height+15}, speed, callback);
-        else if(prop === "max-height")
-            el.animate({"max-height":height}, speed, callback);
-        else if(prop === "width")
-            el.animate({"width":width}, speed, callback);
-        else if(prop === "both")
-            el.animate({"width":width,"height":height}, speed, callback);
-    });
-}
-
 jQuery.fn.setNav = function(){
 	var calScreenWidth = jQuery(window).width();
 
@@ -120,7 +84,7 @@ jQuery.fn.setNav = function(){
 		    	jQuery('#mobile_main_menu.mobile_main_nav').css('display', 'none');
 		    	jQuery('.mobile_menu_wrapper div #sub_menu').remove();
 
-		        var subMenuHTML = '<li><a href="#" id="menu_back" class="'+menuLevel+'" data-parent="'+parentMenu+'">'+jQuery('#pp_back').val()+'</a></li>';
+		        var subMenuHTML = '<li><a href="#" id="menu_back" class="'+menuLevel+'" data-parent="'+parentMenu+'">Back</a></li>';
 		        subMenuHTML += jQuerysublist.html();
 
 		    	menuContainerClass.append('<ul id="sub_menu" class="nav '+menuLevel+'"></ul>');
@@ -161,7 +125,7 @@ jQuery.fn.setNav = function(){
 				parentMenu = jQuery('#mobile_main_menu.mobile_main_nav li#'+parentMenuId).parent('ul.sub-menu:first').parent('li').attr('id');
 			}
 
-			var subMenuHTML = '<li><a href="#" id="menu_back" class="'+menuLevel+'" data-parent="'+parentMenu+'">'+jQuery('#pp_back').val()+'</a></li>';
+			var subMenuHTML = '<li><a href="#" id="menu_back" class="'+menuLevel+'" data-parent="'+parentMenu+'">Back</a></li>';
 			subMenuHTML+= jQuery('#mobile_main_menu.mobile_main_nav li#'+parentMenuId).parent('ul.sub-menu:first').html();
 			jQuery('.mobile_menu_wrapper div').append('<ul id="sub_menu" class="nav '+menuLevel+'"></ul>');
 
@@ -195,6 +159,6 @@ function adjustIframes()
 }
 
 function is_touch_device() {
-  return 'ontouchstart' in window // works on most browsers
-      || 'onmsgesturechange' in window; // works on ie10
+  return 'ontouchstart' in window
+      || 'onmsgesturechange' in window;
 };
