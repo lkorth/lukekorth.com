@@ -7,7 +7,7 @@
           <picture>
             <source srcset="{{ post.header_image }}.webp" type="image/webp">
             <source srcset="{{ post.header_image }}.jpg" type="image/jpeg">
-            <img src="{{ post.header_image }}.jpg" />
+            <img src="{{ post.header_image }}.jpg" alt="{{ post.title }}" />
           </picture>
         </a>
       </div>
@@ -17,7 +17,7 @@
         <div class="post_header_title">
           <h5><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h5>
           <div class="post_detail">
-            <time class="post_info_date" datetime="{{ post.date | datetime | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <time class="post_info_date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
             {% if page.comments != false and post.comments != false %}
             <span class="post_info_comment">
               <a href="{{ root_url }}{{ post.url }}#disqus_thread" data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.disqus_url }}{{ post.url }}{% endif %}">Comments</a>

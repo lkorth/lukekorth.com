@@ -1,9 +1,8 @@
 {% include variables.html %}
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" data-menu="leftalign">
+<html lang="en" data-menu="leftalign">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     {% if gallery %}
@@ -116,7 +115,7 @@
                     </div>
                   </div>
                   <div id="logo_right_button">
-                    <a href="javascript:;" id="mobile_nav_icon"></a>
+                    <button type="button" id="mobile_nav_icon"></button>
                   </div>
                 </div>
               </div>
@@ -156,7 +155,6 @@
                   {% endfor %}
                 </ul>
               </li>
-              <li class="widget"><ul class="posts blog"><li></li></ul></li>
               <li class="widget">
                 <h2 class="widgettitle">
                   <span>Instagram</span>

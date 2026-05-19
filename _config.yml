@@ -5,6 +5,7 @@ description: A personal blog about technology, open source and photography.
 root: /
 permalink: /blog/:title/
 
+include: ['_redirects']
 exclude: ['Gemfile*', 'Rakefile', 'README.md', '**/README.md']
 host: 0.0.0.0
 
