@@ -572,9 +572,7 @@ jQuery(document).ready(function(){
     jQuery('body').removeClass('js_nav');
   });
 
-  var ua = window.navigator.userAgent;
-  var msie = ua.indexOf("MSIE ");
-  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./) || is_touch_device())
+  if (is_touch_device())
   {
     jQuery('.parallax').each(function(){
       var dataImgURL = jQuery(this).data('image');
