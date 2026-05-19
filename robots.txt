@@ -1,6 +1,22 @@
 ---
 layout: null
 ---
+# Allow Google Search to index
+User-agent: Googlebot
+Allow: /
+
+# STOP Google from training Gemini
+User-agent: Google-Extended
+Disallow: /
+
+# Allow Apple Search
+User-agent: Applebot
+Allow: /
+
+# STOP Apple from training Apple Intelligence
+User-agent: Applebot-Extended
+Disallow: /
+
 User-agent: *
 Disallow:
 
