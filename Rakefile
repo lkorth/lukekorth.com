@@ -31,8 +31,8 @@ task :optimize_photos do
   end
 end
 
-desc "Deploy site to Firebase"
+desc "Deploy site to Cloudflare Pages"
 task :deploy do
   sh "jekyll build"
-  sh "firebase deploy"
+  sh "wrangler pages deploy _site --project-name lukekorth-com"
 end

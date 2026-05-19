@@ -7,11 +7,8 @@
 # generated files
 _site
 
-# firebase hosting
-.firebaserc
-.firebase
-firebase.json
-firebase-debug.log
+# wrangler
+.wrangler
 
 # photos
 photos
