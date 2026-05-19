@@ -26,8 +26,8 @@ permalink: /about/
                 I love clean, efficient code and value the little things like friendly urls and quick websites.
                 <br><br>
                 If you have any questions or just want to say hi, feel free to
-                <a onClick="_gaq.push(['_trackEvent', 'Link', 'About', '{{ site.email }}']);" href="mailto:{{ site.email }}">email me</a>.
-                I can also be found on <a onClick="_gaq.push(['_trackEvent', 'GitHub', 'About', 'GitHub Profile']);" href="https://github.com/lkorth">GitHub</a>.
+                <a href="mailto:{{ site.email }}" onclick="gtag('event', 'click', {event_category: 'Link', event_label: '{{ site.email }}'})">email me</a>.
+                I can also be found on <a href="https://github.com/lkorth" onclick="gtag('event', 'click', {event_category: 'GitHub', event_label: 'GitHub Profile'})">GitHub</a>.
               </div>
 
               <hr/><br class="clear"/>
