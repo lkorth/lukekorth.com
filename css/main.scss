@@ -1300,6 +1300,8 @@ pre code {
     padding-bottom: 32px;
   }
 
+  .site-footer .social { flex-wrap: wrap; }
+
   .site-footer__links { flex-wrap: wrap; gap: 16px; }
 
   .photo-essay-body {
@@ -1314,4 +1316,8 @@ pre code {
     padding: 40px var(--space-page-mobile) 64px;
     max-width: none;
   }
+}
+
+@media (max-width: 480px) {
+  .social-rss span { display: none; }
 }
