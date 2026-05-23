@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "Building a replacement for the NY Times space calendar — a curated feed covering launches, eclipses, meteor showers, and more."
 title: Space Calendar
 categories: [Space, Open Source]
 date: 2026-05-18

@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "Thinking through what an open, privacy-preserving cloud sync service should look like."
 title: Private Cloud Syncing of the Future
 categories: [Cloud, New Technology]
 date: 2013-09-22

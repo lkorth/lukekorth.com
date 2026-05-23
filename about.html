@@ -4,30 +4,92 @@ tab: about
 title: About
 permalink: /about/
 ---
-<div id="page_content_wrapper" class="hasbg">
-  <div class="post_caption">
-    <h1>{{ page.title }}</h1>
-    <div class="post_detail">
-      {{ page.date | date: "%B %-d, %Y" }}
+
+<header class="about-hero">
+  <div>
+    <p class="about-hero__kicker">About</p>
+    <h1 class="about-hero__title">
+      Luke<br>
+      <em>Korth.</em>
+    </h1>
+  </div>
+  <p class="about-hero__dek">
+    Software engineer by day, I occasionally practice photography and build things.
+    I love to get technical - quality, sharpness, and technical difficulty
+    are where I believe I excel and what sets my photos apart.
+  </p>
+</header>
+
+<article class="about-body">
+  <aside class="about-margin">
+    <div>
+      <span class="about-margin__key">currently</span>
+      <span class="about-margin__val">engineer on web apps,<br>distributed systems, APIs.<br>most of the planet uses my work every day.</span>
+    </div>
+    <div>
+      <span class="about-margin__key">also</span>
+      <span class="about-margin__val">built Android apps,<br>libraries, open source.</span>
+    </div>
+    <div>
+      <span class="about-margin__key">travel</span>
+      <span class="about-margin__val">18 national parks.<br>31 states. 6 countries.</span>
+    </div>
+    <div>
+      <span class="about-margin__key">since</span>
+      <span class="about-margin__val">this site has been live<br>in some form since 2012.</span>
+    </div>
+  </aside>
+
+  <div class="about-main">
+    <p>I started taking pictures as a kid, but a trip to Australia as a teenager really got me
+    interested in photography. I saved up and bought my first DSLR in high school and have been
+    taking photos for over 20 years now.</p>
+
+    <p>Photography and travel were a natural match for me early on. I started taking photos on trips;
+    now I plan trips around what I want to photograph. My best friend and I plan most of the big
+    trips together. The list of places to go keeps growing faster than I can get to them.</p>
+
+    <p>I enjoy the technical demands of long exposure photography and the blending of time into a
+    single photo, you can see the reflection of this in my work. Additionally the vast and varied
+    beauty of landscapes holds special meaning for me. My work here is a tiny fraction of the photos
+    I take.</p>
+
+    <p>I've always shot with a Canon body and have never been let down by them. I own a collection
+    of L and Sigma glass.</p>
+
+    <p>I prefer large-scale metal and canvas prints. I've sold a number of prints at local gallery
+    exhibitions and have prints available to be shipped, contact me for more details.</p>
+
+    <div style="margin-top: 48px;">
+      <img src="/images/signature-white.png" alt="Luke Korth" class="sig sig--about">
+      <p style="margin-top: 12px; font-family: var(--font-mono); font-size: var(--t-meta); color: var(--mute);">{{ 'now' | date: "%Y" }}</p>
     </div>
   </div>
-  <div class="inner">
-    <div class="inner_wrapper">
-      <div class="sidebar_content full_width">
-        <div class="post type-post status-publish format-standard has-post-thumbnail hentry">
-          <div class="post_wrapper">
-            <div class="post_content_wrapper">
-              <div class="post_header">
-                <img class="right" style="height: 200px; width: 200px;" src="{% gravatar_image 512 %}" alt="Gravatar of Luke Korth" title="Gravatar of Luke Korth" />
+</article>
 
-                I enjoy writting software professionally and in my free time and am an avid photographer. My blog is primarily about things I've
-                worked on or find interesting, as well as a place to document and keep track of stuff.
-                <br><br>
-                I love clean, efficient code and value the little things like friendly urls and quick websites.
-                <br><br>
-                If you have any questions or just want to say hi, feel free to
-                <a href="mailto:{{ site.email }}" onclick="gtag('event', 'click', {event_category: 'Link', event_label: '{{ site.email }}'})">email me</a>.
-                I can also be found on <a href="https://github.com/lkorth" onclick="gtag('event', 'click', {event_category: 'GitHub', event_label: 'GitHub Profile'})">GitHub</a>.
-              </div>
-
-              <hr/><br class="clear"/>
+<section class="contact-strip">
+  <span class="label">Reach me</span>
+  <div class="contact-grid">
+    <div>
+      <span class="contact-label">email</span>
+      <a href="mailto:website@lukekorth.com" class="contact-value">
+        <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+        website@lukekorth.com
+      </a>
+    </div>
+    <div>
+      <span class="contact-label">github</span>
+      <a href="https://github.com/lkorth" rel="me" class="contact-value">
+        <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+        lkorth
+      </a>
+    </div>
+    <div>
+      <span class="contact-label">instagram</span>
+      <a href="https://instagram.com/lukekorth" rel="me" class="contact-value">
+        <svg class="icon" aria-hidden="true"><use href="#icon-instagram"/></svg>
+        @lukekorth
+      </a>
+    </div>
+  </div>
+</section>

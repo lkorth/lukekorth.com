@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "A notification API for Pebble apps, built on top of httpebble."
 title: RESTful Pebble
 categories: [Android, Pebble]
 date: 2013-06-02
@@ -32,11 +34,11 @@ To give it a try with curl via command line use the following
 
 ```bash
 curl -v --data "\
-userId=[USER_ID_HERE]&\
-userToken=[USER_TOKEN_HERE]&\
-title=[TITLE_HERE]&\
-body=[BODY_HERE]&\
-type=notification" \
+    userId=[USER_ID_HERE]&\
+    userToken=[USER_TOKEN_HERE]&\
+    title=[TITLE_HERE]&\
+    body=[BODY_HERE]&\
+    type=notification" \
 https://ofkorth.net/pebble/send
 ```
 

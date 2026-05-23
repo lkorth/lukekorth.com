@@ -1,0 +1,37 @@
+title: Deep Space Astrophotography
+link: /portfolio/deep-space-astrophotography/
+folder: deep-space-astrophotography
+cover: North America Nebula
+series_index: 1
+description: Long exposures of nebulae and galaxies, far beyond what the eye can see.
+statement: These are photographs developed with various techniques across many different
+  telescope platforms by repeatedly collecting light for minutes at a time from deep space.
+  The light ranges from visible and narrow band to IR and UV.
+where: Planet Earth
+colophon_process: Shot on various platforms from remote controlled telescopes in the American
+  Southwest to the Hubble Space Telescope. Each image is a stack of multiple exposures,
+  anywhere from a few minutes to hundreds of hours of total integration time. I primarily
+  collect individual red, green, and blue channels or Hydrogen-alpha, Oxygen III, and Sulfur II
+  narrow band data in order to produce the colors you see here.
+colophon_prints: Prints are available on request. I've found that matte finishes offer
+  the best treatment of these photos.
+photos:
+- name: North America Nebula
+  exif: 2 panel panorama · SHO narrowband · 1159mm · f/3.8 · 34.67 hrs
+- name: Western Veil Nebula
+- name: NGC 1333
+  exif: LRGB · 1159mm · f/3.8 · 12.5 hrs
+- name: IC 1805
+  caption: Heart Nebula (IC 1805)
+- name: Eta Carinae
+  caption: Eta Carinae Nebula
+  exif: SHO narrowband · 2259mm · f/4.4 · 40 mins
+- name: M31
+  caption: Andromeda Galaxy (M31)
+  exif: LRGB · 530mm · f/5 · 38 mins
+- name: Horsehead Nebula
+- name: M42
+  caption: Orion Nebula (M42)
+- name: M51
+- name: NGC 4038
+- name: Tadpole Galaxy

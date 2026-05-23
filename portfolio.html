@@ -4,55 +4,61 @@ tab: portfolio
 title: Portfolio
 permalink: /portfolio/
 ---
-<div id="page_caption">
-  <div class="page_title_wrapper">
-    <div class="page_title_inner">
-      <h1>Portfolio</h1>
-       <div class="page_tagline"></div>
-    </div>
+
+{% assign all_series = "" | split: "" %}
+{% for g in site.data.series %}
+  {% if g[1].series_index %}
+    {% assign all_series = all_series | push: g[1] %}
+  {% endif %}
+{% endfor %}
+{% assign all_series = all_series | sort: "series_index" %}
+{% assign total_photos = 0 %}
+{% for s in all_series %}{% assign total_photos = total_photos | plus: s.photos.size %}{% endfor %}
+
+<header class="portfolio-hero">
+  <h1 class="portfolio-hero__title">
+    A patient<br>
+    <em>kind of looking.</em>
+  </h1>
+  <div>
+    <p class="portfolio-hero__intro">
+      Software engineer by day, I occasionally practice photography -
+      astrophotography and landscapes are my passion. Out of the hundreds of
+      thousands of photos I have taken, these are my favorites.
+    </p>
+    <p class="portfolio-hero__meta">{{ all_series | size | prepend: "0" | slice: -2, 2 }} series · {{ total_photos }} photographs</p>
   </div>
+</header>
+
+<div class="section-header">
+  <span class="label">Series</span>
+  <span class="section-header__meta">by depth of focus ↓</span>
 </div>
 
-<div id="page_content_wrapper">
-  <div class="inner">
-    <div class="inner_wrapper nopadding">
-      <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
-        <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
-
-          {% assign galleries = site.data.galleries | sort %}
-          {% for gallery_hash in galleries %}
-          {% assign gallery = gallery_hash[1] %}
-
-          {% if gallery.skip_portfolio %}
-            {% continue %}
-          {% endif %}
-
-          {% assign slug = gallery.cover | downcase | slugify %}
-          <div class="element grid classic2_cols landscape portrait">
-            <div class="one_half gallery2 classic static filterable gallery_type animated2">
-              <a href="{{ gallery.link }}">
-                <picture>
-                  <source srcset="/photos/{{ gallery.folder }}/{{ slug }}_thumb.webp" type="image/webp">
-                  <source srcset="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" type="image/jpeg">
-                  <img src="/photos/{{ gallery.folder }}/{{ slug }}_thumb.jpg" alt="{{ gallery.title }}" />
-                </picture>
-                <div class="portfolio_classic_icon_wrapper">
-                  <div class="portfolio_classic_icon_content">
-                    <i class="fa fa-plus"></i>
-                  </div>
-                </div>
-              </a>
-
-              <div class="portfolio_desc portfolio2 filterable">
-                <h5>{{ gallery.title }}</h5>
-                <div class="post_detail">{{ gallery.subtitle }}</div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-        </div>
+<div class="series-grid">
+  {% for s in all_series %}
+    {% assign cover_slug = s.cover | downcase | slugify %}
+    {% assign img_height = "380px" %}
+    {% if s.series_index == "01" or s.series_index == "02" %}
+      {% assign img_height = "460px" %}
+    {% endif %}
+    <a href="{{ s.link }}" class="series-card">
+      <div class="series-card__img-wrap" style="height: {{ img_height }};">
+        {% if s.cover_image %}
+        <img src="{{ s.cover_image }}" alt="{{ s.title }}">
+        {% else %}
+        <picture>
+          <source srcset="/photos/{{ s.folder }}/{{ cover_slug }}_thumb.webp" type="image/webp">
+          <img src="/photos/{{ s.folder }}/{{ cover_slug }}_thumb.jpg" alt="{{ s.title }}">
+        </picture>
+        {% endif %}
+        <span class="series-card__idx">{{ s.series_index | prepend: "0" }}</span>
       </div>
-    </div>
-  </div>
+      <div class="series-card__meta">
+        <h3 class="series-card__name">{{ s.title }}</h3>
+        <span class="series-card__frames">{{ s.photos | size }} frames</span>
+      </div>
+      <p class="series-card__desc">{{ s.description }}</p>
+    </a>
+  {% endfor %}
 </div>

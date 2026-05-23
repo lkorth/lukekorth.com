@@ -2,3 +2,38 @@
 /photos/ /portfolio/ 301
 /apps https://play.google.com/store/search?q=luke+korth 301
 /apps/ https://play.google.com/store/search?q=luke+korth 301
+
+# Blog → Journal
+/blog/ /journal/ 301
+/blog/restful-httpebble/ /journal/restful-pebble/ 301
+/blog/httpebble/ /journal/httpebble/ 301
+/blog/restful-pebble/ /journal/restful-pebble/ 301
+/blog/pebble-locker/ /journal/pebble-locker/ 301
+/blog/pebble-developer-retreat/ /journal/pebble-developer-retreat/ 301
+/blog/private-cloud-syncing-of-the-future/ /journal/private-cloud-syncing-of-the-future/ 301
+/blog/pebble-locker-mentioned-on-engadget/ /journal/pebble-locker-mentioned-on-engadget/ 301
+/blog/pebble-locker-updated/ /journal/pebble-locker-updated/ 301
+/blog/pebble-connect-by-the-numbers/ /journal/pebble-connect-by-the-numbers/ 301
+/blog/linux-nfs-server/ /journal/linux-nfs-server/ 301
+/blog/android-automated-testing-with-gradle-and-adb/ /journal/android-automated-testing-with-gradle-and-adb/ 301
+/blog/goodbye-httpebble/ /journal/goodbye-httpebble/ 301
+/blog/pebble-locker-mentions/ /journal/pebble-locker-mentions/ 301
+/blog/pebble-locker-adds-android-wear-support/ /journal/pebble-locker-adds-android-wear-support/ 301
+/blog/pebble-developer-retreat-2014/ /journal/pebble-developer-retreat-2014/ 301
+/blog/pebble-locker-renamed-to-dislock/ /journal/pebble-locker-renamed-to-dislock/ 301
+/blog/astrophotography-workshop/ /journal/astrophotography-workshop/ 301
+/blog/photo-paper/ /journal/photo-paper/ 301
+/blog/android-5-breaks-dislock/ /journal/android-5-breaks-dislock/ 301
+/blog/500px-embedding-for-jekyll/ /journal/500px-embedding-for-jekyll/ 301
+/blog/getting-an-ssl-certificate/ /journal/getting-an-ssl-certificate/ 301
+/blog/space-calendar/ /journal/space-calendar/ 301
+
+# Old gallery URLs → New portfolio series
+/galleries/deep-space-astrophotography/ /portfolio/deep-space-astrophotography/ 301
+/galleries/widefield-astrophotography/ /portfolio/widefield-astrophotography/ 301
+/galleries/landscape/ /portfolio/landscapes/ 301
+/galleries/macro/ /portfolio/macro/ 301
+/galleries/waterfalls/ /portfolio/waterfalls/ 301
+/galleries/nature/ /portfolio/nature/ 301
+/galleries/aerospace/ /portfolio/aerospace/ 301
+/galleries/people/ /portfolio/people/ 301

@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "New Pebble Locker features for Bluetooth devices and WiFi networks."
 title: Pebble Locker Updated
 categories: [Android, Pebble]
 date: 2013-11-04

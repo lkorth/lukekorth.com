@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "Five days at Pebble HQ with the core dev team and active community members. Notes from the first retreat."
 title: Pebble Developer Retreat
 categories: [Pebble, Social]
 date: 2013-09-02

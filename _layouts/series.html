@@ -1,0 +1,235 @@
+---
+layout: base
+---
+{% assign series = site.data.series[page.photos] %}
+
+<div class="topbar">
+  <a href="/portfolio/" class="topbar__back">← All series</a>
+  <a href="/"><img src="/images/signature-white.png" alt="Luke Korth" class="sig"></a>
+  {% assign series_total = 0 %}
+  {% for g in site.data.series %}{% if g[1].series_index %}{% assign series_total = series_total | plus: 1 %}{% endif %}{% endfor %}
+  {% assign series_total_padded = series_total | prepend: "00" | slice: -2, 2 %}
+  <span>{{ series.series_index }} / {{ series_total_padded }}</span>
+</div>
+
+<section class="series-intro">
+  <div>
+    <p class="series-intro__kicker">Series</p>
+    <h1 class="series-intro__title">{{ series.title }}</h1>
+    <div class="series-intro__meta">
+      {% if series.where %}
+        <span class="series-intro__meta-key">where</span>
+        <span class="series-intro__meta-val">{{ series.where }}</span>
+      {% endif %}
+      <span class="series-intro__meta-key">frames</span>
+      <span class="series-intro__meta-val">{{ series.photos | size }} published</span>
+      <span class="series-intro__meta-key">prints</span>
+      <span class="series-intro__meta-val"><a href="mailto:prints@lukekorth.com" style="color: var(--accent);">by request</a></span>
+    </div>
+  </div>
+  {% if series.statement %}
+  <p class="series-intro__statement">{{ series.statement }}</p>
+  {% endif %}
+</section>
+
+{% comment %}
+  Auto-sequence all photos using a big → pair → triplet rhythm.
+  Each photo item can optionally carry: name, caption, exif, folder.
+{% endcomment %}
+<div class="pswp-gallery" id="pswp-gallery">
+  {% assign photos = series.photos %}
+  {% assign total  = photos | size %}
+  {% assign idx    = 0 %}
+  {% assign step_i = 0 %}
+  {% assign rhythm = "big,pair,triplet" | split: "," %}
+
+  {% for _iter in (1..200) %}
+    {% if idx >= total %}{% break %}{% endif %}
+    {% assign step = rhythm[step_i] %}
+
+    {% if step == "big" %}
+
+      {% assign photo = photos[idx] %}
+      {% assign slug   = photo.name | downcase | slugify %}
+      {% assign folder = photo.folder | default: series.folder %}
+      {% assign num    = idx | plus: 1 | prepend: "00" | slice: -2, 2 %}
+      <div class="photo-bleed">
+        <a href="/photos/{{ folder }}/{{ slug }}.jpg"
+           data-pswp-width="{{ slug | width: folder }}"
+           data-pswp-height="{{ slug | height: folder }}"
+           data-pswp-webp-src="/photos/{{ folder }}/{{ slug }}.webp"
+           data-cropped="true">
+          <picture>
+            <source srcset="/photos/{{ folder }}/{{ slug }}.webp" type="image/webp">
+            <img src="/photos/{{ folder }}/{{ slug }}.jpg"
+                 alt="{{ photo.name }}"
+                 style="height: 640px; object-fit: cover; width: 100%;">
+          </picture>
+          <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
+        </a>
+        <div class="photo-caption">
+          <span>{{ num }} · {{ photo.caption | default: photo.name }}</span>
+          {% if photo.exif %}<span>{{ photo.exif }}</span>{% endif %}
+        </div>
+      </div>
+      {% assign idx = idx | plus: 1 %}
+
+    {% elsif step == "pair" %}
+
+      {% assign idx2 = idx | plus: 1 %}
+      {% assign p2   = photos[idx2] %}
+      {% if p2 %}
+        <div class="photo-pair">
+          {% for pi in (idx..idx2) %}
+            {% assign photo  = photos[pi] %}
+            {% assign slug   = photo.name | downcase | slugify %}
+            {% assign folder = photo.folder | default: series.folder %}
+            {% assign num    = pi | plus: 1 | prepend: "00" | slice: -2, 2 %}
+            <div class="photo-pair__item">
+              <a href="/photos/{{ folder }}/{{ slug }}.jpg"
+                 data-pswp-width="{{ slug | width: folder }}"
+                 data-pswp-height="{{ slug | height: folder }}"
+                 data-pswp-webp-src="/photos/{{ folder }}/{{ slug }}.webp"
+                 data-cropped="true">
+                <picture>
+                  <source srcset="/photos/{{ folder }}/{{ slug }}_thumb.webp" type="image/webp">
+                  <img src="/photos/{{ folder }}/{{ slug }}_thumb.jpg"
+                       alt="{{ photo.name }}"
+                       style="height: 420px; object-fit: cover; width: 100%;">
+                </picture>
+                <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
+              </a>
+              <div class="photo-sub-caption">{{ num }} · {{ photo.caption | default: photo.name }}</div>
+            </div>
+          {% endfor %}
+        </div>
+        {% assign idx = idx | plus: 2 %}
+      {% else %}
+        {% comment %}Only one photo left — render as big{% endcomment %}
+        {% assign photo  = photos[idx] %}
+        {% assign slug   = photo.name | downcase | slugify %}
+        {% assign folder = photo.folder | default: series.folder %}
+        {% assign num    = idx | plus: 1 | prepend: "00" | slice: -2, 2 %}
+        <div class="photo-bleed">
+          <a href="/photos/{{ folder }}/{{ slug }}.jpg"
+             data-pswp-width="{{ slug | width: folder }}"
+             data-pswp-height="{{ slug | height: folder }}"
+             data-pswp-webp-src="/photos/{{ folder }}/{{ slug }}.webp"
+             data-cropped="true">
+            <picture>
+              <source srcset="/photos/{{ folder }}/{{ slug }}.webp" type="image/webp">
+              <img src="/photos/{{ folder }}/{{ slug }}.jpg"
+                   alt="{{ photo.name }}"
+                   style="height: 640px; object-fit: cover; width: 100%;">
+            </picture>
+            <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
+          </a>
+          <div class="photo-caption">
+            <span>{{ num }} · {{ photo.caption | default: photo.name }}</span>
+          </div>
+        </div>
+        {% assign idx = idx | plus: 1 %}
+      {% endif %}
+
+    {% elsif step == "triplet" %}
+
+      {% assign idx2 = idx | plus: 1 %}
+      {% assign idx3 = idx | plus: 2 %}
+      {% assign p2   = photos[idx2] %}
+      {% assign p3   = photos[idx3] %}
+      {% if p2 and p3 %}
+        <div class="photo-triplet">
+          {% for pi in (idx..idx3) %}
+            {% assign photo  = photos[pi] %}
+            {% assign slug   = photo.name | downcase | slugify %}
+            {% assign folder = photo.folder | default: series.folder %}
+            {% assign num    = pi | plus: 1 | prepend: "00" | slice: -2, 2 %}
+            <div class="photo-triplet__item">
+              <a href="/photos/{{ folder }}/{{ slug }}.jpg"
+                 data-pswp-width="{{ slug | width: folder }}"
+                 data-pswp-height="{{ slug | height: folder }}"
+                 data-pswp-webp-src="/photos/{{ folder }}/{{ slug }}.webp"
+                 data-cropped="true">
+                <picture>
+                  <source srcset="/photos/{{ folder }}/{{ slug }}_thumb.webp" type="image/webp">
+                  <img src="/photos/{{ folder }}/{{ slug }}_thumb.jpg"
+                       alt="{{ photo.name }}"
+                       style="height: 300px; object-fit: cover; width: 100%;">
+                </picture>
+                <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
+              </a>
+              <div class="photo-sub-caption">{{ num }} · {{ photo.caption | default: photo.name }}</div>
+            </div>
+          {% endfor %}
+        </div>
+        {% assign idx = idx | plus: 3 %}
+      {% elsif p2 %}
+        {% comment %}Two photos left — render as pair{% endcomment %}
+        <div class="photo-pair">
+          {% for pi in (idx..idx2) %}
+            {% assign photo  = photos[pi] %}
+            {% assign slug   = photo.name | downcase | slugify %}
+            {% assign folder = photo.folder | default: series.folder %}
+            {% assign num    = pi | plus: 1 | prepend: "00" | slice: -2, 2 %}
+            <div class="photo-pair__item">
+              <a href="/photos/{{ folder }}/{{ slug }}.jpg"
+                 data-pswp-width="{{ slug | width: folder }}"
+                 data-pswp-height="{{ slug | height: folder }}"
+                 data-pswp-webp-src="/photos/{{ folder }}/{{ slug }}.webp"
+                 data-cropped="true">
+                <picture>
+                  <source srcset="/photos/{{ folder }}/{{ slug }}_thumb.webp" type="image/webp">
+                  <img src="/photos/{{ folder }}/{{ slug }}_thumb.jpg"
+                       alt="{{ photo.name }}"
+                       style="height: 420px; object-fit: cover; width: 100%;">
+                </picture>
+                <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
+              </a>
+              <div class="photo-sub-caption">{{ num }} · {{ photo.caption | default: photo.name }}</div>
+            </div>
+          {% endfor %}
+        </div>
+        {% assign idx = idx | plus: 2 %}
+      {% else %}
+        {% comment %}One photo left — render as big{% endcomment %}
+        {% assign photo  = photos[idx] %}
+        {% assign slug   = photo.name | downcase | slugify %}
+        {% assign folder = photo.folder | default: series.folder %}
+        {% assign num    = idx | plus: 1 | prepend: "00" | slice: -2, 2 %}
+        <div class="photo-bleed">
+          <a href="/photos/{{ folder }}/{{ slug }}.jpg"
+             data-pswp-width="{{ slug | width: folder }}"
+             data-pswp-height="{{ slug | height: folder }}"
+             data-pswp-webp-src="/photos/{{ folder }}/{{ slug }}.webp"
+             data-cropped="true">
+            <picture>
+              <source srcset="/photos/{{ folder }}/{{ slug }}.webp" type="image/webp">
+              <img src="/photos/{{ folder }}/{{ slug }}.jpg"
+                   alt="{{ photo.name }}"
+                   style="height: 640px; object-fit: cover; width: 100%;">
+            </picture>
+            <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
+          </a>
+          <div class="photo-caption">
+            <span>{{ num }} · {{ photo.caption | default: photo.name }}</span>
+          </div>
+        </div>
+        {% assign idx = idx | plus: 1 %}
+      {% endif %}
+
+    {% endif %}
+
+    {% assign step_i = step_i | plus: 1 %}
+    {% if step_i >= 3 %}{% assign step_i = 0 %}{% endif %}
+  {% endfor %}
+</div>
+
+<div class="series-colophon">
+  <span class="label">colophon</span>
+  <p class="series-colophon__body">{{ series.colophon_process }}</p>
+  <p class="series-colophon__body">{{ series.colophon_prints }}</p>
+</div>
+
+{% include footer.html %}
+
+{% include photoswipe-js.html %}

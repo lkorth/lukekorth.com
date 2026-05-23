@@ -1,0 +1,178 @@
+---
+layout: default
+tab: journal
+title: Journal
+permalink: /journal/
+---
+
+<header class="journal-masthead">
+  <h1 class="journal-masthead__title">
+    Journal<br>
+    <em>&amp; field notes.</em>
+  </h1>
+  <p class="journal-masthead__sub">
+    Photo essays, trips, notes about photography, and things I make.
+  </p>
+</header>
+
+{% assign count_photo_essay = 0 %}
+{% assign count_notes = 0 %}
+{% assign count_making = 0 %}
+{% for post in site.posts %}
+  {% assign k = post.kind | default: "Making" %}
+  {% if k == "Photo essay" %}
+    {% assign count_photo_essay = count_photo_essay | plus: 1 %}
+  {% elsif k == "Note" %}
+    {% assign count_notes = count_notes | plus: 1 %}
+  {% else %}
+    {% assign count_making = count_making | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<div class="filter-bar">
+  <div class="filter-bar__tags">
+    <a href="/journal/" data-kind="">All · {{ site.posts | size }}</a>
+    {% if count_photo_essay > 0 %}
+    <a href="/journal/?kind=photo-essay" data-kind="photo-essay">Photo essays · {{ count_photo_essay }}</a>
+    {% endif %}
+    {% if count_notes > 0 %}
+    <a href="/journal/?kind=note" data-kind="note">Notes · {{ count_notes }}</a>
+    {% endif %}
+    {% if count_making > 0 %}
+    <a href="/journal/?kind=making" data-kind="making">Making · {{ count_making }}</a>
+    {% endif %}
+  </div>
+  <span>sorted by date ↓</span>
+</div>
+
+<div class="journal-toc">
+
+{% assign posts = site.posts %}
+{% assign featured_post = nil %}
+{% for post in posts %}
+  {% if post.kind == "Photo essay" and featured_post == nil %}
+    {% assign featured_post = post %}
+  {% endif %}
+{% endfor %}
+
+{% if featured_post %}
+<div class="toc-featured" data-kind="photo-essay">
+  <a href="{{ featured_post.url }}" style="text-decoration: none; color: inherit; display: block;">
+    <div class="toc-featured__row">
+      <div>
+        <div class="toc-date">{{ featured_post.date | date: "%Y·%m" }}</div>
+        <div class="toc-kind toc-kind--photo-essay">Photo essay</div>
+        <div class="toc-date" style="margin-top: 14px;">
+          {% assign words = featured_post.content | number_of_words %}
+          {% assign mins = words | divided_by: 200 | plus: 1 %}
+          {{ mins }} min
+        </div>
+      </div>
+      <div>
+        <h2 class="toc-featured__title">{{ featured_post.title }}</h2>
+        <p class="toc-featured__dek">{{ featured_post.dek | default: featured_post.excerpt | strip_html | truncate: 200 }}</p>
+      </div>
+      {% if featured_post.cover_image %}
+      <img src="{{ featured_post.cover_image }}" alt="{{ featured_post.title }}" class="toc-featured__img">
+      {% endif %}
+    </div>
+  </a>
+</div>
+{% endif %}
+
+{% assign prev_year = "" %}
+{% for post in posts %}
+  {% if featured_post and post.url == featured_post.url %}{% continue %}{% endif %}
+
+  {% assign post_year = post.date | date: "%Y" %}
+
+  {% if prev_year != "" and prev_year != post_year %}
+    {% assign prev_year_int = prev_year | plus: 0 %}
+    {% assign post_year_int = post_year | plus: 0 %}
+    {% assign year_diff = prev_year_int | minus: post_year_int %}
+    {% if year_diff > 1 %}
+    <div class="year-sep" aria-hidden="true">
+      <span class="year-sep__label">{{ post_year }} — earlier</span>
+      <div class="year-sep__rule"></div>
+    </div>
+    {% endif %}
+  {% endif %}
+
+  {% assign kind = post.kind | default: "Making" %}
+  {% assign kind_slug = kind | downcase | replace: " ", "-" %}
+  {% if kind == "Photo essay" %}
+    {% assign kind_class = "toc-kind--photo-essay" %}
+  {% elsif kind == "Note" %}
+    {% assign kind_class = "toc-kind--note" %}
+  {% else %}
+    {% assign kind_class = "toc-kind--making" %}
+  {% endif %}
+
+  {% assign words = post.content | number_of_words %}
+  {% assign read_mins = words | divided_by: 200 | plus: 1 %}
+
+  <a href="{{ post.url }}" class="toc-row" data-kind="{{ kind_slug }}">
+    <div>
+      <div class="toc-date">{{ post.date | date: "%Y·%m" }}</div>
+      <div class="toc-kind {{ kind_class }}">{{ kind }}</div>
+    </div>
+    <h2 class="toc-row__title">{{ post.title }}</h2>
+    <p class="toc-row__dek">{{ post.dek | default: post.excerpt | strip_html | truncate: 160 }}</p>
+    <div class="toc-row__read">{{ read_mins }} min</div>
+    <div class="toc-row__arrow">→</div>
+  </a>
+
+  {% assign prev_year = post_year %}
+{% endfor %}
+
+</div>
+
+<script>
+(function () {
+  const chips = document.querySelectorAll('.filter-bar__tags a');
+  const toc   = document.querySelector('.journal-toc');
+
+  function applyFilter(kind) {
+    // Show/hide rows and featured block
+    toc.querySelectorAll('[data-kind]').forEach(el => {
+      const match = !kind || el.dataset.kind === kind;
+      el.style.display = match ? '' : 'none';
+    });
+
+    // Hide year separators that have no visible rows following them
+    // before the next separator (or end of list)
+    toc.querySelectorAll('.year-sep').forEach(sep => {
+      let node = sep.nextElementSibling;
+      let hasVisible = false;
+      while (node && !node.classList.contains('year-sep')) {
+        if (node.dataset.kind !== undefined && node.style.display !== 'none') {
+          hasVisible = true;
+          break;
+        }
+        node = node.nextElementSibling;
+      }
+      sep.style.display = hasVisible ? '' : 'none';
+    });
+
+    // Update active chip
+    chips.forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.kind === kind);
+    });
+  }
+
+  // Read kind from URL on load
+  const params = new URLSearchParams(location.search);
+  applyFilter(params.get('kind') || '');
+
+  // Handle clicks without full navigation
+  chips.forEach(chip => {
+    chip.addEventListener('click', function (e) {
+      e.preventDefault();
+      const kind = this.dataset.kind;
+      const url = kind ? '/journal/?kind=' + kind : '/journal/';
+      history.replaceState(null, '', url);
+      applyFilter(kind);
+    });
+  });
+}());
+</script>

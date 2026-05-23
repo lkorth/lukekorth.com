@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "A collection of press coverage and community mentions for Pebble Locker in the last few months."
 title: Pebble Locker Mentions
 categories: [Pebble, Android]
 date: 2014-05-11

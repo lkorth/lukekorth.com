@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "Lollipop changed how PINs are removed and there is no workaround. Dislock now stops at KitKat."
 title: Android 5.0 Breaks Dislock
 categories: [Android]
 date: 2014-11-17
@@ -25,5 +27,3 @@ and they will be able to transition over to them when upgrading. It's possible t
 deliberate to prevent Dislock and apps like it from interfering with the now built in support.
 
 Please feel free to comment or email me if you have further questions.
-
-

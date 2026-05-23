@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "Pebble Locker support extended to Android Wear."
 title: Pebble Locker Adds Android Wear Support
 categories: [Android]
 date: 2014-07-21

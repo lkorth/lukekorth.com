@@ -1,11 +1,13 @@
 ---
 layout: post
+kind: Note
+dek: "A year-end look at usage data for Pebble Connect and what the numbers showed about how people used httpebble."
 title: Pebble Connect by the Numbers
 categories: [Android, Pebble]
 date: 2013-11-04
 ---
 A few days ago Pebble posted a [Facebook update about pebbleNav](https://www.facebook.com/photo.php?fbid=752300254799875&set=a.420451041318133.109642.410852228944681&type=1&theater)
-serving 30,000 routes since it's last update. I haven't looked at the numbers for [Pebble Connect](https://play.google.com/store/apps/details?id=com.lukekorth.httpebble) in a while,
+serving 30,000 routes since its last update. I haven't looked at the numbers for [Pebble Connect](https://play.google.com/store/apps/details?id=com.lukekorth.httpebble) in a while,
 so I decided to compile them all and share them. (All numbers are as of December 23rd, 2013)
 
 <div class="list">

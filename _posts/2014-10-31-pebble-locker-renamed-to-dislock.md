@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "A new name based on changing brand recommendations and device support."
 title: Pebble Locker Renamed to Dislock
 categories: [Android, Pebble]
 date: 2014-10-31
@@ -18,4 +20,3 @@ for free and if they only need one device, continue to use it for free forever.
 
 If you experience any issues with the update or have any requests, as always, feel free
 to use the in-app contact option to email me.
-

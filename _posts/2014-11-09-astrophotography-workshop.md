@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "Notes from a few days in North Lake Tahoe with Sean Parker."
 title: Astrophotography Workshop
 categories: [Photography, Workshop]
 date: 2014-11-09

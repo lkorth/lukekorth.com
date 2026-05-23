@@ -46,7 +46,6 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
-    jekyll-paginate (1.1.0)
     jekyll-sass-converter (2.1.0)
       sassc (> 2.0.1, < 3.0)
     jekyll-sitemap (1.4.0)
@@ -92,7 +91,6 @@ DEPENDENCIES
   image_optim
   image_optim_pack
   jekyll
-  jekyll-paginate
   jekyll-sitemap
   rake
   rmagick

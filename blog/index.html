@@ -1,43 +1,16 @@
 ---
-layout: default
-tab: blog
-comment-count: true
+permalink: /blog/
+redirect_to: /journal/
 ---
-<div id="page_caption" class="">
-  <div class="page_title_wrapper">
-    <div class="page_title_inner">
-      <h1>Blog</h1>
-    </div>
-  </div>
-</div>
-
-<div id="page_content_wrapper" class="">
-  <div class="inner">
-    <div class="inner_wrapper">
-      <div class="page_content_wrapper"></div>
-      <div class="sidebar_content full_width blog_f">
-        <div class="page_content_wrapper"></div>
-
-        {% assign index = true %}
-        {% for post in paginator.posts %}
-          {% assign content = post.content %}
-          {% include post_preview.html %}
-        {% endfor %}
-
-        <p class="paging left">
-        {% if paginator.next_page %}
-          <a href="/blog/{{ paginator.next_page }}/"><i class="fa fa-arrow-left"></i></a>
-        {% endif %}
-        {% if paginator.previous_page %}
-          <span class="right">
-            <a href="/blog/{% if paginator.previous_page != 1 %}{{ paginator.previous_page }}/{% endif %}"><i class="fa fa-arrow-right"></i></a>
-          </span>
-        {% endif %}
-        </p>
-
-        <br class="clear"/>
-      </div>
-    </div>
-  </div>
-  <br class="clear"/><br/>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="canonical" href="/journal/"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="0;url=/journal/"/>
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p><a href="/journal/">Redirecting to Journal…</a></p>
+  </body>
+</html>

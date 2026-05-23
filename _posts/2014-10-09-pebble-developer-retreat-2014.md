@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "A long weekend in California with the early Pebble dev community."
 title: Pebble Developer Retreat 2014
 categories: [Pebble, Social]
 date: 2014-10-09

@@ -2,39 +2,27 @@
 layout: default
 title: Phone Wallpapers
 permalink: /phone-wallpapers/
-excerpt: "Photos crafted specially for use as phone wallpapers."
 ---
-{% assign gallery = site.data.galleries["phone_wallpapers"] %}
-<div id="page_caption">
-  <div class="page_title_wrapper">
-    <div class="page_title_inner">
-      <h1>{{ gallery.title }}</h1>
-      <div class="page_tagline">To download any of these photos for personal use on your phone, long press on the photo you want then save the image to your phone.</div>
-    </div>
-  </div>
+{% assign s = site.data.series["phone_wallpapers"] %}
+
+<div style="padding: 80px var(--space-page) 40px;">
+  <h1 style="font-family: var(--font-display); font-size: var(--t-hero); line-height: 0.95; letter-spacing: -2px; margin-bottom: 24px;">Phone <em style="font-style: italic; color: var(--accent);">Wallpapers.</em></h1>
+  <p style="font-size: 15px; color: var(--ink-dim); max-width: 480px; line-height: 1.6;">
+    To download any of these photos for use as a phone wallpaper, long-press the image and save to your phone.
+  </p>
 </div>
 
-<div id="page_content_wrapper">
-  <div class="inner">
-    <div class="inner_wrapper nopadding">
-      <div id="page_main_content" class="sidebar_content full_width nopadding fixed_column">
-        <div id="portfolio_filter_wrapper" class="gallery two_cols portfolio-content section content clearfix" data-columns="2">
-          {% assign photos = gallery.photos %}
-          {% for photo in photos %}
-            {% assign slug = photo.name | downcase | slugify %}
-            <div class="element grid classic2_cols">
-              <div class="one_half gallery2 static filterable gallery_type archive animated14">
-                <div class="gallery_archive_desc">
-                  <h4>{{ photo.name }}</h4>
-                  <div class="post_detail"><p>{{ photo.subtitle }}</p>
-                  </div>
-                </div>
-                <img id="{{ slug }}" src="/photos/{{ gallery.folder }}/{{ slug }}.jpg" alt="{{ photo.name }}" />
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; padding: 0 var(--space-page) 80px;">
+  {% assign photos = s.photos %}
+  {% for photo in photos %}
+    {% assign slug = photo.name | downcase | slugify %}
+    <div>
+      <a href="/photos/{{ s.folder }}/{{ slug }}.jpg" target="_blank" rel="noopener">
+        <img src="/photos/{{ s.folder }}/{{ slug }}.jpg"
+             alt="{{ photo.name }}"
+             style="width: 100%; display: block; object-fit: cover;">
+      </a>
+      <p style="margin-top: 10px; font-family: var(--font-mono); font-size: var(--t-meta); color: var(--mute);">{{ photo.name }}</p>
     </div>
-  </div>
+  {% endfor %}
 </div>

@@ -5,27 +5,30 @@ import PhotoSwipeFullscreen from '/js/photoswipe_fullscreen.js';
 import PhotoSwipeDynamicCaption from '/js/photoswipe_dynamic_caption.js';
 
 const lightbox = new PhotoSwipeLightbox({
-  gallery: '#portfolio_filter_wrapper',
+  gallery: '#pswp-gallery',
   children: 'a',
   pswpModule: PhotoSwipe,
   bgOpacity: 1,
+  showHideAnimationType: 'fade',
 });
+
 const fullscreenPlugin = new PhotoSwipeFullscreen(lightbox);
+
+const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+  type: 'below',
+  captionContent: '.pswp-caption-content',
+});
 
 lightbox.addFilter('itemData', (itemData, index) => {
   const webpSrc = itemData.element.dataset.pswpWebpSrc;
-  if (webpSrc) {
-    itemData.webpSrc = webpSrc;
-  }
+  if (webpSrc) { itemData.webpSrc = webpSrc; }
   return itemData;
 });
 
 lightbox.on('contentLoad', (e) => {
-  const { content, isLazy } = e;
-
+  const { content } = e;
   if (content.data.webpSrc) {
     e.preventDefault();
-
     content.pictureElement = document.createElement('picture');
 
     const sourceWebp = document.createElement('source');
@@ -44,19 +47,13 @@ lightbox.on('contentLoad', (e) => {
     content.pictureElement.appendChild(sourceWebp);
     content.pictureElement.appendChild(sourceJpg);
     content.pictureElement.appendChild(content.element);
-
     content.state = 'loading';
 
     if (content.element.complete) {
       content.onLoaded();
     } else {
-      content.element.onload = () => {
-        content.onLoaded();
-      };
-
-      content.element.onerror = () => {
-        content.onError();
-      };
+      content.element.onload  = () => content.onLoaded();
+      content.element.onerror = () => content.onError();
     }
   }
 });
@@ -77,23 +74,21 @@ lightbox.on('contentRemove', (e) => {
   }
 });
 
-lightbox.on('change', (e) => {
-  const path = lightbox.pswp.currSlide.data.webpSrc.replace(".webp", "").split('/').pop().concat('/');
-  history.replaceState(null, "", "{{ gallery.link }}" + path);
+lightbox.on('change', () => {
+  const data = lightbox.pswp.currSlide.data;
+  const src  = data.webpSrc || data.src || '';
+  const slug = src.split('/').pop().replace(/\.(webp|jpg)$/, '') + '/';
+  history.replaceState(null, '', '{{ series.link }}' + slug);
 });
 
-lightbox.on('close', (e) => {
-  history.replaceState(null, "", "{{ gallery.link }}");
+lightbox.on('close', () => {
+  history.replaceState(null, '', '{{ series.link }}');
 });
 
 lightbox.init();
 
-{% if page.permalink != gallery.link %}
-{% for selected in gallery.photos %}
-  {% if selected.name == page.photo %}
-    {% assign index = forloop.index0 %}
-  {% endif %}
-{% endfor %}
-lightbox.loadAndOpen({{ index }});
+{% if page.permalink != series.link %}
+{% for selected in series.photos %}{% if selected.name == page.photo %}{% assign pswp_index = forloop.index0 %}{% endif %}{% endfor %}
+{% if pswp_index %}lightbox.loadAndOpen({{ pswp_index }});{% endif %}
 {% endif %}
 </script>

@@ -1,30 +1,15 @@
 url: https://lukekorth.com
 title: Luke Korth
-email: blog@lukekorth.com
-description: A personal blog about technology, open source and photography.
+email: website@lukekorth.com
+description: Personal photography portfolio and occasional writings.
 root: /
-permalink: /blog/:title/
+permalink: /journal/:title/
 
 include: ['_redirects']
 exclude: ['Gemfile*', 'Rakefile', 'README.md', '**/README.md']
 host: 0.0.0.0
 
-plugins: [jekyll-paginate, jekyll-sitemap]
+plugins: [jekyll-sitemap]
 
 sass:
   style: compressed
-
-paginate: 5                     # Posts per page on the blog index
-paginate_path: blog/:num        # Path structure for pagination URLs eg. /blog/page/2/
-recent_posts: 5                 # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
-
-# Disqus Comments
-disqus_short_name: lukekorth
-disqus_url: https://lukekorth.com
-
-# Gravatar
-gravatar_email: blog@lukekorth.com
-
-# Twitter sharing
-twitter_username: lukekorth

@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "A reference for generating CSRs and creating certificate chains."
 title: Getting an SSL Certificate
 categories: [Website, Tutorial]
 date: 2015-03-09

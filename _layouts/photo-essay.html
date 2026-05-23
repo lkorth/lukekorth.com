@@ -1,0 +1,253 @@
+---
+layout: base
+---
+
+<div class="post-topbar">
+  <a href="/journal/" class="post-topbar__back">← Journal</a>
+  <a href="/"><img src="/images/signature-white.png" alt="Luke Korth" class="sig"></a>
+  <span>{{ page.date | date: "%Y · %m · %d" }}</span>
+</div>
+
+<header class="post-hero">
+  <div class="post-hero__meta">
+    <span class="post-hero__kind">Photo essay</span>
+    <span><span class="post-hero__meta-key">posted</span>&nbsp;&nbsp;{{ page.date | date: "%Y·%m·%d" }}</span>
+    {% if page.frames %}
+    <span><span class="post-hero__meta-key">frames</span>&nbsp;&nbsp;{{ page.frames }}</span>
+    {% endif %}
+    {% if page.location %}
+    <span><span class="post-hero__meta-key">where</span>&nbsp;&nbsp;{{ page.location }}</span>
+    {% endif %}
+  </div>
+  <div>
+    <h1 class="post-hero__title">{{ page.title }}</h1>
+    {% if page.dek %}
+    <p class="post-hero__dek">{{ page.dek }}</p>
+    {% endif %}
+  </div>
+</header>
+
+{% if page.header_image %}
+<div class="post-bleed">
+  <img src="{{ page.header_image }}" alt="{{ page.title }}" style="height: 560px;">
+  <div class="photo-caption">
+    {% if page.header_caption %}<span>{{ page.header_caption }}</span>{% else %}<span></span>{% endif %}
+    {% if page.header_exif %}<span>{{ page.header_exif }}</span>{% endif %}
+  </div>
+</div>
+{% endif %}
+
+<div class="photo-essay-body" id="photo-essay">
+  <div class="photo-essay-map-panel">
+    <div class="photo-essay-map" id="essay-map"></div>
+    <div class="photo-essay-stop-label" id="essay-stop-label" aria-live="polite"></div>
+  </div>
+  <div class="photo-essay-content">
+    {% if content != "" %}
+    <div class="essay-lede">{{ content }}</div>
+    {% endif %}
+
+    {% for stop in page.stops %}
+    <div class="essay-stop"
+         data-lat="{{ stop.lat }}"
+         data-lng="{{ stop.lng }}"
+         data-zoom="{{ stop.zoom | default: 9 }}"
+         data-label="{{ stop.name }}">
+      <h2>{{ stop.name }}</h2>
+      {% if stop.text %}{{ stop.text | markdownify }}{% endif %}
+      {% for photo in stop.photos %}
+        {% if photo.pair %}
+        <div class="inline-pair">
+          {% for slug in photo.pair %}
+          <img src="/photos/posts/{{ page.path | remove: '_posts/' | remove: '.md' | remove: '_' }}/{{ slug }}_thumb.jpg" alt="">
+          {% endfor %}
+        </div>
+        {% if photo.caption %}<p class="inline-caption">{{ photo.caption }}</p>{% endif %}
+        {% else %}
+        {{ photo.slug | post_photo: page, photo.caption }}
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% assign posts = site.posts %}
+{% for post in posts %}
+  {% if post.url == page.url %}
+    {% assign post_index = forloop.index0 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign next_index = post_index | minus: 1 %}
+{% if next_index >= 0 %}
+  {% assign next_post = posts[next_index] %}
+{% endif %}
+
+<div class="post-end">
+  <div>
+    <div class="post-end__label">Next →</div>
+  </div>
+  <div>
+    {% if next_post %}
+    <a href="{{ next_post.url }}" style="text-decoration: none; color: inherit;">
+      <h3 class="post-end__next-title">{{ next_post.title }}</h3>
+      {% if next_post.dek %}
+      <p class="post-end__next-dek">{{ next_post.dek }}</p>
+      {% endif %}
+    </a>
+    {% else %}
+    <p class="post-end__next-dek" style="color: var(--mute);">You've reached the beginning.</p>
+    {% endif %}
+  </div>
+  <div>
+    <div class="post-end__label">Reply</div>
+    <p class="post-end__contact" style="margin-top: 12px;">
+      <a href="mailto:website@lukekorth.com">website@lukekorth.com</a><br>
+      github / lkorth<br>
+      @lukekorth · instagram
+    </p>
+    <img src="/images/signature-white.png" alt="Luke Korth" class="sig sig--post" style="margin-top: 28px;">
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function () {
+  var mapEl = document.getElementById('essay-map');
+  if (!mapEl) return;
+
+  var centerLat = {{ page.map_center_lat | default: 63.0 }};
+  var centerLng = {{ page.map_center_lng | default: -151.0 }};
+  var initialZoom = {{ page.map_zoom | default: 5 }};
+
+  var map = L.map('essay-map', {
+    center: [centerLat, centerLng],
+    zoom: initialZoom,
+    zoomControl: false,
+    scrollWheelZoom: false,
+    dragging: false,
+    touchZoom: false,
+    keyboard: false,
+  });
+
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: '© <a href="https://www.esri.com" tabindex="-1">Esri</a>, Maxar, Earthstar Geographics'
+  }).addTo(map);
+
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    opacity: 0.8,
+  }).addTo(map);
+
+  var stops = Array.from(document.querySelectorAll('.essay-stop[data-lat]'));
+  var coords = stops
+    .map(function (s) { return [parseFloat(s.dataset.lat), parseFloat(s.dataset.lng)]; })
+    .filter(function (c) { return !isNaN(c[0]) && !isNaN(c[1]); });
+
+  if (coords.length > 1) {
+    L.polyline(coords, {
+      color: '#fff',
+      weight: 1.5,
+      opacity: 0.4,
+      dashArray: '4 7',
+    }).addTo(map);
+  }
+
+  var VF_HTML = '<div class="vf-marker is-dim">'
+    + '<div class="vf-corner tl"></div>'
+    + '<div class="vf-corner tr"></div>'
+    + '<div class="vf-corner bl"></div>'
+    + '<div class="vf-corner br"></div>'
+    + '<div class="vf-dot"></div>'
+    + '</div>';
+
+  function viewfinderIcon() {
+    return L.divIcon({ className: 'stop-icon', html: VF_HTML, iconSize: [56, 56], iconAnchor: [28, 28] });
+  }
+
+  var markers = stops.map(function (stop) {
+    var lat = parseFloat(stop.dataset.lat);
+    var lng = parseFloat(stop.dataset.lng);
+    if (isNaN(lat) || isNaN(lng)) return null;
+    return {
+      stop: stop,
+      marker: L.marker([lat, lng], { icon: viewfinderIcon(), interactive: false }).addTo(map),
+      lat: lat,
+      lng: lng,
+      zoom: parseInt(stop.dataset.zoom) || 9,
+      label: stop.dataset.label || '',
+    };
+  }).filter(Boolean);
+
+  var labelEl = document.getElementById('essay-stop-label');
+  var activeIndex = -1;
+
+  function activate(index) {
+    if (index === activeIndex) return;
+    activeIndex = index;
+    markers.forEach(function (m, i) {
+      var el = m.marker._icon;
+      if (!el) return;
+      var vf = el.querySelector('.vf-marker');
+      if (!vf) return;
+      vf.classList.remove('is-active', 'is-dim');
+      vf.classList.add(i === index ? 'is-active' : 'is-dim');
+    });
+    var m = markers[index];
+    map.setView([m.lat, m.lng], m.zoom, { animate: true, duration: 1.4, easeLinearity: 0.4 });
+    if (labelEl) labelEl.textContent = m.label;
+  }
+
+  if (markers.length > 0) activate(0);
+
+  // Preload tiles for each stop so the fly animation lands on cached imagery.
+  // Covers the destination zoom and two intermediate zoom levels to fill the
+  // tiles Leaflet loads while zooming out and back in during the flight.
+  function tileCoords(lat, lng, z) {
+    var n = Math.pow(2, z);
+    var x = Math.floor((lng + 180) / 360 * n);
+    var latRad = lat * Math.PI / 180;
+    var y = Math.floor((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2 * n);
+    return { x: x, y: y };
+  }
+
+  function prefetchTilesAt(lat, lng, z, radius) {
+    var t = tileCoords(lat, lng, z);
+    for (var dy = -radius; dy <= radius; dy++) {
+      for (var dx = -radius; dx <= radius; dx++) {
+        var y = t.y + dy, x = t.x + dx;
+        [
+          'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/' + z + '/' + y + '/' + x,
+          'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/' + z + '/' + y + '/' + x,
+        ].forEach(function (url) { new Image().src = url; });
+      }
+    }
+  }
+
+  // Stagger prefetch across all stops so we don't flood the network at once.
+  // Each stop fires ~200ms apart; within each stop we load destination zoom,
+  // then two broader views that cover the mid-flight path.
+  markers.forEach(function (m, i) {
+    setTimeout(function () {
+      prefetchTilesAt(m.lat, m.lng, m.zoom,            3); // destination view
+      prefetchTilesAt(m.lat, m.lng, Math.max(m.zoom - 3, 2), 2); // mid-flight
+      prefetchTilesAt(m.lat, m.lng, Math.max(m.zoom - 6, 1), 1); // wide view
+    }, i * 200);
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var idx = markers.findIndex(function (m) { return m.stop === entry.target; });
+        if (idx !== -1) activate(idx);
+      }
+    });
+  }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 });
+
+  stops.forEach(function (s) { observer.observe(s); });
+})();
+</script>

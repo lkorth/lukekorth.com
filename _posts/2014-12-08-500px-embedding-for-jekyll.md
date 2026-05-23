@@ -1,12 +1,10 @@
 ---
 layout: post
+kind: Making
+dek: "A small Liquid tag to add 500px photos into a Jekyll post using the official embedding."
 title: 500px Embedding for Jekyll
 categories: [Jekyll, Photography, Website]
 date: 2014-12-08
-custom_excerpt: "From time to time I like to read through [500px ISO](https://iso.500px.com/) to look at the amazing
-photos and gather some inspiration. One of my favorite parts of 500px ISO is the overlay on the
-photos that allow you to vote and also link directly to the photo and photographer on
-[500px](http://500px.com)."
 ---
 # Update
 

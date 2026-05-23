@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "An Android app that automatically locks your phone when your Pebble disconnects."
 title: Pebble Locker
 categories: [Android, Pebble]
 date: 2013-06-12

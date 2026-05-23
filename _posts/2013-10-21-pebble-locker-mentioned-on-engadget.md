@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "Pebble Locker mentions in the community."
 title: Pebble Locker Mentioned on Engadget
 categories: [Pebble, Android]
 date: 2013-10-21

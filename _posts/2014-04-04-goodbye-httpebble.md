@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "Work arounds no longer needed with official support."
 title: Goodbye httpebble
 categories: [Pebble, Android]
 date: 2014-04-04

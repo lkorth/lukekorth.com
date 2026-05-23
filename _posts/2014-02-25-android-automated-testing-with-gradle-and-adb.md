@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Making
+dek: "wait-for-device doesn't really wait."
 title: Android Automated Testing with Gradle and ADB
 categories: [Android, Linux]
 date: 2014-02-25

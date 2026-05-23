@@ -1,5 +1,7 @@
 ---
 layout: post
+kind: Note
+dek: "Commands for setting up a Linux NFS server at home."
 title: Linux NFS Server
 categories: [Linux, Tutorial]
 date: 2014-02-01
@@ -76,7 +78,7 @@ sudo /etc/init.d/nfs-kernel-server start
 You should now have a working NFS server! There are many options that you can tweak in `/etc/exports` depending on your needs, refer to
 the [man page](http://linux.die.net/man/5/exports).
 
-Note: `rpcbind` does not run automaticlly during startup on a Raspberry Pi, this will cause the NFS server to fail to start.
+Note: `rpcbind` does not run automatically during startup on a Raspberry Pi, this will cause the NFS server to fail to start.
 If you are running this on a Raspberry Pi you will also need to make `rpcbind` run on startup by running the following
 
 ```bash
