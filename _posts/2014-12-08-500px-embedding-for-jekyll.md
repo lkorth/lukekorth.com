@@ -35,7 +35,7 @@ the `500px` tag
 and when your site is built, it will produce the following
 
 <div class="pixels-photo">
-  <p><img src="https://drscdn.500px.org/photo/89255597/m%3D900/v2?user_id=647958&webp=true&sig=fb857239a869387efeb9378c2c7a0ecde86126b93cc3d9e4e493f06d8d3ba50b" alt="Trail Through the Redwoods by Luke Korth on 500px.com"></p>
+  <p><img src="https://drscdn.500px.org/photo/89255597/m%3D900/v2?user_id=647958&webp=true&sig=fb857239a869387efeb9378c2c7a0ecde86126b93cc3d9e4e493f06d8d3ba50b" crossorigin="anonymous" style="width: 100%; max-width: 800px; height: auto; min-height: 450px; display: block; object-fit: contain;" alt="Trail Through the Redwoods by Luke Korth on 500px.com"></p>
   <a href="https://500px.com/photo/89255597/trail-through-the-redwoods-by-luke-korth" alt="Trail Through the Redwoods by Luke Korth on 500px.com"></a>
 </div>
 <script type='text/javascript' src='https://500px.com/embed.js'></script>
