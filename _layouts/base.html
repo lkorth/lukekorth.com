@@ -14,10 +14,43 @@
     <meta name="theme-color" content="#1A1D22">
 
     <title>{% if page.title %}{{ page.title }} — Luke Korth{% else %}Luke Korth{% endif %}</title>
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    {% capture meta_description %}{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+    <meta name="description" content="{{ meta_description | strip }}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url }}"/>
+
+    {% comment %} If this is a portfolio series or individual photo page, resolve the image being shown so previews of the URL show that photo. {% endcomment %}
+    {% assign og_image_path = "" %}
+    {% if page.photos %}
+      {% assign series = site.data.series[page.photos] %}
+      {% assign og_target_name = page.photo | default: series.cover %}
+      {% for p in series.photos %}
+        {% if p.name == og_target_name %}{% assign og_photo = p %}{% endif %}
+      {% endfor %}
+      {% if og_photo %}
+        {% assign og_slug = og_photo.name | downcase | slugify %}
+        {% assign og_folder = og_photo.folder | default: series.folder %}
+        {% assign og_image_path = "/photos/" | append: og_folder | append: "/" | append: og_slug | append: ".jpg" %}
+      {% endif %}
+    {% endif %}
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{{ meta_description | strip }}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+    {% if og_image_path != "" %}
+    <meta property="og:image" content="{{ og_image_path | prepend: site.url }}">
+    <meta property="og:image:width" content="{{ og_slug | width: og_folder }}">
+    <meta property="og:image:height" content="{{ og_slug | height: og_folder }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ og_image_path | prepend: site.url }}">
+    {% else %}
+    <meta name="twitter:card" content="summary">
+    {% endif %}
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{{ meta_description | strip }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
