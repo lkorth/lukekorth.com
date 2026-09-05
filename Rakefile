@@ -34,5 +34,5 @@ end
 desc "Deploy site to Cloudflare Pages"
 task :deploy do
   sh "jekyll build"
-  sh "wrangler pages deploy _site --project-name lukekorth-com"
+  sh "npx wrangler pages deploy _site --project-name lukekorth-com"
 end
