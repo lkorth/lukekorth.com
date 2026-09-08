@@ -253,6 +253,13 @@ p { margin: 0; }
   gap: 56px 48px;
 }
 
+.wallpaper-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+  padding: 0 var(--space-page) 80px;
+}
+
 .series-card {
   display: flex;
   flex-direction: column;
@@ -954,44 +961,6 @@ p { margin: 0; }
 .about-main .yes { color: var(--accent); font-style: italic; }
 .about-main .no  { color: var(--mute); }
 
-.contact-strip {
-  margin: 40px var(--space-page) 80px;
-  padding-top: 40px;
-  border-top: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 56px;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-gutter);
-  max-width: 720px;
-}
-
-.contact-label {
-  display: block;
-  font-size: var(--t-caption);
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: var(--mute);
-  font-family: var(--font-mono);
-  margin-bottom: 8px;
-}
-
-.contact-value {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-style: italic;
-  color: var(--accent);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-}
-
-.contact-value:hover { text-decoration: underline; }
-
 /* ── PhotoSwipe overrides ────────────────────────────────────────────────── */
 
 .pswp {
@@ -1222,6 +1191,8 @@ pre code {
 
   .site-nav { flex-wrap: wrap; gap: 16px; padding-bottom: 4px; }
 
+  .filter-bar { flex-wrap: wrap; row-gap: 10px; }
+
   .portfolio-hero,
   .journal-masthead,
   .about-hero {
@@ -1288,8 +1259,6 @@ pre code {
     gap: 32px;
   }
 
-  .contact-strip { grid-template-columns: 1fr; gap: 24px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
 
   .about-margin { display: none; }
 

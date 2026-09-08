@@ -12,7 +12,7 @@ permalink: /phone-wallpapers/
   </p>
 </div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; padding: 0 var(--space-page) 80px;">
+<div class="wallpaper-grid">
   {% assign photos = s.photos %}
   {% for photo in photos %}
     {% assign slug = photo.name | downcase | slugify %}
