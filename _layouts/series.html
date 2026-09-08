@@ -99,7 +99,10 @@ layout: base
                 </picture>
                 <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
               </a>
-              <div class="photo-sub-caption">{{ num }} · {{ photo.caption | default: photo.name }}</div>
+              <div class="photo-sub-caption">
+                <span>{{ num }} · {{ photo.caption | default: photo.name }}</span>
+                {% if photo.exif %}<span class="photo-sub-caption__exif">{{ photo.exif }}</span>{% endif %}
+              </div>
             </div>
           {% endfor %}
         </div>
@@ -158,7 +161,10 @@ layout: base
                 </picture>
                 <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
               </a>
-              <div class="photo-sub-caption">{{ num }} · {{ photo.caption | default: photo.name }}</div>
+              <div class="photo-sub-caption">
+                <span>{{ num }} · {{ photo.caption | default: photo.name }}</span>
+                {% if photo.exif %}<span class="photo-sub-caption__exif">{{ photo.exif }}</span>{% endif %}
+              </div>
             </div>
           {% endfor %}
         </div>
@@ -185,7 +191,10 @@ layout: base
                 </picture>
                 <span class="pswp-caption-content">{{ photo.caption | default: photo.name }}</span>
               </a>
-              <div class="photo-sub-caption">{{ num }} · {{ photo.caption | default: photo.name }}</div>
+              <div class="photo-sub-caption">
+                <span>{{ num }} · {{ photo.caption | default: photo.name }}</span>
+                {% if photo.exif %}<span class="photo-sub-caption__exif">{{ photo.exif }}</span>{% endif %}
+              </div>
             </div>
           {% endfor %}
         </div>
