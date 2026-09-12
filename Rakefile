@@ -10,13 +10,14 @@ task :optimize_photos do
   image_optim = ImageOptim.new(:pngout => false, :svgo => false)
 
   Dir.glob("photos/**/*#{JPG}").each do |file|
-    if !file.include?("_thumb")
+    thumbnail_name = file.sub(JPG, "_thumb#{JPG}")
+
+    if !file.include?("_thumb") && !File.exist?(thumbnail_name)
       image_optim.optimize_image!(file)
 
       next if File.exist?("#{File.dirname(file)}/.skip_thumbnail")
 
       image = Magick::Image::read(file).first
-      thumbnail_name = file.sub(JPG, "_thumb#{JPG}")
 
       thumbnail = image.resize_to_fit(1000, 1000)
       thumbnail.write(thumbnail_name) { |t| t.quality = 80 }
