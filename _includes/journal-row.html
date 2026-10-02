@@ -1,0 +1,25 @@
+{% assign kind = include.post.kind | default: "Making" %}
+{% assign kind_slug = kind | downcase | replace: " ", "-" %}
+{% if kind == "Photo essay" %}
+  {% assign kind_class = "toc-kind--photo-essay" %}
+{% elsif kind == "Note" %}
+  {% assign kind_class = "toc-kind--note" %}
+{% elsif kind == "Recipe" %}
+  {% assign kind_class = "toc-kind--recipe" %}
+{% else %}
+  {% assign kind_class = "toc-kind--making" %}
+{% endif %}
+
+{% assign words = include.post.content | number_of_words %}
+{% assign read_mins = words | divided_by: 200 | plus: 1 %}
+
+<a href="{{ include.post.url }}" class="toc-row" data-kind="{{ kind_slug }}">
+  <div>
+    <div class="toc-date">{{ include.post.date | date: "%Y·%m" }}</div>
+    <div class="toc-kind {{ kind_class }}">{{ kind }}</div>
+  </div>
+  <h2 class="toc-row__title">{{ include.post.title }}</h2>
+  <p class="toc-row__dek">{{ include.post.dek | default: include.post.excerpt | strip_html | truncate: 160 }}</p>
+  <div class="toc-row__read">{{ read_mins }} min</div>
+  <div class="toc-row__arrow">→</div>
+</a>

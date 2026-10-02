@@ -1,0 +1,31 @@
+---
+layout: default
+tab: journal
+title: Chili
+permalink: /journal/chili/
+---
+
+<header class="journal-masthead">
+  <h1 class="journal-masthead__title">
+    <em>Chili</em>
+  </h1>
+  <p class="journal-masthead__sub">
+    A collection of my various chili recipes. Enjoy!
+  </p>
+</header>
+
+{% assign posts = site.categories.chili %}
+
+<div class="filter-bar">
+  <div class="filter-bar__tags">
+    <a href="/journal/">← All journal</a>
+    <a href="/journal/chili/" class="active">Chili · {{ posts | size }}</a>
+  </div>
+  <span>sorted by date ↓</span>
+</div>
+
+<div class="journal-toc">
+{% for post in posts %}
+  {% include journal-row.html post=post %}
+{% endfor %}
+</div>
