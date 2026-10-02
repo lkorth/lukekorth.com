@@ -18,12 +18,15 @@ permalink: /journal/
 {% assign count_photo_essay = 0 %}
 {% assign count_notes = 0 %}
 {% assign count_making = 0 %}
+{% assign count_recipes = 0 %}
 {% for post in site.posts %}
   {% assign k = post.kind | default: "Making" %}
   {% if k == "Photo essay" %}
     {% assign count_photo_essay = count_photo_essay | plus: 1 %}
   {% elsif k == "Note" %}
     {% assign count_notes = count_notes | plus: 1 %}
+  {% elsif k == "Recipe" %}
+    {% assign count_recipes = count_recipes | plus: 1 %}
   {% else %}
     {% assign count_making = count_making | plus: 1 %}
   {% endif %}
@@ -40,6 +43,9 @@ permalink: /journal/
     {% endif %}
     {% if count_making > 0 %}
     <a href="/journal/?kind=making" data-kind="making">Making · {{ count_making }}</a>
+    {% endif %}
+    {% if count_recipes > 0 %}
+    <a href="/journal/?kind=recipe" data-kind="recipe">Recipes · {{ count_recipes }}</a>
     {% endif %}
   </div>
   <span>sorted by date ↓</span>
@@ -104,6 +110,8 @@ permalink: /journal/
     {% assign kind_class = "toc-kind--photo-essay" %}
   {% elsif kind == "Note" %}
     {% assign kind_class = "toc-kind--note" %}
+  {% elsif kind == "Recipe" %}
+    {% assign kind_class = "toc-kind--recipe" %}
   {% else %}
     {% assign kind_class = "toc-kind--making" %}
   {% endif %}

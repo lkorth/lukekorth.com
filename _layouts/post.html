@@ -18,14 +18,16 @@ layout: base
     {% else %}
       <span class="post-hero__kind post-hero__kind--{{ kind | downcase }}">{{ kind }}</span>
     {% endif %}
-    <span><span class="post-hero__meta-key">posted</span>&nbsp;&nbsp;{{ page.date | date: "%Y·%m·%d" }}</span>
-    <span><span class="post-hero__meta-key">read</span>&nbsp;&nbsp;&nbsp;&nbsp;{{ read_minutes }} min</span>
-    {% if page.frames %}
-    <span><span class="post-hero__meta-key">frames</span>&nbsp;&nbsp;{{ page.frames }}</span>
-    {% endif %}
-    {% if page.location %}
-    <span><span class="post-hero__meta-key">where</span>&nbsp;&nbsp;{{ page.location }}</span>
-    {% endif %}
+    <div class="post-hero__meta-rows">
+      <span class="post-hero__meta-key">posted</span><span class="post-hero__meta-value">{{ page.date | date: "%Y·%m·%d" }}</span>
+      <span class="post-hero__meta-key">read</span><span class="post-hero__meta-value">{{ read_minutes }} min</span>
+      {% if page.frames %}
+      <span class="post-hero__meta-key">frames</span><span class="post-hero__meta-value">{{ page.frames }}</span>
+      {% endif %}
+      {% if page.location %}
+      <span class="post-hero__meta-key">where</span><span class="post-hero__meta-value">{{ page.location }}</span>
+      {% endif %}
+    </div>
   </div>
   <div>
     <h1 class="post-hero__title">{{ page.title }}</h1>

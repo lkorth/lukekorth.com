@@ -1,0 +1,131 @@
+---
+layout: base
+---
+{% assign words = content | number_of_words %}
+{% assign read_minutes = words | divided_by: 200 | plus: 1 %}
+
+<div class="post-topbar">
+  <a href="/journal/" class="post-topbar__back">← Journal</a>
+  <a href="/"><img src="/images/signature-white.png" alt="Luke Korth" class="sig"></a>
+  <span>{{ page.date | date: "%Y · %m · %d" }}</span>
+</div>
+
+<header class="post-hero">
+  <div class="post-hero__meta">
+    <span class="post-hero__kind post-hero__kind--recipe">Recipe</span>
+    <div class="post-hero__meta-rows">
+      <span class="post-hero__meta-key">posted</span><span class="post-hero__meta-value">{{ page.date | date: "%Y·%m·%d" }}</span>
+      {% if page.prep_time %}
+      <span class="post-hero__meta-key">prep</span><span class="post-hero__meta-value">{{ page.prep_time }}</span>
+      {% endif %}
+      {% if page.cook_time %}
+      <span class="post-hero__meta-key">cook</span><span class="post-hero__meta-value">{{ page.cook_time }}</span>
+      {% endif %}
+      {% if page.total_time %}
+      <span class="post-hero__meta-key">total</span><span class="post-hero__meta-value">{{ page.total_time }}</span>
+      {% endif %}
+      {% if page.servings %}
+      <span class="post-hero__meta-key">serves</span><span class="post-hero__meta-value">{{ page.servings }}</span>
+      {% endif %}
+      {% if page.difficulty %}
+      <span class="post-hero__meta-key">level</span><span class="post-hero__meta-value">{{ page.difficulty }}</span>
+      {% endif %}
+    </div>
+  </div>
+  <div>
+    <h1 class="post-hero__title">{{ page.title }}</h1>
+    {% if page.dek %}
+    <p class="post-hero__dek">{{ page.dek }}</p>
+    {% endif %}
+  </div>
+</header>
+
+{% if page.header_image %}
+<div class="post-bleed">
+  <img src="{{ page.header_image }}" alt="{{ page.title }}" style="height: 560px;">
+  <div class="photo-caption">
+    {% if page.header_caption %}<span>{{ page.header_caption }}</span>{% else %}<span></span>{% endif %}
+    {% if page.header_exif %}<span>{{ page.header_exif }}</span>{% endif %}
+  </div>
+</div>
+{% endif %}
+
+<article class="post-body">
+  <aside class="post-body__margin post-body__margin--recipe">
+    {% if page.ingredients %}
+    <div class="recipe-ingredients">
+      <span class="post-body__margin-label">Ingredients</span>
+      <ul>
+        {% for ingredient in page.ingredients %}
+        <li>{{ ingredient | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if page.source_name %}
+    <div class="recipe-source">
+      <span class="post-body__margin-label">Source</span>
+      {% if page.source_url %}
+      <a href="{{ page.source_url }}">{{ page.source_name }}</a>
+      {% else %}
+      <span>{{ page.source_name }}</span>
+      {% endif %}
+    </div>
+    {% endif %}
+  </aside>
+  <div class="post-body__column{% unless page.header_image %} drop-cap{% endunless %}">
+    {{ content }}
+    {% if page.steps %}
+    <h2>Instructions</h2>
+    <ol class="recipe-instructions">
+      {% for step in page.steps %}
+      <li>{{ step.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    {% if page.notes %}
+    <h2>Notes</h2>
+    <ul>
+      {% for note in page.notes %}
+      <li>{{ note | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>
+
+{% assign posts = site.posts %}
+{% for post in posts %}
+  {% if post.url == page.url %}
+    {% assign post_index = forloop.index0 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign next_index = post_index | minus: 1 %}
+{% if next_index >= 0 %}
+  {% assign next_post = posts[next_index] %}
+{% endif %}
+
+{% if next_post %}
+<div class="post-next">
+  <p class="post-next__label">Next →</p>
+  <a href="{{ next_post.url }}" class="post-next__grid{% unless next_post.cover_image or next_post.header_image %} post-next__grid--text-only{% endunless %}">
+    {% if next_post.cover_image or next_post.header_image %}
+    <div class="post-next__img-wrap">
+      <img src="{{ next_post.cover_image | default: next_post.header_image }}"
+           alt="{{ next_post.title }}"
+           class="post-next__img">
+    </div>
+    {% endif %}
+    <div class="post-next__text">
+      <p class="post-next__kind">{{ next_post.kind | default: "Making" }}</p>
+      <h3 class="post-next__title">{{ next_post.title }}</h3>
+      {% assign next_dek = next_post.dek | default: next_post.excerpt | strip_html | truncate: 200 %}
+      {% if next_dek %}<p class="post-next__dek">{{ next_dek }}</p>{% endif %}
+    </div>
+  </a>
+</div>
+{% endif %}
+
+{% include footer.html %}
