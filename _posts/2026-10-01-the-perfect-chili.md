@@ -32,7 +32,8 @@ ingredients:
   - "1/4 cup brown sugar"
   - "2–3 chipotle peppers, to taste"
 steps:
-  - text: "In a large, heavy pot, melt **1 stick of butter** over medium heat. Add the **onion** and **red bell pepper** and cook until softened, stirring often."
+  - text: "Clean and dice **onion** and **red bell pepper**."
+  - text: "In a large, heavy pot, melt **1 stick of butter** over medium heat. Add the **onion** and **red peppers** and cook until softened, stirring often."
   - text: "In a separate pan over medium-high heat, brown **3 tbsp of butter**. Add the **turkey** after the butter is completely browned. Cook the turkey, breaking it up by stirring. When the turkey is almost fully cooked, remove any excess liquid, return to heat for a minute and deglaze with a splash of **beer**."
   - text: "Add the turkey, remaining liquid and all, to the pot with the onions and peppers. Add the remaining **beer** and bring to a rolling boil for several minutes."
   - text: "Add the **diced tomatoes**, **tomato sauce**, **chili beans**, **kidney beans**, **black beans**, **corn**, **garlic powder**, **onion powder**, **chili powder**, **cumin**, **smoked paprika**, **cinnamon**, **allspice**, **brown sugar**, and **chipotle peppers** to the pot. Bring to a boil, then reduce heat to maintain a simmer and simmer for 1 hour with the lid on."
